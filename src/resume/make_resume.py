@@ -53,41 +53,41 @@ def ul(*items):
 
 HTML = f"""
 <p class="name">Sid Jameson</p>
-<p class="title">AI Design Engineer · Senior Product Designer &amp; Design Lead</p>
+<p class="title">AI Design Engineer · Former Product Design Manager</p>
 <p class="links"><a href="mailto:msaeedjg@gmail.com">msaeedjg@gmail.com</a>  |  <a href="https://sidj.work">Portfolio</a>  |  <a href="https://www.linkedin.com/in/mirsaeedjamshidi/">LinkedIn</a>  |  <a href="https://medium.com/@msaeedjg">Medium</a>  |  Yerevan, Armenia</p>
 
 <p class="h">SUMMARY</p>
-<p>Eight years designing complex, data-heavy products: trading dashboards, XDR security tools, spatial and mapping platforms, and now
-healthcare. I decide what's worth building and what isn't, usually as the only designer arguing the case to Product, Engineering, and
-the business at once. <b>Built and led design teams from scratch</b>, most recently at Wallex's AI venture, Andarz. Today I design and build
-in code with Claude, including the AI workflows my design team runs on.</p>
+<p>Eight years designing complex, data-heavy products: trading, security, maps, food delivery, AI learning, and now healthcare.
+I help decide what's worth building and make the case to Product, Engineering and the business. <b>Built and led design teams
+from scratch</b>, most recently at Andarz, Wallex's AI learning product. Today I design in code with Claude and build the AI
+workflows our design team runs on.</p>
 
 <p class="h">EXPERIENCE</p>
 {row("AI Design Engineer · Huma", "06/2026 – Present")}
 <p class="about">Digital health. Designing Atlas, Huma's UK healthcare product, in code with Claude instead of Figma.</p>
 {ul("Built a <b>task audit agent</b>: from a Jira ticket it lists every design change needed, each traced to a PRD line, product decision or acceptance criterion, with before/after sheets.",
     "Built a <b>handoff slicer</b> that produces one HTML file per handoff, so engineers reach every screen state from a single control panel without a design tool.",
-    "Built a <b>product decision helper</b> for gaps in the PRD: it checks decision notes, NHS England and ICO guidance and competitors, then records the answer in a pull request.")}
+    "Built a <b>decision helper</b> for gaps in the PRD: it checks decision notes, NHS England and ICO guidance and competitors, then records the answer in a pull request.")}
 
 {row("Wallex", "11/2024 – 06/2026")}
-<p class="about">Iran's largest fintech platform (1M+ users): crypto trading and NFT-based lending.</p>
-{row("AI Product Design Manager, Andarz (Wallex's AI-education product)", "08/2025 – 06/2026", "role", True)}
-{ul("Led design for ANDARZ, defining how the AI tutor behaves: its tone, what it remembers between sessions, and when it steps in. Developed the <b>M3 framework</b> (Moment, Memory, Momentum).",
-    "Scaled the team from zero to <b>four designers</b>. AI-assisted, explainable learning: <b>+32% weekly active users, +21% session completion</b>.",
-    "Set a prototyping-to-shipping workflow on Figma Make and Cursor; output ran <b>2–3 sprints ahead of build</b>.")}
+<p class="about">Iranian crypto exchange and fintech platform (1M+ users): crypto trading and NFT-based lending.</p>
+{row("AI Product Design Manager, Andarz (Wallex's AI learning product)", "08/2025 – 06/2026", "role", True)}
+{ul("Led design for Andarz, defining how the AI tutor behaves: its tone, what it remembers between sessions, and when it steps in. Developed the <b>M3 framework</b> (Moment, Memory, Momentum).",
+    "Built the design team from zero to <b>four designers</b>. AI-assisted, explainable learning: <b>+32% weekly active users, +21% session completion</b>.",
+    "Set a prototyping-to-shipping workflow on Figma Make and Cursor; kept design <b>2–3 sprints ahead of engineering</b>.")}
 {row("Product Design Manager", "11/2024 – 09/2025", "role", True)}
 {ul("Sole design lead between Product and Engineering; built POCs and MVPs for fast validation in a high-stakes trading environment.",
     "Set the platform-wide visual language. Revision cycles dropped <b>from five rounds to two</b>; on-time delivery up <b>25%</b>.")}
 
 {row("Senior Product Designer · Snappfood", "09/2023 – 11/2024")}
 <p class="about">On-demand food delivery, 5M+ users, 330K+ daily orders. Promotions (12/2023 – 11/2024); Search &amp; Discovery (09/2023 – 12/2023).</p>
-{ul("Owned the Cashback Service turnaround end-to-end. <b>Usage up 40%, cost down 58%</b>.",
-    "Directed the Promotion Function strategy across four cycles and shipped Promotion Center: <b>+62% engagement</b>, <b>+5% micro conversion to menu</b>.")}
+{ul("Owned the Cashback Service turnaround end to end. <b>Usage up 40%, cost down 58%</b>.",
+    "Led Promotions design across four cycles and shipped Promotion Center: <b>+20% party orders</b>, <b>+62% pages per session</b> and <b>+5 pts</b> basket conversion for sessions that used it.")}
 
 {row("Product Design Team Lead · Fadak Trains", "10/2022 – 09/2023")}
 <p class="about">Premium railway service in Iran. Product Design Consultant (part-time) from 10/2022, Team Lead from 01/2023.</p>
 {ul("Raised design speed <b>28%</b> with an end-to-end research, prototype and test process; a design system with four component libraries made UI design <b>20% faster</b>.",
-    "Mentored junior and mid-level designers; consistent oversight cut revisions by <b>50%</b>. Brought <b>2 new products</b> to market with engineering and marketing.")}
+    "Mentored junior and mid-level designers; regular reviews cut revision rounds by <b>50%</b>. Brought <b>2 new products</b> to market with engineering and marketing.")}
 
 {row("Senior Product Designer · Avand HR", "09/2021 – 12/2024")}
 <p class="about">Recruitment and talent-management platform with AI-driven job matching.</p>
@@ -96,16 +96,16 @@ in code with Claude, including the AI workflows my design team runs on.</p>
 
 {row("Product Design Team Lead · Graph Inc.", "06/2020 – 06/2023")}
 <p class="about">Threat detection and response: XDR, EDR/MDR and FAM products. Product Designer until 03/2021, then Team Lead.</p>
-{ul("Led the FAM product design team; products rated <b>4.5/5</b> by customers, with launches on time and on budget.",
+{ul("Led the FAM product design team; products rated <b>4.5/5</b> by customers.",
     "Design and stakeholder alignment behind a <b>25% revenue increase</b> on the FAM line; launched a Kiosk product that lifted sales <b>20%</b> and retention <b>15%</b>.")}
 
-<p class="h">EARLIER EXPERIENCE</p>
+<p class="h">OTHER EXPERIENCE</p>
 <p class="earlier"><b>Product Designer</b>, BluefoxAI (2020 – 2021) and Hezardastan Group (2020 – 2021) · <b>Lead UI/UX Designer</b>, apiEco (2020) ·
-<b>UI/UX Designer</b>, Anardoni, an iOS app store with 1M+ users (2018 – 2020) · <b>UX Designer</b>, Cafe Bazaar and Balad (apprenticeships, 2019) ·
-<b>UX/UI Designer</b>, BINATEB (2019) · <b>Graphic Designer</b>, Masire Sefid and Azarnegar (2017 – 2018)</p>
+<b style="white-space:nowrap">UI/UX Designer</b>, Anardoni, an iOS app store with 1M+ users (2018 – 2020) · <b>UX Designer</b>, Cafe Bazaar and Balad (apprenticeships, 2019) ·
+<b>UI/UX Designer</b>, BINATEB (2019) · <b>Graphic Designer</b>, Masire Sefid and Azarnegar (2017 – 2018)</p>
 
 <p class="h">EDUCATION</p>
-<p class="edu"><b>Bachelor of Software Engineering</b><span>  ·  University of Zanjan, Iran (2016 – 2020)</span></p>
+<p class="edu"><b>B.Sc. in Software Engineering</b><span>  ·  University of Zanjan, Iran (2016 – 2020)</span></p>
 """
 
 LINKS = [("msaeedjg@gmail.com", "mailto:msaeedjg@gmail.com"), ("Portfolio", "https://sidj.work"),
@@ -167,7 +167,8 @@ def build():
         hits = [r for r in p0.search_for(word) if r.y0 < 90]
         if hits:
             p0.insert_link({"kind": fitz.LINK_URI, "from": hits[0], "uri": uri})
-    doc.set_metadata({"title": "Sid Jameson - Resume", "author": "Sid Jameson"})
+    doc.set_metadata({"title": "Sid Jameson - Resume", "author": "Sid Jameson", "subject": "Résumé of Sid Jameson, AI Design Engineer"})
+    doc.set_language("en-US")
     doc.subset_fonts()
     doc.save(OUT, garbage=4, deflate=True)
     doc.close()

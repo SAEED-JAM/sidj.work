@@ -1,33 +1,47 @@
 # sidj.work
 
-Portfolio of Sid Jameson, AI design engineer. Live at **https://sidj.work** (GitHub Pages).
+Portfolio of Sid Jameson, AI design engineer. Live at **https://sidj.work** (GitHub Pages, custom domain).
 
-## Layout
+## What's here
 
-- `index.html` — the whole site in one file (home, case studies, résumé viewer). Built from `src/`.
-- `assets/` — images, logos, videos and the résumé preview.
-- `Sid_Jameson_Resume.pdf` — the résumé, built from `src/resume/`.
-- `CNAME` — custom domain for GitHub Pages.
+| Path | What it is |
+|---|---|
+| `index.html` | Home page, with the four case studies and the résumé viewer in the same document. **Built** from `src/`, don't edit by hand. |
+| `promotion-center/`, `balad-maps/`, `graph-vault/`, `job-search/` | One built page per case study: the same document with that case open, plus its own title, description and share image. |
+| `assets/` | Images (`img/`), company logos (`logo/`), recommender photos (`people/`), videos (`vid/`), self-hosted Geist fonts (`fonts/`, SIL OFL). |
+| `Sid_Jameson_Resume.pdf` | The résumé, built from `src/resume/`. |
+| `404.html`, `robots.txt`, `sitemap.xml`, `site.webmanifest`, `favicon.ico`, `apple-touch-icon.png` | Production extras (`sitemap.xml` is written by the build). |
+| `CNAME`, `.nojekyll` | GitHub Pages settings for the `sidj.work` domain. |
 
-## Editing
-
-The page is assembled from the pieces in `src/`:
+## Editing the site
 
 ```bash
 cd src
-python3 build.py              # writes ../index.html
+python3 build.py          # writes ../index.html, ../<case>/index.html and ../sitemap.xml (needs Pillow)
 ```
 
-- `home.html`, `home.css`, `script_home.js` — home page sections
-- `sheet2.html`, `case.css`, `script_case.js` — case studies, lightboxes, timeline, résumé viewer
-- `gen_sections.py`, `gen_workflow.py` — regenerate the Experience timeline and Workflow diagram inside `home.html`
+| File | Holds |
+|---|---|
+| `head.html` | `<head>` template: title, description, share card, icons, structured data |
+| `base.css` | Fonts, design tokens (light + dark), globals, shared bits |
+| `home.css` / `home.html` / `home.js` | Home page: hero, work, workflow diagram, experience timeline, articles, recommendations, contact |
+| `case.css` / `cases.html` / `cases.js` | Case studies and their widgets (tabs, sliders, carousels), plus the overlays' behaviour. Each case `<article>` carries its page title (`data-page-title`) and description (`data-desc`). |
+| `overlays.html` | Résumé viewer, video and image lightboxes |
 
-Résumé:
+The build also adds width/height to every local image, makes local paths root-relative, and fails on a duplicated id or on a script that looks up an id that doesn't exist.
+
+## Résumé, share images and videos
 
 ```bash
-cd src/resume
 pip3 install pymupdf pillow fonttools
-python3 make_resume.py        # writes ../../Sid_Jameson_Resume.pdf and assets/img/resume.webp
+cd src/resume && python3 make_resume.py   # Sid_Jameson_Resume.pdf + assets/img/resume.webp (+ hotspot positions)
+cd src/tools && python3 make_social.py    # og-image.png, og-<case>.png, favicons, apple-touch-icon
 ```
+
+Both scripts download their fonts (Carlito, Geist; SIL OFL) into gitignored local folders on first run.
+If the résumé's header line moves, copy the printed hotspot positions into `src/overlays.html`.
+
+Looping videos on the page are small copies (`*-sm.mp4`); the lightbox plays the full file (`data-full`).
+`src/tools/transcode.swift` makes those copies on a Mac (usage at the top of the file).
 
 Push to `main` and GitHub Pages redeploys in a minute or two.

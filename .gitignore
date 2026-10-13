@@ -1,3 +1,4 @@
 src/resume/fonts/
 .DS_Store
 __pycache__/
+src/tools/.fonts/
