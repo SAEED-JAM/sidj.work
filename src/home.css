@@ -13,12 +13,6 @@
   --ease:cubic-bezier(.22,1,.36,1); --spring:cubic-bezier(.34,1.56,.64,1);
   --wrap:1120px; --col:720px; --gutter:clamp(16px,4vw,32px);
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#09090b; --bg-2:#141417; --bg-3:#1c1c20; --surface:#121215; --ink:#f2f2f4; --ink-2:#a2a3ab; --ink-3:#6b6c74;
-  --line:rgba(255,255,255,.08); --line-2:rgba(255,255,255,.14);
-  --glass:rgba(9,9,11,.7); --glass-line:rgba(255,255,255,.07); --shadow:0 1px 2px rgba(0,0,0,.5),0 16px 40px -16px rgba(0,0,0,.8);
-  --accent:#8aa0ff; --on-ink:#09090b; --good:#3dd68c; --bad:#ff6369;
-  --a1:#3a2130; --a2:#211f4d; --a3:#0f2f2b; --a4:#122544; --aura-o:.5; --grain-o:.05; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#09090b; --bg-2:#141417; --bg-3:#1c1c20; --surface:#121215; --ink:#f2f2f4; --ink-2:#a2a3ab; --ink-3:#6b6c74;
   --line:rgba(255,255,255,.08); --line-2:rgba(255,255,255,.14);
@@ -72,8 +66,6 @@ p{margin:0}
 .icon-btn svg{width:17px;height:17px}
 .theme-sun{display:none}
 :root[data-theme="dark"] .theme-sun{display:block}:root[data-theme="dark"] .theme-moon{display:none}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .theme-sun{display:block}:root:not([data-theme="light"]) .theme-moon{display:none}}
-
 /* hero */
 .hero{position:relative;isolation:isolate;padding-block:clamp(110px,18vh,190px) 72px}
 .hero .col{position:relative;z-index:1}
@@ -254,7 +246,6 @@ p{margin:0}
 
 /* workflow: lane diagram */
 :root{--wf:#6366f1;--wf-soft:rgba(99,102,241,.14)}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--wf:#8b8ff8;--wf-soft:rgba(139,143,248,.18)}}
 :root[data-theme="dark"]{--wf:#8b8ff8;--wf-soft:rgba(139,143,248,.18)}
 .wf-wrap{max-width:1180px;padding-inline:clamp(16px,5vw,64px)}
 .wf-panel{padding:clamp(20px,3vw,40px);border-radius:28px;background:var(--bg-2)}

@@ -7,7 +7,7 @@ const root = document.documentElement;
 /* theme */
 const store = { get(k){ try { return localStorage.getItem(k) } catch(e){ return null } }, set(k,v){ try { localStorage.setItem(k,v) } catch(e){} } };
 const saved = store.get('theme'); if (saved) root.dataset.theme = saved;
-const isDark = () => root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+const isDark = () => root.dataset.theme === 'dark';
 $('#themeBtn').addEventListener('click', e => {
   const next = isDark() ? 'light' : 'dark';
   const apply = () => { root.dataset.theme = next; store.set('theme', next); };
