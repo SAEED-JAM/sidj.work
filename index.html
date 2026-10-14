@@ -197,63 +197,107 @@ p{margin:0}
 .vlb-close svg{width:16px;height:16px}
 
 /* process: the lane diagram, in ink */
-:root{--wf:#121212;--wf-soft:rgba(18,18,18,.08)}
-:root[data-theme="dark"]{--wf:#efefec;--wf-soft:rgba(239,239,236,.12)}
-.wf-panel{padding:clamp(18px,2.6vw,36px);border-radius:var(--r-lg);background:var(--bg-2)}
-.wf{position:relative;display:grid;grid-template-columns:.95fr 1.2fr 1fr 1.1fr .95fr;gap:clamp(12px,1.5vw,20px);min-height:420px}
-.wf-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:2}
-.wf-svg path{fill:none;stroke:var(--ink-3);stroke-width:1.3;stroke-dasharray:4 4;opacity:.6;transition:opacity .4s,stroke .4s}
-.wf-svg path.on{stroke:var(--wf);opacity:1;animation:march 1s linear infinite}
-.wf-svg path.loop{opacity:.45}
-.wf-svg path.loop.on{opacity:1}
-.wf-svg marker path{stroke-dasharray:none!important;opacity:1!important;animation:none!important;stroke:var(--wf)}
-.wf-svg circle{fill:var(--wf);opacity:0;transition:opacity .3s}
-.wf-svg circle.on{opacity:1}
-@keyframes march{to{stroke-dashoffset:-16}}
-.wf-labels{position:absolute;inset:0;pointer-events:none;z-index:3}
-.wf-labels span{position:absolute;transform:translate(-50%,-50%);padding:1px 6px;border-radius:4px;background:var(--bg-2);font-size:12px;color:var(--ink-3);white-space:nowrap;transition:color .3s}
-.wf-labels span.on{color:var(--ink)}
-.wl{position:relative;display:grid;grid-template-rows:auto 1fr;padding:14px 10px 64px;border-radius:var(--r-md);border:1px solid var(--line);background:var(--surface);transition:border-color .35s;cursor:pointer}
-.wl.on{border-color:var(--ink)}
-.wl-h{display:block;width:100%;text-align:center;color:var(--ink-3);font-size:13px;transition:color .3s}
-.wl-h em{font-style:normal;margin-right:5px;font-variant-numeric:tabular-nums}
-.wl.on .wl-h{color:var(--ink)}
-.wl-body{display:flex;flex-direction:column;justify-content:center;align-items:stretch;gap:44px;padding-top:12px}
-.wl-pair .wl-body{gap:72px}
-.wn{position:relative;z-index:4;display:flex;align-items:center;gap:9px;padding:10px;border-radius:8px;background:var(--surface);border:1px solid var(--line);transition:border-color .35s}
-.wn.on{border-color:var(--ink)}
-.wn-ic{display:grid;place-items:center;width:28px;height:28px;border-radius:6px;flex:none;background:var(--bg-2);color:var(--ink)}
-.wn-ic svg{width:15px;height:15px}
-.wn b{display:block;font-size:13.5px;font-weight:600;line-height:1.25}
-.wn small{display:block;font-size:12px;color:var(--ink-3);line-height:1.35;margin-top:2px}
-.wn-dot{display:none}
-.wn.me{padding:12px}
-.wn-orb{width:38px;height:38px;border-radius:8px;flex:none;overflow:hidden;background:var(--bg-2)}
-.wn-orb img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
-.wn.me b{font-size:15px}
-.wf-loop-pill{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);z-index:4;display:flex;align-items:center;gap:7px;padding:5px 10px;border-radius:6px;background:var(--surface);border:1px solid var(--line);font-size:12.5px;color:var(--ink-2);white-space:nowrap;transition:border-color .3s,color .3s}
-.wf-loop-pill svg{width:13px;height:13px}
-.wf.loop-on .wf-loop-pill{border-color:var(--ink);color:var(--ink)}
-.wf-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:16px}
-.wf-cap{display:inline-flex;align-items:baseline;gap:12px;font-size:15px;color:var(--ink)}
-.wf-cap b{font-size:13px;font-weight:500;color:var(--ink-3);font-variant-numeric:tabular-nums}
-.wf-play{display:grid;place-items:center;width:32px;height:32px;border-radius:8px;background:var(--surface);border:1px solid var(--line);color:var(--ink-2)}
+/* workflow: five steps, each with what goes in, what comes out, the rule, and a sketch of the real output */
+.wf{border-radius:var(--r-lg);background:var(--bg-2);padding:clamp(8px,1vw,12px)}
+.wf-rail{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(6px,.8vw,10px)}
+.wf-t{position:relative;display:grid;grid-template-columns:auto 1fr;gap:0 10px;align-items:baseline;padding:14px 14px 16px;border-radius:var(--r-md);color:var(--ink-3);overflow:hidden;transition:background .3s,color .3s}
+.wf-t em{grid-row:span 2;font-style:normal;font-size:13px;font-weight:500;font-variant-numeric:tabular-nums}
+.wf-t b{font-size:16px;font-weight:600;letter-spacing:-.01em;color:inherit}
+.wf-t small{font-size:13px;line-height:1.3}
+.wf-t:hover{color:var(--ink)}
+.wf-t.on{background:var(--surface);color:var(--ink);box-shadow:0 0 0 1px var(--line)}
+.wf-t.on small{color:var(--ink-2)}
+.wf-bar{position:absolute;left:14px;right:14px;bottom:8px;height:2px;border-radius:2px;background:var(--line)}
+.wf-bar::after{content:"";position:absolute;inset:0;width:0;border-radius:inherit;background:var(--ink)}
+.wf-t.on .wf-bar::after{animation:qbar var(--wf-dur,8s) linear forwards}
+.wf.paused .wf-t.on .wf-bar::after{animation-play-state:paused}
+.wf.stopped .wf-t.on .wf-bar::after{animation:none;width:100%}
+.wf-t:not(.on) .wf-bar{opacity:0}
+.wf-stage{display:grid;margin-top:clamp(6px,.8vw,10px);border-radius:var(--r-md);background:var(--surface);box-shadow:0 0 0 1px var(--line)}
+.wf-p{grid-area:1/1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(24px,4vw,64px);align-items:center;padding:clamp(22px,3.4vw,48px);transition:opacity .45s var(--ease)}
+.wf-p:not(.on){opacity:0;visibility:hidden;pointer-events:none}
+.wf-txt h3{font-size:clamp(22px,2.2vw,30px);font-weight:600;letter-spacing:-.025em;line-height:1.15;max-width:16em}
+.wf-txt>p{margin-top:14px;color:var(--ink-2);max-width:34em}
+.wf-io{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0 0;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.wf-io dt{font-size:12.5px;font-weight:500;color:var(--ink-3)}
+.wf-io dd{margin:2px 0 0;font-size:15px;font-weight:500;line-height:1.35}
+.wf-rule{margin-top:18px;font-size:clamp(18px,1.6vw,21px);font-weight:500;letter-spacing:-.015em;line-height:1.3}
+.wf-rule span{display:block;margin-bottom:4px;font-size:12.5px;font-weight:500;letter-spacing:.01em;color:var(--ink-3)}
+/* the sketch of each step's output, drawn with the page's own tokens */
+.wf-art{padding:clamp(16px,1.8vw,22px);border-radius:var(--r-md);background:var(--bg-2);font-size:14px}
+.art-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:14px}
+.art-h b{font-weight:600}
+.art-h span{font-size:12.5px;color:var(--ink-3)}
+.art-note{margin-top:14px;font-size:13px;line-height:1.45;color:var(--ink-2)}
+.art-note b{color:var(--ink);font-weight:600}
+.art-note code{font:500 12.5px/1 ui-monospace,SFMono-Regular,Menlo,monospace;padding:2px 5px;border-radius:4px;background:var(--surface);color:var(--ink)}
+.cl{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.cl li{display:grid;grid-template-columns:64px minmax(0,1fr);gap:2px 12px;align-items:center;padding:10px 12px;border-radius:var(--r-sm);background:var(--surface)}
+.cl span{font-weight:500;line-height:1.3}
+.cl small{grid-column:2;font-size:12.5px;color:var(--ink-3)}
+.k{grid-row:span 2;justify-self:start;padding:3px 7px;border-radius:5px;font-style:normal;font-size:12px;font-weight:600;border:1px solid transparent}
+.k.add{color:var(--good);background:color-mix(in srgb,var(--good) 12%,transparent)}
+.k.mod{color:var(--ink);background:var(--bg-3)}
+.k.rem{color:var(--bad);background:color-mix(in srgb,var(--bad) 11%,transparent)}
+.k.keep{color:var(--ink-3);border-color:var(--line-2)}
+.k.dec{color:var(--ink);border:1px dashed var(--ink-3)}
+.dq{font-size:17px;font-weight:500;letter-spacing:-.01em;line-height:1.35;padding:12px 14px;border-radius:var(--r-sm);background:var(--surface)}
+.ladder{list-style:none;counter-reset:l;margin:12px 0 0;padding:0;display:grid;gap:6px}
+.ladder li{counter-increment:l;display:flex;justify-content:space-between;gap:12px;padding:9px 12px 9px 40px;position:relative;border-radius:var(--r-sm);border:1px solid var(--line)}
+.ladder li::before{content:counter(l);position:absolute;left:12px;top:50%;transform:translateY(-50%);width:18px;height:18px;display:grid;place-items:center;border-radius:50%;background:var(--surface);font-size:11.5px;font-weight:600;color:var(--ink-2)}
+.ladder b{font-weight:500}
+.ladder span{color:var(--ink-3);font-size:13px}
+.outs,.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.outs span,.chips span{padding:6px 10px;border-radius:999px;border:1px solid var(--line-2);font-size:13px;color:var(--ink-2);background:var(--surface)}
+.outs span.on,.chips span.on{background:var(--ink);border-color:var(--ink);color:var(--on-ink)}
+.chips{margin-top:0}
+.axis{display:grid;grid-template-columns:auto 1fr auto 1fr;gap:4px 10px;align-items:baseline;margin-top:12px;padding:10px 12px;border-radius:var(--r-sm);background:var(--surface);font-size:13px}
+.axis span{color:var(--ink-3)}.axis b{font-weight:500}
+.win{border-radius:var(--r-sm);background:var(--surface);box-shadow:0 0 0 1px var(--line);overflow:hidden}
+.win-bar{display:flex;align-items:center;gap:5px;padding:9px 12px;border-bottom:1px solid var(--line)}
+.win-bar i{width:8px;height:8px;border-radius:50%;background:var(--line-2)}
+.win-bar span{margin-left:8px;font-size:12px;color:var(--ink-3)}
+.win-states{display:flex;flex-wrap:wrap;gap:4px;padding:10px 12px 0}
+.win-states span{padding:4px 9px;border-radius:6px;font-size:12px;color:var(--ink-3);background:var(--bg-2)}
+.win-states span.on{background:var(--ink);color:var(--on-ink)}
+.win-body,.slab{display:grid;gap:8px;padding:14px 12px 16px}
+.slab{margin-top:12px;border-radius:var(--r-sm);background:var(--surface)}
+.sk{height:9px;border-radius:4px;background:var(--bg-3)}
+.sk-h{height:14px;width:55%;background:var(--line-2)}
+.sk-s{width:70%}
+.sk-alert{display:grid;gap:2px;padding:10px 12px;border-radius:6px;border-left:3px solid var(--bad);background:color-mix(in srgb,var(--bad) 8%,transparent);font-size:13px}
+.sk-alert b{font-weight:600}.sk-alert span{color:var(--ink-2)}
+.sk-btns{display:flex;gap:6px;margin-top:4px}
+.sk-btns i{height:28px;width:92px;border-radius:6px;background:var(--ink)}
+.sk-btns i+i{width:72px;background:none;border:1px solid var(--line-2)}
+.pr-ok{padding:3px 8px;border-radius:999px;color:var(--good)!important;background:color-mix(in srgb,var(--good) 12%,transparent);font-weight:600}
+.pr-path{padding:10px 12px;border-radius:var(--r-sm);background:var(--surface);font-size:13px;color:var(--ink-3);line-height:1.45}
+.pr-path b{color:var(--ink);font-weight:500}
+.pr-steps{list-style:none;margin:14px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr)}
+.pr-steps li{position:relative;padding-top:20px;font-size:12.5px;color:var(--ink-2)}
+.pr-steps li::before{content:"";position:absolute;left:0;top:4px;width:10px;height:10px;border-radius:50%;background:var(--ink);z-index:1}
+.pr-steps li::after{content:"";position:absolute;left:0;right:0;top:8px;height:2px;background:var(--ink)}
+.pr-steps li:last-child::after{right:auto;width:10px}
+.pr-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:16px}
+.pr-meta div{padding:10px 12px;border-radius:var(--r-sm);background:var(--surface)}
+.pr-meta b{display:block;font-size:20px;font-weight:600;letter-spacing:-.02em}
+.pr-meta span{font-size:12.5px;color:var(--ink-3)}
+.wf-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 8px 4px 10px}
+.wf-loop{display:flex;align-items:flex-start;gap:9px;font-size:14px;color:var(--ink-2);line-height:1.45}
+.wf-loop svg{flex:none;width:15px;height:15px;margin-top:3px}
+.wf-play{flex:none;display:grid;place-items:center;width:32px;height:32px;border-radius:8px;background:var(--surface);border:1px solid var(--line);color:var(--ink-2)}
 .wf-play svg{width:11px;height:11px}
 .wf-play .i-play{display:none}.wf-play.paused .i-play{display:block}.wf-play.paused .i-pause{display:none}
 @media (max-width:900px){
-  .wf-panel{padding:18px 16px 16px}
-  .wf{grid-template-columns:1fr;gap:22px;min-height:0;padding-left:40px}
-  .wf::before{content:"";position:absolute;left:13px;top:14px;bottom:56px;width:1px;background:var(--line-2)}
-  .wf-svg,.wf-labels{display:none}
-  .wl,.wl.on{display:block;padding:0;border:0;background:none}
-  .wl-h{position:relative;display:flex;align-items:center;height:28px;text-align:left;font-size:13.5px}
-  .wl-h em{position:absolute;left:-40px;top:0;display:grid;place-items:center;width:27px;height:27px;margin:0;border-radius:50%;background:var(--bg-2);border:1px solid var(--line-2);color:var(--ink-3);font-size:12px;transition:background .3s,color .3s,border-color .3s}
-  .wl.on .wl-h em{background:var(--ink);border-color:var(--ink);color:var(--on-ink)}
-  .wl-body,.wl-pair .wl-body{gap:8px;padding-top:10px}
-  .wn{padding:12px}
-  .wn b{font-size:14.5px}.wn small{font-size:13px}
-  .wf-loop-pill{position:relative;left:auto;bottom:auto;transform:none;justify-self:start;margin-left:-40px}
-  .wf-foot{position:sticky;bottom:calc(env(safe-area-inset-bottom,0px) + 12px);z-index:5;margin-top:18px;padding:8px 8px 8px 14px;border-radius:10px;background:var(--surface);border:1px solid var(--line)}
+  .wf-rail{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:-2px;padding:2px}
+  .wf-rail::-webkit-scrollbar{display:none}
+  .wf-t{flex:0 0 auto;min-width:150px;scroll-snap-align:start}
+  .wf-p{grid-template-columns:1fr;align-items:start}
+}
+@media (max-width:520px){
+  .wf-io{grid-template-columns:1fr}
+  .axis{grid-template-columns:auto 1fr}
+  .wf-p{padding:20px 16px}
 }
 
 /* experience: horizontal timeline */
@@ -343,6 +387,15 @@ p{margin:0}
 #quotes.paused .q-names button.on::after{animation-play-state:paused}
 #quotes.stopped .q-names button.on::after{animation:none;width:100%}
 @keyframes qbar{to{width:100%}}
+
+/* kind words: its own dark band, so it reads as a separate chapter between Writing and Contact */
+.band{--ink:#efefec;--ink-2:#b4b4ae;--ink-3:#8d8d88;--line:#2e2e2c;--line-2:#454542;--bg:#121212;margin-top:clamp(64px,8vw,112px);padding:clamp(48px,6vw,88px) 0 clamp(56px,7vw,96px);background:#121212;color:var(--ink)}
+:root[data-theme="dark"] .band{--bg:#1e1e1c;background:#1e1e1c;border-block:1px solid #2e2e2c}
+.band ::selection{background:var(--ink);color:#121212}
+.band :focus-visible{outline-color:var(--ink)}
+.band .q figcaption{display:flex;align-items:center;gap:14px}
+.band .q figcaption img{flex:none;width:52px;height:52px;border-radius:50%;object-fit:cover}
+.band + .contact{padding-top:clamp(64px,8vw,112px)}
 
 /* contact */
 .mail-line{font-size:clamp(30px,4.8vw,64px);font-weight:500;font-stretch:92%;letter-spacing:-.035em;line-height:1.08;max-width:16em}
@@ -747,36 +800,97 @@ footer.site .foot-in{display:flex;justify-content:space-between;flex-wrap:wrap;g
 
 <section class="sec" id="workflow">
   <div class="wrap">
-    <div class="sec-h rv"><h2>Process</h2><p>How a ticket becomes shipped software at Huma, in code with Claude. Tap a lane to jump to it.</p></div>
-    <div class="wf-panel rv">
-      <div class="wf" id="wf" data-step="0">
-        <svg class="wf-svg" id="wfSvg" aria-hidden="true"></svg>
-        <div class="wf-labels" id="wfLabels" aria-hidden="true"></div>
-        <div class="wl wl-single" data-l="0">
-          <button class="wl-h mono" type="button"><em>01</em> Understand</button>
-          <div class="wl-body"><div class="wn " data-n="task"><span class="wn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V5a1 1 0 0 1 1-1h2M17 4h2a1 1 0 0 1 1 1v2M20 17v2a1 1 0 0 1-1 1h-2M7 20H5a1 1 0 0 1-1-1v-2"/><path d="M8 10h8M8 14h5"/></svg></span><div><b>Task audit</b><small>Ticket, PRDs &amp; decisions</small></div><i class="wn-dot"></i></div></div>
+    <div class="sec-h rv"><h2>Process</h2><p>How a ticket becomes a shipped design at Huma. Five steps, run with Claude Code and agents I built for it, and one rule behind all of them: nothing goes on screen unless I can point to the line that asks for it.</p></div>
+    <div class="wf rv" id="wf">
+      <div class="wf-rail" role="tablist" aria-label="Process steps">
+        <button class="wf-t on" type="button" role="tab" id="wft-0" aria-controls="wfp-0" aria-selected="true"><em>01</em><b>Audit</b><small>Task audit agent</small><i class="wf-bar"></i></button>
+        <button class="wf-t" type="button" role="tab" id="wft-1" aria-controls="wfp-1" aria-selected="false" tabindex="-1"><em>02</em><b>Decide</b><small>Decision helper</small><i class="wf-bar"></i></button>
+        <button class="wf-t" type="button" role="tab" id="wft-2" aria-controls="wfp-2" aria-selected="false" tabindex="-1"><em>03</em><b>Build</b><small>Claude Code</small><i class="wf-bar"></i></button>
+        <button class="wf-t" type="button" role="tab" id="wft-3" aria-controls="wfp-3" aria-selected="false" tabindex="-1"><em>04</em><b>Slice</b><small>Handoff slicer</small><i class="wf-bar"></i></button>
+        <button class="wf-t" type="button" role="tab" id="wft-4" aria-controls="wfp-4" aria-selected="false" tabindex="-1"><em>05</em><b>Ship</b><small>Publish &amp; present</small><i class="wf-bar"></i></button>
+      </div>
+      <div class="wf-stage">
+        <div class="wf-p on" role="tabpanel" id="wfp-0" aria-labelledby="wft-0">
+          <div class="wf-txt">
+            <h3>Read the ticket the way an engineer will</h3>
+            <p>The audit agent reads the ticket, every PRD it depends on, the prototypes already shipped and the Figma files, in that order of authority. It returns a change list in which every addition, change and removal cites the line that requires it.</p>
+            <dl class="wf-io"><div><dt>In</dt><dd>A Jira ticket</dd></div><div><dt>Out</dt><dd>A cited change list and before/after sheets</dd></div></dl>
+            <p class="wf-rule"><span>Rule</span>If I can’t cite it, it doesn’t ship.</p>
+          </div>
+          <div class="wf-art" aria-hidden="true">
+            <div class="art-h"><b>Change list</b><span>5 items · 4 cited · 1 open</span></div>
+            <ul class="cl">
+              <li><i class="k add">Add</i><span>Empty state when no slots are free</span><small>PRD · Screens and states</small></li>
+              <li><i class="k mod">Modify</i><span>Confirm button label</span><small>Acceptance criterion 2</small></li>
+              <li><i class="k rem">Remove</i><span>Draft status chip</span><small>No PRD line found</small></li>
+              <li><i class="k keep">Keep</i><span>Consent sentence, word for word</span><small>PRD · What must be true</small></li>
+              <li><i class="k dec">Decide</i><span>Retry limit after a failed send</span><small>Gap · sent to step 02</small></li>
+            </ul>
+          </div>
         </div>
-        <div class="wl wl-think" data-l="1">
-          <button class="wl-h mono" type="button"><em>02</em> Think with AI</button>
-          <div class="wl-body"><div class="wn " data-n="claude"><span class="wn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></span><div><b>Claude</b><small>Thinking partner</small></div><i class="wn-dot"></i></div><div class="wn me" data-n="me"><span class="wn-orb"><img src="/assets/img/portrait-160.webp" alt="" loading="lazy" width="160" height="160"></span><div><b>Sid</b><small>AI design engineer</small></div><i class="wn-dot"></i></div><div class="wn " data-n="decide"><span class="wn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 7h14M5 7l-3 7a4 4 0 0 0 6 0zM19 7l-3 7a4 4 0 0 0 6 0z"/></svg></span><div><b>Decision helper</b><small>PRD gaps · NHS &amp; ICO</small></div><i class="wn-dot"></i></div></div>
+        <div class="wf-p" role="tabpanel" id="wfp-1" aria-labelledby="wft-1">
+          <div class="wf-txt">
+            <h3>When the PRD is silent, make the gap visible</h3>
+            <p>The decision helper searches the PRD and its decision notes first, then NHS England and ICO guidance, then how peer products behave. It either finds the answer that already exists, or lays out real options with a recommendation.</p>
+            <dl class="wf-io"><div><dt>In</dt><dd>A question the documents don’t answer</dd></div><div><dt>Out</dt><dd>A decision with a named owner, recorded in a pull request</dd></div></dl>
+            <p class="wf-rule"><span>Rule</span>A recorded decision beats a confident guess in a wireframe.</p>
+          </div>
+          <div class="wf-art" aria-hidden="true">
+            <div class="art-h"><b>Open question</b><span>Example</span></div>
+            <p class="dq">How many times can a failed reminder be resent?</p>
+            <ol class="ladder"><li><b>PRD &amp; decision notes</b><span>Not settled</span></li><li><b>NHS England · ICO</b><span>No rule on retries</span></li><li><b>Peer products</b><span>Two patterns found</span></li></ol>
+            <div class="outs"><span>Already decided</span><span>Not asked for</span><span class="on">Designer’s call</span><span>Product owner’s call</span></div>
+            <p class="art-note">Anything touching consent, patient safety or the patient record goes to the product owner.</p>
+          </div>
         </div>
-        <div class="wl wl-single" data-l="2">
-          <button class="wl-h mono" type="button"><em>03</em> Bridge</button>
-          <div class="wl-body"><div class="wn " data-n="code"><span class="wn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/></svg></span><div><b>Claude Code</b><small>Design ↔ code</small></div><i class="wn-dot"></i></div></div>
+        <div class="wf-p" role="tabpanel" id="wfp-2" aria-labelledby="wft-2">
+          <div class="wf-txt">
+            <h3>Design in code, on the real design system</h3>
+            <p>I build the screens in HTML with Claude Code, from the design system’s own components and tokens rather than values typed from memory. Every state the PRD names gets built: empty, loading, error and limits, not just the happy path.</p>
+            <dl class="wf-io"><div><dt>In</dt><dd>The change list and its decisions</dd></div><div><dt>Out</dt><dd>A live prototype with every state</dd></div></dl>
+            <p class="wf-rule"><span>Rule</span>A value I retyped is a value I invented.</p>
+          </div>
+          <div class="wf-art" aria-hidden="true">
+            <div class="win"><div class="win-bar"><i></i><i></i><i></i><span>reminders.html</span></div>
+              <div class="win-states"><span>Default</span><span>Empty</span><span class="on">Send failed</span><span>Limit reached</span></div>
+              <div class="win-body"><div class="sk sk-h"></div><div class="sk-alert"><b>Reminder not sent</b><span>Try again, or call the patient.</span></div><div class="sk"></div><div class="sk sk-s"></div><div class="sk-btns"><i></i><i></i></div></div>
+            </div>
+            <p class="art-note mono-ish"><code>&lt;Button variant="primary"&gt;</code> · <code>var(--space-4)</code> · from the library, never retyped</p>
+          </div>
         </div>
-        <div class="wl wl-pair" data-l="3">
-          <button class="wl-h mono" type="button"><em>04</em> Make</button>
-          <div class="wl-body"><div class="wn " data-n="proto"><span class="wn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><div><b>HTML prototype</b><small>Screens &amp; flows on the design system</small></div><i class="wn-dot"></i></div><div class="wn " data-n="slicer"><span class="wn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></svg></span><div><b>Handoff slicer</b><small>Every state in one file</small></div><i class="wn-dot"></i></div></div>
+        <div class="wf-p" role="tabpanel" id="wfp-3" aria-labelledby="wft-3">
+          <div class="wf-txt">
+            <h3>Hand engineers only what the story touched</h3>
+            <p>The handoff slicer cuts the story’s screens out of the full prototype into one standalone HTML file. A control card on top switches between every named scenario, so each state is one click away and the file opens anywhere, offline.</p>
+            <dl class="wf-io"><div><dt>In</dt><dd>The prototype and the handoff notes</dd></div><div><dt>Out</dt><dd>One file per handoff, every state reachable</dd></div></dl>
+            <p class="wf-rule"><span>Rule</span>Cut, don’t build. A state the prototype lacks is listed as not drawn, never faked.</p>
+          </div>
+          <div class="wf-art" aria-hidden="true">
+            <div class="art-h"><b>Handoff · Appointment reminders</b><span>1 file</span></div>
+            <div class="chips"><span>Happy path</span><span class="on">Send failed</span><span>Patient opted out</span><span>No credit left</span></div>
+            <div class="axis"><span>Role</span><b>Receptionist</b><span>Device</span><b>Desktop</b></div>
+            <div class="slab"><div class="sk sk-h"></div><div class="sk-alert"><b>Reminder not sent</b><span>Try again, or call the patient.</span></div><div class="sk sk-s"></div></div>
+            <p class="art-note"><b>Not drawn (1):</b> bulk resend. The prototype doesn’t build it; the handoff says it should.</p>
+          </div>
         </div>
-        <div class="wl wl-single" data-l="4">
-          <button class="wl-h mono" type="button"><em>05</em> Ship</button>
-          <div class="wl-body"><div class="wn " data-n="ship"><span class="wn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 15c-1.5 1.5-2 4-2 6 2 0 4.5-.5 6-2M14 4c3-1 6-1 6-1s0 3-1 6l-6 6-5-5z"/><circle cx="15" cy="9" r="1.5"/></svg></span><div><b>Shipped</b><small>PR · live · tracked</small></div><i class="wn-dot"></i></div></div>
+        <div class="wf-p" role="tabpanel" id="wfp-4" aria-labelledby="wft-4">
+          <div class="wf-txt">
+            <h3>Publish, review, then walk the team through it</h3>
+            <p>The deliverable goes into the design repo under the PRD, story and ticket it belongs to, through a branch and a pull request. Then I present it from a five-minute script built from the latest output and its decisions, with open questions listed, not buried.</p>
+            <dl class="wf-io"><div><dt>In</dt><dd>The prototype and the handoff file</dd></div><div><dt>Out</dt><dd>A merged pull request and a team walkthrough</dd></div></dl>
+            <p class="wf-rule"><span>Rule</span>A decision isn’t proof the build has it. Check the screen before saying it’s there.</p>
+          </div>
+          <div class="wf-art" aria-hidden="true">
+            <div class="art-h"><b>Pull request</b><span class="pr-ok">Merged</span></div>
+            <p class="pr-path">Design / Deliverable / <b>PRD 07 · S24 · Appointment reminders</b></p>
+            <ol class="pr-steps"><li class="done">Branch</li><li class="done">Review</li><li class="done">Merge</li><li class="done">Present</li></ol>
+            <div class="pr-meta"><div><b>5 min</b><span>Walkthrough</span></div><div><b>4</b><span>Screens shown</span></div><div><b>2</b><span>Open questions</span></div></div>
+          </div>
         </div>
-        <div class="wf-loop-pill" id="wfLoop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8M21 3v5h-5M21 12a9 9 0 0 1-15.5 6.2L3 16M3 21v-5h5"/></svg>Feedback loop · learn &amp; iterate</div>
       </div>
       <div class="wf-foot">
-        <span class="wf-cap"><b id="wfNum">Step 1 of 6</b><span id="wfCap">Start from the ticket</span></span>
-        <button class="wf-play" id="wfPlay" aria-label="Pause walkthrough"><span class="i-pause"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg></span><span class="i-play"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M7 4v16l13-8z"/></svg></span></button>
+        <p class="wf-loop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8M21 3v5h-5M21 12a9 9 0 0 1-15.5 6.2L3 16M3 21v-5h5"/></svg>Feedback goes back to the PRD. If a PRD looks wrong, I raise it instead of quietly fixing it on screen.</p>
+        <button class="wf-play" id="wfPlay" type="button" aria-label="Pause walkthrough"><span class="i-pause"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg></span><span class="i-play"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M7 4v16l13-8z"/></svg></span></button>
       </div>
     </div>
   </div>
@@ -947,18 +1061,18 @@ footer.site .foot-in{display:flex;justify-content:space-between;flex-wrap:wrap;g
   </div>
 </section>
 
-<section class="sec" id="words">
+<section class="sec band" id="words">
   <div class="wrap">
     <div class="sec-h rv"><h2>Kind words</h2><p>Seven recommendations from people I’ve worked with. <a href="https://www.linkedin.com/in/mirsaeedjamshidi/details/recommendations/" target="_blank" rel="noopener">Read them on LinkedIn</a></p></div>
     <div class="quote rv" id="quotes">
       <div class="q-stage">
-        <figure class="q on"><blockquote>“… he has a keen eye for state-of-the-art tools and design practices and he leveraged those in multiple occasions to improve our design-to-implementation pipelines. Additionally, he is a great researcher and the insights that he provided regarding user experience had a key role in determining the direction of our product.”</blockquote><figcaption><b>Armen Jeddi</b>PhD in Physical AI, University of Toronto &amp; Vector Institute<small>Managed Sid directly · 2021</small></figcaption></figure>
-        <figure class="q"><blockquote>“Saeed has a great eye for detail, is great at benchmarking, and is a reliable teammate. He has a great view on design and knowingly strikes a balance between innovation and building effort. His presence in the team was critical, and I enjoyed every second of working with him.”</blockquote><figcaption><b>Pouria Shiri</b>Product Manager<small>Worked with Sid on the same team · 2025</small></figcaption></figure>
-        <figure class="q"><blockquote>“Saeed has a structured mindset and excels at breaking down complex problems into manageable parts. Saeed’s exceptional design skills and hands-on approach greatly contributed to our success. He understands the right direction to achieve outcomes, making him a valuable asset.”</blockquote><figcaption><b>Kamyab Farhadi</b>Founder at DoctorPay<small>Managed Sid directly · 2024</small></figcaption></figure>
-        <figure class="q"><blockquote>“Highly recommend Saeed! It was a pleasure working alongside him as a designer at Graph and Avand. … He possessed an exceptional eye for detail, ensuring designs were visually flawless and pixel-perfect. … Deadlines were never an issue for Saeed.”</blockquote><figcaption><b>Parham Khanlarkhani</b>Product &amp; Engineering Leader, ex-Cafe Bazaar and Graph<small>Managed Sid directly · 2024</small></figcaption></figure>
-        <figure class="q"><blockquote>“Throughout our two years of working together in the same hierarchy, his precision and agility have consistently stood out. His adaptability, discipline, and up-to-the-minute awareness are truly noteworthy.”</blockquote><figcaption><b>Arta Mokaberi</b>VP of Product Design<small>Worked with Sid on the same team · 2023</small></figcaption></figure>
-        <figure class="q"><blockquote>“Saeed is a professional UX designer. … He is always using the latest tools and resources to expedite tasks and processes and to offer the best solutions. His work ethic is impeccable and he is easy to work with.”</blockquote><figcaption><b>Marzieh Yadegar</b>Digital Product Designer<small>Worked with Sid at BluefoxAI · 2021</small></figcaption></figure>
-        <figure class="q"><blockquote>“He is an outstanding designer, who can clearly understand needs, users and standards. He has an excellent artistic sense too. In addition, his discipline that shows itself in timely reports and well-organized documentation of the project made me more than satisfied with the results.”</blockquote><figcaption><b>Seyed Sajad Kahani</b>Software Engineer<small>Managed Sid directly · 2021</small></figcaption></figure>
+        <figure class="q on"><blockquote>“… he has a keen eye for state-of-the-art tools and design practices and he leveraged those in multiple occasions to improve our design-to-implementation pipelines. Additionally, he is a great researcher and the insights that he provided regarding user experience had a key role in determining the direction of our product.”</blockquote><figcaption><img src="/assets/people/armen.webp" alt="" loading="lazy" width="100" height="100"><span><b>Armen Jeddi</b>PhD in Physical AI, University of Toronto &amp; Vector Institute<small>Managed Sid directly · 2021</small></span></figcaption></figure>
+        <figure class="q"><blockquote>“Saeed has a great eye for detail, is great at benchmarking, and is a reliable teammate. He has a great view on design and knowingly strikes a balance between innovation and building effort. His presence in the team was critical, and I enjoyed every second of working with him.”</blockquote><figcaption><img src="/assets/people/pouria.webp" alt="" loading="lazy" width="100" height="100"><span><b>Pouria Shiri</b>Product Manager<small>Worked with Sid on the same team · 2025</small></span></figcaption></figure>
+        <figure class="q"><blockquote>“Saeed has a structured mindset and excels at breaking down complex problems into manageable parts. Saeed’s exceptional design skills and hands-on approach greatly contributed to our success. He understands the right direction to achieve outcomes, making him a valuable asset.”</blockquote><figcaption><img src="/assets/people/kamyab.webp" alt="" loading="lazy" width="100" height="100"><span><b>Kamyab Farhadi</b>Founder at DoctorPay<small>Managed Sid directly · 2024</small></span></figcaption></figure>
+        <figure class="q"><blockquote>“Highly recommend Saeed! It was a pleasure working alongside him as a designer at Graph and Avand. … He possessed an exceptional eye for detail, ensuring designs were visually flawless and pixel-perfect. … Deadlines were never an issue for Saeed.”</blockquote><figcaption><img src="/assets/people/parham.webp" alt="" loading="lazy" width="100" height="100"><span><b>Parham Khanlarkhani</b>Product &amp; Engineering Leader, ex-Cafe Bazaar and Graph<small>Managed Sid directly · 2024</small></span></figcaption></figure>
+        <figure class="q"><blockquote>“Throughout our two years of working together in the same hierarchy, his precision and agility have consistently stood out. His adaptability, discipline, and up-to-the-minute awareness are truly noteworthy.”</blockquote><figcaption><img src="/assets/people/arta.webp" alt="" loading="lazy" width="100" height="100"><span><b>Arta Mokaberi</b>VP of Product Design<small>Worked with Sid on the same team · 2023</small></span></figcaption></figure>
+        <figure class="q"><blockquote>“Saeed is a professional UX designer. … He is always using the latest tools and resources to expedite tasks and processes and to offer the best solutions. His work ethic is impeccable and he is easy to work with.”</blockquote><figcaption><img src="/assets/people/marzieh.webp" alt="" loading="lazy" width="100" height="100"><span><b>Marzieh Yadegar</b>Digital Product Designer<small>Worked with Sid at BluefoxAI · 2021</small></span></figcaption></figure>
+        <figure class="q"><blockquote>“He is an outstanding designer, who can clearly understand needs, users and standards. He has an excellent artistic sense too. In addition, his discipline that shows itself in timely reports and well-organized documentation of the project made me more than satisfied with the results.”</blockquote><figcaption><img src="/assets/people/sajad.webp" alt="" loading="lazy" width="100" height="100"><span><b>Seyed Sajad Kahani</b>Software Engineer<small>Managed Sid directly · 2021</small></span></figcaption></figure>
       </div>
       <div class="q-names" id="qDots"><button type="button" class="on" aria-label="Recommendation from Armen Jeddi"><img src="/assets/people/armen.webp" alt="" loading="lazy" width="100" height="100"><span>Armen</span></button><button type="button" aria-label="Recommendation from Pouria Shiri"><img src="/assets/people/pouria.webp" alt="" loading="lazy" width="100" height="100"><span>Pouria</span></button><button type="button" aria-label="Recommendation from Kamyab Farhadi"><img src="/assets/people/kamyab.webp" alt="" loading="lazy" width="100" height="100"><span>Kamyab</span></button><button type="button" aria-label="Recommendation from Parham Khanlarkhani"><img src="/assets/people/parham.webp" alt="" loading="lazy" width="100" height="100"><span>Parham</span></button><button type="button" aria-label="Recommendation from Arta Mokaberi"><img src="/assets/people/arta.webp" alt="" loading="lazy" width="100" height="100"><span>Arta</span></button><button type="button" aria-label="Recommendation from Marzieh Yadegar"><img src="/assets/people/marzieh.webp" alt="" loading="lazy" width="100" height="100"><span>Marzieh</span></button><button type="button" aria-label="Recommendation from Seyed Sajad Kahani"><img src="/assets/people/sajad.webp" alt="" loading="lazy" width="100" height="100"><span>Sajad</span></button></div>
     </div>
@@ -1719,73 +1833,35 @@ $$('video[data-auto]').forEach(v => {
 const vObs = new IntersectionObserver(es => es.forEach(e => { const v = e.target; if (e.isIntersecting && autoplay(v) && !v.closest('.pane:not(.on)')) { v.preload = 'auto'; v.play().catch(() => {}); } else v.pause(); }), { threshold: .35 });
 $$('main video[data-auto]').forEach(v => vObs.observe(v));
 
-/* workflow: lane diagram with connectors and a walkthrough */
+/* workflow: five tabs that walk through on their own, pause on hover or focus, and stop once someone picks one */
 const wf = $('#wf');
 if (wf) {
-  const svg = $('#wfSvg'), labels = $('#wfLabels'), N = id => $(`[data-n="${id}"]`, wf);
-  const EDGES = [
-    { id: 'e1', from: 'task', to: 'me', label: 'ticket' },
-    { id: 'e2', from: 'claude', to: 'me', v: true, label: 'ideas' },
-    { id: 'e3', from: 'decide', to: 'me', v: true, up: true, label: 'guidance' },
-    { id: 'e4', from: 'me', to: 'code', label: 'intent' },
-    { id: 'e5', from: 'code', to: 'proto', label: 'UI' },
-    { id: 'e6', from: 'code', to: 'slicer', label: 'handoff' },
-    { id: 'e7', from: 'proto', to: 'ship' },
-    { id: 'e8', from: 'slicer', to: 'ship' },
-  ];
-  const STEPS = [
-    { cap: 'Start from the ticket', lanes: [0], nodes: ['task'], edges: ['e1'] },
-    { cap: 'Think it through with Claude', lanes: [1], nodes: ['claude', 'me'], edges: ['e2'] },
-    { cap: 'Fill PRD gaps from NHS and ICO guidance', lanes: [1], nodes: ['decide', 'me'], edges: ['e3'] },
-    { cap: 'Build the screens in code with Claude Code', lanes: [2], nodes: ['code'], edges: ['e4'] },
-    { cap: 'Prototype and hand off in parallel', lanes: [3], nodes: ['proto', 'slicer'], edges: ['e5', 'e6'] },
-    { cap: 'Ship, measure, and loop back', lanes: [4], nodes: ['ship', 'task'], edges: ['e7', 'e8', 'loop'] },
-  ];
-  const draw = () => {
-    if (getComputedStyle(svg).display === 'none') return;
-    const W = wf.getBoundingClientRect(), box = el => { const r = el.getBoundingClientRect(); return { l: r.left - W.left, r: r.right - W.left, t: r.top - W.top, b: r.bottom - W.top, cx: r.left - W.left + r.width / 2, cy: r.top - W.top + r.height / 2 }; };
-    let paths = '', dots = '', labs = '';
-    const add = (id, d, ex, ey, lx, ly, label, cls = '') => {
-      paths += `<path data-e="${id}" class="${cls}" d="${d}" marker-end="url(#wfArrow)"/>`;
-      dots += `<circle data-e="${id}" cx="${ex}" cy="${ey}" r="3"/>`;
-      if (label) labs += `<span data-e="${id}" style="left:${lx}px;top:${ly}px">${label}</span>`;
-    };
-    EDGES.forEach(e => {
-      const a = box(N(e.from)), b = box(N(e.to));
-      if (e.v) {
-        const x = b.cx; const y1 = e.up ? a.t - 2 : a.b + 2, y2 = e.up ? b.b + 6 : b.t - 6;
-        add(e.id, `M${x - 5} ${y1} L${x - 5} ${y2}`, x - 5, y2, x + 26, (y1 + y2) / 2, e.label);
-        paths += `<path data-e="${e.id}" d="M${x + 5} ${y2} L${x + 5} ${y1}" marker-end="url(#wfArrow)"/>`;
-      } else {
-        const x1 = a.r + 2, y1 = a.cy, x2 = b.l - 6, y2 = b.cy, mx = (x1 + x2) / 2;
-        add(e.id, `M${x1} ${y1} C${mx} ${y1} ${mx} ${y2} ${x2} ${y2}`, x2, y2, mx, (y1 + y2) / 2, e.label);
-      }
-    });
-    const s = box(N('ship')), t = box(N('task')), yb = W.height - 34;
-    paths += `<path data-e="loop" class="loop" d="M${s.cx} ${s.b + 4} L${s.cx} ${yb - 12} Q${s.cx} ${yb} ${s.cx - 12} ${yb} L${t.cx + 12} ${yb} Q${t.cx} ${yb} ${t.cx} ${yb - 12} L${t.cx} ${t.b + 8}" marker-end="url(#wfArrow)"/>`;
-    svg.setAttribute('viewBox', `0 0 ${W.width} ${W.height}`);
-    svg.innerHTML = `<defs><marker id="wfArrow" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L6 4L1 7" fill="none" stroke="currentColor" stroke-width="1.4" stroke-dasharray="none" style="stroke:var(--wf);opacity:1;animation:none"/></marker></defs>${paths}${dots}`;
-    labels.innerHTML = labs;
-    apply();
+  const tabs = $$('.wf-t', wf), panes = $$('.wf-p', wf), play = $('#wfPlay'), DUR = 8000;
+  let step = 0, timer, playing = !reduce, visible = false, hold = false;
+  wf.style.setProperty('--wf-dur', DUR + 'ms');
+  const show = (i, focus) => {
+    step = (i + tabs.length) % tabs.length;
+    tabs.forEach((t, k) => { const on = k === step; t.classList.remove('on'); void t.offsetWidth; t.classList.toggle('on', on); t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1; });
+    panes.forEach((p, k) => p.classList.toggle('on', k === step));
+    if (focus) tabs[step].focus();
+    const rail = tabs[step].parentElement;
+    if (rail.scrollWidth > rail.clientWidth) rail.scrollTo({ left: tabs[step].offsetLeft - rail.offsetLeft - 2, behavior: reduce ? 'auto' : 'smooth' });
+    schedule();
   };
-  let step = 0, timer, playing = !reduce, visible = false;
-  const apply = () => {
-    const st = STEPS[step];
-    $$('.wl', wf).forEach((l, i) => l.classList.toggle('on', st.lanes.includes(i)));
-    $$('.wn', wf).forEach(n => n.classList.toggle('on', st.nodes.includes(n.dataset.n)));
-    $$('[data-e]', wf).forEach(el => el.classList.toggle('on', st.edges.includes(el.dataset.e)));
-    wf.classList.toggle('loop-on', st.edges.includes('loop'));
-    $('#wfNum').textContent = `Step ${step + 1} of ${STEPS.length}`; $('#wfCap').textContent = st.cap;
-  };
-  const go = i => { step = (i + STEPS.length) % STEPS.length; apply(); schedule(); };
-  const schedule = () => { clearTimeout(timer); if (playing && visible) timer = setTimeout(() => go(step + 1), 3200); };
-  const play = $('#wfPlay');
-  play.addEventListener('click', () => { playing = !playing; play.classList.toggle('paused', !playing); play.setAttribute('aria-label', playing ? 'Pause walkthrough' : 'Play walkthrough'); schedule(); });
-  if (!playing) play.classList.add('paused');
-  $$('.wl', wf).forEach((l, i) => l.addEventListener('click', () => { const k = STEPS.findIndex(s => s.lanes.includes(i)); if (k >= 0) go(k); }));
+  const schedule = () => { clearTimeout(timer); if (playing && visible && !hold) timer = setTimeout(() => show(step + 1), DUR); };
+  const setPlaying = on => { playing = on; wf.classList.toggle('stopped', !on); play.classList.toggle('paused', !on); play.setAttribute('aria-label', on ? 'Pause walkthrough' : 'Play walkthrough'); if (on) show(step); else clearTimeout(timer); };
+  const holdWf = on => { hold = on; wf.classList.toggle('paused', on); if (on) clearTimeout(timer); else show(step); };
+  tabs.forEach((t, k) => t.addEventListener('click', () => { setPlaying(false); show(k); }));
+  tabs[0].parentElement.addEventListener('keydown', e => {
+    const d = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
+    if (d) { e.preventDefault(); setPlaying(false); show(step + d, true); }
+    else if (e.key === 'Home' || e.key === 'End') { e.preventDefault(); setPlaying(false); show(e.key === 'Home' ? 0 : tabs.length - 1, true); }
+  });
+  play.addEventListener('click', () => setPlaying(!playing));
+  const stage = $('.wf-stage', wf);
+  stage.addEventListener('pointerenter', () => holdWf(true)); stage.addEventListener('pointerleave', () => holdWf(false));
   new IntersectionObserver(es => es.forEach(e => { visible = e.isIntersecting; schedule(); }), { threshold: .35 }).observe(wf);
-  new ResizeObserver(() => requestAnimationFrame(draw)).observe(wf);
-  draw();
+  setPlaying(playing);
 }
 
 /* quotes */

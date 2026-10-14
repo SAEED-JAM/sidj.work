@@ -89,36 +89,97 @@
 
 <section class="sec" id="workflow">
   <div class="wrap">
-    <div class="sec-h rv"><h2>Process</h2><p>How a ticket becomes shipped software at Huma, in code with Claude. Tap a lane to jump to it.</p></div>
-    <div class="wf-panel rv">
-      <div class="wf" id="wf" data-step="0">
-        <svg class="wf-svg" id="wfSvg" aria-hidden="true"></svg>
-        <div class="wf-labels" id="wfLabels" aria-hidden="true"></div>
-        <div class="wl wl-single" data-l="0">
-          <button class="wl-h mono" type="button"><em>01</em> Understand</button>
-          <div class="wl-body"><div class="wn " data-n="task"><span class="wn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V5a1 1 0 0 1 1-1h2M17 4h2a1 1 0 0 1 1 1v2M20 17v2a1 1 0 0 1-1 1h-2M7 20H5a1 1 0 0 1-1-1v-2"/><path d="M8 10h8M8 14h5"/></svg></span><div><b>Task audit</b><small>Ticket, PRDs &amp; decisions</small></div><i class="wn-dot"></i></div></div>
+    <div class="sec-h rv"><h2>Process</h2><p>How a ticket becomes a shipped design at Huma. Five steps, run with Claude Code and agents I built for it, and one rule behind all of them: nothing goes on screen unless I can point to the line that asks for it.</p></div>
+    <div class="wf rv" id="wf">
+      <div class="wf-rail" role="tablist" aria-label="Process steps">
+        <button class="wf-t on" type="button" role="tab" id="wft-0" aria-controls="wfp-0" aria-selected="true"><em>01</em><b>Audit</b><small>Task audit agent</small><i class="wf-bar"></i></button>
+        <button class="wf-t" type="button" role="tab" id="wft-1" aria-controls="wfp-1" aria-selected="false" tabindex="-1"><em>02</em><b>Decide</b><small>Decision helper</small><i class="wf-bar"></i></button>
+        <button class="wf-t" type="button" role="tab" id="wft-2" aria-controls="wfp-2" aria-selected="false" tabindex="-1"><em>03</em><b>Build</b><small>Claude Code</small><i class="wf-bar"></i></button>
+        <button class="wf-t" type="button" role="tab" id="wft-3" aria-controls="wfp-3" aria-selected="false" tabindex="-1"><em>04</em><b>Slice</b><small>Handoff slicer</small><i class="wf-bar"></i></button>
+        <button class="wf-t" type="button" role="tab" id="wft-4" aria-controls="wfp-4" aria-selected="false" tabindex="-1"><em>05</em><b>Ship</b><small>Publish &amp; present</small><i class="wf-bar"></i></button>
+      </div>
+      <div class="wf-stage">
+        <div class="wf-p on" role="tabpanel" id="wfp-0" aria-labelledby="wft-0">
+          <div class="wf-txt">
+            <h3>Read the ticket the way an engineer will</h3>
+            <p>The audit agent reads the ticket, every PRD it depends on, the prototypes already shipped and the Figma files, in that order of authority. It returns a change list in which every addition, change and removal cites the line that requires it.</p>
+            <dl class="wf-io"><div><dt>In</dt><dd>A Jira ticket</dd></div><div><dt>Out</dt><dd>A cited change list and before/after sheets</dd></div></dl>
+            <p class="wf-rule"><span>Rule</span>If I can’t cite it, it doesn’t ship.</p>
+          </div>
+          <div class="wf-art" aria-hidden="true">
+            <div class="art-h"><b>Change list</b><span>5 items · 4 cited · 1 open</span></div>
+            <ul class="cl">
+              <li><i class="k add">Add</i><span>Empty state when no slots are free</span><small>PRD · Screens and states</small></li>
+              <li><i class="k mod">Modify</i><span>Confirm button label</span><small>Acceptance criterion 2</small></li>
+              <li><i class="k rem">Remove</i><span>Draft status chip</span><small>No PRD line found</small></li>
+              <li><i class="k keep">Keep</i><span>Consent sentence, word for word</span><small>PRD · What must be true</small></li>
+              <li><i class="k dec">Decide</i><span>Retry limit after a failed send</span><small>Gap · sent to step 02</small></li>
+            </ul>
+          </div>
         </div>
-        <div class="wl wl-think" data-l="1">
-          <button class="wl-h mono" type="button"><em>02</em> Think with AI</button>
-          <div class="wl-body"><div class="wn " data-n="claude"><span class="wn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></span><div><b>Claude</b><small>Thinking partner</small></div><i class="wn-dot"></i></div><div class="wn me" data-n="me"><span class="wn-orb"><img src="assets/img/portrait-160.webp" alt="" loading="lazy"></span><div><b>Sid</b><small>AI design engineer</small></div><i class="wn-dot"></i></div><div class="wn " data-n="decide"><span class="wn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 7h14M5 7l-3 7a4 4 0 0 0 6 0zM19 7l-3 7a4 4 0 0 0 6 0z"/></svg></span><div><b>Decision helper</b><small>PRD gaps · NHS &amp; ICO</small></div><i class="wn-dot"></i></div></div>
+        <div class="wf-p" role="tabpanel" id="wfp-1" aria-labelledby="wft-1">
+          <div class="wf-txt">
+            <h3>When the PRD is silent, make the gap visible</h3>
+            <p>The decision helper searches the PRD and its decision notes first, then NHS England and ICO guidance, then how peer products behave. It either finds the answer that already exists, or lays out real options with a recommendation.</p>
+            <dl class="wf-io"><div><dt>In</dt><dd>A question the documents don’t answer</dd></div><div><dt>Out</dt><dd>A decision with a named owner, recorded in a pull request</dd></div></dl>
+            <p class="wf-rule"><span>Rule</span>A recorded decision beats a confident guess in a wireframe.</p>
+          </div>
+          <div class="wf-art" aria-hidden="true">
+            <div class="art-h"><b>Open question</b><span>Example</span></div>
+            <p class="dq">How many times can a failed reminder be resent?</p>
+            <ol class="ladder"><li><b>PRD &amp; decision notes</b><span>Not settled</span></li><li><b>NHS England · ICO</b><span>No rule on retries</span></li><li><b>Peer products</b><span>Two patterns found</span></li></ol>
+            <div class="outs"><span>Already decided</span><span>Not asked for</span><span class="on">Designer’s call</span><span>Product owner’s call</span></div>
+            <p class="art-note">Anything touching consent, patient safety or the patient record goes to the product owner.</p>
+          </div>
         </div>
-        <div class="wl wl-single" data-l="2">
-          <button class="wl-h mono" type="button"><em>03</em> Bridge</button>
-          <div class="wl-body"><div class="wn " data-n="code"><span class="wn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/></svg></span><div><b>Claude Code</b><small>Design ↔ code</small></div><i class="wn-dot"></i></div></div>
+        <div class="wf-p" role="tabpanel" id="wfp-2" aria-labelledby="wft-2">
+          <div class="wf-txt">
+            <h3>Design in code, on the real design system</h3>
+            <p>I build the screens in HTML with Claude Code, from the design system’s own components and tokens rather than values typed from memory. Every state the PRD names gets built: empty, loading, error and limits, not just the happy path.</p>
+            <dl class="wf-io"><div><dt>In</dt><dd>The change list and its decisions</dd></div><div><dt>Out</dt><dd>A live prototype with every state</dd></div></dl>
+            <p class="wf-rule"><span>Rule</span>A value I retyped is a value I invented.</p>
+          </div>
+          <div class="wf-art" aria-hidden="true">
+            <div class="win"><div class="win-bar"><i></i><i></i><i></i><span>reminders.html</span></div>
+              <div class="win-states"><span>Default</span><span>Empty</span><span class="on">Send failed</span><span>Limit reached</span></div>
+              <div class="win-body"><div class="sk sk-h"></div><div class="sk-alert"><b>Reminder not sent</b><span>Try again, or call the patient.</span></div><div class="sk"></div><div class="sk sk-s"></div><div class="sk-btns"><i></i><i></i></div></div>
+            </div>
+            <p class="art-note mono-ish"><code>&lt;Button variant="primary"&gt;</code> · <code>var(--space-4)</code> · from the library, never retyped</p>
+          </div>
         </div>
-        <div class="wl wl-pair" data-l="3">
-          <button class="wl-h mono" type="button"><em>04</em> Make</button>
-          <div class="wl-body"><div class="wn " data-n="proto"><span class="wn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><div><b>HTML prototype</b><small>Screens &amp; flows on the design system</small></div><i class="wn-dot"></i></div><div class="wn " data-n="slicer"><span class="wn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></svg></span><div><b>Handoff slicer</b><small>Every state in one file</small></div><i class="wn-dot"></i></div></div>
+        <div class="wf-p" role="tabpanel" id="wfp-3" aria-labelledby="wft-3">
+          <div class="wf-txt">
+            <h3>Hand engineers only what the story touched</h3>
+            <p>The handoff slicer cuts the story’s screens out of the full prototype into one standalone HTML file. A control card on top switches between every named scenario, so each state is one click away and the file opens anywhere, offline.</p>
+            <dl class="wf-io"><div><dt>In</dt><dd>The prototype and the handoff notes</dd></div><div><dt>Out</dt><dd>One file per handoff, every state reachable</dd></div></dl>
+            <p class="wf-rule"><span>Rule</span>Cut, don’t build. A state the prototype lacks is listed as not drawn, never faked.</p>
+          </div>
+          <div class="wf-art" aria-hidden="true">
+            <div class="art-h"><b>Handoff · Appointment reminders</b><span>1 file</span></div>
+            <div class="chips"><span>Happy path</span><span class="on">Send failed</span><span>Patient opted out</span><span>No credit left</span></div>
+            <div class="axis"><span>Role</span><b>Receptionist</b><span>Device</span><b>Desktop</b></div>
+            <div class="slab"><div class="sk sk-h"></div><div class="sk-alert"><b>Reminder not sent</b><span>Try again, or call the patient.</span></div><div class="sk sk-s"></div></div>
+            <p class="art-note"><b>Not drawn (1):</b> bulk resend. The prototype doesn’t build it; the handoff says it should.</p>
+          </div>
         </div>
-        <div class="wl wl-single" data-l="4">
-          <button class="wl-h mono" type="button"><em>05</em> Ship</button>
-          <div class="wl-body"><div class="wn " data-n="ship"><span class="wn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 15c-1.5 1.5-2 4-2 6 2 0 4.5-.5 6-2M14 4c3-1 6-1 6-1s0 3-1 6l-6 6-5-5z"/><circle cx="15" cy="9" r="1.5"/></svg></span><div><b>Shipped</b><small>PR · live · tracked</small></div><i class="wn-dot"></i></div></div>
+        <div class="wf-p" role="tabpanel" id="wfp-4" aria-labelledby="wft-4">
+          <div class="wf-txt">
+            <h3>Publish, review, then walk the team through it</h3>
+            <p>The deliverable goes into the design repo under the PRD, story and ticket it belongs to, through a branch and a pull request. Then I present it from a five-minute script built from the latest output and its decisions, with open questions listed, not buried.</p>
+            <dl class="wf-io"><div><dt>In</dt><dd>The prototype and the handoff file</dd></div><div><dt>Out</dt><dd>A merged pull request and a team walkthrough</dd></div></dl>
+            <p class="wf-rule"><span>Rule</span>A decision isn’t proof the build has it. Check the screen before saying it’s there.</p>
+          </div>
+          <div class="wf-art" aria-hidden="true">
+            <div class="art-h"><b>Pull request</b><span class="pr-ok">Merged</span></div>
+            <p class="pr-path">Design / Deliverable / <b>PRD 07 · S24 · Appointment reminders</b></p>
+            <ol class="pr-steps"><li class="done">Branch</li><li class="done">Review</li><li class="done">Merge</li><li class="done">Present</li></ol>
+            <div class="pr-meta"><div><b>5 min</b><span>Walkthrough</span></div><div><b>4</b><span>Screens shown</span></div><div><b>2</b><span>Open questions</span></div></div>
+          </div>
         </div>
-        <div class="wf-loop-pill" id="wfLoop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8M21 3v5h-5M21 12a9 9 0 0 1-15.5 6.2L3 16M3 21v-5h5"/></svg>Feedback loop · learn &amp; iterate</div>
       </div>
       <div class="wf-foot">
-        <span class="wf-cap"><b id="wfNum">Step 1 of 6</b><span id="wfCap">Start from the ticket</span></span>
-        <button class="wf-play" id="wfPlay" aria-label="Pause walkthrough"><span class="i-pause"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg></span><span class="i-play"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M7 4v16l13-8z"/></svg></span></button>
+        <p class="wf-loop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8M21 3v5h-5M21 12a9 9 0 0 1-15.5 6.2L3 16M3 21v-5h5"/></svg>Feedback goes back to the PRD. If a PRD looks wrong, I raise it instead of quietly fixing it on screen.</p>
+        <button class="wf-play" id="wfPlay" type="button" aria-label="Pause walkthrough"><span class="i-pause"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg></span><span class="i-play"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M7 4v16l13-8z"/></svg></span></button>
       </div>
     </div>
   </div>
@@ -289,18 +350,18 @@
   </div>
 </section>
 
-<section class="sec" id="words">
+<section class="sec band" id="words">
   <div class="wrap">
     <div class="sec-h rv"><h2>Kind words</h2><p>Seven recommendations from people I’ve worked with. <a href="https://www.linkedin.com/in/mirsaeedjamshidi/details/recommendations/" target="_blank" rel="noopener">Read them on LinkedIn</a></p></div>
     <div class="quote rv" id="quotes">
       <div class="q-stage">
-        <figure class="q on"><blockquote>“… he has a keen eye for state-of-the-art tools and design practices and he leveraged those in multiple occasions to improve our design-to-implementation pipelines. Additionally, he is a great researcher and the insights that he provided regarding user experience had a key role in determining the direction of our product.”</blockquote><figcaption><b>Armen Jeddi</b>PhD in Physical AI, University of Toronto &amp; Vector Institute<small>Managed Sid directly · 2021</small></figcaption></figure>
-        <figure class="q"><blockquote>“Saeed has a great eye for detail, is great at benchmarking, and is a reliable teammate. He has a great view on design and knowingly strikes a balance between innovation and building effort. His presence in the team was critical, and I enjoyed every second of working with him.”</blockquote><figcaption><b>Pouria Shiri</b>Product Manager<small>Worked with Sid on the same team · 2025</small></figcaption></figure>
-        <figure class="q"><blockquote>“Saeed has a structured mindset and excels at breaking down complex problems into manageable parts. Saeed’s exceptional design skills and hands-on approach greatly contributed to our success. He understands the right direction to achieve outcomes, making him a valuable asset.”</blockquote><figcaption><b>Kamyab Farhadi</b>Founder at DoctorPay<small>Managed Sid directly · 2024</small></figcaption></figure>
-        <figure class="q"><blockquote>“Highly recommend Saeed! It was a pleasure working alongside him as a designer at Graph and Avand. … He possessed an exceptional eye for detail, ensuring designs were visually flawless and pixel-perfect. … Deadlines were never an issue for Saeed.”</blockquote><figcaption><b>Parham Khanlarkhani</b>Product &amp; Engineering Leader, ex-Cafe Bazaar and Graph<small>Managed Sid directly · 2024</small></figcaption></figure>
-        <figure class="q"><blockquote>“Throughout our two years of working together in the same hierarchy, his precision and agility have consistently stood out. His adaptability, discipline, and up-to-the-minute awareness are truly noteworthy.”</blockquote><figcaption><b>Arta Mokaberi</b>VP of Product Design<small>Worked with Sid on the same team · 2023</small></figcaption></figure>
-        <figure class="q"><blockquote>“Saeed is a professional UX designer. … He is always using the latest tools and resources to expedite tasks and processes and to offer the best solutions. His work ethic is impeccable and he is easy to work with.”</blockquote><figcaption><b>Marzieh Yadegar</b>Digital Product Designer<small>Worked with Sid at BluefoxAI · 2021</small></figcaption></figure>
-        <figure class="q"><blockquote>“He is an outstanding designer, who can clearly understand needs, users and standards. He has an excellent artistic sense too. In addition, his discipline that shows itself in timely reports and well-organized documentation of the project made me more than satisfied with the results.”</blockquote><figcaption><b>Seyed Sajad Kahani</b>Software Engineer<small>Managed Sid directly · 2021</small></figcaption></figure>
+        <figure class="q on"><blockquote>“… he has a keen eye for state-of-the-art tools and design practices and he leveraged those in multiple occasions to improve our design-to-implementation pipelines. Additionally, he is a great researcher and the insights that he provided regarding user experience had a key role in determining the direction of our product.”</blockquote><figcaption><img src="assets/people/armen.webp" alt="" loading="lazy"><span><b>Armen Jeddi</b>PhD in Physical AI, University of Toronto &amp; Vector Institute<small>Managed Sid directly · 2021</small></span></figcaption></figure>
+        <figure class="q"><blockquote>“Saeed has a great eye for detail, is great at benchmarking, and is a reliable teammate. He has a great view on design and knowingly strikes a balance between innovation and building effort. His presence in the team was critical, and I enjoyed every second of working with him.”</blockquote><figcaption><img src="assets/people/pouria.webp" alt="" loading="lazy"><span><b>Pouria Shiri</b>Product Manager<small>Worked with Sid on the same team · 2025</small></span></figcaption></figure>
+        <figure class="q"><blockquote>“Saeed has a structured mindset and excels at breaking down complex problems into manageable parts. Saeed’s exceptional design skills and hands-on approach greatly contributed to our success. He understands the right direction to achieve outcomes, making him a valuable asset.”</blockquote><figcaption><img src="assets/people/kamyab.webp" alt="" loading="lazy"><span><b>Kamyab Farhadi</b>Founder at DoctorPay<small>Managed Sid directly · 2024</small></span></figcaption></figure>
+        <figure class="q"><blockquote>“Highly recommend Saeed! It was a pleasure working alongside him as a designer at Graph and Avand. … He possessed an exceptional eye for detail, ensuring designs were visually flawless and pixel-perfect. … Deadlines were never an issue for Saeed.”</blockquote><figcaption><img src="assets/people/parham.webp" alt="" loading="lazy"><span><b>Parham Khanlarkhani</b>Product &amp; Engineering Leader, ex-Cafe Bazaar and Graph<small>Managed Sid directly · 2024</small></span></figcaption></figure>
+        <figure class="q"><blockquote>“Throughout our two years of working together in the same hierarchy, his precision and agility have consistently stood out. His adaptability, discipline, and up-to-the-minute awareness are truly noteworthy.”</blockquote><figcaption><img src="assets/people/arta.webp" alt="" loading="lazy"><span><b>Arta Mokaberi</b>VP of Product Design<small>Worked with Sid on the same team · 2023</small></span></figcaption></figure>
+        <figure class="q"><blockquote>“Saeed is a professional UX designer. … He is always using the latest tools and resources to expedite tasks and processes and to offer the best solutions. His work ethic is impeccable and he is easy to work with.”</blockquote><figcaption><img src="assets/people/marzieh.webp" alt="" loading="lazy"><span><b>Marzieh Yadegar</b>Digital Product Designer<small>Worked with Sid at BluefoxAI · 2021</small></span></figcaption></figure>
+        <figure class="q"><blockquote>“He is an outstanding designer, who can clearly understand needs, users and standards. He has an excellent artistic sense too. In addition, his discipline that shows itself in timely reports and well-organized documentation of the project made me more than satisfied with the results.”</blockquote><figcaption><img src="assets/people/sajad.webp" alt="" loading="lazy"><span><b>Seyed Sajad Kahani</b>Software Engineer<small>Managed Sid directly · 2021</small></span></figcaption></figure>
       </div>
       <div class="q-names" id="qDots"><button type="button" class="on" aria-label="Recommendation from Armen Jeddi"><img src="assets/people/armen.webp" alt="" loading="lazy"><span>Armen</span></button><button type="button" aria-label="Recommendation from Pouria Shiri"><img src="assets/people/pouria.webp" alt="" loading="lazy"><span>Pouria</span></button><button type="button" aria-label="Recommendation from Kamyab Farhadi"><img src="assets/people/kamyab.webp" alt="" loading="lazy"><span>Kamyab</span></button><button type="button" aria-label="Recommendation from Parham Khanlarkhani"><img src="assets/people/parham.webp" alt="" loading="lazy"><span>Parham</span></button><button type="button" aria-label="Recommendation from Arta Mokaberi"><img src="assets/people/arta.webp" alt="" loading="lazy"><span>Arta</span></button><button type="button" aria-label="Recommendation from Marzieh Yadegar"><img src="assets/people/marzieh.webp" alt="" loading="lazy"><span>Marzieh</span></button><button type="button" aria-label="Recommendation from Seyed Sajad Kahani"><img src="assets/people/sajad.webp" alt="" loading="lazy"><span>Sajad</span></button></div>
     </div>

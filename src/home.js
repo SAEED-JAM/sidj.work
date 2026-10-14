@@ -108,73 +108,35 @@ $$('video[data-auto]').forEach(v => {
 const vObs = new IntersectionObserver(es => es.forEach(e => { const v = e.target; if (e.isIntersecting && autoplay(v) && !v.closest('.pane:not(.on)')) { v.preload = 'auto'; v.play().catch(() => {}); } else v.pause(); }), { threshold: .35 });
 $$('main video[data-auto]').forEach(v => vObs.observe(v));
 
-/* workflow: lane diagram with connectors and a walkthrough */
+/* workflow: five tabs that walk through on their own, pause on hover or focus, and stop once someone picks one */
 const wf = $('#wf');
 if (wf) {
-  const svg = $('#wfSvg'), labels = $('#wfLabels'), N = id => $(`[data-n="${id}"]`, wf);
-  const EDGES = [
-    { id: 'e1', from: 'task', to: 'me', label: 'ticket' },
-    { id: 'e2', from: 'claude', to: 'me', v: true, label: 'ideas' },
-    { id: 'e3', from: 'decide', to: 'me', v: true, up: true, label: 'guidance' },
-    { id: 'e4', from: 'me', to: 'code', label: 'intent' },
-    { id: 'e5', from: 'code', to: 'proto', label: 'UI' },
-    { id: 'e6', from: 'code', to: 'slicer', label: 'handoff' },
-    { id: 'e7', from: 'proto', to: 'ship' },
-    { id: 'e8', from: 'slicer', to: 'ship' },
-  ];
-  const STEPS = [
-    { cap: 'Start from the ticket', lanes: [0], nodes: ['task'], edges: ['e1'] },
-    { cap: 'Think it through with Claude', lanes: [1], nodes: ['claude', 'me'], edges: ['e2'] },
-    { cap: 'Fill PRD gaps from NHS and ICO guidance', lanes: [1], nodes: ['decide', 'me'], edges: ['e3'] },
-    { cap: 'Build the screens in code with Claude Code', lanes: [2], nodes: ['code'], edges: ['e4'] },
-    { cap: 'Prototype and hand off in parallel', lanes: [3], nodes: ['proto', 'slicer'], edges: ['e5', 'e6'] },
-    { cap: 'Ship, measure, and loop back', lanes: [4], nodes: ['ship', 'task'], edges: ['e7', 'e8', 'loop'] },
-  ];
-  const draw = () => {
-    if (getComputedStyle(svg).display === 'none') return;
-    const W = wf.getBoundingClientRect(), box = el => { const r = el.getBoundingClientRect(); return { l: r.left - W.left, r: r.right - W.left, t: r.top - W.top, b: r.bottom - W.top, cx: r.left - W.left + r.width / 2, cy: r.top - W.top + r.height / 2 }; };
-    let paths = '', dots = '', labs = '';
-    const add = (id, d, ex, ey, lx, ly, label, cls = '') => {
-      paths += `<path data-e="${id}" class="${cls}" d="${d}" marker-end="url(#wfArrow)"/>`;
-      dots += `<circle data-e="${id}" cx="${ex}" cy="${ey}" r="3"/>`;
-      if (label) labs += `<span data-e="${id}" style="left:${lx}px;top:${ly}px">${label}</span>`;
-    };
-    EDGES.forEach(e => {
-      const a = box(N(e.from)), b = box(N(e.to));
-      if (e.v) {
-        const x = b.cx; const y1 = e.up ? a.t - 2 : a.b + 2, y2 = e.up ? b.b + 6 : b.t - 6;
-        add(e.id, `M${x - 5} ${y1} L${x - 5} ${y2}`, x - 5, y2, x + 26, (y1 + y2) / 2, e.label);
-        paths += `<path data-e="${e.id}" d="M${x + 5} ${y2} L${x + 5} ${y1}" marker-end="url(#wfArrow)"/>`;
-      } else {
-        const x1 = a.r + 2, y1 = a.cy, x2 = b.l - 6, y2 = b.cy, mx = (x1 + x2) / 2;
-        add(e.id, `M${x1} ${y1} C${mx} ${y1} ${mx} ${y2} ${x2} ${y2}`, x2, y2, mx, (y1 + y2) / 2, e.label);
-      }
-    });
-    const s = box(N('ship')), t = box(N('task')), yb = W.height - 34;
-    paths += `<path data-e="loop" class="loop" d="M${s.cx} ${s.b + 4} L${s.cx} ${yb - 12} Q${s.cx} ${yb} ${s.cx - 12} ${yb} L${t.cx + 12} ${yb} Q${t.cx} ${yb} ${t.cx} ${yb - 12} L${t.cx} ${t.b + 8}" marker-end="url(#wfArrow)"/>`;
-    svg.setAttribute('viewBox', `0 0 ${W.width} ${W.height}`);
-    svg.innerHTML = `<defs><marker id="wfArrow" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L6 4L1 7" fill="none" stroke="currentColor" stroke-width="1.4" stroke-dasharray="none" style="stroke:var(--wf);opacity:1;animation:none"/></marker></defs>${paths}${dots}`;
-    labels.innerHTML = labs;
-    apply();
+  const tabs = $$('.wf-t', wf), panes = $$('.wf-p', wf), play = $('#wfPlay'), DUR = 8000;
+  let step = 0, timer, playing = !reduce, visible = false, hold = false;
+  wf.style.setProperty('--wf-dur', DUR + 'ms');
+  const show = (i, focus) => {
+    step = (i + tabs.length) % tabs.length;
+    tabs.forEach((t, k) => { const on = k === step; t.classList.remove('on'); void t.offsetWidth; t.classList.toggle('on', on); t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1; });
+    panes.forEach((p, k) => p.classList.toggle('on', k === step));
+    if (focus) tabs[step].focus();
+    const rail = tabs[step].parentElement;
+    if (rail.scrollWidth > rail.clientWidth) rail.scrollTo({ left: tabs[step].offsetLeft - rail.offsetLeft - 2, behavior: reduce ? 'auto' : 'smooth' });
+    schedule();
   };
-  let step = 0, timer, playing = !reduce, visible = false;
-  const apply = () => {
-    const st = STEPS[step];
-    $$('.wl', wf).forEach((l, i) => l.classList.toggle('on', st.lanes.includes(i)));
-    $$('.wn', wf).forEach(n => n.classList.toggle('on', st.nodes.includes(n.dataset.n)));
-    $$('[data-e]', wf).forEach(el => el.classList.toggle('on', st.edges.includes(el.dataset.e)));
-    wf.classList.toggle('loop-on', st.edges.includes('loop'));
-    $('#wfNum').textContent = `Step ${step + 1} of ${STEPS.length}`; $('#wfCap').textContent = st.cap;
-  };
-  const go = i => { step = (i + STEPS.length) % STEPS.length; apply(); schedule(); };
-  const schedule = () => { clearTimeout(timer); if (playing && visible) timer = setTimeout(() => go(step + 1), 3200); };
-  const play = $('#wfPlay');
-  play.addEventListener('click', () => { playing = !playing; play.classList.toggle('paused', !playing); play.setAttribute('aria-label', playing ? 'Pause walkthrough' : 'Play walkthrough'); schedule(); });
-  if (!playing) play.classList.add('paused');
-  $$('.wl', wf).forEach((l, i) => l.addEventListener('click', () => { const k = STEPS.findIndex(s => s.lanes.includes(i)); if (k >= 0) go(k); }));
+  const schedule = () => { clearTimeout(timer); if (playing && visible && !hold) timer = setTimeout(() => show(step + 1), DUR); };
+  const setPlaying = on => { playing = on; wf.classList.toggle('stopped', !on); play.classList.toggle('paused', !on); play.setAttribute('aria-label', on ? 'Pause walkthrough' : 'Play walkthrough'); if (on) show(step); else clearTimeout(timer); };
+  const holdWf = on => { hold = on; wf.classList.toggle('paused', on); if (on) clearTimeout(timer); else show(step); };
+  tabs.forEach((t, k) => t.addEventListener('click', () => { setPlaying(false); show(k); }));
+  tabs[0].parentElement.addEventListener('keydown', e => {
+    const d = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
+    if (d) { e.preventDefault(); setPlaying(false); show(step + d, true); }
+    else if (e.key === 'Home' || e.key === 'End') { e.preventDefault(); setPlaying(false); show(e.key === 'Home' ? 0 : tabs.length - 1, true); }
+  });
+  play.addEventListener('click', () => setPlaying(!playing));
+  const stage = $('.wf-stage', wf);
+  stage.addEventListener('pointerenter', () => holdWf(true)); stage.addEventListener('pointerleave', () => holdWf(false));
   new IntersectionObserver(es => es.forEach(e => { visible = e.isIntersecting; schedule(); }), { threshold: .35 }).observe(wf);
-  new ResizeObserver(() => requestAnimationFrame(draw)).observe(wf);
-  draw();
+  setPlaying(playing);
 }
 
 /* quotes */
