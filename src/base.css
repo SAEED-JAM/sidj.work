@@ -25,7 +25,7 @@
   --a1:#3a2130; --a2:#211f4d; --a3:#0f2f2b; --a4:#122544; --aura-o:.5; --grain-o:.05; color-scheme:dark}
 
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scrollbar-gutter:stable}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scrollbar-gutter:stable;overflow-x:clip}
 html.locked{overflow:hidden}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.65 var(--font);letter-spacing:-.006em;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img,video{max-width:100%;height:auto;display:block}

@@ -5,7 +5,7 @@ const root = document.documentElement;
 
 /* overlay stack: one place for scroll lock, inert background, Escape and focus return */
 const layers = [];
-const behind = () => [$('main'), $('#rail'), $('.corner'), $('footer.site')];
+const behind = () => [$('main'), $('#nav'), $('footer.site')];
 const syncLayers = () => {
   const top = layers[layers.length - 1];
   behind().forEach(el => { if (el) el.inert = !!top; });
@@ -83,24 +83,39 @@ $$('[data-since]').forEach(el => {
   if (n > 0) el.textContent = ' · ' + [yr && yr + (yr > 1 ? ' yrs' : ' yr'), mo && mo + (mo > 1 ? ' mos' : ' mo')].filter(Boolean).join(' ');
 });
 
-/* "complex" tangles, then settles; "simple" gets a calm underline */
+/* headline: "think" shimmers and the caret after "code" blinks a few times; again on hover */
+const headline = $('#headline');
+const playHead = () => { headline.classList.remove('play'); void headline.offsetWidth; headline.classList.add('play'); };
+if (!reduce) { setTimeout(playHead, 450); headline.addEventListener('pointerenter', () => { if (!headline.getAnimations({ subtree: true }).length) playHead(); }); }
+
+/* contact: "complex" tangles, then settles once the card is on screen; "simple" gets a calm underline */
 const tg = $('#tangle'), calm = $('#calm');
 tg.innerHTML = `<span class="sr-only">${tg.textContent}</span>` + [...tg.textContent].map(c => `<span class="ch" aria-hidden="true">${c}</span>`).join('');
 const letters = $$('.ch', tg);
-const knot = () => { tg.classList.add('knot'); letters.forEach(l => { l.style.setProperty('--tx', (Math.random() * 16 - 8).toFixed(1) + 'px'); l.style.setProperty('--ty', (Math.random() * 18 - 9).toFixed(1) + 'px'); l.style.setProperty('--tr', (Math.random() * 50 - 25).toFixed(0) + 'deg'); }); };
+const knot = () => { tg.classList.add('knot'); letters.forEach(l => { l.style.setProperty('--tx', (Math.random() * 18 - 9).toFixed(1) + 'px'); l.style.setProperty('--ty', (Math.random() * 20 - 10).toFixed(1) + 'px'); l.style.setProperty('--tr', (Math.random() * 50 - 25).toFixed(0) + 'deg'); }); };
 const untie = () => { tg.classList.remove('knot'); letters.forEach((l, i) => { l.style.transitionDelay = i * 35 + 'ms'; l.style.setProperty('--tx', '0px'); l.style.setProperty('--ty', '0px'); l.style.setProperty('--tr', '0deg'); }); setTimeout(() => letters.forEach(l => l.style.transitionDelay = ''), 900); };
 if (!reduce) {
-  knot(); setTimeout(() => { untie(); setTimeout(() => calm.classList.add('on'), 500); }, 700);
+  knot();
+  const seen = new IntersectionObserver(es => { if (es[0].isIntersecting) { seen.disconnect(); setTimeout(() => { untie(); setTimeout(() => calm.classList.add('on'), 500); }, 450); } }, { threshold: .6 });
+  seen.observe(tg);
   tg.addEventListener('pointerenter', () => { calm.classList.remove('on'); knot(); });
   tg.addEventListener('pointerleave', () => { untie(); setTimeout(() => calm.classList.add('on'), 500); });
 } else calm.classList.add('on');
 
-/* section rail */
-const railLinks = $$('#rail a'), SECS = ['top', 'work', 'workflow', 'experience', 'writing', 'contact'];
-const markRail = id => railLinks.forEach(l => { const on = l.dataset.sec === id; l.classList.toggle('on', on); if (on) l.setAttribute('aria-current', 'true'); else l.removeAttribute('aria-current'); });
-const secObs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) markRail(e.target.id); }), { rootMargin: '-40% 0px -55% 0px' });
+/* top nav: glass once the page scrolls, name once the hero's is gone, a pill that slides to the current section */
+const nav = $('#nav'), navLinks = $$('.nav-links a'), navPill = $('.nav-pill'), SECS = ['top', 'work', 'workflow', 'experience', 'writing', 'contact'];
+let current = 'top';
+const markNav = (id = current) => {
+  current = id; const on = navLinks.find(l => l.dataset.sec === id);
+  navLinks.forEach(l => l === on ? l.setAttribute('aria-current', 'true') : l.removeAttribute('aria-current'));
+  if (on && on.offsetWidth) { navPill.style.width = on.offsetWidth + 'px'; navPill.style.transform = `translateX(${on.offsetLeft}px)`; navPill.style.opacity = 1; } else navPill.style.opacity = 0;
+};
+const secObs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) markNav(e.target.id); }), { rootMargin: '-40% 0px -55% 0px' });
 SECS.forEach(id => secObs.observe(document.getElementById(id)));
-addEventListener('scroll', () => { if (innerHeight + scrollY >= document.documentElement.scrollHeight - 8) markRail('contact'); }, { passive: true });
+const onScroll = () => { nav.classList.toggle('solid', scrollY > 8); if (innerHeight + scrollY >= document.documentElement.scrollHeight - 8) markNav('contact'); };
+addEventListener('scroll', onScroll, { passive: true }); onScroll();
+new IntersectionObserver(es => nav.classList.toggle('past', !es[0].isIntersecting), { rootMargin: '-72px 0px 0px 0px' }).observe($('.id'));
+addEventListener('resize', () => markNav()); document.fonts?.ready.then(() => markNav());
 
 /* reveal: only below-the-fold elements, and they rest visible */
 const rvObs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.remove('pre'); rvObs.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
