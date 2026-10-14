@@ -8,7 +8,7 @@ Portfolio of Sid Jameson, AI design engineer. Live at **https://sidj.work** (Git
 |---|---|
 | `index.html` | Home page, with the four case studies and the résumé viewer in the same document. **Built** from `src/`, don't edit by hand. |
 | `promotion-center/`, `balad-maps/`, `graph-vault/`, `job-search/` | One built page per case study: the same document with that case open, plus its own title, description and share image. |
-| `assets/` | Images (`img/`), company logos (`logo/`), recommender photos (`people/`), videos (`vid/`), self-hosted Geist fonts (`fonts/`, SIL OFL). |
+| `assets/` | Images (`img/`), company logos (`logo/`), recommender photos (`people/`), videos (`vid/`), the self-hosted Archivo font (`fonts/`, SIL OFL). |
 | `Sid_Jameson_Resume.pdf` | The résumé, built from `src/resume/`. |
 | `404.html`, `robots.txt`, `sitemap.xml`, `site.webmanifest`, `favicon.ico`, `apple-touch-icon.png` | Production extras (`sitemap.xml` is written by the build). |
 | `CNAME`, `.nojekyll` | GitHub Pages settings for the `sidj.work` domain. |
@@ -35,10 +35,11 @@ The build also adds width/height to every local image, makes local paths root-re
 ```bash
 pip3 install pymupdf pillow fonttools
 cd src/resume && python3 make_resume.py   # Sid_Jameson_Resume.pdf + assets/img/resume.webp (+ hotspot positions)
+cd src/tools && python3 make_covers.py    # project covers (cover-*.webp), built from real product screens
 cd src/tools && python3 make_social.py    # og-image.png, og-<case>.png, favicons, apple-touch-icon
 ```
 
-Both scripts download their fonts (Carlito, Geist; SIL OFL) into gitignored local folders on first run.
+The résumé and share-image scripts download their fonts (Carlito, Archivo; SIL OFL) into gitignored local folders on first run.
 If the résumé's header line moves, copy the printed hotspot positions into `src/overlays.html`.
 
 Looping videos on the page are small copies (`*-sm.mp4`); the lightbox plays the full file (`data-full`).

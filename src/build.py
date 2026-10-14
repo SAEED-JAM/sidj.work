@@ -34,7 +34,7 @@ HOME = {
     "description": "Sid Jameson is an AI design engineer at Huma, designing and building healthcare software in code "
                    "with Claude. Case studies from Snappfood, Balad Maps and Graph.",
     "image": "og-image.png",
-    "image_alt": "Sid Jameson, AI Design Engineer at Huma. I design products that think, and build them in code.",
+    "image_alt": "Sid Jameson: I’m a product designer who works in code. AI Design Engineer at Huma.",
     "og_type": "profile",
 }
 

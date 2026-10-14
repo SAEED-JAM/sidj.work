@@ -4,7 +4,7 @@ const segInit = seg => {
   const btns = $$('button', seg), thumb = $('.thumb', seg), panes = $$('.pane', $(`[data-panes="${seg.dataset.seg}"]`)), n = ++segN;
   const h = $('h2', seg.closest('.chap')); if (h && !seg.hasAttribute('aria-label')) seg.setAttribute('aria-label', h.textContent);
   btns.forEach((b, k) => { b.type = 'button'; b.id = `seg${n}-t${k}`; if (panes[k]) { panes[k].id = `seg${n}-p${k}`; panes[k].setAttribute('role', 'tabpanel'); panes[k].setAttribute('aria-labelledby', b.id); b.setAttribute('aria-controls', panes[k].id); } });
-  const place = b => { thumb.style.width = b.offsetWidth + 'px'; thumb.style.transform = `translateX(${b.offsetLeft - 4}px)`; };
+  const place = b => { thumb.style.width = b.offsetWidth + 'px'; thumb.style.transform = `translateX(${b.offsetLeft}px)`; };
   const pick = i => {
     btns.forEach((b, k) => { b.setAttribute('aria-selected', k === i); b.tabIndex = k === i ? 0 : -1; });
     panes.forEach((p, k) => { p.classList.toggle('on', k === i); $$('video', p).forEach(v => k === i && autoplay(v) ? (v.preload = 'auto', v.play().catch(() => {})) : v.pause()); });
@@ -194,7 +194,7 @@ const closeCase = fromPop => {
   t = setTimeout(done, 450); // background tabs may not run animations
   closeAnim._timer = t;
 };
-document.addEventListener('click', e => { const t = e.target.closest('[data-open]'); if (!t || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button) return; e.preventDefault(); const inSheet = !sheet.hidden; openCase(t.dataset.open, t.classList.contains('work') ? t : null); if (inSheet) sheet.scrollTop = 0; });
+document.addEventListener('click', e => { const t = e.target.closest('[data-open]'); if (!t || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button) return; e.preventDefault(); const inSheet = !sheet.hidden; openCase(t.dataset.open, t.classList.contains('project') ? t : null); if (inSheet) sheet.scrollTop = 0; });
 $('#sheetBack').addEventListener('click', () => closeCase());
 addEventListener('popstate', () => {
   for (let n = layers.length; n-- && layers.length && layers[layers.length - 1].el !== sheet;) layers[layers.length - 1].close();
