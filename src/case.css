@@ -49,7 +49,7 @@
 .chap p,.chap li{color:var(--ink-2);font-size:18px;line-height:1.65;max-width:42em}
 .chap p strong,.chap li strong{color:var(--ink);font-weight:600}
 .chap ul,.chap ol{margin:0;padding-left:22px;display:grid;gap:10px}
-.pull{font-size:clamp(24px,3vw,36px);font-weight:500;letter-spacing:-.035em;line-height:1.25;color:var(--ink);max-width:22em;text-wrap:balance;margin:16px 0}
+.chap .pull{font-size:clamp(24px,3vw,36px);font-weight:500;letter-spacing:-.035em;line-height:1.25;color:var(--ink);max-width:22em;text-wrap:balance;margin:16px 0}
 .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
 .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
 .grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}

@@ -108,35 +108,125 @@ $$('video[data-auto]').forEach(v => {
 const vObs = new IntersectionObserver(es => es.forEach(e => { const v = e.target; if (e.isIntersecting && autoplay(v) && !v.closest('.pane:not(.on)')) { v.preload = 'auto'; v.play().catch(() => {}); } else v.pause(); }), { threshold: .35 });
 $$('main video[data-auto]').forEach(v => vObs.observe(v));
 
-/* workflow: five tabs that walk through on their own, pause on hover or focus, and stop once someone picks one */
-const wf = $('#wf');
-if (wf) {
-  const tabs = $$('.wf-t', wf), panes = $$('.wf-p', wf), play = $('#wfPlay'), DUR = 8000;
-  let step = 0, timer, playing = !reduce, visible = false, hold = false;
-  wf.style.setProperty('--wf-dur', DUR + 'ms');
-  const show = (i, focus) => {
-    step = (i + tabs.length) % tabs.length;
-    tabs.forEach((t, k) => { const on = k === step; t.classList.remove('on'); void t.offsetWidth; t.classList.toggle('on', on); t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1; });
-    panes.forEach((p, k) => p.classList.toggle('on', k === step));
-    if (focus) tabs[step].focus();
-    const rail = tabs[step].parentElement;
-    if (rail.scrollWidth > rail.clientWidth) rail.scrollTo({ left: tabs[step].offsetLeft - rail.offsetLeft - 2, behavior: reduce ? 'auto' : 'smooth' });
-    schedule();
+/* process: the map draws its own connectors from the cards' real boxes. One dot carries the work along them,
+   leg by leg; the next step starts only when the dot has landed. */
+const fl = $('#fl');
+if (fl) {
+  const board = $('#flBoard'), svg = $('#flSvg'), labels = $('#flLabels'), N = id => $(`[data-n="${id}"]`, board);
+  const NS = 'http://www.w3.org/2000/svg';
+  // each step is a list of legs; a leg is one or more arrows travelled at the same time
+  const STEPS = [
+    { cap: 'Start from the problem', lanes: [0], nodes: ['problem', 'me'], legs: [['e1']] },
+    { cap: 'Think it through with Claude', lanes: [1], nodes: ['claude', 'me'], legs: [['e2r'], ['e2']] },
+    { cap: 'Ground it in the design system', lanes: [1], nodes: ['ds', 'me'], legs: [['e3r'], ['e3']] },
+    { cap: 'Hand the intent to the agents', lanes: [2], nodes: ['me', 'agents'], legs: [['e4']] },
+    { cap: 'Prototype and hand off in parallel', lanes: [3], nodes: ['agents', 'proto', 'handoff'], legs: [['e5', 'e6']] },
+    { cap: 'Ship, then learn and loop back', lanes: [4], nodes: ['ship', 'problem'], legs: [['e7', 'e8'], ['loop']] },
+  ];
+  const TO = { e1: 'me', e2: 'me', e2r: 'claude', e3: 'me', e3r: 'ds', e4: 'agents', e5: 'proto', e6: 'handoff', e7: 'ship', e8: 'ship', loop: 'problem' };
+  const draw = () => {
+    if (getComputedStyle(svg).display === 'none') { apply(); return; }
+    const B = board.getBoundingClientRect();
+    const box = el => { const r = el.getBoundingClientRect(); return { l: r.left - B.left, r: r.right - B.left, t: r.top - B.top, b: r.bottom - B.top, cx: r.left - B.left + r.width / 2, cy: r.top - B.top + r.height / 2 }; };
+    let p = '', l = '';
+    const path = (id, d, cls = '') => { p += `<path data-e="${id}" class="${cls}" d="${d}" marker-end="url(#flArrow)"/>`; };
+    const label = (ids, x, y, text) => { l += `<span data-e="${ids}" style="left:${x}px;top:${y}px">${text}</span>`; };
+    const side = (id, from, to, text) => {   // left to right, the label sitting just above the line
+      const a = box(N(from)), b = box(N(to)), x1 = a.r + 2, y1 = a.cy, x2 = b.l - 7, y2 = b.cy, m = (x1 + x2) / 2;
+      path(id, `M${x1} ${y1} C${m} ${y1} ${m} ${y2} ${x2} ${y2}`); if (text) label(id, m, Math.min(y1, y2) - 15, text);
+    };
+    const pair = (id, from, up, text) => {   // two arrows side by side: out to the helper and back to Sid
+      const a = box(N(from)), b = box(N('me')), x = b.cx;
+      const y1 = up ? a.t - 3 : a.b + 3, y2 = up ? b.b + 3 : b.t - 3;
+      path(id, `M${x - 7} ${y1} L${x - 7} ${y2 + (up ? 4 : -4)}`);
+      path(id + 'r', `M${x + 7} ${y2} L${x + 7} ${y1 + (up ? -4 : 4)}`);
+      label(id + ' ' + id + 'r', x + 40, (y1 + y2) / 2, text);
+    };
+    side('e1', 'problem', 'me', 'brief');
+    pair('e2', 'claude', false, 'ideas');
+    pair('e3', 'ds', true, 'rules');
+    side('e4', 'me', 'agents', 'intent');
+    const ag = box(N('agents'));
+    ['proto', 'handoff'].forEach((to, i) => {
+      const b = box(N(to)), x1 = ag.r + 2, y1 = ag.cy, x2 = b.l - 7, y2 = b.cy, k = Math.min(48, (x2 - x1) * .55);
+      path(i ? 'e6' : 'e5', `M${x1} ${y1} C${x1 + k} ${y1} ${x2 - k} ${y2} ${x2} ${y2}`);
+      label(i ? 'e6' : 'e5', (x1 + x2) / 2, (y1 + y2) / 2, i ? 'specs' : 'UI');
+    });
+    side('e7', 'proto', 'ship'); side('e8', 'handoff', 'ship');
+    const s = box(N('ship')), t = box(N('problem')), yb = B.height - 34;
+    path('loop', `M${s.cx} ${s.b + 4} L${s.cx} ${yb - 14} Q${s.cx} ${yb} ${s.cx - 14} ${yb} L${t.cx + 14} ${yb} Q${t.cx} ${yb} ${t.cx} ${yb - 14} L${t.cx} ${t.b + 9}`, 'loop');
+    svg.setAttribute('viewBox', `0 0 ${B.width} ${B.height}`);
+    svg.innerHTML = `<defs><marker id="flArrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1.5L8 5L1 8.5z"/></marker></defs>${p}<g class="fl-run"></g>`;
+    labels.innerHTML = l;
+    runs = {};
+    apply();
   };
-  const schedule = () => { clearTimeout(timer); if (playing && visible && !hold) timer = setTimeout(() => show(step + 1), DUR); };
-  const setPlaying = on => { playing = on; wf.classList.toggle('stopped', !on); play.classList.toggle('paused', !on); play.setAttribute('aria-label', on ? 'Pause walkthrough' : 'Play walkthrough'); if (on) show(step); else clearTimeout(timer); };
-  const holdWf = on => { hold = on; wf.classList.toggle('paused', on); if (on) clearTimeout(timer); else show(step); };
-  tabs.forEach((t, k) => t.addEventListener('click', () => { setPlaying(false); show(k); }));
-  tabs[0].parentElement.addEventListener('keydown', e => {
-    const d = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
-    if (d) { e.preventDefault(); setPlaying(false); show(step + d, true); }
-    else if (e.key === 'Home' || e.key === 'End') { e.preventDefault(); setPlaying(false); show(e.key === 'Home' ? 0 : tabs.length - 1, true); }
-  });
+
+  /* the travelling dot: a glow, a short trail, and the arrow filling behind it */
+  let runs = {};
+  const run = id => {
+    if (runs[id]) return runs[id];
+    const src = $(`path[data-e="${id}"]`, svg); if (!src) return null;
+    const g = $('.fl-run', svg), mk = (tag, a) => { const el = document.createElementNS(NS, tag); for (const k in a) el.setAttribute(k, a[k]); g.appendChild(el); return el; };
+    const len = src.getTotalLength();
+    return runs[id] = { id, src, len,
+      fill: mk('path', { d: src.getAttribute('d'), class: 'fl-fill', 'stroke-dasharray': len, 'stroke-dashoffset': len }),
+      trail: [1, 2, 3, 4, 5].map(k => mk('circle', { r: 4 - k * .55, class: 'fl-trail' })),
+      glow: mk('circle', { r: 13, class: 'fl-glow' }), dot: mk('circle', { r: 5.5, class: 'fl-dot2' }) };
+  };
+  const ease = q => q < .5 ? 4 * q * q * q : 1 - Math.pow(-2 * q + 2, 3) / 2;
+  const hide = r => [r.fill, r.dot, r.glow, ...r.trail].forEach(el => el.style.opacity = 0);
+  const land = id => { const n = N(TO[id]); n.classList.remove('hit'); void n.offsetWidth; n.classList.add('hit'); setTimeout(() => n.classList.remove('hit'), 900); };
+
+  let step = 0, leg = 0, legStart = 0, legDur = 1000, holdUntil = 0, playing = !reduce, visible = false, raf;
+  // short arrows still get time to be seen; the dot rests on each card for a beat before it moves on
+  const legTime = ids => Math.max(...ids.map(id => { const r = run(id); return r ? Math.min(id === 'loop' ? 2600 : 1700, Math.max(1150, r.len * 7)) : 1150; }));
+  const REST = 550, HOLD = 700;
+  const startLeg = now => { leg = Math.min(leg, STEPS[step].legs.length - 1); legStart = now + REST; legDur = legTime(STEPS[step].legs[leg]); };
+  const tick = now => {
+    raf = requestAnimationFrame(tick);
+    if (getComputedStyle(svg).display === 'none') return;
+    const legs = STEPS[step].legs;
+    if (holdUntil) {   // the step is done: the dot waits on the card, then carries on into the next step
+      if (now >= holdUntil) { holdUntil = 0; if (playing) go(step + 1, now); else { Object.values(runs).forEach(hide); leg = 0; startLeg(now); } }
+      return;
+    }
+    const q = Math.max(0, Math.min(1, (now - legStart) / legDur)), e = ease(q);
+    legs[leg].forEach(id => {
+      const r = run(id); if (!r) return;
+      const at = d => r.src.getPointAtLength(Math.max(0, Math.min(1, d)) * r.len), p = at(e);
+      for (const el of [r.dot, r.glow]) { el.setAttribute('cx', p.x); el.setAttribute('cy', p.y); el.style.opacity = 1; }
+      r.trail.forEach((c, i) => { const tp = at(ease(Math.max(0, q - (i + 1) * .045))); c.setAttribute('cx', tp.x); c.setAttribute('cy', tp.y); c.style.opacity = q > 0 && q < 1 ? .55 - i * .1 : 0; });
+      r.fill.setAttribute('stroke-dashoffset', r.len * (1 - e)); r.fill.style.opacity = 1;
+    });
+    if (q >= 1) {
+      legs[leg].forEach(land);
+      if (leg < legs.length - 1) { legs[leg].forEach(id => runs[id] && hide(runs[id])); leg++; startLeg(now); }
+      else holdUntil = now + HOLD;
+    }
+  };
+  const apply = () => {
+    const st = STEPS[step], lit = st.legs.flat();
+    $$('.fl-lane', board).forEach((x, i) => x.classList.toggle('on', st.lanes.includes(i)));
+    $$('.fl-n', board).forEach(n => n.classList.toggle('on', st.nodes.includes(n.dataset.n)));
+    $$('path[data-e]', svg).forEach(el => el.classList.toggle('on', lit.includes(el.dataset.e)));
+    $$('span[data-e]', labels).forEach(el => el.classList.toggle('on', el.dataset.e.split(' ').some(id => lit.includes(id))));
+    fl.classList.toggle('loop-on', lit.includes('loop'));
+    $('#flNum').textContent = `${String(step + 1).padStart(2, '0')} / ${String(STEPS.length).padStart(2, '0')}`;
+    $('#flCap').textContent = st.cap;
+  };
+  const go = (i, now = performance.now()) => { Object.values(runs).forEach(hide); holdUntil = 0; step = (i + STEPS.length) % STEPS.length; leg = 0; apply(); startLeg(now); };
+  const animate = () => { cancelAnimationFrame(raf); if (!reduce && visible) { startLeg(performance.now()); raf = requestAnimationFrame(tick); } };
+  const play = $('#flPlay');
+  const setPlaying = on => { playing = on; play.classList.toggle('paused', !on); play.setAttribute('aria-label', on ? 'Pause walkthrough' : 'Play walkthrough'); };
   play.addEventListener('click', () => setPlaying(!playing));
-  const stage = $('.wf-stage', wf);
-  stage.addEventListener('pointerenter', () => holdWf(true)); stage.addEventListener('pointerleave', () => holdWf(false));
-  new IntersectionObserver(es => es.forEach(e => { visible = e.isIntersecting; schedule(); }), { threshold: .35 }).observe(wf);
-  setPlaying(playing);
+  $$('.fl-lane', board).forEach((x, i) => x.addEventListener('click', () => { const k = STEPS.findIndex(s => s.lanes.includes(i)); if (k >= 0) { setPlaying(false); go(k); } }));
+  new IntersectionObserver(es => es.forEach(e => { visible = e.isIntersecting; animate(); }), { threshold: .25 }).observe(fl);
+  new ResizeObserver(() => requestAnimationFrame(draw)).observe(board);
+  setPlaying(playing); draw();
+  // the case study link shows only when the case is on the site
+  const cta = $('.fl-cta', fl);
+  if (cta && document.querySelector('.case[id="case-ai-design-workflow"]')) cta.hidden = false;
 }
 
 /* quotes */
