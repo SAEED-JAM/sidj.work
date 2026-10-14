@@ -65,6 +65,8 @@ def og_image():
 
 
 CASES = [  # slug, cover, tint, eyebrow, title, line, results
+    ("ai-design-workflow", "desk", (201, 100, 66), "Huma · UK Primary Care · 2026", "The Design Desk",
+     "An agentic design workflow: agents read, draw and check; people answer and approve.", ["A pilot set in 3 days"]),
     ("promotion-center", "promo", (242, 20, 125), "Snappfood · Food delivery · 2023–2024", "Promotion Center",
      "One discovery page for people who order by price.", ["Party orders up 20%"]),
     ("balad-maps", "balad", (107, 77, 255), "Balad Maps · Maps & local search", "Search & Discovery",

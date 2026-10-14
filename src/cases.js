@@ -272,3 +272,211 @@ $('#rsvIn').addEventListener('click', () => setZ(rz + .2)); $('#rsvOut').addEven
 $('#rsvClose').addEventListener('click', closeR);
 rsvScroll.addEventListener('click', e => { if (e.target === rsvScroll) closeR(); });
 rsvPage.addEventListener('dblclick', () => setZ(rz > 1.05 ? 1 : 1.6));
+
+/* ===== the Design Desk case ===== */
+/* anatomy: hover, focus or tap a part to light what it talks to; lines are drawn from the parts' real boxes */
+const anat = $('#ddAnat');
+if (anat) {
+  const svg = $('#ddAnatSvg'), cap = $('#ddAnatCap'), N = id => $(`[data-n="${id}"]`, anat);
+  const EDGES = [['designer', 'desk'], ['desk', 'researcher'], ['desk', 'helper'], ['desk', 'drawer'], ['desk', 'generator'], ['desk', 'checker'], ['desk', 'board'],
+    ['po', 'board'], ['po', 'git'], ['researcher', 'git'], ['researcher', 'jira'], ['researcher', 'hub'], ['helper', 'git'], ['drawer', 'workspace'], ['ds', 'drawer'],
+    ['generator', 'workspace'], ['checker', 'workspace'], ['checker', 'git'], ['workspace', 'hub']];
+  const SAY = {
+    git: 'The knowledge base: PRDs, numbered decisions, the question queue and briefs. Answers land here by pull request; nothing designed does.',
+    jira: 'One ticket per story. The researcher reads it first, and the link goes back only after the designer confirms.',
+    designer: 'Answers questions one at a time, each with options, and reviews on the canvas. Every comment becomes a round item, word for word.',
+    po: 'Approves on the board or sends a story back with a note. Gets one pull request per task, holding all of its questions.',
+    desk: 'The one chat a designer talks to. It finds where a story is, runs the next step with the right agent and stops at every person. It never draws and never decides.',
+    researcher: 'Cheap model, read-only. Reads the ticket, PRD, decisions and brief, sweeps every canvas for parts that already exist, and writes the story record.',
+    helper: 'Cheap model. Settles a question from the PRD, decision notes, NHS England and ICO guidance and peer products, or brings it back with options.',
+    drawer: 'Strong model. Owns one workspace and adds each state to its surface as a scenario, from design-system components only.',
+    generator: 'A script with no model. Turns the record into the cover, slice, before/after sheets, notes and state boards, and won’t run on any lint error.',
+    checker: 'Strong model, fresh context, run once. Reads the PRD itself, never the drawer’s chat, and reports what’s missing first.',
+    workspace: 'One canvas per story: the surfaces it changes, a frozen BEFORE of each, and everything the generator writes. Closed after promotion.',
+    hub: 'One copy of every surface in the product, plus a handoff page per set. Only promotion changes it.',
+    ds: 'The only source of components: the NHS design system, a Material 3 kit, shared patterns and the app shell.',
+    board: 'Every story’s step, live. The desk updates it at each step, and the product owner approves there.',
+  };
+  const NAME = id => $('b', N(id)).textContent;
+  const DEF = cap.innerHTML;
+  const draw = () => {
+    if (getComputedStyle(svg).display === 'none') return;
+    const A = anat.getBoundingClientRect();
+    if (!A.width) return;
+    const box = el => { const r = el.getBoundingClientRect(); return { l: r.left - A.left, r: r.right - A.left, t: r.top - A.top, b: r.bottom - A.top, x: r.left - A.left + r.width / 2, y: r.top - A.top + r.height / 2 }; };
+    svg.setAttribute('viewBox', `0 0 ${A.width} ${A.height}`);
+    svg.innerHTML = EDGES.map(([f, t]) => {
+      const a = box(N(f)), b = box(N(t)), dx = b.x - a.x, dy = b.y - a.y;
+      let d;
+      if (Math.abs(dx) > Math.abs(dy) * 1.2) {
+        const x1 = dx > 0 ? a.r : a.l, x2 = dx > 0 ? b.l : b.r, m = (x1 + x2) / 2;
+        d = `M${x1} ${a.y} C${m} ${a.y} ${m} ${b.y} ${x2} ${b.y}`;
+      } else {
+        const y1 = dy > 0 ? a.b : a.t, y2 = dy > 0 ? b.t : b.b, m = (y1 + y2) / 2;
+        d = `M${a.x} ${y1} C${a.x} ${m} ${b.x} ${m} ${b.x} ${y2}`;
+      }
+      return `<path data-a="${f}" data-b="${t}" d="${d}"/>`;
+    }).join('');
+  };
+  const focus = id => {
+    anat.classList.toggle('focus', !!id);
+    const near = new Set(id ? EDGES.filter(e => e.includes(id)).flat() : []);
+    $$('.dd-n', anat).forEach(n => { n.classList.toggle('on', n.dataset.n === id); n.classList.toggle('near', near.has(n.dataset.n) && n.dataset.n !== id); });
+    $$('path', svg).forEach(p => p.classList.toggle('on', !!id && (p.dataset.a === id || p.dataset.b === id)));
+    cap.innerHTML = id ? `<b>${NAME(id)}.</b> ${SAY[id]}` : DEF;
+  };
+  let pinned = null;
+  $$('.dd-n', anat).forEach(n => {
+    n.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') focus(n.dataset.n); });
+    n.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse') focus(pinned); });
+    n.addEventListener('focus', () => focus(n.dataset.n));
+    n.addEventListener('blur', () => focus(pinned));
+    n.addEventListener('click', () => { pinned = pinned === n.dataset.n ? null : n.dataset.n; focus(pinned); });
+  });
+  new ResizeObserver(() => requestAnimationFrame(draw)).observe(anat);
+  draw();
+}
+
+/* charts: one tooltip per chart, on hover and keyboard focus; the values also sit on the marks and in the table */
+$$('.dd-chart').forEach(ch => {
+  const tip = document.createElement('div'); tip.className = 'dd-tip'; tip.setAttribute('aria-hidden', 'true'); ch.appendChild(tip);
+  const marks = $$('.dd-bar, .dd-colb', ch), unit = ch.classList.contains('dd-col') ? ['story signed off', 'stories signed off'] : ['finding', 'findings'];
+  const show = m => {
+    const v = +$('b', m).textContent, l = $('.l', m).textContent;
+    tip.replaceChildren(Object.assign(document.createElement('b'), { textContent: `${v} ${v === 1 ? unit[0] : unit[1]}` }), Object.assign(document.createElement('span'), { textContent: l }));
+    const C = ch.getBoundingClientRect(), r = ($('.t i', m) || m).getBoundingClientRect();
+    tip.classList.add('on');
+    const w = tip.offsetWidth, x = Math.min(Math.max(8, r.left - C.left + r.width / 2 - w / 2), C.width - w - 8);
+    tip.style.left = x + 'px'; tip.style.top = Math.max(8, r.top - C.top - tip.offsetHeight - 10) + 'px';
+  };
+  const hide = () => tip.classList.remove('on');
+  marks.forEach(m => {
+    m.setAttribute('aria-label', `${$('.l', m).textContent}: ${$('b', m).textContent}`);
+    m.addEventListener('pointerenter', () => show(m)); m.addEventListener('pointerleave', hide);
+    m.addEventListener('focus', () => show(m)); m.addEventListener('blur', hide);
+  });
+});
+
+/* the film: play with sound on request, native controls once it runs, pause when it leaves the screen or the case closes */
+$$('.dd-film').forEach(f => {
+  const v = $('video', f);
+  $('.dd-play', f).addEventListener('click', () => { v.controls = true; v.muted = false; v.play().catch(() => {}); });
+  v.addEventListener('play', () => f.classList.add('playing'));
+  v.addEventListener('ended', () => { f.classList.remove('playing'); v.controls = false; });
+  new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting && !v.paused) v.pause(); })).observe(v);
+});
+
+/* workflow: the swimlane map is the tab list, the panel below shows the chosen step.
+   Connectors are drawn from the nodes' real boxes; on narrow screens the map is a plain list. */
+const wf = $('#wf');
+if (wf) {
+  const map = $('.wm', wf), tabs = $$('.wm-n', wf), panes = $$('.wf-p', wf), svg = $('#wmSvg'), labels = $('#wmLabels');
+  const play = $('#wfPlay'), DUR = 8000, wide = { get matches() { return wf.clientWidth >= 980; } };
+  // the edge into each step lights up with it; review also lights its rounds loop, approval its send-back loop
+  const LIT = [[], ['e1'], ['e2'], ['e3'], ['e4'], ['e5'], ['e6', 'loopR'], ['e7', 'loopA'], ['e8']];
+  let step = 0, timer, playing = !reduce, visible = false, hold = false;
+  wf.style.setProperty('--wf-dur', DUR + 'ms');
+
+  const draw = () => {
+    if (!wide.matches) { svg.innerHTML = ''; labels.innerHTML = ''; return; }
+    const M = map.getBoundingClientRect();
+    const box = el => { const r = el.getBoundingClientRect(); return { l: r.left - M.left, r: r.right - M.left, t: r.top - M.top, b: r.bottom - M.top, cx: r.left - M.left + r.width / 2, cy: r.top - M.top + r.height / 2 }; };
+    const B = tabs.map(box), R = 8;
+    let paths = '', labs = '';
+    const path = (id, d, cls = '') => { paths += `<path data-e="${id}" class="${cls}" d="${d}" marker-end="url(#wmArrow)"/>`; };
+    for (let i = 0; i < B.length - 1; i++) {
+      const a = B[i], b = B[i + 1], x1 = a.r, y1 = a.cy, x2 = b.l - 4, y2 = b.cy;
+      if (Math.abs(y1 - y2) < 2) { path('e' + (i + 1), `M${x1} ${y1} H${x2}`); continue; }
+      const xm = (a.r + b.l) / 2, s = y2 > y1 ? 1 : -1;
+      path('e' + (i + 1), `M${x1} ${y1} H${xm - R} Q${xm} ${y1} ${xm} ${y1 + s * R} V${y2 - s * R} Q${xm} ${y2} ${xm + R} ${y2} H${x2}`);
+    }
+    // review rounds: from Review down under the lanes and back up into Draw
+    const rv = B[6], dr = B[3], yb = Math.max(...B.map(b => b.b)) + 26;
+    path('loopR', `M${rv.cx} ${rv.b} V${yb - R} Q${rv.cx} ${yb} ${rv.cx - R} ${yb} H${dr.cx + R} Q${dr.cx} ${yb} ${dr.cx} ${yb - R} V${dr.b + 4}`, 'loop');
+    labs += `<span data-e="loopR" style="left:${(rv.cx + dr.cx) / 2}px;top:${yb}px">Each review round: draw, generate and check again</span>`;
+    // approval sent back: over the top from Approval to Review
+    const ap = B[7], yt = Math.min(...B.map(b => b.t)) - 22;
+    path('loopA', `M${ap.cx} ${ap.t} V${yt + R} Q${ap.cx} ${yt} ${ap.cx - R} ${yt} H${rv.cx + R} Q${rv.cx} ${yt} ${rv.cx} ${yt + R} V${rv.t - 4}`, 'loop');
+    labs += `<span data-e="loopA" style="left:${(ap.cx + rv.cx) / 2}px;top:${yt}px">Sent back with a note</span>`;
+    svg.setAttribute('viewBox', `0 0 ${M.width} ${M.height}`);
+    svg.innerHTML = `<defs><marker id="wmArrow" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L6 4L1 7" fill="none" stroke-width="1.4"/></marker></defs>${paths}`;
+    labels.innerHTML = labs;
+    light();
+  };
+  const light = () => $$('[data-e]', wf).forEach(el => el.classList.toggle('on', LIT[step].includes(el.dataset.e)));
+
+  const show = (i, focus) => {
+    step = (i + tabs.length) % tabs.length;
+    tabs.forEach((t, k) => { const on = k === step; t.classList.remove('on'); void t.offsetWidth; t.classList.toggle('on', on); t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1; });
+    panes.forEach((p, k) => p.classList.toggle('on', k === step));
+    $('#wfNum').textContent = `Step ${step + 1} of ${tabs.length}`;
+    $('#wfName').textContent = $('b', tabs[step]).textContent;
+    light();
+    if (focus) tabs[step].focus();
+    schedule();
+  };
+  const schedule = () => { clearTimeout(timer); if (playing && visible && !hold) timer = setTimeout(() => show(step + 1), DUR); };
+  const setPlaying = on => { playing = on; wf.classList.toggle('stopped', !on); play.classList.toggle('paused', !on); play.setAttribute('aria-label', on ? 'Pause walkthrough' : 'Play walkthrough'); if (on) show(step); else clearTimeout(timer); };
+  const holdWf = on => { hold = on; wf.classList.toggle('paused', on); if (on) clearTimeout(timer); else show(step); };
+  // on a phone the panel sits under the list, so bring it into view after a tap
+  const reveal = () => { if (wf.clientWidth < 700) $('.wf-stage', wf).scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); };
+
+  tabs.forEach((t, k) => t.addEventListener('click', () => { setPlaying(false); show(k); reveal(); }));
+  map.addEventListener('keydown', e => {
+    const d = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+    if (d) { e.preventDefault(); setPlaying(false); show(step + d, true); }
+    else if (e.key === 'Home' || e.key === 'End') { e.preventDefault(); setPlaying(false); show(e.key === 'Home' ? 0 : tabs.length - 1, true); }
+  });
+  $('#wfPrev').addEventListener('click', () => { setPlaying(false); show(step - 1); });
+  $('#wfNext').addEventListener('click', () => { setPlaying(false); show(step + 1); });
+  play.addEventListener('click', () => setPlaying(!playing));
+  const stage = $('.wf-stage', wf);
+  stage.addEventListener('pointerenter', () => holdWf(true)); stage.addEventListener('pointerleave', () => holdWf(false));
+  new IntersectionObserver(es => es.forEach(e => { visible = e.isIntersecting; schedule(); }), { threshold: .25 }).observe(wf);
+  new ResizeObserver(() => requestAnimationFrame(draw)).observe(map);
+  setPlaying(playing);
+  draw();
+}
+
+
+/* the playbook: the page's contents are the tab list; the step strip opens the steps panel at that step;
+   the first-session checks tick in order whenever "Start a session" is shown */
+const pb = $('#ddPb');
+if (pb) {
+  const tabs = $$('[role="tab"]', pb), panels = $$('.dd-pb-panel', pb), STEPS = JSON.parse($('#ddPbSteps').textContent);
+  const checks = $('.dd-pb-checks', pb), strip = $$('.dd-pb-strip button', pb);
+  let seen = false, cur = 0;
+  const runChecks = () => { checks.classList.remove('run'); void checks.offsetWidth; checks.classList.add('run'); };
+  const show = (k, focus) => {
+    tabs.forEach(t => { const on = t.dataset.p === k; t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1; if (on && focus) t.focus(); if (on && t.scrollIntoView && pb.clientWidth < 700) t.scrollIntoView({ block: 'nearest', inline: 'nearest' }); });
+    panels.forEach(p => { const on = p.dataset.p === k; p.classList.toggle('on', on); p.inert = !on; });
+    strip.forEach((b, i) => b.classList.toggle('cur', k === 'steps' && i === cur));
+    if (k === 'session' && seen) runChecks();
+  };
+  const step = i => {
+    cur = (i + STEPS.length) % STEPS.length; const s = STEPS[cur];
+    $('.dd-pb-num', pb).textContent = String(cur + 1).padStart(2, '0');
+    $('#ddPbSName').textContent = s.n; $('#ddPbSWho').textContent = s.w; $('#ddPbSText').textContent = s.d;
+    const tag = $('#ddPbSTag'); tag.textContent = s.h ? 'Waits for a person' : 'Agent'; tag.classList.toggle('p', !!s.h);
+    show('steps');
+  };
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => show(t.dataset.p));
+    t.addEventListener('keydown', e => {
+      const d = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
+      if (d) { e.preventDefault(); show(tabs[(i + d + tabs.length) % tabs.length].dataset.p, true); }
+      if (e.key === 'Home') { e.preventDefault(); show(tabs[0].dataset.p, true); }
+      if (e.key === 'End') { e.preventDefault(); show(tabs[tabs.length - 1].dataset.p, true); }
+    });
+  });
+  strip.forEach(b => b.addEventListener('click', () => step(+b.dataset.s)));
+  $$('.dd-pb-mini', pb).forEach(b => b.addEventListener('click', () => step(cur + +b.dataset.d)));
+  $('.dd-pb-replay', pb).addEventListener('click', runChecks);
+  const copy = $('.dd-pb-copy', pb);
+  copy.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText($('#ddPbPrompt').textContent.trim()); copy.textContent = 'Copied'; copy.classList.add('ok'); }
+    catch { copy.textContent = 'Select to copy'; }
+    setTimeout(() => { copy.textContent = 'Copy'; copy.classList.remove('ok'); }, 1600);
+  });
+  new IntersectionObserver((es, io) => es.forEach(e => { if (e.isIntersecting) { seen = true; if ($('.dd-pb-panel.on', pb).dataset.p === 'session') runChecks(); io.disconnect(); } }), { threshold: .45 }).observe(pb);
+}

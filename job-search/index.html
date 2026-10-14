@@ -671,6 +671,598 @@ footer.site .foot-in{display:flex;justify-content:space-between;flex-wrap:wrap;g
 .lb-zoom svg{width:18px;height:18px}
 .lb-zoom[hidden]{display:none}
 .lb-tip{position:fixed;top:calc(env(safe-area-inset-top,0px) + 24px);left:50%;transform:translateX(-50%);font-size:13px;color:var(--ink-3)}
+
+/* ================= THE DESIGN DESK (case study) =================
+   Diagrams and charts drawn in HTML with the page's own tokens; every class starts with dd- so nothing leaks. */
+.dd-redact{font-size:14px!important;color:var(--ink-3)!important;max-width:46em;padding-left:12px;border-left:2px solid var(--line-2)}
+.dd-fig{margin:0;display:grid;gap:12px}
+.dd-fig>figcaption,.dd-small{font-size:14px;color:var(--ink-3);line-height:1.5;max-width:46em}
+.dd-small{margin-top:-8px!important}
+
+/* fourteen states drawn vs six needed */
+.dd-invent-row{display:flex;align-items:center;justify-content:center;gap:clamp(18px,4vw,48px);padding:clamp(22px,4vw,40px);border-radius:var(--r-md);background:var(--bg-2)}
+.dd-invent-set{display:grid;gap:12px;justify-items:center}
+.dd-tiles{display:grid;grid-template-columns:repeat(7,26px);gap:6px}
+.dd-invent-set.ok .dd-tiles{grid-template-columns:repeat(3,26px)}
+.dd-tiles i{height:34px;border-radius:4px;border:1.5px dashed var(--ink-3);background:transparent}
+.dd-invent-set.ok .dd-tiles i{border:1.5px solid var(--ink);background:var(--surface)}
+.dd-invent-set p{font-size:14.5px!important;color:var(--ink-2)}
+.dd-invent-set p b{font-size:20px;color:var(--ink);font-weight:600;margin-right:4px}
+.dd-vs{font-size:14px;color:var(--ink-3)}
+@media (max-width:560px){.dd-invent-row{flex-direction:column}.dd-tiles{grid-template-columns:repeat(7,22px)}.dd-tiles i{height:28px}.dd-invent-set.ok .dd-tiles{grid-template-columns:repeat(3,22px)}}
+
+/* Q3 */
+.dd-tracks .box ul{padding-left:18px;gap:8px}
+.dd-tracks .box li{font-size:15.5px;line-height:1.5}
+.dd-tracks .box .n{font-family:var(--font);font-size:13px;font-weight:500}
+.dd-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.dd-stats div{padding-top:14px;border-top:1px solid var(--ink)}
+.dd-stats b{display:block;font-size:clamp(28px,3vw,40px);font-weight:500;font-stretch:92%;letter-spacing:-.04em;line-height:1}
+.dd-stats span{display:block;margin-top:8px;font-size:14px;line-height:1.4;color:var(--ink-2)}
+@media (max-width:880px){.dd-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.dd-finds .box{display:grid;gap:4px;align-content:start}
+.dd-big{font-size:clamp(30px,3.4vw,44px);font-weight:500;font-stretch:92%;letter-spacing:-.04em;line-height:1.05;margin-bottom:10px}
+
+/* drift: hand-made files vs files generated from one record */
+.dd-drift-in{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.dd-drift-side{display:grid;gap:14px;align-content:start;padding:20px;border-radius:var(--r-md);background:var(--bg-2)}
+.dd-cap{font-size:13px;font-weight:500;color:var(--ink-3)}
+.dd-files{display:grid;gap:8px}
+.dd-file{position:relative;display:flex;align-items:center;gap:8px;padding:11px 12px;border-radius:var(--r-sm);background:var(--surface);box-shadow:0 0 0 1px var(--line)}
+.dd-file b{flex:1;font-size:14px;font-weight:500}
+.dd-file .m{width:12px;height:12px;border-radius:3px;background:var(--tint)}
+.dd-file .m.gone{background:none;border:1.5px dashed var(--bad)}
+.dd-file span{position:absolute;right:10px;top:-9px;padding:1px 7px;border-radius:999px;font-size:11.5px;font-weight:600;color:var(--bad);background:var(--surface);box-shadow:0 0 0 1px color-mix(in srgb,var(--bad) 40%,transparent)}
+.dd-file.drift{box-shadow:0 0 0 1px color-mix(in srgb,var(--bad) 45%,transparent)}
+.dd-gen{display:grid;grid-template-columns:auto 1fr;gap:0 22px;align-items:center}
+.dd-rec{position:relative;padding:12px 14px;border-radius:var(--r-sm);background:var(--ink);color:var(--on-ink);font:600 13px/1.3 ui-monospace,SFMono-Regular,Menlo,monospace}
+.dd-rec::after{content:"";position:absolute;left:100%;top:50%;width:11px;height:1.5px;background:var(--ink-3)}
+.dd-gen .dd-files{position:relative;padding-left:11px}
+.dd-gen .dd-files::before{content:"";position:absolute;left:0;top:20px;bottom:20px;width:1.5px;background:var(--ink-3)}
+.dd-gen .dd-file::before{content:"";position:absolute;right:100%;top:50%;width:11px;height:1.5px;background:var(--ink-3)}
+@media (max-width:720px){.dd-drift-in{grid-template-columns:1fr}}
+
+/* decision log */
+.dd-log summary span{display:flex;align-items:baseline;gap:14px}
+.dd-log summary em{font-style:normal;font-size:13px;font-weight:500;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.dd-dl{display:grid;grid-template-columns:120px minmax(0,1fr);gap:10px 20px;margin:0;padding-left:30px}
+.dd-dl div{display:contents}
+.dd-dl dt{font-size:14px;font-weight:500;color:var(--ink-3);padding-top:2px}
+.dd-dl dd{margin:0;font-size:16px;line-height:1.55;color:var(--ink-2)}
+.dd-dl div:last-child dd{color:var(--ink)}
+@media (max-width:640px){.dd-dl{grid-template-columns:1fr;gap:2px;padding-left:0}.dd-dl dd{margin-bottom:10px}}
+
+/* anatomy: a dark panel in both themes */
+.dd-anat-fig{--a-bg:#141413;--a-ink:#efefec;--a-2:#a9a9a4;--a-3:#7d7d78;--a-line:#34342f;--a-node:#1d1d1b}
+:root[data-theme="dark"] .dd-anat-fig{--a-bg:#1d1d1b;--a-node:#262624;--a-line:#3d3d39}
+.dd-anat{position:relative;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,2.4fr) minmax(0,.9fr);gap:clamp(18px,3vw,40px);padding:clamp(20px,3vw,36px);border-radius:var(--r-lg);background:var(--a-bg);color:var(--a-ink)}
+.dd-anat-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.dd-anat-svg path{fill:none;stroke:var(--a-line);stroke-width:1.2;opacity:.75;transition:stroke .3s,opacity .3s}
+.dd-anat-svg path.on{stroke:var(--a-ink);stroke-dasharray:4 4;animation:ddmarch 1s linear infinite}
+.dd-anat-svg path.on{opacity:1}
+.dd-anat.focus .dd-anat-svg path:not(.on){opacity:.2}
+@keyframes ddmarch{to{stroke-dashoffset:-16}}
+.dd-anat-col,.dd-anat-mid{position:relative;z-index:1;display:flex;flex-direction:column;gap:10px}
+.dd-anat-mid{justify-content:space-between;gap:28px}
+.dd-anat-h{font-size:12.5px;font-weight:500;color:var(--a-3);margin-bottom:2px}
+.dd-anat-people{display:flex;justify-content:center;gap:12px}
+.dd-anat-people .dd-n{flex:1 1 0;max-width:220px}
+.dd-anat-agents{display:grid;gap:12px}
+.dd-anat-row{position:relative;display:flex;justify-content:center;gap:10px;padding-top:18px}
+.dd-anat-row .dd-n{flex:1 1 0;max-width:180px}
+.dd-anat-tag{position:absolute;left:50%;top:0;transform:translateX(-50%);font-size:11.5px;font-weight:500;color:var(--a-3);white-space:nowrap}
+.dd-n{display:grid;gap:2px;align-content:start;padding:11px 12px;border-radius:9px;background:var(--a-node);border:1px solid var(--a-line);color:var(--a-ink);text-align:left;transition:border-color .25s,opacity .25s,background .25s}
+.dd-n b{font-size:14px;font-weight:600;letter-spacing:-.01em}
+.dd-n small{font-size:12px;line-height:1.35;color:var(--a-2)}
+.dd-n.person{border:1.5px solid var(--a-2)}
+.dd-n.desk{align-self:center;width:min(100%,420px);padding:16px 18px;border:1.5px solid var(--tint);background:color-mix(in srgb,var(--tint) 14%,var(--a-node))}
+.dd-n.desk b{font-size:17px}
+.dd-n:hover,.dd-n.on{border-color:var(--a-ink)}
+.dd-anat.focus .dd-n:not(.on):not(.near){opacity:.38}
+.dd-anat-cap{margin-top:12px!important;min-height:3.2em;font-size:15px!important;color:var(--ink-2)!important}
+.dd-anat-cap b{color:var(--ink)}
+@media (max-width:980px){
+  .dd-anat{grid-template-columns:1fr}
+  .dd-anat-svg{display:none}
+  .dd-anat-mid{order:-1}
+  .dd-anat-col{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .dd-anat-h{grid-column:1/-1}
+  .dd-anat-people .dd-n,.dd-anat-row .dd-n{max-width:none}
+}
+
+/* nine steps */
+.chap .dd-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:8px}
+.dd-steps li{display:grid;gap:2px;align-content:start;padding:12px 10px;border-radius:var(--r-sm);background:var(--bg-2);border:1px solid transparent}
+.dd-steps em{font-style:normal;font-size:12px;font-weight:500;color:var(--ink-3)}
+.dd-steps b{font-size:14.5px;font-weight:600}
+.dd-steps small{font-size:12px;line-height:1.35;color:var(--ink-3)}
+.dd-steps li.gate{background:var(--surface);border:1.5px solid var(--ink)}
+.dd-steps li.script{background:none;border:1.5px dashed var(--ink-3)}
+@media (max-width:980px){.chap .dd-steps{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:480px){.chap .dd-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.dd-legend{display:flex;align-items:center;flex-wrap:wrap;gap:6px 8px;margin-top:-8px!important;font-size:13.5px!important;color:var(--ink-3)!important}
+.dd-legend span{display:inline-block;width:16px;height:12px;border-radius:3px;margin-left:10px}
+.dd-legend span:first-child{margin-left:0}
+.dd-legend .g{border:1.5px solid var(--ink);background:var(--surface)}
+.dd-legend .s{border:1.5px dashed var(--ink-3)}
+
+/* the desk's chat, redrawn */
+.dd-chat{border-radius:14px;background:var(--surface);box-shadow:0 0 0 1px var(--line),var(--shadow);overflow:hidden;max-width:760px}
+.dd-chat-bar{display:flex;align-items:center;gap:6px;padding:11px 14px;border-bottom:1px solid var(--line);background:var(--bg-2)}
+.dd-chat-bar i{width:10px;height:10px;border-radius:50%;background:var(--line-2)}
+.dd-chat-bar span{margin-left:10px;font-size:13px;font-weight:500;color:var(--ink-2)}
+.dd-chat-body{display:grid;gap:16px;padding:clamp(16px,3vw,26px)}
+.dd-msg.me{justify-self:end;padding:9px 14px;border-radius:14px;background:var(--bg-2);font:500 13.5px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace}
+.dd-msg.ai{display:grid;gap:10px}
+.dd-msg.ai p{font-size:15.5px!important;line-height:1.6;color:var(--ink)!important;max-width:none}
+.dd-msg.ai .dd-prog{justify-self:start;padding:8px 12px;border-radius:9px;background:var(--bg-2);font:500 12.5px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace!important;color:var(--ink-2)!important}
+.dd-prog b{font-weight:600;color:var(--ink)}
+.dd-prog s{text-decoration:none;color:var(--good);font-weight:700}
+.dd-prog u{text-decoration:none;color:var(--tint);font-weight:700}
+.dd-prog q{quotes:none;color:var(--ink-3)}
+.dd-tools{display:flex;flex-wrap:wrap;gap:6px}
+.dd-tools span{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;font-size:12.5px;color:var(--ink-2);box-shadow:inset 0 0 0 1px var(--line-2)}
+.dd-tools span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--good)}
+.dd-ask{display:grid;gap:8px;padding:16px;border-radius:12px;background:var(--bg-2)}
+.dd-ask-h{justify-self:start;padding:2px 8px;border-radius:6px;font-size:12px;font-weight:600;background:var(--surface);color:var(--ink-2)}
+.dd-ask p{font-size:16px!important;font-weight:600;color:var(--ink)!important}
+.dd-opt{display:grid;gap:2px;padding:10px 12px;border-radius:10px;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line)}
+.dd-opt b{font-size:14.5px;font-weight:500}
+.dd-opt b em{font-style:normal;color:var(--ink-3);font-weight:400}
+.dd-opt small{font-size:13px;color:var(--ink-3)}
+.dd-opt.on{box-shadow:inset 0 0 0 1.5px var(--ink)}
+
+/* one record, five files */
+.dd-rec-fig{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(16px,3vw,32px);align-items:start}
+.dd-code{margin:0;padding:18px 20px;border-radius:var(--r-md);background:#141413;color:#e7e7e2;font:500 12.5px/1.65 ui-monospace,SFMono-Regular,Menlo,monospace;overflow-x:auto;tab-size:2}
+:root[data-theme="dark"] .dd-code{background:#1d1d1b;box-shadow:0 0 0 1px #34342f}
+.dd-code .tk{color:#e8b08f}.dd-code .ts{color:#a8d0a0}.dd-code .tc{color:#8d8d88;font-style:italic}.dd-code .tn{color:#e8b08f}.dd-code .tp{color:#b4b4ae}
+.dd-files-out{list-style:none;margin:0;padding:0!important;display:grid;gap:8px}
+.dd-files-out li{display:grid;grid-template-columns:112px minmax(0,1fr);gap:14px;align-items:center;padding:8px;border-radius:var(--r-sm);background:var(--bg-2)}
+.dd-files-out img{width:112px;height:84px;object-fit:cover;object-position:top left;border-radius:5px;box-shadow:0 0 0 1px var(--line)}
+.dd-files-out b{display:block;font-size:15px;font-weight:600}
+.dd-files-out small{display:block;font-size:13px;line-height:1.4;color:var(--ink-3)}
+@media (max-width:880px){.dd-rec-fig{grid-template-columns:1fr}}
+
+/* the checker */
+.dd-chk{display:grid;gap:18px}
+.dd-tiles3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.dd-tiles3 div{padding:16px;border-radius:var(--r-md);background:var(--bg-2)}
+.dd-tiles3 b{display:block;font-size:clamp(30px,3.4vw,42px);font-weight:500;font-stretch:92%;letter-spacing:-.04em;line-height:1}
+.dd-tiles3 span{display:block;margin-top:8px;font-size:14px;line-height:1.4;color:var(--ink-2)}
+@media (max-width:560px){.dd-tiles3{grid-template-columns:1fr}}
+.dd-chart{position:relative;margin:0;display:grid;gap:16px;padding:clamp(16px,2.6vw,26px);border-radius:var(--r-md);box-shadow:inset 0 0 0 1px var(--line)}
+.dd-chart>figcaption{display:grid;gap:2px}
+.dd-chart>figcaption b{font-size:16px;font-weight:600;color:var(--ink)}
+.dd-chart>figcaption span{font-size:13.5px;color:var(--ink-3)}
+.dd-bars{display:grid;gap:10px;--max:19}
+.dd-bar{display:grid;grid-template-columns:minmax(120px,240px) minmax(0,1fr) 34px;gap:14px;align-items:center;border-radius:6px;outline-offset:4px}
+.dd-bar .l{font-size:14px;color:var(--ink-2);line-height:1.3}
+.dd-bar .t{height:16px;display:flex;align-items:center}
+.dd-bar .t i{display:block;height:16px;width:calc(var(--v) / var(--max) * 100%);border-radius:0 4px 4px 0;background:var(--ink-3);transition:filter .2s,box-shadow .2s}
+.dd-bar:first-child .t i{background:var(--tint)}
+.dd-bar b{font-size:14px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+.dd-bar:hover .t i,.dd-bar:focus-visible .t i{box-shadow:0 0 0 2px var(--bg),0 0 0 3.5px var(--ink-2)}
+@media (max-width:560px){.dd-bar{grid-template-columns:1fr 30px;gap:4px 10px}.dd-bar .l{grid-column:1/-1}}
+.dd-cols{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));align-items:end;height:220px;--max:17;border-bottom:1px solid var(--line-2);padding-top:22px}
+.dd-colb{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;outline-offset:2px;border-radius:6px}
+.dd-colb .t{display:flex;align-items:flex-end;justify-content:center;width:100%;height:calc(100% - 22px)}
+.dd-colb .t i{display:block;width:22px;height:max(2px,calc(var(--v) / var(--max) * 100%));border-radius:4px 4px 0 0;background:var(--ink-3);transition:box-shadow .2s}
+.dd-colb.hi .t i{background:var(--tint)}
+.dd-colb b{position:absolute;bottom:calc((100% - 22px) * var(--v) / var(--max) + 4px);font-size:13px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+.dd-colb .l{position:absolute;top:100%;margin-top:8px;font-size:12.5px;color:var(--ink-3);white-space:nowrap}
+.dd-colb:hover .t i,.dd-colb:focus-visible .t i{box-shadow:0 0 0 2px var(--bg),0 0 0 3.5px var(--ink-2)}
+.dd-col .dd-table{margin-top:26px}
+.dd-tip{position:absolute;z-index:3;pointer-events:none;padding:7px 10px;border-radius:8px;background:var(--surface);box-shadow:0 0 0 1px var(--line),var(--shadow);font-size:13px;line-height:1.35;white-space:nowrap;opacity:0;transform:translateY(4px);transition:opacity .15s,transform .15s}
+.dd-tip.on{opacity:1;transform:none}
+.dd-tip b{display:block;font-size:15px;font-weight:600;color:var(--ink)}
+.dd-tip span{color:var(--ink-3)}
+.dd-table summary{cursor:pointer;font-size:13.5px;color:var(--ink-3);width:max-content}
+.dd-table summary:hover{color:var(--ink)}
+.dd-table table{margin-top:10px;border-collapse:collapse;font-size:14px}
+.dd-table th,.dd-table td{padding:6px 18px 6px 0;text-align:left;border-bottom:1px solid var(--line)}
+.dd-table th{font-weight:500;color:var(--ink-3)}
+.dd-table td:last-child{font-variant-numeric:tabular-nums}
+.dd-quotes{list-style:none;padding:0!important;display:grid;gap:8px}
+.dd-quotes li{display:grid;grid-template-columns:170px minmax(0,1fr);gap:14px;padding:12px 14px;border-radius:var(--r-sm);background:var(--bg-2);font-size:15.5px!important;line-height:1.5}
+.dd-quotes span{font-size:13px;font-weight:500;color:var(--ink-3);padding-top:2px}
+@media (max-width:640px){.dd-quotes li{grid-template-columns:1fr;gap:2px}}
+
+/* stories built on stories */
+.dd-stack{list-style:none;margin:0;padding:clamp(18px,3vw,28px)!important;display:grid;gap:10px;border-radius:var(--r-md);background:var(--bg-2);counter-reset:s}
+.dd-stack li{position:relative;display:flex;justify-content:space-between;align-items:baseline;gap:12px;max-width:520px;padding:12px 14px;border-radius:var(--r-sm);background:var(--surface);box-shadow:0 0 0 1px var(--line)}
+.dd-stack li:nth-child(2){margin-left:min(6%,40px)}.dd-stack li:nth-child(3){margin-left:min(12%,80px)}.dd-stack li:nth-child(4){margin-left:min(18%,120px)}.dd-stack li:nth-child(5){margin-left:min(24%,160px)}
+.dd-stack li+li::before{content:"";position:absolute;left:18px;bottom:100%;width:1.5px;height:10px;background:var(--ink-3)}
+.dd-stack b{font-size:15px;font-weight:500}
+.dd-stack small{flex:none;font:500 12px/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--ink-3)}
+
+/* bugs that became checks */
+.dd-hard .mbar .v{font-size:26px}
+.outcome .big.dd-w{font-size:clamp(40px,5vw,66px);letter-spacing:-.045em}
+/* home: the Process section's link to this case */
+.wf-more{margin-top:12px;font-size:15px}
+.wf-more a{font-weight:600;color:var(--ink);text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:.2em;transition:text-decoration-color .2s}
+.wf-more a:hover{text-decoration-color:var(--ink)}
+
+/* the film at the top of the case */
+.dd-film{margin:0;display:grid;gap:12px}
+.dd-film-frame{position:relative;aspect-ratio:16/9;border-radius:var(--r-lg);overflow:hidden;background:#0b0b0a;box-shadow:0 0 0 1px var(--line),var(--shadow)}
+.dd-film video{display:block;width:100%;height:100%;object-fit:cover}
+.dd-play{position:absolute;left:24px;bottom:24px;display:flex;align-items:center;gap:12px;padding:10px 18px 10px 10px;border-radius:999px;background:rgba(252,252,251,.94);color:#121212;box-shadow:0 12px 30px -12px rgba(0,0,0,.5);transition:transform .3s var(--ease),opacity .3s}
+.dd-play:hover{transform:scale(1.04)}
+.dd-play svg{width:40px;height:40px;padding:10px;border-radius:50%;background:#121212;color:#fff}
+.dd-play span{display:grid;font-size:16px;font-weight:600;line-height:1.2}
+.dd-play small{font-size:13px;font-weight:500;color:#6c6c69}
+.dd-film.playing .dd-play{opacity:0;pointer-events:none}
+.dd-film figcaption{font-size:14px;color:var(--ink-3);max-width:46em}
+.dd-film figcaption b{color:var(--ink);font-weight:600}
+@media (max-width:560px){.dd-play{left:12px;bottom:12px;padding:6px 14px 6px 6px}.dd-play svg{width:32px;height:32px;padding:8px}.dd-play span{font-size:14px}}
+
+
+/* the step-by-step map, moved here from the home page. Laid out by the width it gets, not the window's */
+.dd-wfwrap{container:wf/inline-size}
+.case .wf :where(p,li,h3){font-size:inherit;line-height:inherit;color:inherit;max-width:none;margin:0}
+.case .wf :where(ul,ol){padding-left:0;margin:0}
+@container wf (min-width:700px) and (max-width:979px){
+  .case .wf{display:grid;grid-template-columns:270px minmax(0,1fr);column-gap:14px;align-items:start}
+  .case .wm-head,.case .wf-foot{grid-column:1/-1}
+  .case .wm{grid-column:1;grid-row:2;padding-top:12px}
+  .case .wm-places{grid-column:1;grid-row:3;grid-template-columns:1fr;margin-top:10px}
+  .case .wf-stage{grid-column:2;grid-row:2/4;margin-top:12px}
+  .case .wf-p{padding:26px}
+}
+/* workflow: a swimlane map of the nine steps (who does each one), and below it the chosen step up close.
+   The map is the tab list; the detail panel is the tab panel. */
+.case .wf{border-radius:var(--r-lg);background:var(--bg-2);padding:clamp(10px,1.4vw,18px)}
+.case .wm-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px 20px;padding:6px 6px 0}
+.case .wm-head b{font-size:15px;font-weight:600}
+.case .wm-key{display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-size:13px;color:var(--ink-3)}
+.case .wm-key i{display:inline-block;width:14px;height:10px;border-radius:3px;margin-left:8px;background:var(--surface);border:1px solid var(--line-2)}
+.case .wm-key i:first-child{margin-left:0}
+.case .wm-key .kp{border:1.5px solid var(--ink)}
+.case .wm-key .ks{border-style:dashed;border-color:var(--ink-3)}
+.case .wm{position:relative;display:grid;grid-template-columns:62px repeat(9,minmax(0,1fr));grid-template-rows:repeat(3,auto);column-gap:26px;row-gap:12px;padding:42px 6px 50px}
+.case .wm-lane{grid-column:1/-1;grid-row:var(--r);margin:-6px -6px;border-radius:8px;background:color-mix(in srgb,var(--surface) 45%,transparent);display:flex;align-items:center;padding-left:10px}
+.case .wm-lane span{font-size:12.5px;font-weight:500;color:var(--ink-3)}
+.case .wm-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:1}
+.case .wm-svg path{fill:none;stroke:var(--ink-3);stroke-width:1.3;opacity:.55;transition:opacity .35s,stroke .35s}
+.case .wm-svg path.loop{stroke-dasharray:3 4}
+.case .wm-svg path.on{stroke:var(--ink);opacity:1;stroke-dasharray:4 4;animation:march 1s linear infinite}
+.case .wm-svg marker path{stroke:var(--ink-3);opacity:1;stroke-dasharray:none;animation:none}
+@keyframes march{to{stroke-dashoffset:-16}}
+.case .wm-labels{position:absolute;inset:0;pointer-events:none;z-index:1}
+.case .wm-labels span{position:absolute;transform:translate(-50%,-50%);padding:1px 7px;border-radius:4px;background:var(--bg-2);font-size:12px;color:var(--ink-3);white-space:nowrap;transition:color .3s}
+.case .wm-labels span.on{color:var(--ink)}
+.case .wm-n{position:relative;z-index:2;grid-column:var(--c);grid-row:var(--r);display:flex;flex-direction:column;gap:1px;min-height:86px;padding:9px 10px 13px;border-radius:8px;background:var(--surface);border:1px solid var(--line-2);color:var(--ink);overflow:hidden;transition:background .3s,color .3s,border-color .3s,transform .3s var(--ease)}
+.case .wm-n.pp{border:1.5px solid var(--ink)}
+.case .wm-n.sc{border-style:dashed;border-color:var(--ink-3)}
+.case .wm-num{font-size:12px;font-weight:500;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.case .wm-n b{font-size:14px;font-weight:600;letter-spacing:-.01em;line-height:1.25}
+.case .wm-n small{font-size:12px;line-height:1.3;color:var(--ink-3)}
+.case .wm-loopnote{display:none}
+.case .wm-n:hover{transform:translateY(-1px)}
+.case .wm-n.on{background:var(--ink);border-color:var(--ink);color:var(--on-ink)}
+.case .wm-n.on .wm-num,.case .wm-n.on small{color:var(--on-ink);opacity:.7}
+.case .wm-bar{position:absolute;left:10px;right:10px;bottom:6px;height:2px;border-radius:2px;background:color-mix(in srgb,var(--on-ink) 25%,transparent);opacity:0}
+.case .wm-bar::after{content:"";position:absolute;inset:0;width:0;border-radius:inherit;background:var(--on-ink)}
+.case .wf:not(.stopped) .wm-n.on .wm-bar{opacity:1}
+.case .wf:not(.stopped) .wm-n.on .wm-bar::after{animation:qbar var(--wf-dur,8s) linear forwards}
+.case .wf.paused .wm-n.on .wm-bar::after{animation-play-state:paused}
+.case .wm-places{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:2px}
+.case .wm-places div{display:grid;gap:2px;padding:12px 14px;border-radius:var(--r-sm);border:1px solid var(--line);font-size:13.5px;line-height:1.45;color:var(--ink-2)}
+.case .wm-places b{font-size:13.5px;font-weight:600;color:var(--ink)}
+/* the chosen step up close */
+.case .wf-stage{display:grid;margin-top:clamp(10px,1.2vw,14px);border-radius:var(--r-md);background:var(--surface);box-shadow:0 0 0 1px var(--line)}
+.case .wf-p{grid-area:1/1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(24px,4vw,64px);align-items:center;padding:clamp(22px,3.4vw,48px);transition:opacity .45s var(--ease)}
+.case .wf-p:not(.on){opacity:0;visibility:hidden;pointer-events:none}
+.case .wf-kick{display:block;margin-bottom:10px;font-size:13px;font-weight:500;color:var(--ink-3)}
+.case .wf-txt h3{font-size:clamp(22px,2.2vw,30px);font-weight:600;letter-spacing:-.025em;line-height:1.15;max-width:16em}
+.case .wf-txt>p{margin-top:14px;color:var(--ink-2);max-width:34em}
+.case .wf-io{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0 0;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.case .wf-io dt{font-size:12.5px;font-weight:500;color:var(--ink-3)}
+.case .wf-io dd{margin:2px 0 0;font-size:15px;font-weight:500;line-height:1.35}
+.case .wf-rule{margin-top:18px;font-size:clamp(17px,1.5vw,20px);font-weight:500;letter-spacing:-.015em;line-height:1.35}
+.case .wf-rule span{display:block;margin-bottom:4px;font-size:12.5px;font-weight:500;letter-spacing:.01em;color:var(--ink-3)}
+/* sketches of each step's real output, drawn with the page's own tokens */
+.case .wf-art{padding:clamp(16px,1.8vw,22px);border-radius:var(--r-md);background:var(--bg-2);font-size:14px}
+.case .art-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:14px}
+.case .art-h b{font-weight:600}
+.case .art-h span{font-size:12.5px;color:var(--ink-3)}
+.case .art-note{margin-top:14px;font-size:13px;line-height:1.45;color:var(--ink-2)}
+.case .art-note b{color:var(--ink);font-weight:600}
+.case .art-note code,.case .cl code{font:500 12px/1 ui-monospace,SFMono-Regular,Menlo,monospace;padding:3px 6px;border-radius:4px;background:var(--surface);color:var(--ink);margin-right:2px}
+.case .cl{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.case .cl li{display:grid;grid-template-columns:62px minmax(0,1fr);gap:2px 12px;align-items:center;padding:10px 12px;border-radius:var(--r-sm);background:var(--surface)}
+.case .cl span{font-weight:500;line-height:1.3}
+.case .cl small{grid-column:2;font-size:12.5px;color:var(--ink-3)}
+.case .tg{grid-row:span 2;justify-self:start;padding:3px 7px;border-radius:5px;font-style:normal;font-size:12px;font-weight:600;border:1px solid transparent}
+.case .tg.add{color:var(--good);background:color-mix(in srgb,var(--good) 12%,transparent)}
+.case .tg.mod{color:var(--ink);background:var(--bg-3)}
+.case .tg.dec{color:var(--ink);border:1px dashed var(--ink-3)}
+.case .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}
+.case .stats div{padding:10px 12px;border-radius:var(--r-sm);border:1px solid var(--line-2)}
+.case .stats b{display:block;font-size:20px;font-weight:600;letter-spacing:-.02em}
+.case .stats span{display:block;font-size:12px;line-height:1.3;color:var(--ink-3)}
+.case .dq{font-size:17px;font-weight:500;letter-spacing:-.01em;line-height:1.35;padding:12px 14px;border-radius:var(--r-sm);background:var(--surface)}
+.case .opts{display:grid;gap:6px;margin-top:8px}
+.case .opt{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border-radius:var(--r-sm);border:1px solid var(--line-2)}
+.case .opt i{flex:none;width:16px;height:16px;margin-top:2px;border-radius:50%;border:1.5px solid var(--ink-3)}
+.case .opt.on{border-color:var(--ink);background:var(--surface)}
+.case .opt.on i{border:5px solid var(--ink)}
+.case .opt b{display:block;font-weight:500;line-height:1.3}
+.case .opt small{display:block;font-size:12.5px;color:var(--ink-3)}
+.case .split3{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}
+.case .split3 div{padding:8px 10px;border-radius:var(--r-sm);border:1px solid var(--line-2)}
+.case .split3 b{display:block;font-size:18px;font-weight:600;letter-spacing:-.02em}
+.case .split3 span{display:block;font-size:12px;line-height:1.3;color:var(--ink-3)}
+.case .pm-ws small{font-size:12.5px;color:var(--ink-3);margin-top:-4px}
+.case .cv{border-radius:var(--r-sm);background:var(--surface);box-shadow:0 0 0 1px var(--line);overflow:hidden}
+.case .cv-top{display:flex;justify-content:space-between;gap:10px;padding:10px 12px;border-bottom:1px solid var(--line);font-size:13px}
+.case .cv-top b{font-weight:600}.case .cv-top span{color:var(--ink-3)}
+.case .cv-area{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:18px 14px;background-image:radial-gradient(var(--line-2) 1px,transparent 1px);background-size:12px 12px}
+.case .cv-b{display:grid;gap:6px}
+.case .cv-b span{font-size:11.5px;font-weight:500;color:var(--ink-2)}
+.case .cv-b .mini{display:grid;gap:5px;padding:10px;border-radius:6px;background:var(--surface);box-shadow:0 0 0 1px var(--line-2)}
+.case .cv-b .mini i{height:7px;border-radius:3px;background:var(--bg-3)}
+.case .cv-b .mini i:first-child{width:50%;height:10px;background:var(--line-2)}
+.case .cv-b .mini i:last-child{width:70%}
+.case .cv-b.frozen .mini{background:var(--bg-2);box-shadow:0 0 0 1px var(--line-2),inset 0 0 0 999px color-mix(in srgb,var(--bg-2) 30%,transparent)}
+.case .cv-b.frozen span::before{content:"";display:inline-block;width:7px;height:7px;margin-right:6px;border-radius:2px;background:var(--ink-3)}
+.case .ds{display:flex;flex-wrap:wrap;gap:6px;padding:10px 12px;border-top:1px solid var(--line)}
+.case .ds span{padding:4px 9px;border-radius:999px;font-size:12px;background:var(--bg-2);color:var(--ink-2)}
+.case .win{border-radius:var(--r-sm);background:var(--surface);box-shadow:0 0 0 1px var(--line);overflow:hidden}
+.case .win-bar{display:flex;align-items:center;gap:5px;padding:9px 12px;border-bottom:1px solid var(--line)}
+.case .win-bar i{width:8px;height:8px;border-radius:50%;background:var(--line-2)}
+.case .win-bar span{margin-left:8px;font-size:12px;color:var(--ink-3)}
+.case .win-states{display:flex;flex-wrap:wrap;gap:4px;padding:10px 12px 0}
+.case .win-states span{padding:4px 9px;border-radius:6px;font-size:12px;color:var(--ink-3);background:var(--bg-2)}
+.case .win-states span.on{background:var(--ink);color:var(--on-ink)}
+.case .win-body{display:grid;gap:8px;padding:14px 12px 16px}
+.case .sk{height:8px;border-radius:4px;background:var(--bg-3)}
+.case .sk-h{height:13px;width:45%;background:var(--line-2)}
+.case .sk-s{width:60%;margin-top:5px}
+.case .lrow{display:grid;grid-template-columns:22px 1fr auto;gap:10px;align-items:center;padding:9px 10px;border-radius:6px;box-shadow:0 0 0 1px var(--line)}
+.case .lrow>i{width:22px;height:22px;border-radius:6px;background:var(--bg-3)}
+.case .lrow b{font-size:11.5px;font-weight:500;padding:2px 7px;border-radius:999px;background:var(--bg-2);color:var(--ink-2)}
+.case .lrow.dashed{display:block;box-shadow:none;border:1px dashed var(--ink-3);font-size:12px;font-weight:500;color:var(--ink-2)}
+.case .fan{display:grid;grid-template-columns:auto 1fr;gap:0 26px;align-items:center}
+.case .fan-src{position:relative;padding:12px 14px;border-radius:var(--r-sm);background:var(--ink);color:var(--on-ink)}
+.case .fan-src b{display:block;font:600 13px/1.3 ui-monospace,SFMono-Regular,Menlo,monospace}
+.case .fan-src small{display:block;margin-top:6px;font-size:12px;line-height:1.45;opacity:.72}
+.case .fan-src::after{content:"";position:absolute;left:100%;top:50%;width:13px;height:1.5px;background:var(--ink-3)}
+.case .fan-out{position:relative;list-style:none;margin:0;padding:0 0 0 14px;display:grid;gap:6px}
+.case .fan-out::before{content:"";position:absolute;left:0;top:20px;bottom:20px;width:1.5px;background:var(--ink-3)}
+.case .fan-out li{position:relative;display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:9px 12px;border-radius:var(--r-sm);background:var(--surface);font-weight:500}
+.case .fan-out li::before{content:"";position:absolute;right:100%;top:50%;width:14px;height:1.5px;background:var(--ink-3)}
+.case .fan-out small{font-size:12px;font-weight:400;color:var(--ink-3)}
+.case .ok-dot{display:inline-block;width:8px;height:8px;margin-right:8px;border-radius:50%;background:var(--good)}
+.case .chk{list-style:none;counter-reset:c;margin:0;padding:0;display:grid;gap:6px}
+.case .chk li{counter-increment:c;position:relative;display:grid;gap:2px;padding:10px 12px 10px 42px;border-radius:var(--r-sm);border:1px solid var(--line-2)}
+.case .chk li::before{content:counter(c);position:absolute;left:12px;top:11px;width:20px;height:20px;display:grid;place-items:center;border-radius:50%;background:var(--surface);box-shadow:0 0 0 1px var(--line-2);font-size:11.5px;font-weight:600;color:var(--ink-2)}
+.case .chk b{font-weight:600}
+.case .chk span{font-size:12.5px;color:var(--ink-3);line-height:1.35}
+.case .chk li.on{background:var(--surface);border-color:var(--ink)}
+.case .chk li.on::before{background:var(--ink);color:var(--on-ink);box-shadow:none}
+.case .chk li.on span{color:var(--ink-2)}
+.case .rounds{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.case .rounds li{display:grid;grid-template-columns:auto 1fr;gap:12px;padding:12px;border-radius:var(--r-sm);background:var(--surface)}
+.case .rid{font:600 12px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--ink-3)}
+.case .rounds p{font-weight:500;line-height:1.35}
+.case .rounds small{display:block;margin-top:6px;font-size:12.5px;line-height:1.4;color:var(--ink-2)}
+.case .rounds small i{font-style:normal;font-weight:600;color:var(--good);margin-right:6px}
+.case .card{padding:14px;border-radius:var(--r-sm);background:var(--surface);box-shadow:0 0 0 1px var(--line)}
+.case .card-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.case .card-top b{font-weight:600}
+.case .badge{padding:3px 9px;border-radius:999px;font-size:12px;font-weight:600;background:var(--ink);color:var(--on-ink)}
+.case .dots9{list-style:none;margin:14px 0 0;padding:0;display:grid;grid-template-columns:repeat(9,1fr);gap:4px}
+.case .dots9 li{height:5px;border-radius:3px;background:var(--ink)}
+.case .dots9 li.now{background:none;box-shadow:inset 0 0 0 1.5px var(--ink)}
+.case .dots9 li.now~li{background:var(--line-2)}
+.case .kv{display:grid;gap:0;margin:14px 0 0}
+.case .kv div{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-top:1px solid var(--line);font-size:13px}
+.case .kv dt{color:var(--ink-3)}.case .kv dd{margin:0;font-weight:500}
+.case .card-btns{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.case .card-btns span{padding:7px 12px;border-radius:7px;font-size:13px;font-weight:500}
+.case .card-btns .b1{background:var(--ink);color:var(--on-ink)}
+.case .card-btns .b2{box-shadow:inset 0 0 0 1px var(--line-2)}
+.case .promo{display:grid;grid-template-columns:auto 1fr;gap:0 26px;align-items:center}
+.case .pm-ws{position:relative;display:grid;gap:6px;padding:12px 14px;border-radius:var(--r-sm);background:var(--surface);box-shadow:0 0 0 1px var(--line)}
+.case .pm-ws b{font-weight:600;font-size:13.5px}
+.case .pm-ws span{justify-self:start;padding:2px 8px;border-radius:999px;font-size:11.5px;font-weight:600;background:var(--bg-3);color:var(--ink-2)}
+.case .pm-ws::after{content:"";position:absolute;left:100%;top:50%;width:13px;height:1.5px;background:var(--ink-3)}
+.case .pm-to{position:relative;list-style:none;margin:0;padding:0 0 0 14px;display:grid;gap:6px}
+.case .pm-to::before{content:"";position:absolute;left:0;top:22px;bottom:22px;width:1.5px;background:var(--ink-3)}
+.case .pm-to li{position:relative;display:grid;padding:10px 12px;border-radius:var(--r-sm);background:var(--surface)}
+.case .pm-to li::before{content:"";position:absolute;right:100%;top:50%;width:14px;height:1.5px;background:var(--ink-3)}
+.case .pm-to b{font-weight:600}.case .pm-to small{font-size:12.5px;color:var(--ink-3)}
+.case .wf-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:12px 6px 2px}
+.case .wf-nav{display:flex;align-items:center;gap:6px}
+.case .wf-cap{display:inline-flex;align-items:baseline;gap:10px;margin-left:8px;font-size:15px;font-weight:500}
+.case .wf-cap b{font-size:13px;font-weight:500;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.case .wf-btn{flex:none;display:grid;place-items:center;width:32px;height:32px;border-radius:8px;background:var(--surface);border:1px solid var(--line);color:var(--ink-2);transition:border-color .2s,color .2s}
+.case .wf-btn:hover{border-color:var(--line-2);color:var(--ink)}
+.case .wf-btn svg{width:15px;height:15px}
+.case .wf-play svg{width:11px;height:11px}
+.case .wf-play .i-play{display:none}.case .wf-play.paused .i-play{display:block}.case .wf-play.paused .i-pause{display:none}
+.case .wf-v2{margin-top:18px;max-width:52em;font-size:15px;line-height:1.55;color:var(--ink-2)}
+.case .wf-v2 b{color:var(--ink);font-weight:600}
+/* below desktop the map becomes a vertical list, the lanes become a tag on each step */
+@container wf (max-width:979px){
+  .case .wm{grid-template-columns:1fr;grid-template-rows:none;row-gap:6px;padding:16px 0 4px 36px}
+  .case .wm::before{content:"";position:absolute;left:13px;top:30px;bottom:30px;width:1.5px;background:var(--line-2)}
+  .case .wm-lane,.case .wm-svg,.case .wm-labels{display:none}
+  .case .wm-n{grid-column:auto;grid-row:auto;display:grid;grid-template-columns:1fr auto;align-items:center;gap:0 10px;min-height:0;padding:10px 12px 12px}
+  .case .wm-n:hover{transform:none}
+  .case .wm-num{position:absolute;left:-36px;top:50%;transform:translateY(-50%);width:27px;height:27px;display:grid;place-items:center;border-radius:50%;background:var(--bg-2);border:1px solid var(--line-2);font-size:11.5px}
+  .case .wm-n{overflow:visible}
+  .case .wm-n.on .wm-num{opacity:1;background:var(--ink);color:var(--on-ink);border-color:var(--ink)}
+  .case .wm-n b{grid-column:1}
+  .case .wm-n small{grid-column:1}
+  .case .wm-loopnote{display:block;grid-column:1;margin-top:4px;font-size:12px;color:var(--ink-3)}
+  .case .wm-n.on .wm-loopnote{color:var(--on-ink);opacity:.7}
+  .case .wm-n::after{grid-column:2;grid-row:1/span 3;font-size:11.5px;font-weight:500;padding:2px 8px;border-radius:999px;background:var(--bg-2);color:var(--ink-3)}
+  .case .wm-n.ag::after{content:"Agent"}.case .wm-n.pp::after{content:"Person"}.case .wm-n.sc::after{content:"Script"}
+  .case .wm-n.on::after{background:color-mix(in srgb,var(--on-ink) 16%,transparent);color:var(--on-ink)}
+  .case .wm-bar{bottom:5px}
+  .case .wf-p{grid-template-columns:1fr;align-items:start}
+}
+@media (max-width:640px){
+  .case .wm-places{grid-template-columns:1fr}
+  .case .wf-io{grid-template-columns:1fr}
+  .case .wf-p{padding:20px 16px}
+  .case .stats{grid-template-columns:1fr 1fr 1fr}
+  .case .fan,.case .promo{grid-template-columns:1fr;gap:12px}
+  .case .fan-src::after,.case .pm-ws::after{display:none}
+  .case .wf-foot{position:sticky;bottom:calc(env(safe-area-inset-bottom,0px) + 10px);z-index:5;margin-top:12px;padding:8px;border-radius:10px;background:var(--surface);border:1px solid var(--line)}
+  .case .wf-cap{font-size:14px}
+}
+
+
+/* the playbook: the page is the tab list, the panel beside it shows the section; the step strip opens the steps panel */
+.dd-pb-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:14px;padding:clamp(14px,2.4vw,24px);border-radius:var(--r-md);background:var(--bg-2)}
+.dd-pb-page{display:grid;align-content:start;gap:10px;padding:22px 18px 16px 22px;border-radius:12px;background:var(--surface);box-shadow:0 0 0 1px var(--line),0 18px 40px -28px rgba(18,18,18,.35)}
+.dd-pb-page small{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.dd-pb-page>b{font-size:21px;line-height:1.15;font-weight:650;letter-spacing:-.01em;color:var(--ink)}
+.case .dd-pb-page>p,.dd-pb-page>p{margin:0;max-width:none;font-size:13.5px;line-height:1.5;color:var(--ink-2)}
+.dd-pb-toc{display:grid;margin-top:6px}
+.dd-pb-toc button{all:unset;box-sizing:border-box;display:grid;grid-template-columns:22px 1fr 14px;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;font-size:13.5px;color:var(--ink-2);cursor:pointer;transition:background .2s,color .2s}
+.dd-pb-toc button b{font-size:11px;font-weight:500;color:var(--ink-3)}
+.dd-pb-toc button svg{width:14px;height:14px;opacity:0;transform:translateX(-4px);transition:opacity .2s,transform .2s}
+.dd-pb-toc button:hover{background:var(--bg-2);color:var(--ink)}
+.dd-pb-toc button:hover svg{opacity:.5;transform:none}
+.dd-pb-toc button:focus-visible{outline:2px solid var(--ink);outline-offset:1px}
+.dd-pb-toc button[aria-selected="true"]{background:var(--ink);color:var(--on-ink);font-weight:550}
+.dd-pb-toc button[aria-selected="true"] b{color:inherit;opacity:.6}
+.dd-pb-toc button[aria-selected="true"] svg{opacity:.8;transform:none}
+.dd-pb-panels{display:grid;min-width:0}
+.dd-pb-panel{grid-area:1/1;display:grid;gap:12px;align-content:start;min-width:0;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .3s,transform .35s var(--ease,ease),visibility 0s .3s}
+.dd-pb-panel.on{opacity:1;visibility:visible;transform:none;transition:opacity .3s,transform .35s var(--ease,ease),visibility 0s}
+.dd-pb-h{font-size:12px;color:var(--ink-3)}
+.dd-pb-card,.dd-pb-place,.dd-pb-step,.dd-pb-checks,.dd-pb-rows li,.dd-pb-three>div,.dd-pb-tree{background:var(--surface);box-shadow:0 0 0 1px var(--line)}
+.case .dd-pb p,.dd-pb p{margin:0;max-width:none}
+.case .dd-pb ul,.dd-pb ul,.case .dd-pb ol,.dd-pb ol{list-style:none;margin:0;padding:0}
+.case .dd-pb li,.dd-pb li{margin:0;padding-left:0}
+.dd-pb li::before{content:none}
+/* places */
+.dd-pb-two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.dd-pb-place{display:grid;gap:6px;align-content:start;padding:16px;border-radius:12px}
+.dd-pb-place small{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase}
+.dd-pb-place.g small{color:#a0601a}
+.dd-pb-place.a small{color:#3c5bb5}
+.dd-pb-place b{font-size:14.5px;font-weight:600;color:var(--ink);line-height:1.3}
+.dd-pb-place p{font-size:13.5px;line-height:1.5;color:var(--ink-2)}
+.dd-pb-rule{display:flex;gap:10px;align-items:center;padding:11px 14px;border-radius:10px;background:var(--ink);color:var(--on-ink);font-size:13.5px;font-weight:550}
+.dd-pb-rule span{font:500 10.5px/1 ui-monospace,SFMono-Regular,Menlo,monospace;text-transform:uppercase;letter-spacing:.06em;opacity:.6}
+/* steps */
+.dd-pb-step{display:grid;gap:12px;padding:18px;border-radius:12px}
+.dd-pb-step-top{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center}
+.dd-pb-num{font-size:30px;font-weight:600;line-height:1;color:var(--ink-3)}
+.dd-pb-step strong{display:block;font-size:18px;font-weight:620;color:var(--ink)}
+.dd-pb-step small{font-size:11.5px;color:var(--ink-3)}
+.dd-pb-step p{font-size:14.5px;line-height:1.55;color:var(--ink-2)}
+.dd-pb-tag{font-size:11.5px;font-weight:550;padding:4px 9px;border-radius:999px;background:var(--bg-2);color:var(--ink-2)}
+.dd-pb-tag.p{background:var(--surface);color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.dd-pb-stepnav{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--ink-3)}
+.dd-pb-stepnav span{margin-left:6px}
+.dd-pb-mini{all:unset;box-sizing:border-box;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--surface);box-shadow:0 0 0 1px var(--line);color:var(--ink);cursor:pointer}
+.dd-pb-mini:hover{box-shadow:0 0 0 1px var(--ink-3)}
+.dd-pb-mini:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.dd-pb-mini svg{width:15px;height:15px}
+/* stack */
+.dd-pb-stack{position:relative;display:grid;padding:4px 0 0 0}
+.dd-pb-card{display:grid;gap:3px;padding:13px 15px;border-radius:12px}
+.dd-pb-card small{font-size:11px;color:var(--ink-3)}
+.dd-pb-card b{font-size:14.5px;font-weight:600;color:var(--ink)}
+.dd-pb-card span{font-size:13px;color:var(--ink-2)}
+.dd-pb-card.top{position:relative;z-index:1;margin-right:28px;box-shadow:0 0 0 1.5px var(--ink),0 14px 30px -20px rgba(18,18,18,.4)}
+.dd-pb-card.under{margin:-8px 0 0 28px;padding-top:20px;background:var(--bg-2)}
+.dd-pb-list{display:grid;gap:8px}
+.dd-pb-list li{display:grid;grid-template-columns:78px 1fr;gap:10px;font-size:13.5px;line-height:1.5;color:var(--ink-2)}
+.dd-pb-list li b{font-weight:600;color:var(--ink)}
+/* session */
+.dd-pb-prompt{border-radius:12px;background:var(--ink);color:var(--on-ink);overflow:hidden}
+.dd-pb-bar{display:flex;justify-content:space-between;align-items:center;padding:9px 10px 9px 14px;font-size:12px;box-shadow:inset 0 -1px 0 color-mix(in srgb,var(--on-ink) 14%,transparent)}
+.dd-pb-bar span{opacity:.7}
+.dd-pb-copy{all:unset;cursor:pointer;font-size:11px;padding:4px 9px;border-radius:6px;background:color-mix(in srgb,var(--on-ink) 12%,transparent);transition:background .2s}
+.dd-pb-copy:hover{background:color-mix(in srgb,var(--on-ink) 22%,transparent)}
+.dd-pb-copy:focus-visible{outline:2px solid var(--on-ink);outline-offset:2px}
+.dd-pb-copy.ok{background:var(--good);color:#fff}
+.case .dd-pb-prompt p,.dd-pb-prompt p{padding:14px 16px 16px;font-size:12.5px;line-height:1.65;color:color-mix(in srgb,var(--on-ink) 82%,transparent)}
+.dd-pb-prompt em{font-style:normal;color:color-mix(in srgb,var(--on-ink) 60%,#9aa2ff)}
+.dd-pb-checks{display:grid;gap:10px;padding:16px;border-radius:12px}
+.dd-pb-hrow{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.dd-pb-replay{all:unset;cursor:pointer;font-size:12px;font-weight:550;color:var(--ink-2);padding:3px 8px;border-radius:6px;box-shadow:0 0 0 1px var(--line)}
+.dd-pb-replay:hover{color:var(--ink);box-shadow:0 0 0 1px var(--ink-3)}
+.dd-pb-replay:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.dd-pb-checks ul{display:grid;gap:2px}
+.dd-pb-checks li{display:grid;grid-template-columns:22px 92px 1fr;align-items:center;gap:10px;padding:7px 0;font-size:13.5px;border-top:1px solid var(--line)}
+.dd-pb-checks li:first-child{border-top:0}
+.dd-pb-checks li b{font-weight:600;color:var(--ink)}
+.dd-pb-checks li span{color:var(--ink-3);font-size:13px}
+.dd-pb-checks li i{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;box-shadow:inset 0 0 0 1.5px var(--line-2);color:transparent;transition:background .35s,color .35s,box-shadow .35s}
+.dd-pb-checks li i svg{width:12px;height:12px}
+.dd-pb-ready{display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:9px;background:var(--bg-2);font-size:13px;font-weight:550;color:var(--ink-3);transition:color .4s,background .4s}
+.dd-pb-ready i{width:8px;height:8px;border-radius:50%;background:var(--line-2);transition:background .4s,box-shadow .4s}
+.dd-pb-checks.run li i{background:var(--good);color:#fff;box-shadow:none}
+.dd-pb-checks.run .dd-pb-ready{color:var(--ink)}
+.dd-pb-checks.run .dd-pb-ready i{background:var(--good);box-shadow:0 0 0 4px color-mix(in srgb,var(--good) 22%,transparent)}
+.dd-pb-checks.run li:nth-child(1) i{transition-delay:.35s}
+.dd-pb-checks.run li:nth-child(2) i{transition-delay:.85s}
+.dd-pb-checks.run li:nth-child(3) i{transition-delay:1.35s}
+.dd-pb-checks.run li:nth-child(4) i{transition-delay:1.85s}
+.dd-pb-checks.run .dd-pb-ready,.dd-pb-checks.run .dd-pb-ready i{transition-delay:2.4s}
+/* canvases */
+.dd-pb-rows{display:grid;gap:6px}
+.case .dd-pb .dd-pb-rows li,.dd-pb-rows li{display:grid;grid-template-columns:120px 1fr;gap:2px 12px;padding:11px 14px;border-radius:10px;font-size:13.5px}
+.dd-pb-rows b{grid-row:span 2;font-weight:600;color:var(--ink)}
+.dd-pb-rows span{color:var(--ink-2);line-height:1.45}
+.dd-pb-rows em{font-style:normal;font-size:12px;color:var(--ink-3)}
+/* q3 */
+.dd-pb-three{display:grid;gap:8px}
+.dd-pb-three>div{display:grid;grid-template-columns:72px 1fr;gap:12px;padding:13px 14px;border-radius:10px}
+.dd-pb-three small{font-size:11.5px;font-weight:600;align-self:start;padding:3px 8px;border-radius:999px;justify-self:start}
+.dd-pb-three .k small{background:color-mix(in srgb,var(--good) 14%,transparent);color:var(--good)}
+.dd-pb-three .d small{background:color-mix(in srgb,var(--bad) 12%,transparent);color:var(--bad)}
+.dd-pb-three .n small{background:var(--ink);color:var(--on-ink)}
+.dd-pb-three p{font-size:13.5px;line-height:1.5;color:var(--ink-2)}
+/* kit */
+.case .dd-pb .dd-pb-tree,.dd-pb-tree{display:grid;padding:4px 16px;border-radius:12px}
+.dd-pb-tree li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;padding:8px 0;border-top:1px solid var(--line);font-size:13px;align-items:baseline}
+.dd-pb-tree li:first-child{border-top:0}
+.dd-pb-tree code{font:12px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--ink);background:none;padding:0;overflow-wrap:anywhere}
+.dd-pb-tree span{color:var(--ink-3)}
+/* strip */
+.dd-pb-strip{display:grid;gap:10px}
+.dd-pb-strip ol{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:6px}
+.dd-pb-strip button{all:unset;box-sizing:border-box;width:100%;height:100%;display:grid;align-content:start;gap:4px;padding:9px 8px;border-radius:9px;font-size:12px;line-height:1.25;cursor:pointer;transition:background .2s,box-shadow .2s,transform .2s}
+.dd-pb-strip button b{font:600 11px/1 ui-monospace,SFMono-Regular,Menlo,monospace;opacity:.6}
+.dd-pb-strip button span{overflow-wrap:anywhere}
+.dd-pb-strip button.a{background:var(--bg-2);color:var(--ink-2)}
+.dd-pb-strip button.p{background:var(--surface);color:var(--ink);font-weight:550;box-shadow:inset 0 0 0 1.5px var(--ink)}
+.dd-pb-strip button:hover{transform:translateY(-2px)}
+.dd-pb-strip button.a:hover{box-shadow:inset 0 0 0 1px var(--ink-3)}
+.dd-pb-strip button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.dd-pb-strip button.cur{background:var(--ink);color:var(--on-ink);box-shadow:none}
+.dd-pb-strip p{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;font-size:13px;color:var(--ink-3)}
+.dd-pb-strip p i{width:12px;height:12px;border-radius:3px;display:inline-block}
+.dd-pb-strip p i.a{background:var(--bg-2);box-shadow:inset 0 0 0 1px var(--line)}
+.dd-pb-strip p i.p{margin-left:8px;box-shadow:inset 0 0 0 1.5px var(--ink)}
+@media (max-width:760px){
+  .dd-pb-grid{grid-template-columns:1fr}
+  .dd-pb-toc{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin:4px -18px 0 -22px;padding:2px 18px 4px 22px}
+  .dd-pb-toc::-webkit-scrollbar{display:none}
+  .dd-pb-toc button{flex:none;grid-template-columns:auto auto;padding:7px 12px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--line);white-space:nowrap}
+  .dd-pb-toc button svg{display:none}
+  .dd-pb-two{grid-template-columns:1fr}
+  .dd-pb-checks li{grid-template-columns:22px 1fr}
+  .dd-pb-checks li span{grid-column:2}
+  .case .dd-pb .dd-pb-rows li,.dd-pb-rows li{grid-template-columns:1fr}
+  .dd-pb-rows b{grid-row:auto}
+  .dd-pb-three>div{grid-template-columns:1fr;gap:8px}
+  .dd-pb-tree li{grid-template-columns:1fr;gap:2px}
+  .dd-pb-strip ol{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (prefers-reduced-motion:reduce){.dd-pb *{transition:none!important}}
 </style>
 </head>
 <body>
@@ -720,8 +1312,16 @@ footer.site .foot-in{display:flex;justify-content:space-between;flex-wrap:wrap;g
 
 <section class="sec" id="work">
   <div class="wrap">
-    <div class="sec-h rv"><h2>Selected work</h2><p>Four case studies: food delivery, maps, B2B security, and one design exercise.</p></div>
+    <div class="sec-h rv"><h2>Selected work</h2><p>Five case studies: an AI design workflow, food delivery, maps, B2B security, and one design exercise.</p></div>
     <div class="projects">
+      <a class="project rv" href="/ai-design-workflow/" data-open="ai-design-workflow">
+        <div class="cover"><img src="/assets/img/cover-desk.webp" alt="A design workspace: a state note, the Design Progress board and a before/after sheet, under the desk’s progress line" loading="lazy" width="1600" height="1200"></div>
+        <div class="cap">
+          <div class="cap-h"><h3>The Design Desk <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></h3><span>Huma</span></div>
+          <p>An agentic design workflow for NHS primary care: agents read, draw and check, and people answer and approve.</p>
+          <p class="res">A pilot set in 3 days. 7 in 10 questions settled before the product owner.</p>
+        </div>
+      </a>
       <a class="project rv" href="/promotion-center/" data-open="promotion-center">
         <div class="cover"><img src="/assets/img/cover-promo.webp" alt="Two Promotion Center screens from the Snappfood app" loading="lazy" width="1600" height="1200"></div>
         <div class="cap">
@@ -989,6 +1589,663 @@ footer.site .foot-in{display:flex;justify-content:space-between;flex-wrap:wrap;g
       <svg class="ring" viewBox="0 0 36 36"><circle class="bgc" cx="18" cy="18" r="14"/><circle class="fg" id="ringFg" cx="18" cy="18" r="14" stroke-dasharray="87.96" stroke-dashoffset="87.96"/></svg>
     </div>
   </div>
+
+  <!-- ===== THE DESIGN DESK ===== -->
+  <article class="case" id="case-ai-design-workflow" data-title="The Design Desk" data-page-title="The Design Desk: an agentic design workflow at Huma · Sid Jameson" data-desc="How Sid Jameson built the Design Desk at Huma: AI agents read the requirements, draw from the design system and check the work, while people answer the questions and approve. A case study in designing with agents." data-next="promotion-center" style="--tint:#c96442;--tint-2:#005eb8" hidden>
+    <header class="case-hero">
+      <div class="wrap">
+        <div class="case-top">
+          <div class="case-intro">
+            <span class="eyebrow mono">Huma · UK Primary Care · 2026</span>
+            <h1>The Design Desk</h1>
+            <p class="lede">Two designers, one product owner and about a hundred stories a quarter, for software used inside NHS GP practices. I built a desk of AI agents that reads the requirements, draws from the design system and checks the work. People answer the questions and approve.</p>
+          </div>
+          <div class="case-cover" aria-hidden="true"><img src="/assets/img/cover-desk.webp" alt="" loading="lazy" width="1600" height="1200"></div>
+        </div>
+        <dl class="meta">
+          <div><dt class="mono">Role</dt><dd>AI Design Engineer. I led the design track of version one and designed and built version two end to end.</dd></div>
+          <div><dt class="mono">Who uses it</dt><dd>Two designers draw through it, a product owner approves, engineers build from its handoffs</dd></div>
+          <div><dt class="mono">Timeline</dt><dd>Version one in Q3 2026, inside git. Version two from 6 October 2026, on Claude artifacts.</dd></div>
+          <div><dt class="mono">Built with</dt><dd>Claude Code, Claude artifacts, GitHub, Jira, the NHS design system, a Material 3 kit</dd></div>
+        </dl>
+        <div class="results">
+          <div><b data-count="3" data-suffix=" days">3 days</b><span>The pilot set, from first read to promoted</span></div>
+          <div><b>5.5 h</b><span>Median from a story’s record to the designer’s sign-off</span></div>
+          <div><b>7 in 10</b><span>Open questions settled before they reached the product owner</span></div>
+          <div><b data-count="235">235</b><span>Issues the checker caught before a person reviewed</span></div>
+        </div>
+      </div>
+    </header>
+    <div class="wrap case-body">
+      <nav class="toc" aria-label="Sections"></nav>
+      <div class="prose">
+        <p class="dd-redact">Names, links, ticket numbers and anything clinical are removed or changed. The screens are real captures from the canvases, the board and the repo, with demo data.</p>
+
+        <figure class="dd-film">
+          <div class="dd-film-frame">
+            <video preload="none" playsinline poster="/assets/img/desk-film-poster.webp" aria-label="The Design Desk, a 75-second film"><source src="/assets/vid/desk-film.mp4" type="video/mp4"></video>
+            <button class="dd-play" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg><span>Play with sound<small>1:15</small></span></button>
+          </div>
+          <figcaption><b>The Design Desk in 75 seconds.</b> The process, the agents and what changed, with sound designed for it.</figcaption>
+        </figure>
+
+        <section class="chap" id="dd-challenge" data-toc="Challenge">
+          <span class="k mono">The challenge</span>
+          <h2>A hundred stories a quarter, and no room to guess</h2>
+          <p>Huma builds UK Primary Care, software for NHS GP practices: the inbox where patient requests land, triage, messaging and appointments. In Q3 the product team wrote 33 PRDs with 266 numbered decisions and asked for 90 design tasks. Q4 added 18 more PRDs and 98 stories. Two designers drew all of it.</p>
+          <p>Speed was only half of it. In healthcare, a wireframe that invents behaviour can ship a rule nobody decided. It happened once in Q3: a control that could write to a patient’s consent record made it into a design, and was caught only because a developer asked what to store.</p>
+          <figure class="dd-fig dd-invent">
+            <div class="dd-invent-row" aria-hidden="true">
+              <div class="dd-invent-set">
+                <div class="dd-tiles"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                <p><b>14</b> states drawn</p>
+              </div>
+              <span class="dd-vs">vs</span>
+              <div class="dd-invent-set ok">
+                <div class="dd-tiles"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                <p><b>6</b> states needed</p>
+              </div>
+            </div>
+            <figcaption>One early brief came back with fourteen invented states where six honest ones were needed. The team’s own write-up put it plainly: the cause wasn’t carelessness, it was the format.</figcaption>
+          </figure>
+          <p>The other half was attention. Every open question either waited for the product owner or got answered quietly in a wireframe, where nobody would notice until it shipped.</p>
+          <div class="grid-3">
+            <div class="box"><h3>Every state needs a source</h3><p>A PRD line, a numbered decision or an acceptance criterion. A brief can rule something out. It can’t put something on screen.</p></div>
+            <div class="box"><h3>Two design systems</h3><p>Patient screens on the NHS design system, 390px first, WCAG 2.2 AA. Staff screens on a Material 3 kit at 1440px.</p></div>
+            <div class="box"><h3>One person approves</h3><p>The product owner’s attention is the bottleneck, so a question has to arrive researched, with options and a recommendation.</p></div>
+          </div>
+        </section>
+
+        <section class="chap" id="dd-v1" data-toc="Version one">
+          <span class="k mono">Version one · Q3 2026</span>
+          <h2>A design loop inside git</h2>
+          <p>The first version lived in the product team’s repo, next to the PRDs and decisions. Claude Code did the reading and the drawing through a set of skills and agents, and pull requests carried both the designs and the decisions.</p>
+          <div class="grid-2 dd-tracks">
+            <div class="box"><span class="n">My design track</span><ul><li><strong>The brief pack</strong> the first stories were drawn from</li><li><strong>Before/after sheets</strong>: every state beside what it replaces, with its source</li><li><strong>Handoff slices</strong>: one standalone file per story, every state one click away</li><li><strong>Task audit</strong>: a ticket in, a change list out, each change citing its line</li><li><strong>Handoff slicer</strong>: cuts a story’s screens out of the built prototype</li></ul></div>
+            <div class="box"><span class="n">The loop the team built around it</span><ul><li>A desk that sent work to agents, each in its own git worktree</li><li>A decision helper that researched open questions and opened decision pull requests</li><li>A cold-read reviewer in a fresh context</li><li>A 14-check gate, lint scripts and CI on every design pull request</li></ul></div>
+          </div>
+          <div class="carousel" data-carousel>
+            <div class="c-track">
+              <figure class="fig"><div class="frame" tabindex="0"><img src="/assets/img/desk-q3-slice.webp" alt="A Q3 handoff slice: the staff inbox with a care request open, rendered from the story’s standalone file" loading="lazy" width="1800" height="1125"></div><figcaption>A Q3 handoff slice: one standalone file per story, here the staff inbox. Demo data.</figcaption></figure>
+              <figure class="fig"><div class="frame" tabindex="0"><img src="/assets/img/desk-q3-sheet.webp" alt="A Q3 before/after sheet: a list of states, the AFTER frame and the changes, each with its source" loading="lazy" width="1800" height="1125"></div><figcaption>A Q3 before/after sheet. Every change carries its source; the list on the left steps through the story’s states.</figcaption></figure>
+            </div>
+            <div class="c-nav"><button class="c-prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg></button><button class="c-next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button><div class="c-bar"><i></i></div></div>
+          </div>
+          <div class="dd-stats">
+            <div><b>76</b><span>Stories designed and filed in git as deliverables</span></div>
+            <div><b>337</b><span>Pull requests merged in four months</span></div>
+            <div><b>91%</b><span>Of commits co-written with Claude</span></div>
+            <div><b>6 days</b><span>Median from a brief to its first deliverable</span></div>
+          </div>
+        </section>
+
+        <section class="chap" id="dd-broke" data-toc="What broke">
+          <span class="k mono">What broke</span>
+          <h2>The cost moved from drawing to everything around it</h2>
+          <p>By September the loop worked, and it was heavy. One batch review, nine stories over a week, counted 38 pull requests, about twenty worker agents, 23 worktrees left on disk and seven clashing question numbers. Its conclusion:</p>
+          <p class="pull">“Nothing in the cull touches what produced the designs; all of it touches what was spent checking, recording and renumbering around them.”</p>
+          <div class="grid-2 dd-finds">
+            <div class="box"><b class="dd-big">0</b><h3>Wrong drawings found by cold reads</h3><p>Seven cold reads, about 90k tokens and five minutes each, found nothing wrong. None.</p></div>
+            <div class="box"><b class="dd-big">All</b><h3>Of the product owner’s findings were absences</h3><p>Nothing was drawn wrong. Things were missing: a state, a failure, a permission.</p></div>
+            <div class="box"><b class="dd-big">18 of 22</b><h3>Sheet and slice pairs had lost their markers</h3><p>13 of 21 on a stricter count. The two files were made separately, so open-question markers went missing without anything noticing.</p></div>
+            <div class="box"><b class="dd-big">44</b><h3>Merges in September needed conflicts fixed</h3><p>Most were in the one shared question file that every agent wrote to.</p></div>
+          </div>
+          <figure class="dd-fig dd-drift">
+            <div class="dd-drift-in" aria-hidden="true">
+              <div class="dd-drift-side">
+                <span class="dd-cap">Q3 · made by hand, one file at a time</span>
+                <div class="dd-files">
+                  <div class="dd-file"><b>Handoff note</b><i class="m"></i><i class="m"></i><i class="m"></i></div>
+                  <div class="dd-file"><b>Before/after sheets</b><i class="m"></i><i class="m"></i><i class="m"></i></div>
+                  <div class="dd-file drift"><b>Slice</b><i class="m"></i><i class="m gone"></i><i class="m"></i><span>Marker lost</span></div>
+                </div>
+              </div>
+              <div class="dd-drift-side">
+                <span class="dd-cap">Q4 · generated from one record</span>
+                <div class="dd-gen">
+                  <div class="dd-rec">story.json</div>
+                  <div class="dd-files">
+                    <div class="dd-file"><b>Cover</b><i class="m"></i><i class="m"></i><i class="m"></i></div>
+                    <div class="dd-file"><b>Before/after sheets</b><i class="m"></i><i class="m"></i><i class="m"></i></div>
+                    <div class="dd-file"><b>Slice</b><i class="m"></i><i class="m"></i><i class="m"></i></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <figcaption>Hand-made files drift apart. Files generated from one record can’t, because there’s only one place to change.</figcaption>
+          </figure>
+        </section>
+
+        <section class="chap" id="dd-decisions" data-toc="Decisions">
+          <span class="k mono">Decision log</span>
+          <h2>Seven decisions for version two</h2>
+          <p>I took those findings and redesigned the loop from scratch. Each decision gave something up.</p>
+          <div class="acc dd-log">
+            <details open><summary><span><em>01</em>Git for knowing, canvases for drawing</span><i class="plus"></i></summary><div class="ans"><dl class="dd-dl">
+              <div><dt>Context</dt><dd>Designs in git meant pull requests for files nobody could review as a diff, plus worktrees and locks so agents wouldn’t collide.</dd></div>
+              <div><dt>Options</dt><dd>Keep everything in git · move everything into a design tool · split by job</dd></div>
+              <div><dt>Trade-off</dt><dd>Two places to keep straight, and design history that lives outside version control.</dd></div>
+              <div><dt>Outcome</dt><dd>PRDs, decisions and questions stay in git and change by pull request. Drawings live on Claude artifact canvases. Nothing designed goes to git.</dd></div></dl></div></details>
+            <details><summary><span><em>02</em>One record generates every handoff file</span><i class="plus"></i></summary><div class="ans"><dl class="dd-dl">
+              <div><dt>Context</dt><dd>Sheets and slices were authored separately and drifted.</dd></div>
+              <div><dt>Options</dt><dd>More checks on hand-made files · generate every file from one source</dd></div>
+              <div><dt>Trade-off</dt><dd>The record has to be strict. The generator refuses a state without a citation, a prop the surface doesn’t declare, or an open review item.</dd></div>
+              <div><dt>Outcome</dt><dd>A script with no model writes the cover, the slice, the before/after sheets, the notes and the state boards from one story record, then renders and checks every sheet.</dd></div></dl></div></details>
+            <details><summary><span><em>03</em>Check once, and look for what’s missing first</span><i class="plus"></i></summary><div class="ans"><dl class="dd-dl">
+              <div><dt>Context</dt><dd>Cold reads found nothing wrong, and the product owner’s findings were all absences.</dd></div>
+              <div><dt>Options</dt><dd>Keep repeat reads and the 14-check gate · one strong checker, run once</dd></div>
+              <div><dt>Trade-off</dt><dd>One pass has to count: a strong model, a fresh context, and no view of the drawer’s chat.</dd></div>
+              <div><dt>Outcome</dt><dd>Missing first, then invented, contradicted, drawn differently and off the design system.</dd></div></dl></div></details>
+            <details><summary><span><em>04</em>Cheap models read; strong models draw and judge</span><i class="plus"></i></summary><div class="ans"><dl class="dd-dl">
+              <div><dt>Context</dt><dd>Grounding a story means reading a lot. Drawing and checking need judgement.</dd></div>
+              <div><dt>Options</dt><dd>One strong model everywhere · a tier for each job</dd></div>
+              <div><dt>Trade-off</dt><dd>Agents hand work to each other, so every brief between them has to fit in ten lines.</dd></div>
+              <div><dt>Outcome</dt><dd>Researchers on a cheap model, the drawer and the checker on a strong one, the generator on none at all.</dd></div></dl></div></details>
+            <details><summary><span><em>05</em>Research every question before a person sees it</span><i class="plus"></i></summary><div class="ans"><dl class="dd-dl">
+              <div><dt>Context</dt><dd>The product owner’s attention was the bottleneck.</dd></div>
+              <div><dt>Options</dt><dd>Ask everything · decide in the wireframe · research first, then route</dd></div>
+              <div><dt>Trade-off</dt><dd>An undecided state ships as a labelled placeholder until someone answers.</dd></div>
+              <div><dt>Outcome</dt><dd>A decision helper settles what the sources already answer. Designer’s calls come with options and a recommendation. Only consent, safety, the patient record and billing go to the product owner, in one pull request per task.</dd></div></dl></div></details>
+            <details><summary><span><em>06</em>One workspace per story, promoted on approval</span><i class="plus"></i></summary><div class="ans"><dl class="dd-dl">
+              <div><dt>Context</dt><dd>Two designers, and many stories changing the same surfaces at once.</dd></div>
+              <div><dt>Options</dt><dd>One shared canvas · branches and locks · an isolated workspace per story</dd></div>
+              <div><dt>Trade-off</dt><dd>Copies to keep in step. A story built on another is brought up to date with a three-way merge, and a conflict stops for the designer.</dd></div>
+              <div><dt>Outcome</dt><dd>The product hub changes only on approval. Twenty of the first 37 stories were built on another story, up to five deep.</dd></div></dl></div></details>
+            <details><summary><span><em>07</em>Draw only from the design systems</span><i class="plus"></i></summary><div class="ans"><dl class="dd-dl">
+              <div><dt>Context</dt><dd>Hand-built parts drifted from the kit. As one review put it, correct and inconsistent is still a defect: a developer building it gets two components.</dd></div>
+              <div><dt>Options</dt><dd>Allow small hand-built parts · kit components only</dd></div>
+              <div><dt>Trade-off</dt><dd>A missing component blocks drawing until the design system has it.</dd></div>
+              <div><dt>Outcome</dt><dd>Kit component first, then patterns, then the shell, with no raw colour, spacing or type. A missing component becomes a finding for the design system.</dd></div></dl></div></details>
+          </div>
+        </section>
+
+        <section class="chap" id="dd-v2" data-toc="Version two">
+          <span class="k mono">Version two · Q4 2026</span>
+          <h2>A desk of agents, and three stops for people</h2>
+          <p>A designer opens one chat per story and gives the desk its key. The desk works out where the story is, runs the next step with the right agent and stops whenever a person has to decide. It orchestrates. It doesn’t draw, and it doesn’t decide.</p>
+          <figure class="dd-fig dd-anat-fig">
+            <div class="dd-anat" id="ddAnat">
+              <svg class="dd-anat-svg" id="ddAnatSvg" aria-hidden="true"></svg>
+              <div class="dd-anat-col dd-know">
+                <span class="dd-anat-h">Git · what we know</span>
+                <button type="button" class="dd-n" data-n="git"><b>PRDs and decisions</b><small>Numbered decisions, the question queue, briefs</small></button>
+                <button type="button" class="dd-n" data-n="jira"><b>Jira</b><small>One ticket per story</small></button>
+              </div>
+              <div class="dd-anat-mid">
+                <div class="dd-anat-people">
+                  <button type="button" class="dd-n person" data-n="designer"><b>Designer</b><small>Answers questions, reviews</small></button>
+                  <button type="button" class="dd-n person" data-n="po"><b>Product owner</b><small>Approves or sends back</small></button>
+                </div>
+                <button type="button" class="dd-n desk" data-n="desk"><b>The desk</b><small>Orchestrates, never draws or decides · strong model</small></button>
+                <div class="dd-anat-agents">
+                  <div class="dd-anat-row"><span class="dd-anat-tag">Read</span>
+                    <button type="button" class="dd-n" data-n="researcher"><b>Researcher</b><small>Cheap model</small></button>
+                    <button type="button" class="dd-n" data-n="helper"><b>Decision helper</b><small>Cheap model</small></button>
+                  </div>
+                  <div class="dd-anat-row"><span class="dd-anat-tag">Make and check</span>
+                    <button type="button" class="dd-n" data-n="drawer"><b>Drawer</b><small>Strong model</small></button>
+                    <button type="button" class="dd-n" data-n="generator"><b>Generator</b><small>Script, no model</small></button>
+                    <button type="button" class="dd-n" data-n="checker"><b>Checker</b><small>Strong, fresh context</small></button>
+                  </div>
+                </div>
+              </div>
+              <div class="dd-anat-col dd-draw">
+                <span class="dd-anat-h">Canvases · what we draw</span>
+                <button type="button" class="dd-n" data-n="workspace"><b>Workspace</b><small>One canvas per story</small></button>
+                <button type="button" class="dd-n" data-n="hub"><b>Product hub</b><small>Every surface, changed on approval</small></button>
+                <button type="button" class="dd-n" data-n="ds"><b>Design systems</b><small>NHS, Material 3 kit, patterns, shell</small></button>
+                <button type="button" class="dd-n" data-n="board"><b>Design Progress</b><small>Every story’s step, live</small></button>
+              </div>
+            </div>
+            <p class="dd-anat-cap" id="ddAnatCap" aria-live="polite"><b>Hover or tap a part</b> to see what it does and what it talks to.</p>
+          </figure>
+          <h3>Nine steps, three of them for people</h3>
+          <div class="dd-wfwrap">
+    <div class="wf" id="wf">
+      <div class="wm-head">
+        <b>One story, nine steps</b>
+        <span class="wm-key" aria-hidden="true"><i class="kp"></i>Person <i class="ka"></i>Agent <i class="ks"></i>Script, no model</span>
+      </div>
+      <div class="wm" role="tablist" aria-label="Process steps">
+        <svg class="wm-svg" id="wmSvg" aria-hidden="true"></svg>
+        <div class="wm-labels" id="wmLabels" aria-hidden="true"></div>
+        <div class="wm-lane" style="--r:1" aria-hidden="true"><span>People</span></div>
+        <div class="wm-lane" style="--r:2" aria-hidden="true"><span>Agents</span></div>
+        <div class="wm-lane" style="--r:3" aria-hidden="true"><span>Script</span></div>
+        <button class="wm-n ag on" type="button" role="tab" id="wft-0" aria-controls="wfp-0" aria-selected="true" style="--c:2;--r:2"><span class="wm-num">01</span><b>Ground</b><small>Researcher, cheap model</small><i class="wm-bar"></i></button>
+        <button class="wm-n pp" type="button" role="tab" id="wft-1" aria-controls="wfp-1" aria-selected="false" tabindex="-1" style="--c:3;--r:1"><span class="wm-num">02</span><b>Ask</b><small>Designer answers</small><i class="wm-bar"></i></button>
+        <button class="wm-n ag" type="button" role="tab" id="wft-2" aria-controls="wfp-2" aria-selected="false" tabindex="-1" style="--c:4;--r:2"><span class="wm-num">03</span><b>Workspace</b><small>Desk agent</small><i class="wm-bar"></i></button>
+        <button class="wm-n ag" type="button" role="tab" id="wft-3" aria-controls="wfp-3" aria-selected="false" tabindex="-1" style="--c:5;--r:2"><span class="wm-num">04</span><b>Draw</b><small>Drawer, strong model</small><i class="wm-bar"></i></button>
+        <button class="wm-n sc" type="button" role="tab" id="wft-4" aria-controls="wfp-4" aria-selected="false" tabindex="-1" style="--c:6;--r:3"><span class="wm-num">05</span><b>Generate</b><small>Generator, no model</small><i class="wm-bar"></i></button>
+        <button class="wm-n ag" type="button" role="tab" id="wft-5" aria-controls="wfp-5" aria-selected="false" tabindex="-1" style="--c:7;--r:2"><span class="wm-num">06</span><b>Check</b><small>Checker, fresh context</small><i class="wm-bar"></i></button>
+        <button class="wm-n pp" type="button" role="tab" id="wft-6" aria-controls="wfp-6" aria-selected="false" tabindex="-1" style="--c:8;--r:1"><span class="wm-num">07</span><b>Review</b><small>Designer, on the canvas</small><span class="wm-loopnote">Each round runs 04 to 06 again</span><i class="wm-bar"></i></button>
+        <button class="wm-n pp" type="button" role="tab" id="wft-7" aria-controls="wfp-7" aria-selected="false" tabindex="-1" style="--c:9;--r:1"><span class="wm-num">08</span><b>Approval</b><small>Product owner</small><span class="wm-loopnote">Sent back with a note: 07 again</span><i class="wm-bar"></i></button>
+        <button class="wm-n ag" type="button" role="tab" id="wft-8" aria-controls="wfp-8" aria-selected="false" tabindex="-1" style="--c:10;--r:2"><span class="wm-num">09</span><b>Promote</b><small>Desk agent</small><i class="wm-bar"></i></button>
+      </div>
+      <div class="wm-places">
+        <div><b>Git: what we know</b><span>PRDs, decisions and open questions. Answers land by pull request. Nothing designed goes to git.</span></div>
+        <div><b>Canvases: what we draw</b><span>One workspace canvas per story, promoted into the product hub and its area’s state board once approved.</span></div>
+      </div>
+
+      <div class="wf-stage">
+        <div class="wf-p on" role="tabpanel" id="wfp-0" aria-labelledby="wft-0">
+          <div class="wf-txt">
+            <span class="wf-kick">01 · Ground</span>
+            <h3>Read everything before drawing anything</h3>
+            <p>A researcher agent on a cheap model reads the Jira card, the PRD, the decisions and the brief, then sweeps every canvas for parts that already exist. It writes the story record: each state with the line that asks for it, what gets reused, what stays out and what nobody has decided yet.</p>
+            <dl class="wf-io"><div><dt>In</dt><dd>Jira card, PRD, decisions, brief</dd></div><div><dt>Out</dt><dd>The story record, version 0</dd></div></dl>
+            <p class="wf-rule"><span>Rule</span>Every state cites a PRD line, a decision or an acceptance criterion. A brief can forbid things; it can’t authorise them.</p>
+          </div>
+          <div class="wf-art" aria-hidden="true">
+            <div class="art-h"><b>Story record</b><span>A real Q4 story</span></div>
+            <ul class="cl">
+              <li><i class="tg mod">Change</i><span>The settings row now opens its section</span><small>PRD 45 · decision 13</small></li>
+              <li><i class="tg add">Add</i><span>The library as it ships this quarter</span><small>PRD 38 · decision 8</small></li>
+              <li><i class="tg add">Add</i><span>A maintained row offers no edit, copy or retire</span><small>PRD 38 · What must be true</small></li>
+              <li><i class="tg dec">Decide</i><span>The sign-off line on a row</span><small>Open question · Q-2</small></li>
+            </ul>
+            <div class="stats"><div><b>7 of 10</b><span>Parts reused or adapted from the hub</span></div><div><b>18</b><span>Not drawn, each with an owner or reason</span></div><div><b>8</b><span>Open questions</span></div></div>
+          </div>
+        </div>
+
+        <div class="wf-p" role="tabpanel" id="wfp-1" aria-labelledby="wft-1">
+          <div class="wf-txt">
+            <span class="wf-kick">02 · Ask</span>
+            <h3>Ask before drawing, one question at a time</h3>
+            <p>Every open question goes to a decision helper first. It searches the PRD and decision notes, then NHS England and ICO guidance, then peer products. Settled questions get dropped. The rest come to the designer one at a time, with options and a recommendation, and every answer is recorded in git.</p>
+            <dl class="wf-io"><div><dt>In</dt><dd>The record’s open questions</dd></div><div><dt>Out</dt><dd>Answers recorded in git</dd></div></dl>
+            <p class="wf-rule"><span>Rule</span>When two approved sources disagree, the story stops. Nobody quietly picks one.</p>
+          </div>
+          <div class="wf-art" aria-hidden="true">
+            <div class="art-h"><b>Question Q-5</b><span>Designer’s call</span></div>
+            <p class="dq">No source gives a row order. Which order should the list use?</p>
+            <div class="opts">
+              <div class="opt on"><i></i><span><b>Maintained rows first, in the PRD’s family order</b><small>Recommended. Stable, with no recency.</small></span></div>
+              <div class="opt"><i></i><span><b>Alphabetical</b><small>Mixes the two owners together</small></span></div>
+              <div class="opt"><i></i><span><b>Most recently used first</b><small>The PRD keeps recency for the composer</small></span></div>
+            </div>
+            <div class="split3"><div><b>1</b><span>Answered by the sources</span></div><div><b>4</b><span>Designer’s calls</span></div><div><b>3</b><span>To the product owner</span></div></div>
+            <p class="art-note">The same story’s eight questions. Anything touching consent, patient safety, the record or billing goes to the product owner.</p>
+          </div>
+        </div>
+
+        <div class="wf-p" role="tabpanel" id="wfp-2" aria-labelledby="wft-2">
+          <div class="wf-txt">
+            <span class="wf-kick">03 · Workspace</span>
+            <h3>A private canvas for every story</h3>
+            <p>The desk agent opens a new canvas with the four design systems installed, copies in the surfaces the story changes and freezes a BEFORE copy of each. If another open story already changes the same surface, the new one is built on top of it and kept in step with a three-way merge.</p>
+            <dl class="wf-io"><div><dt>In</dt><dd>The surfaces the story changes</dd></div><div><dt>Out</dt><dd>A workspace with frozen BEFORE copies</dd></div></dl>
+            <p class="wf-rule"><span>Rule</span>Work happens on the workspace. The product hub changes only after approval.</p>
+          </div>
+          <div class="wf-art" aria-hidden="true">
+            <div class="cv">
+              <div class="cv-top"><b>WS · Story 177</b><span>2 pages · 15 boards</span></div>
+              <div class="cv-area">
+                <div class="cv-b"><span>Surface, from the hub</span><div class="mini"><i></i><i></i><i></i><i></i></div></div>
+                <div class="cv-b frozen"><span>BEFORE · frozen 14 Oct</span><div class="mini"><i></i><i></i><i></i><i></i></div></div>
+              </div>
+              <div class="ds"><span>Material 3 kit</span><span>Shell</span><span>Patterns</span><span>NHS design system</span></div>
+            </div>
+            <p class="art-note"><b>Built on another story?</b> The surface comes from that story’s workspace, not the hub’s older copy.</p>
+          </div>
+        </div>
+
+        <div class="wf-p" role="tabpanel" id="wfp-3" aria-labelledby="wft-3">
+          <div class="wf-txt">
+            <span class="wf-kick">04 · Draw</span>
+            <h3>Draw each state from the kit, nothing by hand</h3>
+            <p>The drawer agent, on a strong model, adds each state to its surface as a scenario preset, built only from design-system components and tokens. When the kit lacks a component, that goes back to the design system as a finding instead of being hand-built on the surface.</p>
+            <dl class="wf-io"><div><dt>In</dt><dd>The record and the workspace</dd></div><div><dt>Out</dt><dd>Every state as a scenario on its surface</dd></div></dl>
+            <p class="wf-rule"><span>Rule</span>No raw colour, spacing or font size that isn’t a token.</p>
+          </div>
+          <div class="wf-art" aria-hidden="true">
+            <div class="win"><div class="win-bar"><i></i><i></i><i></i><span>Practice settings · scenario</span></div>
+              <div class="win-states"><span>Opens</span><span class="on">As shipped</span><span>Practice row</span><span>No controls</span><span>Sign-off</span></div>
+              <div class="win-body">
+                <div class="sk sk-h"></div>
+                <div class="lrow"><i></i><div><div class="sk"></div><div class="sk sk-s"></div></div><b>Maintained</b></div>
+                <div class="lrow"><i></i><div><div class="sk"></div><div class="sk sk-s"></div></div><b>Maintained</b></div>
+                <div class="lrow dashed"><span>DECIDE · the sign-off line</span></div>
+              </div>
+            </div>
+            <p class="art-note"><code>ListItem</code> <code>FocusIndicator</code> <code>--schemes-outline</code> from the kit, never retyped</p>
+          </div>
+        </div>
+
+        <div class="wf-p" role="tabpanel" id="wfp-4" aria-labelledby="wft-4">
+          <div class="wf-txt">
+            <span class="wf-kick">05 · Generate</span>
+            <h3>One record makes every handoff file</h3>
+            <p>A script with no model builds the cover, the handoff slice, the before/after sheets, the notes and the state boards from the one story record. Sheets are rendered and checked headlessly, and any lint error stops the run. Nobody edits these files by hand, so they can’t drift apart.</p>
+            <dl class="wf-io"><div><dt>In</dt><dd>The story record</dd></div><div><dt>Out</dt><dd>Five handoff files, always in sync</dd></div></dl>
+            <p class="wf-rule"><span>Rule</span>Never hand-edit a generated file. Change the record and run it again.</p>
+          </div>
+          <div class="wf-art" aria-hidden="true">
+            <div class="fan">
+              <div class="fan-src"><b>story.json</b><small>5 states<br>18 not drawn<br>8 questions</small></div>
+              <ul class="fan-out"><li>Cover<small>Start here</small></li><li>Handoff slice<small>Every state, one file</small></li><li>Before/after sheets<small>Numbered changes</small></li><li>Notes<small>One per state</small></li><li>State boards<small>By product area</small></li></ul>
+            </div>
+            <p class="art-note"><span class="ok-dot"></span>Lint passed · every sheet rendered and checked</p>
+          </div>
+        </div>
+
+        <div class="wf-p" role="tabpanel" id="wfp-5" aria-labelledby="wft-5">
+          <div class="wf-txt">
+            <span class="wf-kick">06 · Check</span>
+            <h3>Look for what’s missing first</h3>
+            <p>A checker agent with a fresh context reads the design once. First it looks for what’s missing, then anything invented, contradicted, drawn differently from its source or off the design system. In one review batch, every finding the product owner raised was something missing, so absences come first.</p>
+            <dl class="wf-io"><div><dt>In</dt><dd>The drawn workspace and its record</dd></div><div><dt>Out</dt><dd>Findings, each tied to a state</dd></div></dl>
+            <p class="wf-rule"><span>Rule</span>Each state covers permission, validation, loading, empty, failure, recovery, expiry and concurrency, or says why it doesn’t.</p>
+          </div>
+          <div class="wf-art" aria-hidden="true">
+            <div class="art-h"><b>Checker, round 0</b><span>7 findings · all applied</span></div>
+            <ol class="chk">
+              <li class="on"><b>Missing</b><span>The AFTER frame repeats BEFORE, so the opened section isn’t shown</span></li>
+              <li><b>Invented</b><span>Nothing found</span></li>
+              <li><b>Contradicted</b><span>Two decisions marked provisional had already been approved</span></li>
+              <li><b>Drawn differently</b><span>Placeholder rows don’t use the PRD’s own words</span></li>
+              <li><b>Off the design system</b><span>A placeholder box built by hand with raw sizes</span></li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="wf-p" role="tabpanel" id="wfp-6" aria-labelledby="wft-6">
+          <div class="wf-txt">
+            <span class="wf-kick">07 · Review</span>
+            <h3>Review comments become the to-do list</h3>
+            <p>The designer reviews on the canvas. Each comment becomes a round item, word for word, gets fixed, and the files are generated again. Draw, generate and check repeat for as many rounds as it takes, until the designer says it’s done.</p>
+            <dl class="wf-io"><div><dt>In</dt><dd>The checked workspace</dd></div><div><dt>Out</dt><dd>Applied rounds, logged in the record</dd></div></dl>
+            <p class="wf-rule"><span>Rule</span>Comments are kept verbatim. The record holds the history, not anyone’s memory.</p>
+          </div>
+          <div class="wf-art" aria-hidden="true">
+            <div class="art-h"><b>Designer rounds</b><span>Kept word for word</span></div>
+            <ul class="rounds">
+              <li><span class="rid">r2.1</span><div><p>“Make the height of all these pages fit the content inside them.”</p><small><i>Applied</i>Every state board and BEFORE frame now takes its content’s height, measured headlessly.</small></div></li>
+              <li><span class="rid">c1.2</span><div><p>“Mount NHS TextInput for the pre-filled text field … drop the hand-built input.”</p><small><i>Applied</i>The field is the kit’s TextInput, so its error states work too.</small></div></li>
+            </ul>
+            <p class="art-note">From a real Q4 story: one comment on the canvas, one during the checker’s round.</p>
+          </div>
+        </div>
+
+        <div class="wf-p" role="tabpanel" id="wfp-7" aria-labelledby="wft-7">
+          <div class="wf-txt">
+            <span class="wf-kick">08 · Approval</span>
+            <h3>One place for the product owner to look</h3>
+            <p>Every task has one pull request for the product owner, holding its questions, the request to approve and the outcome. When the designer says done, the task is marked ready on the Design Progress board. The product owner approves there, or sends it back with a note and another round begins.</p>
+            <dl class="wf-io"><div><dt>In</dt><dd>A task the designer has signed off</dd></div><div><dt>Out</dt><dd>Approved, or sent back with a note</dd></div></dl>
+            <p class="wf-rule"><span>Rule</span>One task, one pull request. A designer’s own call never goes there.</p>
+          </div>
+          <div class="wf-art" aria-hidden="true">
+            <div class="art-h"><b>Design Progress</b><span>Live board</span></div>
+            <div class="card">
+              <div class="card-top"><b>Story 177 · Library list</b><span class="badge">Ready for approval</span></div>
+              <ol class="dots9"><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li class="now"></li><li></li></ol>
+              <dl class="kv"><div><dt>Questions</dt><dd>5 answered · 3 waiting</dd></div><div><dt>Built on</dt><dd>No other story</dd></div><div><dt>Pull request</dt><dd>One, for all of it</dd></div></dl>
+              <div class="card-btns"><span class="b1">Approve</span><span class="b2">Send back with a note</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wf-p" role="tabpanel" id="wfp-8" aria-labelledby="wft-8">
+          <div class="wf-txt">
+            <span class="wf-kick">09 · Promote</span>
+            <h3>Promote the work, then close the workspace</h3>
+            <p>Once approved, the desk agent moves the surfaces and the handoff into the product hub and puts every state, with its note, on its area’s state board. Jira gets the link after I confirm, and the workspace closes.</p>
+            <dl class="wf-io"><div><dt>In</dt><dd>An approved workspace</dd></div><div><dt>Out</dt><dd>An updated hub and state boards</dd></div></dl>
+            <p class="wf-rule"><span>Rule</span>A promotion isn’t done while any state is missing from its area board.</p>
+          </div>
+          <div class="wf-art" aria-hidden="true">
+            <div class="promo">
+              <div class="pm-ws"><b>Set B14 · Practice settings</b><small>Stories 160 and 161</small><span>Closed · promoted 9 Oct</span></div>
+              <ul class="pm-to">
+                <li><b>Product hub</b><small>Surfaces and a handoff page</small></li>
+                <li><b>State board · Settings</b><small>Every state, with its note</small></li>
+                <li><b>Jira</b><small>The link, posted once I confirm</small></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="wf-foot">
+        <div class="wf-nav">
+          <button class="wf-btn" id="wfPrev" type="button" aria-label="Previous step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+          <button class="wf-btn" id="wfNext" type="button" aria-label="Next step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
+          <span class="wf-cap" aria-live="polite"><b id="wfNum">Step 1 of 9</b><span id="wfName">Ground</span></span>
+        </div>
+        <button class="wf-btn wf-play" id="wfPlay" type="button" aria-label="Pause walkthrough"><span class="i-pause"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg></span><span class="i-play"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M7 4v16l13-8z"/></svg></span></button>
+      </div>
+    </div>
+          </div>
+          <figure class="dd-fig dd-pb" id="ddPb">
+            <div class="dd-pb-grid">
+              <div class="dd-pb-page">
+                <small class="mono">Huma · UK Primary Care · Design kit v1</small>
+                <b>UK Primary Care Design Playbook</b>
+                <p>How a story goes from a Jira card and a PRD to an approved design, with agents reading, drawing and checking, and people answering and approving.</p>
+                <div class="dd-pb-toc" role="tablist" aria-label="Playbook sections" aria-orientation="vertical"><button type="button" role="tab" id="ddPbT-places" aria-controls="ddPbP-places" aria-selected="false" tabindex="-1" data-p="places"><b class="mono">01</b><span>Two places, two jobs</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" role="tab" id="ddPbT-steps" aria-controls="ddPbP-steps" aria-selected="false" tabindex="-1" data-p="steps"><b class="mono">02</b><span>One story, nine steps</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" role="tab" id="ddPbT-stack" aria-controls="ddPbP-stack" aria-selected="false" tabindex="-1" data-p="stack"><b class="mono">03</b><span>Tasks built on tasks</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" role="tab" id="ddPbT-session" aria-controls="ddPbP-session" aria-selected="true" tabindex="0" data-p="session"><b class="mono">04</b><span>Start a session</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" role="tab" id="ddPbT-canvases" aria-controls="ddPbP-canvases" aria-selected="false" tabindex="-1" data-p="canvases"><b class="mono">05</b><span>The canvases</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" role="tab" id="ddPbT-q3" aria-controls="ddPbP-q3" aria-selected="false" tabindex="-1" data-p="q3"><b class="mono">06</b><span>What carried over from Q3</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" role="tab" id="ddPbT-kit" aria-controls="ddPbP-kit" aria-selected="false" tabindex="-1" data-p="kit"><b class="mono">07</b><span>The kit · boot, rules, skills</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button></div>
+              </div>
+              <div class="dd-pb-panels"><div class="dd-pb-panel" role="tabpanel" id="ddPbP-places" aria-labelledby="ddPbT-places" data-p="places" inert><span class="dd-pb-h">Two places, two jobs</span>
+<div class="dd-pb-two">
+  <div class="dd-pb-place g"><small class="mono">Git · what we know</small><b>PRDs, decisions, questions, briefs</b><p>The knowledge base. The decision helper records answers by pull request, and the product owner approves by merging.</p></div>
+  <div class="dd-pb-place a"><small class="mono">Artifacts · what we draw</small><b>Hub, area canvases, workspaces, design systems</b><p>Each story is drawn in its own workspace canvas, promoted into the hub on approval, and the workspace closes.</p></div>
+</div>
+<div class="dd-pb-rule"><span>Rule</span>Nothing designed goes to git.</div></div><div class="dd-pb-panel" role="tabpanel" id="ddPbP-steps" aria-labelledby="ddPbT-steps" data-p="steps" inert><span class="dd-pb-h">One story, nine steps · pick one below</span>
+<div class="dd-pb-step" aria-live="polite"><div class="dd-pb-step-top"><b class="dd-pb-num mono">01</b><div><strong id="ddPbSName">Ground</strong><small id="ddPbSWho" class="mono">researcher · cheap model</small></div><span class="dd-pb-tag" id="ddPbSTag">Agent</span></div><p id="ddPbSText">Reads Jira, the PRD, decisions and the brief, then searches every canvas for parts that already exist. Writes the record: each state with its citation.</p></div>
+<div class="dd-pb-stepnav"><button type="button" class="dd-pb-mini" data-d="-1" aria-label="Previous step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg></button><button type="button" class="dd-pb-mini" data-d="1" aria-label="Next step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button><span>Agents read, draw and check. People answer, review and approve.</span></div></div><div class="dd-pb-panel" role="tabpanel" id="ddPbP-stack" aria-labelledby="ddPbT-stack" data-p="stack" inert><span class="dd-pb-h">Tasks built on tasks</span>
+<div class="dd-pb-stack">
+  <div class="dd-pb-card top"><small class="mono">Task B · built on A v3</small><b>Changes the same surface</b><span>Copies it from task A’s workspace, not the hub’s older copy</span></div>
+  <div class="dd-pb-card under"><small class="mono">Task A · v3</small><b>Waiting for approval</b><span>Every change bumps its version</span></div>
+</div>
+<ul class="dd-pb-list">
+  <li><b>Rebase</b>When A changes, the desk merges it into B with a three-way merge.</li>
+  <li><b>Conflict</b>A clean merge carries on; a conflict stops and asks the designer which version wins.</li>
+  <li><b>Order</b>The board flags a task that is behind. A is approved and promoted first, or the stack together.</li>
+</ul></div><div class="dd-pb-panel on" role="tabpanel" id="ddPbP-session" aria-labelledby="ddPbT-session" data-p="session"><div class="dd-pb-prompt">
+  <div class="dd-pb-bar"><span>Start a session · the one prompt</span><button type="button" class="dd-pb-copy mono">Copy</button></div>
+  <p class="mono" id="ddPbPrompt">Read <em>kit/BOOT.md</em>, <em>kit/README.md</em> and <em>kit/RULES.md</em> from the Design Playbook artifact, run its First session checks, then run <em>kit/skills/atlas-desk.md</em> for story <em>&lt;KEY&gt;</em>. Talk to me in my language; everything inside the design stays English.</p>
+</div>
+<div class="dd-pb-checks" aria-label="First session checks">
+  <div class="dd-pb-h dd-pb-hrow"><span>First session · stops at the first check that fails</span><button type="button" class="dd-pb-replay">Run again</button></div>
+  <ul>
+    <li><i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-7"/></svg></i><b>GitHub</b><span>The knowledge repo can be read</span></li>
+    <li><i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-7"/></svg></i><b>Jira</b><span>The connector reaches the project</span></li>
+    <li><i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-7"/></svg></i><b>Artifacts</b><span>This page, the progress board and the hub are shared</span></li>
+    <li><i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-7"/></svg></i><b>Daily check</b><span>Its own routine, every weekday and on Sync now</span></li>
+  </ul>
+  <div class="dd-pb-ready"><i></i>Desk ready · story Q4-177</div>
+</div></div><div class="dd-pb-panel" role="tabpanel" id="ddPbP-canvases" aria-labelledby="ddPbT-canvases" data-p="canvases" inert><span class="dd-pb-h">The canvases · who writes where</span>
+<ul class="dd-pb-rows">
+  <li><b>Design Progress</b><span>Live board: every task and which step it is on</span><em>the desk, after every step</em></li>
+  <li><b>Hub</b><span>One copy of every surface, plus a handoff page for each set</span><em>promotion only</em></li>
+  <li><b>State boards</b><span>One per area. Every promoted state sits here, with its note</span><em>promotion only</em></li>
+  <li><b>WS · &lt;KEY&gt;</b><span>The isolated workspace for one story, closed after promotion</span><em>the drawer</em></li>
+  <li><b>Design systems</b><span>Material 3, shell, patterns, NHS: the only source of components</span><em>changed there, then reinstalled</em></li>
+</ul></div><div class="dd-pb-panel" role="tabpanel" id="ddPbP-q3" aria-labelledby="ddPbT-q3" data-p="q3" inert><span class="dd-pb-h">What carried over from Q3, and what didn’t</span>
+<div class="dd-pb-three">
+  <div class="k"><small>Kept</small><p>Ask before drawing. Never redraw a part that exists. Every state cites a PRD line, decision or criterion. The product owner’s words, verbatim. Cheap models read; strong ones draw and judge.</p></div>
+  <div class="d"><small>Dropped</small><p>Pull requests for designs, worktrees, locks, the 14-check gate and repeated cold reads. A review measured zero wrong drawings found by repeat reads.</p></div>
+  <div class="n"><small>New</small><p>One record generates every handoff file, so the slice and the sheets can’t drift. The checker looks for absences first: every finding in that review was something missing.</p></div>
+</div></div><div class="dd-pb-panel" role="tabpanel" id="ddPbP-kit" aria-labelledby="ddPbT-kit" data-p="kit" inert><span class="dd-pb-h">The kit behind the page</span><ul class="dd-pb-tree"><li><code>kit/BOOT.md</code><span>First-session checks, then the hand-off to the desk</span></li><li><code>kit/README.md</code><span>How the desk works, end to end</span></li><li><code>kit/RULES.md</code><span>The rules every agent keeps</span></li><li><code>kit/agents/roles.md</code><span>Who reads, who draws, who checks, on which model</span></li><li><code>kit/skills/atlas-desk.md</code><span>The desk: runs a story through all nine steps</span></li><li><code>kit/skills/atlas-ground · ask · workspace · draw · check · review · promote</code><span>One skill per step</span></li><li><code>kit/scripts/atlas.mjs</code><span>Generates the handoff from the record, lints, rebases</span></li><li><code>kit/schema/story.md</code><span>The shape of the one record</span></li><li><code>kit/examples/story.json</code><span>A finished record to copy from</span></li></ul></div></div>
+            </div>
+            <div class="dd-pb-strip">
+              <ol><li><button type="button" class="a" data-s="0" aria-label="Step 1, Ground"><b>1</b><span>Ground</span></button></li><li><button type="button" class="p" data-s="1" aria-label="Step 2, Ask"><b>2</b><span>Ask</span></button></li><li><button type="button" class="a" data-s="2" aria-label="Step 3, Workspace"><b>3</b><span>Workspace</span></button></li><li><button type="button" class="a" data-s="3" aria-label="Step 4, Draw"><b>4</b><span>Draw</span></button></li><li><button type="button" class="a" data-s="4" aria-label="Step 5, Generate"><b>5</b><span>Generate</span></button></li><li><button type="button" class="a" data-s="5" aria-label="Step 6, Check"><b>6</b><span>Check</span></button></li><li><button type="button" class="p" data-s="6" aria-label="Step 7, Design review"><b>7</b><span>Design review</span></button></li><li><button type="button" class="p" data-s="7" aria-label="Step 8, Approval"><b>8</b><span>Approval</span></button></li><li><button type="button" class="a" data-s="8" aria-label="Step 9, Promote"><b>9</b><span>Promote</span></button></li></ol>
+              <p><i class="a"></i>Agents run six steps <i class="p"></i>three wait for a person: an answer, a review, an approval</p>
+            </div>
+            <script type="application/json" id="ddPbSteps">[{"n": "Ground", "w": "researcher \u00b7 cheap model", "h": 0, "d": "Reads Jira, the PRD, decisions and the brief, then searches every canvas for parts that already exist. Writes the record: each state with its citation."}, {"n": "Ask", "w": "researchers \u2192 you, one at a time", "h": 1, "d": "Each question goes through the decision helper first. Settled ones are dropped; the rest come to you with a recommendation. Answers go to git."}, {"n": "Workspace", "w": "desk", "h": 0, "d": "A new canvas with the four design systems and the surfaces it changes, copied on the server, plus a frozen BEFORE copy of each."}, {"n": "Draw", "w": "drawer \u00b7 strong model", "h": 0, "d": "Adds each state to its surface as a scenario preset, built only from design-system components."}, {"n": "Generate", "w": "script \u00b7 no model", "h": 0, "d": "Cover, slice, before/after, notes and state boards, all built from the one record. Any lint error stops it."}, {"n": "Check", "w": "checker \u00b7 fresh, once", "h": 0, "d": "Missing first, then invented, contradicted, drawn differently, and anything off the design system."}, {"n": "Design review", "w": "the designer, on the canvas", "h": 1, "d": "Each comment becomes a round item, word for word, and is fixed and regenerated. As many rounds as it takes, until the designer says done."}, {"n": "Approval", "w": "the product owner, on the progress board", "h": 1, "d": "One pull request per task holds its questions, the request and the outcome. The product owner approves on the board, or sends it back with a note that starts another round."}, {"n": "Promote", "w": "desk \u00b7 once approved", "h": 0, "d": "Surfaces and the handoff go to the hub, and every state, with its note, to its area board. Jira gets the link once you confirm, and the workspace closes."}]</script>
+            <figcaption>The playbook is the handover. Open any section: whoever designs next shares this page, pastes one prompt, and their Claude checks its own access and sets itself up from the kit behind it.</figcaption>
+          </figure>
+        </section>
+
+        <section class="chap" id="dd-work" data-toc="The desk at work">
+          <span class="k mono">The desk at work</span>
+          <h2>One story, start to finish</h2>
+          <p>Here is one real Q4 story, a list of questionnaires inside Practice settings, from the designer’s chat to the board the product owner approves on.</p>
+
+          <h3>It asks before it draws</h3>
+          <p>Every message that moves a story opens with a one-line progress bar. Every question comes with options and the recommended one first, so a decision takes a click, not a meeting.</p>
+          <figure class="dd-fig">
+            <div class="dd-chat" aria-label="A recreated desk conversation">
+              <div class="dd-chat-bar"><i></i><i></i><i></i><span>Q4-177 · Questionnaire library</span></div>
+              <div class="dd-chat-body">
+                <div class="dd-msg me"><span>/atlas Q4-177</span></div>
+                <div class="dd-msg ai">
+                  <p class="dd-prog"><b>Q4-177</b> <s>✓</s> Ground <s>✓</s> Ask <s>✓</s> Workspace <s>✓</s> Draw <s>✓</s> Generate <s>✓</s> Check <u>●</u> Review <q>○ Approval ○ Promote</q></p>
+                  <p>Check is done. The checker raised 7 items and all 7 are applied: the AFTER frame now shows the opened section, placeholders use the hub’s DECIDE box, and the three open questions link to the product owner’s pull request.</p>
+                  <p>Five states are on the canvas with their notes, the slice and the before/after sheet. It’s with you for the design review.</p>
+                  <div class="dd-tools"><span>Ran the checker</span><span>Applied round 0</span><span>Regenerated 5 files</span></div>
+                </div>
+                <div class="dd-ask">
+                  <span class="dd-ask-h">Review</span>
+                  <p>How does the canvas look?</p>
+                  <div class="dd-opt on"><b>Done: ready for the product owner <em>(Recommended)</em></b><small>Marks it ready on the board and adds the approval request to its pull request</small></div>
+                  <div class="dd-opt"><b>I have corrections</b><small>Comment on the canvas; each comment becomes a round item, word for word</small></div>
+                  <div class="dd-opt"><b>Defer</b><small>Leave it in review</small></div>
+                </div>
+              </div>
+            </div>
+            <figcaption>Redrawn from the desk’s real message format. The details come from a real Q4 story: its record lists eight questions, of which one was answered by the sources, four were the designer’s calls and three went to the product owner.</figcaption>
+          </figure>
+
+          <h3>One record, five files</h3>
+          <p>The researcher writes the story record before anything is drawn: each state with the line that asks for it, what gets reused, what stays out and what’s still open. The generator turns that one file into everything the team opens.</p>
+          <div class="dd-rec-fig">
+            <pre class="dd-code" aria-label="An excerpt of a story record"><code><span class="tp">{</span>
+  <span class="tk">"key"</span>: <span class="ts">"Q4-177"</span>,
+  <span class="tk">"status"</span>: <span class="ts">"ready-for-review"</span>,
+  <span class="tk">"states"</span>: [{
+    <span class="tk">"id"</span>: <span class="ts">"library-shipped"</span>,
+    <span class="tk">"kind"</span>: <span class="ts">"ADD"</span>,
+    <span class="tk">"label"</span>: <span class="ts">"The library as Q4 ships it"</span>,
+    <span class="tk">"cite"</span>: <span class="ts">"PRD 38 d8; PRD 37 line 39"</span>,
+    <span class="tk">"before"</span>: { <span class="tk">"surface"</span>: <span class="ts">"Before_PracticeSettings"</span> }
+  }, <span class="tc">… 4 more</span>],
+  <span class="tk">"notDrawn"</span>: [<span class="tc">18, each with its reason or owner</span>],
+  <span class="tk">"questions"</span>: [<span class="tc">8, answered or sent to a PR</span>],
+  <span class="tk">"rounds"</span>: [{ <span class="tk">"by"</span>: <span class="ts">"checker"</span>, <span class="tk">"items"</span>: <span class="tn">7</span>, <span class="tk">"applied"</span>: <span class="tn">7</span> }]
+<span class="tp">}</span></code></pre>
+            <ul class="dd-files-out">
+              <li><img src="/assets/img/desk-file-cover.webp" alt="" loading="lazy" width="560" height="420"><span><b>Cover</b><small>Start here: states, open questions, rounds</small></span></li>
+              <li><img src="/assets/img/desk-file-slice.webp" alt="" loading="lazy" width="560" height="420"><span><b>Handoff slice</b><small>Every scenario one click away</small></span></li>
+              <li><img src="/assets/img/desk-file-sheet.webp" alt="" loading="lazy" width="560" height="420"><span><b>Before/after sheets</b><small>Numbered changes on both frames</small></span></li>
+              <li><img src="/assets/img/desk-file-note.webp" alt="" loading="lazy" width="560" height="420"><span><b>Notes</b><small>One per state, with its sources</small></span></li>
+              <li><img src="/assets/img/desk-file-state.webp" alt="" loading="lazy" width="560" height="420"><span><b>State boards</b><small>Filed by product area</small></span></li>
+            </ul>
+          </div>
+
+          <h3>Everything on one canvas</h3>
+          <div class="pano" data-pano><div class="pano-track" tabindex="0" aria-label="The workspace canvas for one story. Scroll sideways."><img src="/assets/img/desk-canvas.webp" alt="One story’s workspace canvas: the frozen BEFORE, the cover, the handoff slice, two states with their notes and the before/after sheet" loading="lazy" width="4738" height="800"></div><span class="hint"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>Drag to explore the canvas</span></div>
+          <div class="pano-mini"><i></i></div>
+          <p class="dd-small">Real boards from one story’s workspace, in the order the generator lays them out: the frozen BEFORE, the cover, the slice, each state with its note, and the sheets.</p>
+
+          <h3>The handoff engineers open</h3>
+          <div class="seg" data-seg="dd-hand" role="tablist"><button role="tab" aria-selected="true">Handoff slice</button><button role="tab" aria-selected="false">Before/after sheet</button><span class="thumb"></span></div>
+          <div class="panes" data-panes="dd-hand">
+            <div class="pane on"><figure class="fig"><div class="frame" tabindex="0"><img src="/assets/img/desk-q4-slice.webp" alt="The generated handoff slice: a control card with scenario chips, the state’s note and sources, the not-drawn list, and the live screen below" loading="lazy" width="1800" height="1729"></div><figcaption>The slice. Scenario chips switch the live screen; each state shows its kind, its note and its sources, and the eighteen things deliberately not drawn are listed with their owners.</figcaption></figure></div>
+            <div class="pane"><figure class="fig"><div class="frame" tabindex="0"><img src="/assets/img/desk-q4-sheet.webp" alt="A generated before/after sheet: BEFORE and AFTER frames with numbered outlines, and a numbered list of changes with sources" loading="lazy" width="1800" height="1012"></div><figcaption>A sheet. Numbered outlines are baked in and checked: a mark that’s missing, ambiguous or off its element stops the generator.</figcaption></figure></div>
+          </div>
+
+          <h3>A checker that looks for what’s missing</h3>
+          <p>The checker reads the PRD and the brief itself and never sees the drawer’s chat. It reports in a fixed order, absences first, and anything it can’t cite it doesn’t report.</p>
+          <div class="dd-chk">
+            <div class="dd-tiles3">
+              <div><b>235</b><span>Findings across 27 stories</span></div>
+              <div><b>8</b><span>Median per story, from 4 to 16</span></div>
+              <div><b>13</b><span>Stories where nothing was invented</span></div>
+            </div>
+            <figure class="dd-chart" id="ddFind" aria-labelledby="ddFindT">
+              <figcaption id="ddFindT"><b>What the checker found, by kind</b><span>Six stories with a full breakdown · 57 findings</span></figcaption>
+              <div class="dd-bars" role="list">
+                <div class="dd-bar" role="listitem" tabindex="0" style="--v:19"><span class="l">Missing</span><span class="t"><i></i></span><b>19</b></div>
+                <div class="dd-bar" role="listitem" tabindex="0" style="--v:16"><span class="l">Sheet or record out of step</span><span class="t"><i></i></span><b>16</b></div>
+                <div class="dd-bar" role="listitem" tabindex="0" style="--v:8"><span class="l">Off the design system</span><span class="t"><i></i></span><b>8</b></div>
+                <div class="dd-bar" role="listitem" tabindex="0" style="--v:6"><span class="l">Drawn differently from its source</span><span class="t"><i></i></span><b>6</b></div>
+                <div class="dd-bar" role="listitem" tabindex="0" style="--v:5"><span class="l">Contradicts a source</span><span class="t"><i></i></span><b>5</b></div>
+                <div class="dd-bar" role="listitem" tabindex="0" style="--v:3"><span class="l">Invented</span><span class="t"><i></i></span><b>3</b></div>
+              </div>
+              <details class="dd-table"><summary>Show as a table</summary><table><thead><tr><th>Kind</th><th>Findings</th></tr></thead><tbody><tr><td>Missing</td><td>19</td></tr><tr><td>Sheet or record out of step</td><td>16</td></tr><tr><td>Off the design system</td><td>8</td></tr><tr><td>Drawn differently from its source</td><td>6</td></tr><tr><td>Contradicts a source</td><td>5</td></tr><tr><td>Invented</td><td>3</td></tr></tbody></table></details>
+            </figure>
+          </div>
+          <ul class="dd-quotes">
+            <li><span>Missing</span>The AFTER frame showed the same picture as BEFORE, though the note promised the opened section.</li>
+            <li><span>Off the design system</span>A placeholder box was built by hand with raw sizes, while the hub already had the same open-question box.</li>
+            <li><span>Contradicts a source</span>Two decisions were listed as provisional, though the product owner had already amended and decided both.</li>
+          </ul>
+
+          <h3>One place for the product owner</h3>
+          <p>Each task has one pull request for the product owner, holding its questions, the approval request and the outcome. The board shows every story’s step and who it’s waiting on; approval is one button, or a note that sends it back.</p>
+          <div class="seg" data-seg="dd-board" role="tablist"><button role="tab" aria-selected="true">Every story</button><button role="tab" aria-selected="false">Approving one</button><span class="thumb"></span></div>
+          <div class="panes" data-panes="dd-board">
+            <div class="pane on"><figure class="fig"><div class="frame" tabindex="0"><img src="/assets/img/desk-board.webp" alt="The Design Progress board: 35 tasks in progress, 108 items waiting on the product owner, and a list of stories with a nine-step bar each" loading="lazy" width="1800" height="975"></div><figcaption>The Design Progress board on 14 October. Each row shows the story’s nine-step bar and who it’s waiting on.</figcaption></figure></div>
+            <div class="pane"><figure class="fig"><div class="frame" tabindex="0"><img src="/assets/img/desk-board-approve.webp" alt="A story open on the board: the approval card with Approve and Send back with a note, and the nine steps with dates and notes" loading="lazy" width="1800" height="1250"></div><figcaption>One story open: the approval card, and every step with its date and what happened.</figcaption></figure></div>
+          </div>
+
+          <h3>Stories built on stories</h3>
+          <p>When a new story changes a surface an unapproved story is still changing, it’s built on top of it. Each change underneath bumps a revision, and the desk brings every story above it up to date.</p>
+          <figure class="dd-fig">
+            <ol class="dd-stack" aria-label="A stack of five stories, each built on the one before">
+              <li><b>Each question type, shown accessibly</b><small>rev 2</small></li>
+              <li><b>Answers, files and lookups refused</b><small>rev 1 · built on rev 2</small></li>
+              <li><b>A pre-filled answer, marked as such</b><small>rev 3 · built on rev 1</small></li>
+              <li><b>The point a branch changed the questions</b><small>rev 1 · built on rev 3</small></li>
+              <li><b>Progress through the journey</b><small>rev 1 · built on rev 1</small></li>
+            </ol>
+            <figcaption>A real stack, five deep, on 14 October. A clean three-way merge carries on; a conflict stops, and the designer picks which version wins. That day three other stories sat behind their parent, each flagged on the board with “bring the change in”.</figcaption>
+          </figure>
+
+          <h3>Every bug became a check</h3>
+          <p>In its first week version two drew dozens of stories, and some came out wrong in the same way more than once. I didn’t fix them one by one. Each kind of mistake became a check the generator now runs every time.</p>
+          <div class="mbars dd-hard">
+            <div class="mbar"><div class="t">A “new” BEFORE where an old screen existed<small>BEFORE now comes from the truest source there is, down to the old Figma frame, and each change points at the region it replaces.</small></div><div class="v">36</div></div>
+            <div class="mbar"><div class="t">Dialogs missing from AFTER frames<small>Frames are pinned to their board’s size, and the sheet check renders each one as the canvas does and fails a dialog outside it.</small></div><div class="v">19</div></div>
+            <div class="mbar"><div class="t">Change rows describing an earlier draft<small>A row compares BEFORE with AFTER, never with a draft, and the checker reads the sheet once.</small></div><div class="v">13</div></div>
+            <div class="mbar"><div class="t">Marks on the wrong element<small>A mark whose words match more than one place has to say which; the sheet check fails it otherwise.</small></div><div class="v">5</div></div>
+            <div class="mbar"><div class="t">Note boards the wrong height<small>Every note is rendered and its board fitted to the measured card; a note with more than 8px to spare fails.</small></div><div class="v">All</div></div>
+          </div>
+        </section>
+
+        <section class="chap" id="dd-impact" data-toc="Impact">
+          <span class="k mono">Impact</span>
+          <h2>Faster, and every state on the record</h2>
+          <figure class="dd-chart dd-col" id="ddDays" aria-labelledby="ddDaysT">
+            <figcaption id="ddDaysT"><b>Stories signed off by the designer, per day</b><span>Version two’s first eight days, 7–14 October · 31 stories</span></figcaption>
+            <div class="dd-cols" role="list">
+              <div class="dd-colb" role="listitem" tabindex="0" style="--v:2"><b>2</b><span class="t"><i></i></span><span class="l">7 Oct</span></div>
+              <div class="dd-colb" role="listitem" tabindex="0" style="--v:2"><b>2</b><span class="t"><i></i></span><span class="l">8 Oct</span></div>
+              <div class="dd-colb" role="listitem" tabindex="0" style="--v:3"><b>3</b><span class="t"><i></i></span><span class="l">9 Oct</span></div>
+              <div class="dd-colb" role="listitem" tabindex="0" style="--v:4"><b>4</b><span class="t"><i></i></span><span class="l">10 Oct</span></div>
+              <div class="dd-colb" role="listitem" tabindex="0" style="--v:0"><b>0</b><span class="t"><i></i></span><span class="l">11 Oct</span></div>
+              <div class="dd-colb hi" role="listitem" tabindex="0" style="--v:17"><b>17</b><span class="t"><i></i></span><span class="l">12 Oct</span></div>
+              <div class="dd-colb" role="listitem" tabindex="0" style="--v:2"><b>2</b><span class="t"><i></i></span><span class="l">13 Oct</span></div>
+              <div class="dd-colb" role="listitem" tabindex="0" style="--v:1"><b>1</b><span class="t"><i></i></span><span class="l">14 Oct</span></div>
+            </div>
+            <details class="dd-table"><summary>Show as a table</summary><table><thead><tr><th>Day</th><th>Stories signed off</th></tr></thead><tbody><tr><td>7 Oct</td><td>2</td></tr><tr><td>8 Oct</td><td>2</td></tr><tr><td>9 Oct</td><td>3</td></tr><tr><td>10 Oct</td><td>4</td></tr><tr><td>11 Oct</td><td>0</td></tr><tr><td>12 Oct</td><td>17</td></tr><tr><td>13 Oct</td><td>2</td></tr><tr><td>14 Oct</td><td>1</td></tr></tbody></table></details>
+          </figure>
+          <div class="outcomes">
+            <div class="outcome"><div class="big" data-count="3" data-suffix=" days">3 days</div><div><span class="mono">The pilot set, end to end</span><h3>First read to promoted, through review and approval</h3><p>Two Practice settings stories were grounded on 6 October, signed off on the 7th, approved on the 8th and promoted on the 9th.</p></div></div>
+            <div class="outcome"><div class="big dd-w">5.5 h</div><div><span class="mono">Record to sign-off, median of 15 stories</span><h3>The fastest took 70 minutes</h3><p>Measured from the accepted record to the designer saying done. In Q3 the median from a brief to its first deliverable was six days. They’re not the same measure, but the gap is the point.</p></div></div>
+            <div class="outcome"><div class="big dd-w">Same day</div><div><span class="mono">Time to ask a question</span><h3>Down from 21 days in August</h3><p>The median time from raising a question to putting it to someone fell to one day in September and the same day in October.</p></div></div>
+            <div class="outcome"><div class="big dd-w">7 in 10</div><div><span class="mono">Questions settled before the product owner</span><h3>About 223 settled, 89 sent on</h3><p>Settled from the sources or by the designer. What reached the product owner touched consent, safety, the record or billing.</p></div></div>
+            <div class="outcome"><div class="big" data-count="350">350</div><div><span class="mono">States on the area boards</span><h3>Every promoted state, with its note</h3><p>Filed by product area, from the inbox to patient screens, so the next story starts from what’s already decided.</p></div></div>
+          </div>
+          <p>The playbook is written so whoever designs next starts from one prompt, and the rest of the organisation is now moving to the same way of working.</p>
+          <div class="callout"><p><strong>What I’d change.</strong> Drawing got fast enough to move the queue: by mid-October, 29 stories were waiting for approval. The next version has to make approving as cheap as asking already is.</p></div>
+        </section>
+
+        <section class="chap" id="dd-reflection" data-toc="Reflection">
+          <span class="k mono">Reflection</span>
+          <h2>What building it taught me</h2>
+          <div class="grid-2">
+            <div class="box"><span class="n">01</span><h3>Agents draw well and decide badly</h3><p>So nothing in the system lets them decide. Undecided behaviour becomes a labelled placeholder and a question, never a guess.</p></div>
+            <div class="box"><span class="n">02</span><h3>Missing beats wrong</h3><p>The expensive mistakes were absences: the empty state, the failure, the permission. Looking for them first changed what reviews found.</p></div>
+            <div class="box"><span class="n">03</span><h3>Make the record the product</h3><p>Once one file held every state, citation and decision, the handoff files came for free and could never disagree.</p></div>
+            <div class="box"><span class="n">04</span><h3>Design the stops, not just the screens</h3><p>The hard part was deciding where a person has to stop the line, and making each stop cheap: one question, with options.</p></div>
+          </div>
+        </section>
+        <a class="next-case" href="/promotion-center/" data-open="promotion-center"><span class="mono">Next case study</span><h3>Promotion Center →</h3></a>
+      </div>
+    </div>
+  </article>
 
   <!-- ===== PROMOTION CENTER ===== -->
   <article class="case" id="case-promotion-center" data-title="Promotion Center" data-page-title="Promotion Center at Snappfood · Sid Jameson" data-desc="How Sid Jameson designed Snappfood’s Promotion Center: one discovery page for people who order by price, with every cashback, coupon, party and discount in one place." data-next="balad-maps" style="--tint:#f2147d;--tint-2:#ff7a45" hidden>
@@ -1447,7 +2704,7 @@ footer.site .foot-in{display:flex;justify-content:space-between;flex-wrap:wrap;g
   </article>
 
   <!-- ===== JOB SEARCH ===== -->
-  <article class="case" id="case-job-search" data-title="Job Search Application" data-page-title="Job search app, a design exercise · Sid Jameson" data-desc="A job search app design exercise by Sid Jameson, from requirements and competitor analysis to personas, information architecture and a UI kit." data-next="promotion-center" style="--tint:#e8892b;--tint-2:#007bff">
+  <article class="case" id="case-job-search" data-title="Job Search Application" data-page-title="Job search app, a design exercise · Sid Jameson" data-desc="A job search app design exercise by Sid Jameson, from requirements and competitor analysis to personas, information architecture and a UI kit." data-next="ai-design-workflow" style="--tint:#e8892b;--tint-2:#007bff">
     <header class="case-hero">
       <div class="wrap">
         <div class="case-top">
@@ -1601,7 +2858,7 @@ footer.site .foot-in{display:flex;justify-content:space-between;flex-wrap:wrap;g
           </div>
         </section>
 
-        <a class="next-case" href="/promotion-center/" data-open="promotion-center"><span class="mono">Next case study</span><h3>Promotion Center →</h3></a>
+        <a class="next-case" href="/ai-design-workflow/" data-open="ai-design-workflow"><span class="mono">Next case study</span><h3>The Design Desk →</h3></a>
       </div>
     </div>
   </article>
@@ -2129,6 +3386,214 @@ $('#rsvIn').addEventListener('click', () => setZ(rz + .2)); $('#rsvOut').addEven
 $('#rsvClose').addEventListener('click', closeR);
 rsvScroll.addEventListener('click', e => { if (e.target === rsvScroll) closeR(); });
 rsvPage.addEventListener('dblclick', () => setZ(rz > 1.05 ? 1 : 1.6));
+
+/* ===== the Design Desk case ===== */
+/* anatomy: hover, focus or tap a part to light what it talks to; lines are drawn from the parts' real boxes */
+const anat = $('#ddAnat');
+if (anat) {
+  const svg = $('#ddAnatSvg'), cap = $('#ddAnatCap'), N = id => $(`[data-n="${id}"]`, anat);
+  const EDGES = [['designer', 'desk'], ['desk', 'researcher'], ['desk', 'helper'], ['desk', 'drawer'], ['desk', 'generator'], ['desk', 'checker'], ['desk', 'board'],
+    ['po', 'board'], ['po', 'git'], ['researcher', 'git'], ['researcher', 'jira'], ['researcher', 'hub'], ['helper', 'git'], ['drawer', 'workspace'], ['ds', 'drawer'],
+    ['generator', 'workspace'], ['checker', 'workspace'], ['checker', 'git'], ['workspace', 'hub']];
+  const SAY = {
+    git: 'The knowledge base: PRDs, numbered decisions, the question queue and briefs. Answers land here by pull request; nothing designed does.',
+    jira: 'One ticket per story. The researcher reads it first, and the link goes back only after the designer confirms.',
+    designer: 'Answers questions one at a time, each with options, and reviews on the canvas. Every comment becomes a round item, word for word.',
+    po: 'Approves on the board or sends a story back with a note. Gets one pull request per task, holding all of its questions.',
+    desk: 'The one chat a designer talks to. It finds where a story is, runs the next step with the right agent and stops at every person. It never draws and never decides.',
+    researcher: 'Cheap model, read-only. Reads the ticket, PRD, decisions and brief, sweeps every canvas for parts that already exist, and writes the story record.',
+    helper: 'Cheap model. Settles a question from the PRD, decision notes, NHS England and ICO guidance and peer products, or brings it back with options.',
+    drawer: 'Strong model. Owns one workspace and adds each state to its surface as a scenario, from design-system components only.',
+    generator: 'A script with no model. Turns the record into the cover, slice, before/after sheets, notes and state boards, and won’t run on any lint error.',
+    checker: 'Strong model, fresh context, run once. Reads the PRD itself, never the drawer’s chat, and reports what’s missing first.',
+    workspace: 'One canvas per story: the surfaces it changes, a frozen BEFORE of each, and everything the generator writes. Closed after promotion.',
+    hub: 'One copy of every surface in the product, plus a handoff page per set. Only promotion changes it.',
+    ds: 'The only source of components: the NHS design system, a Material 3 kit, shared patterns and the app shell.',
+    board: 'Every story’s step, live. The desk updates it at each step, and the product owner approves there.',
+  };
+  const NAME = id => $('b', N(id)).textContent;
+  const DEF = cap.innerHTML;
+  const draw = () => {
+    if (getComputedStyle(svg).display === 'none') return;
+    const A = anat.getBoundingClientRect();
+    if (!A.width) return;
+    const box = el => { const r = el.getBoundingClientRect(); return { l: r.left - A.left, r: r.right - A.left, t: r.top - A.top, b: r.bottom - A.top, x: r.left - A.left + r.width / 2, y: r.top - A.top + r.height / 2 }; };
+    svg.setAttribute('viewBox', `0 0 ${A.width} ${A.height}`);
+    svg.innerHTML = EDGES.map(([f, t]) => {
+      const a = box(N(f)), b = box(N(t)), dx = b.x - a.x, dy = b.y - a.y;
+      let d;
+      if (Math.abs(dx) > Math.abs(dy) * 1.2) {
+        const x1 = dx > 0 ? a.r : a.l, x2 = dx > 0 ? b.l : b.r, m = (x1 + x2) / 2;
+        d = `M${x1} ${a.y} C${m} ${a.y} ${m} ${b.y} ${x2} ${b.y}`;
+      } else {
+        const y1 = dy > 0 ? a.b : a.t, y2 = dy > 0 ? b.t : b.b, m = (y1 + y2) / 2;
+        d = `M${a.x} ${y1} C${a.x} ${m} ${b.x} ${m} ${b.x} ${y2}`;
+      }
+      return `<path data-a="${f}" data-b="${t}" d="${d}"/>`;
+    }).join('');
+  };
+  const focus = id => {
+    anat.classList.toggle('focus', !!id);
+    const near = new Set(id ? EDGES.filter(e => e.includes(id)).flat() : []);
+    $$('.dd-n', anat).forEach(n => { n.classList.toggle('on', n.dataset.n === id); n.classList.toggle('near', near.has(n.dataset.n) && n.dataset.n !== id); });
+    $$('path', svg).forEach(p => p.classList.toggle('on', !!id && (p.dataset.a === id || p.dataset.b === id)));
+    cap.innerHTML = id ? `<b>${NAME(id)}.</b> ${SAY[id]}` : DEF;
+  };
+  let pinned = null;
+  $$('.dd-n', anat).forEach(n => {
+    n.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') focus(n.dataset.n); });
+    n.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse') focus(pinned); });
+    n.addEventListener('focus', () => focus(n.dataset.n));
+    n.addEventListener('blur', () => focus(pinned));
+    n.addEventListener('click', () => { pinned = pinned === n.dataset.n ? null : n.dataset.n; focus(pinned); });
+  });
+  new ResizeObserver(() => requestAnimationFrame(draw)).observe(anat);
+  draw();
+}
+
+/* charts: one tooltip per chart, on hover and keyboard focus; the values also sit on the marks and in the table */
+$$('.dd-chart').forEach(ch => {
+  const tip = document.createElement('div'); tip.className = 'dd-tip'; tip.setAttribute('aria-hidden', 'true'); ch.appendChild(tip);
+  const marks = $$('.dd-bar, .dd-colb', ch), unit = ch.classList.contains('dd-col') ? ['story signed off', 'stories signed off'] : ['finding', 'findings'];
+  const show = m => {
+    const v = +$('b', m).textContent, l = $('.l', m).textContent;
+    tip.replaceChildren(Object.assign(document.createElement('b'), { textContent: `${v} ${v === 1 ? unit[0] : unit[1]}` }), Object.assign(document.createElement('span'), { textContent: l }));
+    const C = ch.getBoundingClientRect(), r = ($('.t i', m) || m).getBoundingClientRect();
+    tip.classList.add('on');
+    const w = tip.offsetWidth, x = Math.min(Math.max(8, r.left - C.left + r.width / 2 - w / 2), C.width - w - 8);
+    tip.style.left = x + 'px'; tip.style.top = Math.max(8, r.top - C.top - tip.offsetHeight - 10) + 'px';
+  };
+  const hide = () => tip.classList.remove('on');
+  marks.forEach(m => {
+    m.setAttribute('aria-label', `${$('.l', m).textContent}: ${$('b', m).textContent}`);
+    m.addEventListener('pointerenter', () => show(m)); m.addEventListener('pointerleave', hide);
+    m.addEventListener('focus', () => show(m)); m.addEventListener('blur', hide);
+  });
+});
+
+/* the film: play with sound on request, native controls once it runs, pause when it leaves the screen or the case closes */
+$$('.dd-film').forEach(f => {
+  const v = $('video', f);
+  $('.dd-play', f).addEventListener('click', () => { v.controls = true; v.muted = false; v.play().catch(() => {}); });
+  v.addEventListener('play', () => f.classList.add('playing'));
+  v.addEventListener('ended', () => { f.classList.remove('playing'); v.controls = false; });
+  new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting && !v.paused) v.pause(); })).observe(v);
+});
+
+/* workflow: the swimlane map is the tab list, the panel below shows the chosen step.
+   Connectors are drawn from the nodes' real boxes; on narrow screens the map is a plain list. */
+const wf = $('#wf');
+if (wf) {
+  const map = $('.wm', wf), tabs = $$('.wm-n', wf), panes = $$('.wf-p', wf), svg = $('#wmSvg'), labels = $('#wmLabels');
+  const play = $('#wfPlay'), DUR = 8000, wide = { get matches() { return wf.clientWidth >= 980; } };
+  // the edge into each step lights up with it; review also lights its rounds loop, approval its send-back loop
+  const LIT = [[], ['e1'], ['e2'], ['e3'], ['e4'], ['e5'], ['e6', 'loopR'], ['e7', 'loopA'], ['e8']];
+  let step = 0, timer, playing = !reduce, visible = false, hold = false;
+  wf.style.setProperty('--wf-dur', DUR + 'ms');
+
+  const draw = () => {
+    if (!wide.matches) { svg.innerHTML = ''; labels.innerHTML = ''; return; }
+    const M = map.getBoundingClientRect();
+    const box = el => { const r = el.getBoundingClientRect(); return { l: r.left - M.left, r: r.right - M.left, t: r.top - M.top, b: r.bottom - M.top, cx: r.left - M.left + r.width / 2, cy: r.top - M.top + r.height / 2 }; };
+    const B = tabs.map(box), R = 8;
+    let paths = '', labs = '';
+    const path = (id, d, cls = '') => { paths += `<path data-e="${id}" class="${cls}" d="${d}" marker-end="url(#wmArrow)"/>`; };
+    for (let i = 0; i < B.length - 1; i++) {
+      const a = B[i], b = B[i + 1], x1 = a.r, y1 = a.cy, x2 = b.l - 4, y2 = b.cy;
+      if (Math.abs(y1 - y2) < 2) { path('e' + (i + 1), `M${x1} ${y1} H${x2}`); continue; }
+      const xm = (a.r + b.l) / 2, s = y2 > y1 ? 1 : -1;
+      path('e' + (i + 1), `M${x1} ${y1} H${xm - R} Q${xm} ${y1} ${xm} ${y1 + s * R} V${y2 - s * R} Q${xm} ${y2} ${xm + R} ${y2} H${x2}`);
+    }
+    // review rounds: from Review down under the lanes and back up into Draw
+    const rv = B[6], dr = B[3], yb = Math.max(...B.map(b => b.b)) + 26;
+    path('loopR', `M${rv.cx} ${rv.b} V${yb - R} Q${rv.cx} ${yb} ${rv.cx - R} ${yb} H${dr.cx + R} Q${dr.cx} ${yb} ${dr.cx} ${yb - R} V${dr.b + 4}`, 'loop');
+    labs += `<span data-e="loopR" style="left:${(rv.cx + dr.cx) / 2}px;top:${yb}px">Each review round: draw, generate and check again</span>`;
+    // approval sent back: over the top from Approval to Review
+    const ap = B[7], yt = Math.min(...B.map(b => b.t)) - 22;
+    path('loopA', `M${ap.cx} ${ap.t} V${yt + R} Q${ap.cx} ${yt} ${ap.cx - R} ${yt} H${rv.cx + R} Q${rv.cx} ${yt} ${rv.cx} ${yt + R} V${rv.t - 4}`, 'loop');
+    labs += `<span data-e="loopA" style="left:${(ap.cx + rv.cx) / 2}px;top:${yt}px">Sent back with a note</span>`;
+    svg.setAttribute('viewBox', `0 0 ${M.width} ${M.height}`);
+    svg.innerHTML = `<defs><marker id="wmArrow" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L6 4L1 7" fill="none" stroke-width="1.4"/></marker></defs>${paths}`;
+    labels.innerHTML = labs;
+    light();
+  };
+  const light = () => $$('[data-e]', wf).forEach(el => el.classList.toggle('on', LIT[step].includes(el.dataset.e)));
+
+  const show = (i, focus) => {
+    step = (i + tabs.length) % tabs.length;
+    tabs.forEach((t, k) => { const on = k === step; t.classList.remove('on'); void t.offsetWidth; t.classList.toggle('on', on); t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1; });
+    panes.forEach((p, k) => p.classList.toggle('on', k === step));
+    $('#wfNum').textContent = `Step ${step + 1} of ${tabs.length}`;
+    $('#wfName').textContent = $('b', tabs[step]).textContent;
+    light();
+    if (focus) tabs[step].focus();
+    schedule();
+  };
+  const schedule = () => { clearTimeout(timer); if (playing && visible && !hold) timer = setTimeout(() => show(step + 1), DUR); };
+  const setPlaying = on => { playing = on; wf.classList.toggle('stopped', !on); play.classList.toggle('paused', !on); play.setAttribute('aria-label', on ? 'Pause walkthrough' : 'Play walkthrough'); if (on) show(step); else clearTimeout(timer); };
+  const holdWf = on => { hold = on; wf.classList.toggle('paused', on); if (on) clearTimeout(timer); else show(step); };
+  // on a phone the panel sits under the list, so bring it into view after a tap
+  const reveal = () => { if (wf.clientWidth < 700) $('.wf-stage', wf).scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); };
+
+  tabs.forEach((t, k) => t.addEventListener('click', () => { setPlaying(false); show(k); reveal(); }));
+  map.addEventListener('keydown', e => {
+    const d = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+    if (d) { e.preventDefault(); setPlaying(false); show(step + d, true); }
+    else if (e.key === 'Home' || e.key === 'End') { e.preventDefault(); setPlaying(false); show(e.key === 'Home' ? 0 : tabs.length - 1, true); }
+  });
+  $('#wfPrev').addEventListener('click', () => { setPlaying(false); show(step - 1); });
+  $('#wfNext').addEventListener('click', () => { setPlaying(false); show(step + 1); });
+  play.addEventListener('click', () => setPlaying(!playing));
+  const stage = $('.wf-stage', wf);
+  stage.addEventListener('pointerenter', () => holdWf(true)); stage.addEventListener('pointerleave', () => holdWf(false));
+  new IntersectionObserver(es => es.forEach(e => { visible = e.isIntersecting; schedule(); }), { threshold: .25 }).observe(wf);
+  new ResizeObserver(() => requestAnimationFrame(draw)).observe(map);
+  setPlaying(playing);
+  draw();
+}
+
+
+/* the playbook: the page's contents are the tab list; the step strip opens the steps panel at that step;
+   the first-session checks tick in order whenever "Start a session" is shown */
+const pb = $('#ddPb');
+if (pb) {
+  const tabs = $$('[role="tab"]', pb), panels = $$('.dd-pb-panel', pb), STEPS = JSON.parse($('#ddPbSteps').textContent);
+  const checks = $('.dd-pb-checks', pb), strip = $$('.dd-pb-strip button', pb);
+  let seen = false, cur = 0;
+  const runChecks = () => { checks.classList.remove('run'); void checks.offsetWidth; checks.classList.add('run'); };
+  const show = (k, focus) => {
+    tabs.forEach(t => { const on = t.dataset.p === k; t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1; if (on && focus) t.focus(); if (on && t.scrollIntoView && pb.clientWidth < 700) t.scrollIntoView({ block: 'nearest', inline: 'nearest' }); });
+    panels.forEach(p => { const on = p.dataset.p === k; p.classList.toggle('on', on); p.inert = !on; });
+    strip.forEach((b, i) => b.classList.toggle('cur', k === 'steps' && i === cur));
+    if (k === 'session' && seen) runChecks();
+  };
+  const step = i => {
+    cur = (i + STEPS.length) % STEPS.length; const s = STEPS[cur];
+    $('.dd-pb-num', pb).textContent = String(cur + 1).padStart(2, '0');
+    $('#ddPbSName').textContent = s.n; $('#ddPbSWho').textContent = s.w; $('#ddPbSText').textContent = s.d;
+    const tag = $('#ddPbSTag'); tag.textContent = s.h ? 'Waits for a person' : 'Agent'; tag.classList.toggle('p', !!s.h);
+    show('steps');
+  };
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => show(t.dataset.p));
+    t.addEventListener('keydown', e => {
+      const d = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
+      if (d) { e.preventDefault(); show(tabs[(i + d + tabs.length) % tabs.length].dataset.p, true); }
+      if (e.key === 'Home') { e.preventDefault(); show(tabs[0].dataset.p, true); }
+      if (e.key === 'End') { e.preventDefault(); show(tabs[tabs.length - 1].dataset.p, true); }
+    });
+  });
+  strip.forEach(b => b.addEventListener('click', () => step(+b.dataset.s)));
+  $$('.dd-pb-mini', pb).forEach(b => b.addEventListener('click', () => step(cur + +b.dataset.d)));
+  $('.dd-pb-replay', pb).addEventListener('click', runChecks);
+  const copy = $('.dd-pb-copy', pb);
+  copy.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText($('#ddPbPrompt').textContent.trim()); copy.textContent = 'Copied'; copy.classList.add('ok'); }
+    catch { copy.textContent = 'Select to copy'; }
+    setTimeout(() => { copy.textContent = 'Copy'; copy.classList.remove('ok'); }, 1600);
+  });
+  new IntersectionObserver((es, io) => es.forEach(e => { if (e.isIntersecting) { seen = true; if ($('.dd-pb-panel.on', pb).dataset.p === 'session') runChecks(); io.disconnect(); } }), { threshold: .45 }).observe(pb);
+}
 })();
 </script>
 </body>
