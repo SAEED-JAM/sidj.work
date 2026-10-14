@@ -1,5 +1,5 @@
 /* ================= CASE SHEET ================= */
-.sheet{position:fixed;inset:0;z-index:80;overflow-y:auto;overscroll-behavior:contain;background:var(--bg);-webkit-overflow-scrolling:touch}
+.sheet{position:fixed;inset:0;z-index:80;overflow-y:auto;overscroll-behavior:contain;background:var(--grain) 0 0/200px 200px,var(--bg);-webkit-overflow-scrolling:touch}
 .sheet[hidden]{display:none}
 .sheet-bar{position:sticky;top:0;z-index:5;padding:calc(env(safe-area-inset-top,0px) + 12px) var(--gutter) 12px;display:flex;align-items:center;justify-content:space-between;gap:12px;pointer-events:none}
 .sheet-bar>*{pointer-events:auto}

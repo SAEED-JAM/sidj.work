@@ -1,6 +1,6 @@
 /* Home page */
 /* header: name, sections, résumé, theme; solid, with a rule once the page scrolls */
-.top{position:sticky;top:0;z-index:60;background:var(--bg);border-bottom:1px solid transparent;transition:border-color .3s}
+.top{position:sticky;top:0;z-index:60;background:var(--grain) 0 0/200px 200px,var(--bg);border-bottom:1px solid transparent;transition:border-color .3s}
 .top.scrolled{border-bottom-color:var(--line)}
 .top-in{display:flex;align-items:center;gap:28px;height:64px;max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gutter)}
 .brand{font-weight:600;font-size:16px;letter-spacing:-.01em;margin-right:auto}
@@ -20,7 +20,7 @@
 .menu-btn{display:none;font-size:15px;font-weight:500}
 @media (max-width:880px){.links,.resume-link{display:none}.menu-btn{display:block}.top-in{gap:20px}}
 /* small screens: the menu is a full page under the header */
-.menu{position:fixed;z-index:59;inset:64px 0 0;display:flex;flex-direction:column;padding:12px var(--gutter) calc(env(safe-area-inset-bottom,0px) + 28px);background:var(--bg);opacity:0;transform:translateY(-6px);transition:opacity .25s,transform .35s var(--ease)}
+.menu{position:fixed;z-index:59;inset:64px 0 0;display:flex;flex-direction:column;padding:12px var(--gutter) calc(env(safe-area-inset-bottom,0px) + 28px);background:var(--grain) 0 0/200px 200px,var(--bg);opacity:0;transform:translateY(-6px);transition:opacity .25s,transform .35s var(--ease)}
 .menu.on{opacity:1;transform:none}
 .menu[hidden]{display:none}
 .menu>a{padding:10px 0;font-size:clamp(30px,8vw,40px);font-weight:500;font-stretch:94%;letter-spacing:-.03em;line-height:1.15;border-bottom:1px solid var(--line)}
