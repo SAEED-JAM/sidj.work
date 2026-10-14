@@ -120,12 +120,25 @@ p{margin:0}
 .face{display:inline-block;height:.74em;width:auto;aspect-ratio:1;margin:0 .02em 0 .06em;border-radius:.16em;object-fit:cover;object-position:50% 30%;vertical-align:-.04em;position:relative;z-index:1;transition:transform .55s var(--spring);transform-origin:50% 70%;background:var(--bg-2)}
 .face:hover{transform:scale(1.9) rotate(-5deg)}
 .intro-sub{margin-top:clamp(24px,3vw,36px);font-size:clamp(18px,1.65vw,22px);line-height:1.5;color:var(--ink-2);max-width:34em}
-.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px 32px;margin:clamp(48px,6vw,80px) 0 0;padding-top:20px;border-top:1px solid var(--line)}
+.facts{display:grid;grid-template-columns:auto minmax(0,1fr) auto auto;gap:22px clamp(28px,4vw,64px);margin:clamp(48px,6vw,80px) 0 0;padding-top:20px;border-top:1px solid var(--line)}
 .facts dt{font-size:13px;font-weight:500;font-stretch:104%;letter-spacing:.01em;color:var(--ink-3);margin-bottom:6px}
 .facts dd{margin:0;font-size:15.5px;line-height:1.55}
 .facts a,.inline-btn{text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:3px;transition:text-decoration-color .2s}
 .facts a:hover,.inline-btn:hover{text-decoration-color:var(--ink)}
-@media (max-width:880px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* companies: small logos, role and years on hover */
+.orgs{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px}
+.facts .org{position:relative;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;text-decoration:none;transition:opacity .3s}
+.org img{width:20px;height:20px;flex:none;border-radius:5px;border:1px solid var(--line);background:#fff;object-fit:cover;transition:transform .4s var(--spring)}
+.orgs:hover .org:not(:hover){opacity:.45}
+.org:hover img{transform:scale(1.15) rotate(-5deg)}
+.facts .more{color:var(--ink-3);white-space:nowrap}
+.facts .more:hover{color:var(--ink)}
+.tip{position:absolute;left:50%;bottom:calc(100% + 10px);z-index:5;transform:translate(-50%,4px);padding:7px 10px;border-radius:6px;background:var(--ink);color:var(--bg);font-size:13px;line-height:1.35;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s,transform .3s var(--ease)}
+.tip small{display:block;font-size:12.5px;opacity:.65}
+.org:hover .tip,.org:focus-visible .tip{opacity:1;transform:translate(-50%,0)}
+@media (hover:none){.tip{display:none}}
+@media (max-width:1000px){.facts{grid-template-columns:auto minmax(0,1fr)}}
+@media (max-width:640px){.facts{grid-template-columns:1fr}}
 
 /* sections: a ruled header, a small label and a sentence */
 .sec{padding-top:clamp(64px,8vw,112px)}
@@ -676,8 +689,8 @@ footer.site .foot-in{display:flex;justify-content:space-between;flex-wrap:wrap;g
     <h1 class="intro">I’m Sid <span class="nowrap">Jameson <img class="face" src="/assets/img/portrait-160.webp" alt="" width="160" height="160">,</span> a product designer who works in code.</h1>
     <p class="intro-sub">For eight years I’ve designed products with a lot going on underneath: a crypto exchange and its AI learning app, a security suite, a maps app, and food delivery at 330,000 orders a day. Now I’m at Huma in Yerevan, designing Atlas for UK healthcare.</p>
     <dl class="facts">
-      <div><dt>Currently</dt><dd>AI Design Engineer at <a href="#xp-huma" data-jump="xp-huma">Huma</a></dd></div>
-      <div><dt>Before</dt><dd><a href="#xp-wallex" data-jump="xp-wallex">Wallex</a>, <a href="#xp-snappfood" data-jump="xp-snappfood">Snappfood</a>, <a href="#xp-graph" data-jump="xp-graph">Graph</a>, <a href="#xp-bazaar" data-jump="xp-bazaar">Cafe Bazaar</a> and <a href="#experience">ten more</a></dd></div>
+      <div><dt>Currently at</dt><dd class="orgs"><a class="org" href="#xp-huma" data-jump="xp-huma"><img src="/assets/logo/huma.webp" alt="" width="96" height="96">Huma<span class="tip">AI Design Engineer<small>Jun 2026 – Present</small></span></a></dd></div>
+      <div><dt>Previously at</dt><dd class="orgs"><a class="org" href="#xp-wallex" data-jump="xp-wallex"><img src="/assets/logo/wallex.webp" alt="" width="96" height="96">Wallex<span class="tip">Product Design Manager,<br>then AI Product Design Manager<small>2024–2026</small></span></a><a class="org" href="#xp-snappfood" data-jump="xp-snappfood"><img src="/assets/logo/snappfood.webp" alt="" width="96" height="96">Snappfood<span class="tip">Senior Product Designer<small>2023–2024</small></span></a><a class="org" href="#xp-graph" data-jump="xp-graph"><img src="/assets/logo/graph.webp" alt="" width="96" height="96">Graph Inc.<span class="tip">Product Designer, then Team Lead<small>2020–2023</small></span></a><a class="org" href="#xp-bazaar" data-jump="xp-bazaar"><img src="/assets/logo/bazaar.webp" alt="" width="96" height="96">Cafe Bazaar<span class="tip">UX Designer, apprenticeship<small>2019</small></span></a><a class="more" href="#experience">+10 more</a></dd></div>
       <div><dt>Elsewhere</dt><dd><a href="https://www.linkedin.com/in/mirsaeedjamshidi/" target="_blank" rel="noopener">LinkedIn</a>, <a href="https://medium.com/@msaeedjg" target="_blank" rel="noopener">Medium</a>, <button class="inline-btn" type="button" data-resume>Résumé</button></dd></div>
       <div><dt>Local time</dt><dd>Yerevan, <span id="clock">--:--</span></dd></div>
     </dl>
