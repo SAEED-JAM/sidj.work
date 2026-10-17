@@ -71,7 +71,8 @@ LOCAL = r'(\s(?:src|href|poster|data-[a-z-]+)=")(assets/|favicon\.ico|apple-touc
 
 
 PERSON = {
-    "@type": "Person", "@id": f"{SITE}/#person", "name": "Sid Jameson", "url": f"{SITE}/",
+    "@type": "Person", "@id": f"{SITE}/#person", "name": "Sid Jameson",
+    "alternateName": ["Mir Saeed Jamshidi", "Saeed Jamshidi"], "url": f"{SITE}/",
     "image": f"{SITE}/assets/img/portrait.webp", "jobTitle": "AI Design Engineer",
     "description": "AI design engineer at Huma, designing healthcare software in code with Claude. Eight years of product "
                    "design across trading, security, maps, food delivery and AI learning.",
