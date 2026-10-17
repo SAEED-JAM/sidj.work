@@ -181,6 +181,7 @@ const openCase = (slug, fromCard, instant, nav = true, focus = true) => {
 };
 const closeCase = fromPop => {
   if (sheet.hidden || closeAnim) return;
+  if ($('main').hidden) { location.href = '/'; return; } // a case page: the home page is a real page load
   if (!fromPop) {
     if (history.state?.home) return history.back(); // popstate does the closing
     history.pushState(null, '', '/');
@@ -194,7 +195,7 @@ const closeCase = fromPop => {
   t = setTimeout(done, 450); // background tabs may not run animations
   closeAnim._timer = t;
 };
-document.addEventListener('click', e => { const t = e.target.closest('[data-open]'); if (!t || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button) return; e.preventDefault(); const inSheet = !sheet.hidden; openCase(t.dataset.open, t.classList.contains('project') ? t : null); if (inSheet) sheet.scrollTop = 0; });
+document.addEventListener('click', e => { const t = e.target.closest('[data-open]'); if (!t || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button || !document.getElementById('case-' + t.dataset.open)) return; e.preventDefault(); const inSheet = !sheet.hidden; openCase(t.dataset.open, t.classList.contains('project') ? t : null); if (inSheet) sheet.scrollTop = 0; });
 $('#sheetBack').addEventListener('click', () => closeCase());
 addEventListener('popstate', () => {
   for (let n = layers.length; n-- && layers.length && layers[layers.length - 1].el !== sheet;) layers[layers.length - 1].close();

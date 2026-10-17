@@ -3,8 +3,8 @@
   "short_name": "Sid Jameson",
   "start_url": "/",
   "display": "browser",
-  "background_color": "#fbfbfc",
-  "theme_color": "#fbfbfc",
+  "background_color": "#fcfcfb",
+  "theme_color": "#fcfcfb",
   "icons": [
     { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
     { "src": "/assets/img/icon-512.png", "sizes": "512x512", "type": "image/png" }
