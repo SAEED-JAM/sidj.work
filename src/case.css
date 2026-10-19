@@ -867,3 +867,5 @@
   .dd-pb-strip ol{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
 @media (prefers-reduced-motion:reduce){.dd-pb *{transition:none!important}}
+
+.case-bento{padding-block:8px 24px}

@@ -304,3 +304,5 @@ footer.site .foot-in{display:flex;justify-content:space-between;flex-wrap:wrap;g
 .rsv-page img{width:100%;height:auto;display:block}
 .rsv-page .hot{position:absolute;border-radius:3px;transition:background .2s}
 .rsv-page .hot:hover{background:rgba(18,18,18,.07)}
+
+.sub-h p a{text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:3px}

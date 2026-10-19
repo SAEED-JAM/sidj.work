@@ -140,10 +140,13 @@ def head(meta, url, html_class=""):
 
 
 def build():
-    css = (read("base.css") + read("home.css") + read("case.css")).strip()
+    css = (read("base.css") + read("home.css") + read("case.css") + read("bento.css")).strip()
     cases = read("cases.html")
     body = read("home.html") + "\n" + cases + "\n" + read("overlays.html")
-    js = "(() => {\n" + read("home.js") + "\n" + read("cases.js") + "})();\n"
+    js = "(() => {\n" + read("home.js") + "\n" + read("cases.js") + "\n" + read("bento.js") + "})();\n"
+    # the Design Desk bento appears on the home page and in its case; each copy gets its own gradient id
+    bento, n = read("bento.html"), iter(range(1, 99))
+    body = re.sub(r"\{\{bento\}\}", lambda m: bento.replace("{{n}}", str(next(n))), body)
     body = re.sub(r'<img\b[^>]*?\bsrc="([^"]+)"[^>]*>', add_size, body)
     body = re.sub(LOCAL, r"\1/\2", body)
 
