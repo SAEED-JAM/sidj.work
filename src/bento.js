@@ -29,7 +29,7 @@
   document.addEventListener('visibilitychange', () => document.querySelectorAll('.bx-stage').forEach(s => { if (document.hidden) stop(s); }));
 
   /* pointer: tilt the scene and move the light */
-  if (!reduce && matchMedia('(hover: hover)').matches) document.querySelectorAll('.bx-c').forEach(card => {
+  if (!reduce && matchMedia('(hover: hover)').matches) document.querySelectorAll('.bx-c, .bx-cover').forEach(card => {
     const scene = card.querySelector('.bx-scene'); let raf = 0;
     card.addEventListener('pointermove', e => {
       cancelAnimationFrame(raf);
@@ -40,5 +40,18 @@
       });
     });
     card.addEventListener('pointerleave', () => { scene.style.setProperty('--bx-rx', '0deg'); scene.style.setProperty('--bx-ry', '0deg'); });
+  });
+
+  /* a card takes you to its step in the case: tabs are selected, then scrolled into view */
+  const go = card => {
+    const t = document.getElementById(card.dataset.go); if (!t) return;
+    if (t.getAttribute('role') === 'tab') t.click();
+    const box = t.getAttribute('role') === 'tab' ? (t.closest('.wf') || t) : t;
+    const sc = box.closest('.sheet'), y = box.getBoundingClientRect().top - 90, behavior = reduce ? 'auto' : 'smooth';
+    if (sc) sc.scrollTo({ top: sc.scrollTop + y, behavior }); else window.scrollTo({ top: scrollY + y, behavior });
+  };
+  document.querySelectorAll('.bx-c[data-go]').forEach(card => {
+    card.addEventListener('click', () => go(card));
+    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(card); } });
   });
 }
