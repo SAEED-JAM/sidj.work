@@ -150,7 +150,7 @@
 @keyframes bx-inward{0%{transform:translateX(0);opacity:0}15%{opacity:1}80%{opacity:1}100%{transform:translateX(-18cqh);opacity:0}}
 .bx-sat{position:absolute;width:15cqh;height:15cqh;margin:-7.5cqh 0 0 -7.5cqh;padding:3.4cqh;border-radius:4.4cqh;animation:bx-counter 12s var(--bx-ease) infinite}
 .bx-sat.bx-n{left:50%;top:14.5%}.bx-sat.bx-e{left:85.5%;top:50%}.bx-sat.bx-s{left:50%;top:85.5%}.bx-sat.bx-w{left:14.5%;top:50%}
-.bx-sat.bx-nhs{padding:0;display:grid;place-items:center;background:#005eb8;color:#fff;font:800 italic 4.6cqh/1 Arial,sans-serif;letter-spacing:-.04em;box-shadow:var(--bx-sh-1),inset 0 1px 0 rgba(255,255,255,.35)}
+.bx-sat.bx-nhs{padding:0 .4cqh 0 0;display:grid;place-items:center;text-align:center;background:#005eb8;color:#fff;font:800 italic 4.6cqh/1 Arial,sans-serif;letter-spacing:-.04em;box-shadow:var(--bx-sh-1),inset 0 1px 0 rgba(255,255,255,.35)}
 @keyframes bx-orbit{0%,19%{transform:rotate(0)}25%,44%{transform:rotate(90deg)}50%,69%{transform:rotate(180deg)}75%,94%{transform:rotate(270deg)}100%{transform:rotate(360deg)}}
 @keyframes bx-counter{0%,19%{transform:rotate(0)}25%,44%{transform:rotate(-90deg)}50%,69%{transform:rotate(-180deg)}75%,94%{transform:rotate(-270deg)}100%{transform:rotate(-360deg)}}
 .bx-hb .bx-rd{left:50%;bottom:5cqh;transform:translateX(-50%);height:8.4cqh;padding:0;overflow:hidden;align-items:flex-start}
@@ -226,6 +226,7 @@
 .bx-cover .bx-stage{height:100%;margin:0;border-radius:0}
 .bx-cover .bx-orbit{width:70cqh;height:70cqh;margin:-35cqh 0 0 -35cqh}
 .bx-cover .bx-sat{width:13cqh;height:13cqh;margin:-6.5cqh 0 0 -6.5cqh;padding:3cqh;border-radius:3.8cqh}
+.bx-cover .bx-sat.bx-nhs{padding:0 .4cqh 0 0;font-size:4cqh;letter-spacing:-.03em}
 .bx-cover .bx-hub{width:19cqh;height:19cqh;margin:-9.5cqh 0 0 -9.5cqh;border-radius:5.4cqh;padding:3cqh}
 .bx-cover .bx-pl{font-size:3.6cqh;opacity:0;transform:translate3d(0,2.4cqh,0) scale(.92);animation:bx-surface 12s var(--bx-out) infinite}
 .bx-cover .bx-ic-lg,.bx-cover .bx-ic-gh{background:var(--bx-bar);padding:1.1cqh}
