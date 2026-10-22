@@ -31,7 +31,7 @@
 <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <link rel="preload" href="/assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://sidj.work/#person","name":"Sid Jameson","alternateName":["Mir Saeed Jamshidi","Saeed Jamshidi"],"url":"https://sidj.work/","image":"https://sidj.work/assets/img/portrait.webp","jobTitle":"AI Design Engineer","description":"AI design engineer at Huma, designing healthcare software in code with Claude. Eight years of product design across trading, security, maps, food delivery and AI learning.","worksFor":{"@type":"Organization","name":"Huma","url":"https://huma.com"},"address":{"@type":"PostalAddress","addressLocality":"Yerevan","addressCountry":"AM"},"alumniOf":{"@type":"CollegeOrUniversity","name":"University of Zanjan"},"knowsAbout":["Product design","AI product design","Design engineering","Design systems","Design leadership","Healthcare UX","Agentic AI workflows"],"sameAs":["https://www.linkedin.com/in/mirsaeedjamshidi/","https://medium.com/@msaeedjg"]},{"@type":"WebSite","@id":"https://sidj.work/#website","url":"https://sidj.work/","name":"Sid Jameson","inLanguage":"en","publisher":{"@id":"https://sidj.work/#person"}},{"@type":"WebPage","@id":"https://sidj.work/job-search/#page","url":"https://sidj.work/job-search/","name":"Job search app, a design exercise · Sid Jameson","description":"A job search app design exercise by Sid Jameson, from requirements and competitor analysis to personas, information architecture and a UI kit.","inLanguage":"en","isPartOf":{"@id":"https://sidj.work/#website"},"dateModified":"2026-10-19","primaryImageOfPage":{"@type":"ImageObject","url":"https://sidj.work/assets/img/og-job-search.png","width":1200,"height":630},"breadcrumb":{"@id":"https://sidj.work/job-search/#breadcrumb"},"mainEntity":{"@id":"https://sidj.work/job-search/#work"}},{"@type":"CreativeWork","@id":"https://sidj.work/job-search/#work","name":"Job Search Application","headline":"Job Search Application","description":"A job search app design exercise by Sid Jameson, from requirements and competitor analysis to personas, information architecture and a UI kit.","url":"https://sidj.work/job-search/","image":"https://sidj.work/assets/img/og-job-search.png","author":{"@id":"https://sidj.work/#person"},"creator":{"@id":"https://sidj.work/#person"},"genre":"Product design case study","inLanguage":"en","dateModified":"2026-10-19"},{"@type":"BreadcrumbList","@id":"https://sidj.work/job-search/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Sid Jameson","item":"https://sidj.work/"},{"@type":"ListItem","position":2,"name":"Job Search Application","item":"https://sidj.work/job-search/"}]}]}
+{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://sidj.work/#person","name":"Sid Jameson","alternateName":["Mir Saeed Jamshidi","Saeed Jamshidi"],"url":"https://sidj.work/","image":"https://sidj.work/assets/img/portrait.webp","jobTitle":"AI Design Engineer","description":"AI design engineer at Huma, designing healthcare software in code with Claude. Eight years of product design across trading, security, maps, food delivery and AI learning.","worksFor":{"@type":"Organization","name":"Huma","url":"https://huma.com"},"address":{"@type":"PostalAddress","addressLocality":"Yerevan","addressCountry":"AM"},"alumniOf":{"@type":"CollegeOrUniversity","name":"University of Zanjan"},"knowsAbout":["Product design","AI product design","Design engineering","Design systems","Design leadership","Healthcare UX","Agentic AI workflows"],"sameAs":["https://www.linkedin.com/in/mirsaeedjamshidi/","https://medium.com/@msaeedjg"]},{"@type":"WebSite","@id":"https://sidj.work/#website","url":"https://sidj.work/","name":"Sid Jameson","inLanguage":"en","publisher":{"@id":"https://sidj.work/#person"}},{"@type":"WebPage","@id":"https://sidj.work/job-search/#page","url":"https://sidj.work/job-search/","name":"Job search app, a design exercise · Sid Jameson","description":"A job search app design exercise by Sid Jameson, from requirements and competitor analysis to personas, information architecture and a UI kit.","inLanguage":"en","isPartOf":{"@id":"https://sidj.work/#website"},"dateModified":"2026-10-22","primaryImageOfPage":{"@type":"ImageObject","url":"https://sidj.work/assets/img/og-job-search.png","width":1200,"height":630},"breadcrumb":{"@id":"https://sidj.work/job-search/#breadcrumb"},"mainEntity":{"@id":"https://sidj.work/job-search/#work"}},{"@type":"CreativeWork","@id":"https://sidj.work/job-search/#work","name":"Job Search Application","headline":"Job Search Application","description":"A job search app design exercise by Sid Jameson, from requirements and competitor analysis to personas, information architecture and a UI kit.","url":"https://sidj.work/job-search/","image":"https://sidj.work/assets/img/og-job-search.png","author":{"@id":"https://sidj.work/#person"},"creator":{"@id":"https://sidj.work/#person"},"genre":"Product design case study","inLanguage":"en","dateModified":"2026-10-22"},{"@type":"BreadcrumbList","@id":"https://sidj.work/job-search/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Sid Jameson","item":"https://sidj.work/"},{"@type":"ListItem","position":2,"name":"Job Search Application","item":"https://sidj.work/job-search/"}]}]}
 </script>
 <style>
 /* Archivo (variable: weight 100–900, width 62–125%), latin subset, self-hosted. SIL OFL, see assets/fonts/OFL.txt */
@@ -675,6 +675,50 @@ footer.site .foot-in{display:flex;justify-content:space-between;flex-wrap:wrap;g
 .lb-zoom svg{width:18px;height:18px}
 .lb-zoom[hidden]{display:none}
 .lb-tip{position:fixed;top:calc(env(safe-area-inset-top,0px) + 24px);left:50%;transform:translateX(-50%);font-size:13px;color:var(--ink-3)}
+
+/* private part of a case: the gate stands where the locked chapters begin (lock.js opens it) */
+.lockgate{position:relative;gap:0}
+.lock-peek{display:grid;gap:14px;padding:4px 0 34px;-webkit-mask-image:linear-gradient(180deg,#000 10%,transparent 92%);mask-image:linear-gradient(180deg,#000 10%,transparent 92%);filter:blur(1.5px)}
+.lock-peek i{display:block;height:13px;border-radius:7px;background:var(--line)}
+.lock-peek i:nth-child(1){width:34%;height:34px;border-radius:10px;margin-bottom:6px}
+.lock-peek i:nth-child(2){width:96%}.lock-peek i:nth-child(3){width:88%}.lock-peek i:nth-child(4){width:92%}.lock-peek i:nth-child(5){width:58%}
+.lock-card{position:relative;display:grid;gap:16px;justify-items:start;margin-top:-56px;padding:clamp(24px,4vw,40px);border-radius:20px;background:var(--surface);box-shadow:0 0 0 1px var(--line),var(--shadow)}
+.lock-ic{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;color:var(--ink);background:var(--bg-2);box-shadow:inset 0 0 0 1px var(--line);transition:background .4s,color .4s,transform .5s var(--spring)}
+.lock-ic svg{width:24px;height:24px}
+.lock-ic svg path{transition:transform .45s var(--spring);transform-origin:16px 10.5px}
+.lock-card>.k{color:var(--ink-3);font-size:14px}
+.lock-card h2{font-size:clamp(26px,3vw,36px)}
+.lock-card>p{font-size:17px}
+.chap .lock-list{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:8px;counter-reset:l;margin:4px 0}
+.chap .lock-list li{counter-increment:l;display:flex;gap:7px;align-items:baseline;padding:6px 12px;border-radius:999px;background:var(--bg-2);font-size:14px;line-height:1.3;color:var(--ink-2)}
+.chap .lock-list li::before{content:counter(l,decimal-leading-zero);font:500 11px/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--ink-3)}
+.lock-form{display:flex;gap:8px;width:min(100%,440px);margin-top:6px}
+.lock-form input{flex:1;min-width:0;height:48px;padding:0 16px;border:0;border-radius:12px;background:var(--bg);color:var(--ink);font:inherit;font-size:16px;letter-spacing:.02em;box-shadow:inset 0 0 0 1px var(--line-2);transition:box-shadow .2s}
+.lock-form input::placeholder{color:var(--ink-3);letter-spacing:0}
+.lock-form input:focus{outline:none;box-shadow:inset 0 0 0 1.5px var(--ink),0 0 0 4px color-mix(in srgb,var(--ink) 10%,transparent)}
+.lock-form button{position:relative;height:48px;padding:0 22px;border:0;border-radius:12px;background:var(--ink);color:var(--on-ink);font:inherit;font-size:15px;font-weight:600;text-align:center;cursor:pointer;transition:transform .2s var(--ease),opacity .2s}
+.lock-form button:hover{transform:translateY(-1px)}
+.lock-form button:active{transform:translateY(1px)}
+.lock-form button:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.lock-form button:disabled{cursor:progress}
+.lockgate.busy .lock-form button span{opacity:0}
+.lockgate.busy .lock-form button::after{content:"";position:absolute;inset:0;margin:auto;width:16px;height:16px;border-radius:50%;border:2px solid currentColor;border-right-color:transparent;animation:lockspin .7s linear infinite}
+@keyframes lockspin{to{transform:rotate(360deg)}}
+.lock-msg{min-height:1.4em;margin:-6px 0 0!important;font-size:14px!important;color:var(--ink-3)!important}
+.lockgate.wrong .lock-msg,.lockgate .lock-msg:not(:empty){color:var(--ink-2)!important}
+.lockgate.wrong .lock-form{animation:lockshake .42s var(--ease)}
+.lockgate.wrong .lock-form input{box-shadow:inset 0 0 0 1.5px var(--bad)}
+@keyframes lockshake{20%{transform:translateX(-7px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(2px)}}
+.lockgate.open .lock-ic{background:var(--good);color:#fff;box-shadow:none;transform:scale(1.06)}
+.lockgate.open .lock-ic svg path{transform:translateY(-2.5px) rotate(18deg)}
+.lockgate.open .lock-msg{color:var(--good)!important}
+.lock-ask{font-size:14px!important;color:var(--ink-3)!important}
+.lock-ask a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.lock-anchor{display:block;height:0}
+.dd-film.loading .dd-play{cursor:progress}
+.dd-film.loading .dd-play svg{animation:lockspin 1s linear infinite;opacity:.5}
+@media (max-width:560px){.lock-form{flex-direction:column}.lock-form input{flex:none;width:100%}.lock-form button{width:100%}}
+@media (prefers-reduced-motion:reduce){.lockgate *{animation:none!important;transition:none!important}}
 
 /* ================= THE DESIGN DESK (case study) =================
    Diagrams and charts drawn in HTML with the page's own tokens; every class starts with dd- so nothing leaks. */
@@ -2277,6 +2321,96 @@ if (stopped) qbox.classList.add('stopped');
 showQ(0);
 
 
+/* private cases: the locked part of a case ships encrypted (AES-256-GCM, the key comes from the password through
+   PBKDF2), and so does every image and video in it. Unlocking keeps the key and the opened part for this tab only,
+   then reloads, so every script below meets the whole case. Runs before cases.js on purpose. */
+const lockStore = {
+  get: k => { try { return sessionStorage.getItem(k); } catch { return null; } },
+  set: (k, v) => { try { sessionStorage.setItem(k, v); return true; } catch { return false; } },
+  del: k => { try { sessionStorage.removeItem(k); } catch {} },
+};
+const fromB64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+const toB64 = u => { let s = ''; for (let i = 0; i < u.length; i += 0x8000) s += String.fromCharCode(...u.subarray(i, i + 0x8000)); return btoa(s); };
+const lockOpen = (key, bytes) => crypto.subtle.decrypt({ name: 'AES-GCM', iv: bytes.subarray(0, 12) }, key, bytes.subarray(12));
+
+// a part this tab already opened goes back in place before anything else reads the page
+let unlockedNow = null;
+$$('.lockgate').forEach(g => {
+  const html = lockStore.get(`lock:${g.dataset.lock}:${g.dataset.v}`); if (!html) return;
+  const t = document.createElement('template'); t.innerHTML = html; g.replaceWith(t.content);
+  if (lockStore.get('lock:scroll') === g.dataset.lock) unlockedNow = g.dataset.lock;
+});
+if (unlockedNow) {
+  lockStore.del('lock:scroll');
+  // land where the gate was, once the case has opened and laid itself out
+  addEventListener('load', () => requestAnimationFrame(() => {
+    const a = document.getElementById('unlocked-' + unlockedNow), sc = a && a.closest('.sheet');
+    if (sc) sc.scrollTo({ top: a.getBoundingClientRect().top - sc.getBoundingClientRect().top + sc.scrollTop - 90 });
+  }));
+}
+
+// sealed media: fetched and opened when it comes near, with the tab's key
+const lockKeyP = (() => { let p; return () => p ||= (async () => {
+  const raw = lockStore.get('lock:key'); if (!raw) throw new Error('locked');
+  return crypto.subtle.importKey('raw', fromB64(raw), 'AES-GCM', false, ['decrypt']);
+})(); })();
+const lockUrls = new Map();
+const lockUrl = (url, type) => {
+  if (!lockUrls.has(url)) lockUrls.set(url, (async () => {
+    const key = await lockKeyP(), r = await fetch(url);
+    if (!r.ok) throw new Error(r.status);
+    return URL.createObjectURL(new Blob([await lockOpen(key, new Uint8Array(await r.arrayBuffer()))], { type }));
+  })());
+  return lockUrls.get(url);
+};
+// resolves once a video's sealed source is ready to play
+const lockVideo = v => v._lockReady ||= (async () => {
+  const s = $('source[data-lsrc]', v); if (!s) return;
+  s.src = await lockUrl(s.dataset.lsrc, s.dataset.ltype); s.removeAttribute('data-lsrc'); v.load();
+})();
+const lockShow = el => {
+  if (el.tagName === 'VIDEO') {
+    if (el.dataset.lposter) lockUrl(el.dataset.lposter, el.dataset.ltype).then(u => { el.poster = u; }).catch(() => {});
+    lockVideo(el).catch(() => {});
+  } else lockUrl(el.dataset.lsrc, el.dataset.ltype).then(u => { el.src = u; el.removeAttribute('data-lsrc'); }).catch(() => {});
+};
+const sealed = [...$$('img[data-lsrc]'), ...$$('video').filter(v => v.dataset.lposter || $('source[data-lsrc]', v))];
+if (sealed.length) {
+  const near = new Map();
+  sealed.forEach(el => {
+    const root = el.closest('.sheet');
+    if (!near.has(root)) near.set(root, new IntersectionObserver((es, io) => es.forEach(e => { if (e.isIntersecting) { io.unobserve(e.target); lockShow(e.target); } }), { root, rootMargin: '1200px 0px' }));
+    near.get(root).observe(el);
+  });
+}
+
+// the gate: the password opens the part in place, then the page reloads with it
+$$('.lockgate').forEach(g => {
+  const form = $('.lock-form', g), input = $('input', form), btn = $('button', form), msg = $('.lock-msg', g);
+  const fail = text => { g.classList.remove('busy'); g.classList.add('wrong'); msg.textContent = text; btn.disabled = false; setTimeout(() => g.classList.remove('wrong'), 450); };
+  input.addEventListener('input', () => { if (msg.textContent && !g.classList.contains('busy')) msg.textContent = ''; });
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (!input.value) { input.focus(); return; }
+    if (!window.crypto?.subtle) return fail('This browser can’t open private pages. Try a current Safari, Chrome or Firefox.');
+    g.classList.add('busy'); btn.disabled = true; msg.textContent = 'Checking…';
+    let key, html;
+    try {
+      const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(input.value), 'PBKDF2', false, ['deriveKey']);
+      key = await crypto.subtle.deriveKey({ name: 'PBKDF2', salt: fromB64(g.dataset.salt), iterations: +g.dataset.iter, hash: 'SHA-256' },
+        base, { name: 'AES-GCM', length: 256 }, true, ['decrypt']);
+      html = new TextDecoder().decode(await lockOpen(key, fromB64($('.lock-data', g).textContent.trim())));
+    } catch { input.select(); return fail('That password doesn’t match. Check it and try again.'); }
+    const raw = toB64(new Uint8Array(await crypto.subtle.exportKey('raw', key)));
+    if (!(lockStore.set('lock:key', raw) && lockStore.set(`lock:${g.dataset.lock}:${g.dataset.v}`, html))) {
+      return fail('This browser is blocking site storage, so the case can’t open. Allow it for this site and try again.');
+    }
+    lockStore.set('lock:scroll', g.dataset.lock);
+    g.classList.remove('busy'); g.classList.add('open'); msg.textContent = 'Unlocked. Opening the full case…';
+    setTimeout(() => location.reload(), reduce ? 0 : 650);
+  });
+});
+
 /* ===== segmented controls (tabs) ===== */
 let segN = 0;
 const segInit = seg => {
@@ -2561,22 +2695,7 @@ if (anat) {
   const EDGES = [['designer', 'desk'], ['desk', 'researcher'], ['desk', 'helper'], ['desk', 'drawer'], ['desk', 'generator'], ['desk', 'checker'], ['desk', 'board'],
     ['po', 'board'], ['po', 'git'], ['researcher', 'git'], ['researcher', 'jira'], ['researcher', 'hub'], ['helper', 'git'], ['drawer', 'workspace'], ['ds', 'drawer'],
     ['generator', 'workspace'], ['checker', 'workspace'], ['checker', 'git'], ['workspace', 'hub']];
-  const SAY = {
-    git: 'The knowledge base: PRDs, numbered decisions, the question queue and briefs. Answers land here by pull request; nothing designed does.',
-    jira: 'One ticket per story. The researcher reads it first, and the link goes back only after the designer confirms.',
-    designer: 'Answers questions one at a time, each with options, and reviews on the canvas. Every comment becomes a round item, word for word.',
-    po: 'Approves on the board or sends a story back with a note. Gets one pull request per task, holding all of its questions.',
-    desk: 'The one chat a designer talks to. It finds where a story is, runs the next step with the right agent and stops at every person. It never draws and never decides.',
-    researcher: 'Cheap model, read-only. Reads the ticket, PRD, decisions and brief, sweeps every canvas for parts that already exist, and writes the story record.',
-    helper: 'Cheap model. Settles a question from the PRD, decision notes, NHS England and ICO guidance and peer products, or brings it back with options.',
-    drawer: 'Strong model. Owns one workspace and adds each state to its surface as a scenario, from design-system components only.',
-    generator: 'A script with no model. Turns the record into the cover, slice, before/after sheets, notes and state boards, and won’t run on any lint error.',
-    checker: 'Strong model, fresh context, run once. Reads the PRD itself, never the drawer’s chat, and reports what’s missing first.',
-    workspace: 'One canvas per story: the surfaces it changes, a frozen BEFORE of each, and everything the generator writes. Closed after promotion.',
-    hub: 'One copy of every surface in the product, plus a handoff page per set. Only promotion changes it.',
-    ds: 'The only source of components: the NHS design system, a Material 3 kit, shared patterns and the app shell.',
-    board: 'Every story’s step, live. The desk updates it at each step, and the product owner approves there.',
-  };
+  const SAY = JSON.parse($('#ddAnatSay').textContent);
   const NAME = id => $('b', N(id)).textContent;
   const DEF = cap.innerHTML;
   const draw = () => {
@@ -2640,7 +2759,11 @@ $$('.dd-chart').forEach(ch => {
 /* the film: play with sound on request, native controls once it runs, pause when it leaves the screen or the case closes */
 $$('.dd-film').forEach(f => {
   const v = $('video', f);
-  $('.dd-play', f).addEventListener('click', () => { v.controls = true; v.muted = false; v.play().catch(() => {}); });
+  const play = $('.dd-play', f);
+  play.addEventListener('click', async () => {
+    if ($('source[data-lsrc]', v)) { f.classList.add('loading'); try { await lockVideo(v); } catch { f.classList.remove('loading'); return; } f.classList.remove('loading'); }
+    v.controls = true; v.muted = false; v.play().catch(() => {});
+  });
   v.addEventListener('play', () => f.classList.add('playing'));
   v.addEventListener('ended', () => { f.classList.remove('playing'); v.controls = false; });
   new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting && !v.paused) v.pause(); })).observe(v);
@@ -2807,7 +2930,7 @@ if (pb) {
 
   /* a card takes you to its step in the case: tabs are selected, then scrolled into view */
   const go = card => {
-    const t = document.getElementById(card.dataset.go); if (!t) return;
+    const t = document.getElementById(card.dataset.go) || $('.lockgate', card.closest('.case') || document); if (!t) return; // still locked: go to the gate
     if (t.getAttribute('role') === 'tab') t.click();
     const box = t.getAttribute('role') === 'tab' ? (t.closest('.wf') || t) : t;
     const sc = box.closest('.sheet'), y = box.getBoundingClientRect().top - 90, behavior = reduce ? 'auto' : 'smooth';

@@ -44,7 +44,7 @@
 
   /* a card takes you to its step in the case: tabs are selected, then scrolled into view */
   const go = card => {
-    const t = document.getElementById(card.dataset.go); if (!t) return;
+    const t = document.getElementById(card.dataset.go) || $('.lockgate', card.closest('.case') || document); if (!t) return; // still locked: go to the gate
     if (t.getAttribute('role') === 'tab') t.click();
     const box = t.getAttribute('role') === 'tab' ? (t.closest('.wf') || t) : t;
     const sc = box.closest('.sheet'), y = box.getBoundingClientRect().top - 90, behavior = reduce ? 'auto' : 'smooth';

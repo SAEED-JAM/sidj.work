@@ -15,6 +15,7 @@ Parts, in page order:
                                                        carries data-page-title and data-desc
   overlays.html  résumé viewer, video and image lightboxes
   home.js        home page behaviour        cases.js   case studies, overlays, timeline
+  lock.js        private parts of a case: the password gate and the sealed images and video
 The two scripts share one scope (wrapped in a single IIFE here).
 
 Checks: every local <img> gets its intrinsic width/height (so space is reserved before it loads),
@@ -143,7 +144,7 @@ def build():
     css = (read("base.css") + read("home.css") + read("case.css") + read("bento.css")).strip()
     cases = read("cases.html")
     body = read("home.html") + "\n" + cases + "\n" + read("overlays.html")
-    js = "(() => {\n" + read("home.js") + "\n" + read("cases.js") + "\n" + read("bento.js") + "})();\n"
+    js = "(() => {\n" + read("home.js") + "\n" + read("lock.js") + "\n" + read("cases.js") + "\n" + read("bento.js") + "})();\n"
     # the Design Desk bento appears on the home page and in its case; each copy gets its own gradient id
     bento, n = read("bento.html"), iter(range(1, 99))
     body = re.sub(r"\{\{bento\}\}", lambda m: bento.replace("{{n}}", str(next(n))), body)
@@ -151,6 +152,8 @@ def build():
     body = re.sub(LOCAL, r"\1/\2", body)
 
     ids = re.findall(r'\sid="([^"]+)"', body)
+    # a private part is encrypted; its gate lists the ids inside, so the checks still cover them
+    ids += [i for s in re.findall(r'\sdata-ids="([^"]*)"', body) for i in s.split()]
     dupes = sorted({i for i in ids if ids.count(i) > 1})
     if dupes:
         raise SystemExit(f"duplicate ids: {dupes}")

@@ -276,6 +276,50 @@
 .lb-zoom[hidden]{display:none}
 .lb-tip{position:fixed;top:calc(env(safe-area-inset-top,0px) + 24px);left:50%;transform:translateX(-50%);font-size:13px;color:var(--ink-3)}
 
+/* private part of a case: the gate stands where the locked chapters begin (lock.js opens it) */
+.lockgate{position:relative;gap:0}
+.lock-peek{display:grid;gap:14px;padding:4px 0 34px;-webkit-mask-image:linear-gradient(180deg,#000 10%,transparent 92%);mask-image:linear-gradient(180deg,#000 10%,transparent 92%);filter:blur(1.5px)}
+.lock-peek i{display:block;height:13px;border-radius:7px;background:var(--line)}
+.lock-peek i:nth-child(1){width:34%;height:34px;border-radius:10px;margin-bottom:6px}
+.lock-peek i:nth-child(2){width:96%}.lock-peek i:nth-child(3){width:88%}.lock-peek i:nth-child(4){width:92%}.lock-peek i:nth-child(5){width:58%}
+.lock-card{position:relative;display:grid;gap:16px;justify-items:start;margin-top:-56px;padding:clamp(24px,4vw,40px);border-radius:20px;background:var(--surface);box-shadow:0 0 0 1px var(--line),var(--shadow)}
+.lock-ic{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;color:var(--ink);background:var(--bg-2);box-shadow:inset 0 0 0 1px var(--line);transition:background .4s,color .4s,transform .5s var(--spring)}
+.lock-ic svg{width:24px;height:24px}
+.lock-ic svg path{transition:transform .45s var(--spring);transform-origin:16px 10.5px}
+.lock-card>.k{color:var(--ink-3);font-size:14px}
+.lock-card h2{font-size:clamp(26px,3vw,36px)}
+.lock-card>p{font-size:17px}
+.chap .lock-list{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:8px;counter-reset:l;margin:4px 0}
+.chap .lock-list li{counter-increment:l;display:flex;gap:7px;align-items:baseline;padding:6px 12px;border-radius:999px;background:var(--bg-2);font-size:14px;line-height:1.3;color:var(--ink-2)}
+.chap .lock-list li::before{content:counter(l,decimal-leading-zero);font:500 11px/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--ink-3)}
+.lock-form{display:flex;gap:8px;width:min(100%,440px);margin-top:6px}
+.lock-form input{flex:1;min-width:0;height:48px;padding:0 16px;border:0;border-radius:12px;background:var(--bg);color:var(--ink);font:inherit;font-size:16px;letter-spacing:.02em;box-shadow:inset 0 0 0 1px var(--line-2);transition:box-shadow .2s}
+.lock-form input::placeholder{color:var(--ink-3);letter-spacing:0}
+.lock-form input:focus{outline:none;box-shadow:inset 0 0 0 1.5px var(--ink),0 0 0 4px color-mix(in srgb,var(--ink) 10%,transparent)}
+.lock-form button{position:relative;height:48px;padding:0 22px;border:0;border-radius:12px;background:var(--ink);color:var(--on-ink);font:inherit;font-size:15px;font-weight:600;text-align:center;cursor:pointer;transition:transform .2s var(--ease),opacity .2s}
+.lock-form button:hover{transform:translateY(-1px)}
+.lock-form button:active{transform:translateY(1px)}
+.lock-form button:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.lock-form button:disabled{cursor:progress}
+.lockgate.busy .lock-form button span{opacity:0}
+.lockgate.busy .lock-form button::after{content:"";position:absolute;inset:0;margin:auto;width:16px;height:16px;border-radius:50%;border:2px solid currentColor;border-right-color:transparent;animation:lockspin .7s linear infinite}
+@keyframes lockspin{to{transform:rotate(360deg)}}
+.lock-msg{min-height:1.4em;margin:-6px 0 0!important;font-size:14px!important;color:var(--ink-3)!important}
+.lockgate.wrong .lock-msg,.lockgate .lock-msg:not(:empty){color:var(--ink-2)!important}
+.lockgate.wrong .lock-form{animation:lockshake .42s var(--ease)}
+.lockgate.wrong .lock-form input{box-shadow:inset 0 0 0 1.5px var(--bad)}
+@keyframes lockshake{20%{transform:translateX(-7px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(2px)}}
+.lockgate.open .lock-ic{background:var(--good);color:#fff;box-shadow:none;transform:scale(1.06)}
+.lockgate.open .lock-ic svg path{transform:translateY(-2.5px) rotate(18deg)}
+.lockgate.open .lock-msg{color:var(--good)!important}
+.lock-ask{font-size:14px!important;color:var(--ink-3)!important}
+.lock-ask a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.lock-anchor{display:block;height:0}
+.dd-film.loading .dd-play{cursor:progress}
+.dd-film.loading .dd-play svg{animation:lockspin 1s linear infinite;opacity:.5}
+@media (max-width:560px){.lock-form{flex-direction:column}.lock-form input{flex:none;width:100%}.lock-form button{width:100%}}
+@media (prefers-reduced-motion:reduce){.lockgate *{animation:none!important;transition:none!important}}
+
 /* ================= THE DESIGN DESK (case study) =================
    Diagrams and charts drawn in HTML with the page's own tokens; every class starts with dd- so nothing leaks. */
 .dd-redact{font-size:14px!important;color:var(--ink-3)!important;max-width:46em;padding-left:12px;border-left:2px solid var(--line-2)}

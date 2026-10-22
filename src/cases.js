@@ -282,22 +282,7 @@ if (anat) {
   const EDGES = [['designer', 'desk'], ['desk', 'researcher'], ['desk', 'helper'], ['desk', 'drawer'], ['desk', 'generator'], ['desk', 'checker'], ['desk', 'board'],
     ['po', 'board'], ['po', 'git'], ['researcher', 'git'], ['researcher', 'jira'], ['researcher', 'hub'], ['helper', 'git'], ['drawer', 'workspace'], ['ds', 'drawer'],
     ['generator', 'workspace'], ['checker', 'workspace'], ['checker', 'git'], ['workspace', 'hub']];
-  const SAY = {
-    git: 'The knowledge base: PRDs, numbered decisions, the question queue and briefs. Answers land here by pull request; nothing designed does.',
-    jira: 'One ticket per story. The researcher reads it first, and the link goes back only after the designer confirms.',
-    designer: 'Answers questions one at a time, each with options, and reviews on the canvas. Every comment becomes a round item, word for word.',
-    po: 'Approves on the board or sends a story back with a note. Gets one pull request per task, holding all of its questions.',
-    desk: 'The one chat a designer talks to. It finds where a story is, runs the next step with the right agent and stops at every person. It never draws and never decides.',
-    researcher: 'Cheap model, read-only. Reads the ticket, PRD, decisions and brief, sweeps every canvas for parts that already exist, and writes the story record.',
-    helper: 'Cheap model. Settles a question from the PRD, decision notes, NHS England and ICO guidance and peer products, or brings it back with options.',
-    drawer: 'Strong model. Owns one workspace and adds each state to its surface as a scenario, from design-system components only.',
-    generator: 'A script with no model. Turns the record into the cover, slice, before/after sheets, notes and state boards, and won’t run on any lint error.',
-    checker: 'Strong model, fresh context, run once. Reads the PRD itself, never the drawer’s chat, and reports what’s missing first.',
-    workspace: 'One canvas per story: the surfaces it changes, a frozen BEFORE of each, and everything the generator writes. Closed after promotion.',
-    hub: 'One copy of every surface in the product, plus a handoff page per set. Only promotion changes it.',
-    ds: 'The only source of components: the NHS design system, a Material 3 kit, shared patterns and the app shell.',
-    board: 'Every story’s step, live. The desk updates it at each step, and the product owner approves there.',
-  };
+  const SAY = JSON.parse($('#ddAnatSay').textContent);
   const NAME = id => $('b', N(id)).textContent;
   const DEF = cap.innerHTML;
   const draw = () => {
@@ -361,7 +346,11 @@ $$('.dd-chart').forEach(ch => {
 /* the film: play with sound on request, native controls once it runs, pause when it leaves the screen or the case closes */
 $$('.dd-film').forEach(f => {
   const v = $('video', f);
-  $('.dd-play', f).addEventListener('click', () => { v.controls = true; v.muted = false; v.play().catch(() => {}); });
+  const play = $('.dd-play', f);
+  play.addEventListener('click', async () => {
+    if ($('source[data-lsrc]', v)) { f.classList.add('loading'); try { await lockVideo(v); } catch { f.classList.remove('loading'); return; } f.classList.remove('loading'); }
+    v.controls = true; v.muted = false; v.play().catch(() => {});
+  });
   v.addEventListener('play', () => f.classList.add('playing'));
   v.addEventListener('ended', () => { f.classList.remove('playing'); v.controls = false; });
   new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting && !v.paused) v.pause(); })).observe(v);
