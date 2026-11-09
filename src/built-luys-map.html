@@ -1,15 +1,15 @@
 <section class="b-hero b-wrap">
-  <p class="b-eyebrow"><span>Built on my own</span><span>Telegram mini app and bot</span><span>Yerevan, 2026</span></p>
+  <p class="b-eyebrow"><span>Built on my own</span><span>Telegram mini app and bot</span><span>Yerevan, since October 2026</span></p>
   <h1>Luys Map</h1>
   <p class="b-lede">Yerevan loses power, water and gas often, and the notices are scattered across utility websites and Telegram channels, mostly in Armenian. <strong>Luys Map collects them, puts them on one map, and tells you before an outage reaches a place you care about.</strong></p>
   <div class="b-links">
     <a class="b-btn primary" href="https://t.me/LuysMapBot" target="_blank" rel="noopener">Open Luys Map in Telegram {{ext}}</a>
     <a class="b-btn" href="https://t.me/luysmap" target="_blank" rel="noopener">News channel {{ext}}</a>
   </div>
-  <p class="b-role">Product, design, code, data and operations: me. Six official sources, read every 15 minutes, in Armenian, Russian, English and Persian.</p>
+  <p class="b-role">Product, design, code, data, growth and operations: me. Six official sources, read every 15 minutes, in Armenian, Russian, English and Persian.</p>
   <dl class="b-stats">
-    <div><dt>926</dt><dd>people have started it; 602 used it in the last 30 days</dd></div>
-    <div><dt>11,316</dt><dd>alerts sent, for 547 places people saved</dd></div>
+    <div><dt >926</dt><dd>people have started it; 602 used it in the last 30 days</dd></div>
+    <div><dt >11,316</dt><dd>alerts sent, for 547 places people saved</dd></div>
     <div><dt>3,300+</dt><dd>power, water and gas outages mapped since April</dd></div>
     <div><dt>15 → 2</dt><dd>alerts a month for a typical place, after tuning on real data</dd></div>
   </dl>
@@ -21,12 +21,28 @@
 </section>
 
 <section class="b-sec b-wrap">
+  <div class="b-sec-h rv"><h2>Who uses it</h2><p>People in Yerevan who want to know before the lights, the tap or the stove go off: families, renters, people working from home, small shops.</p><p>No ads were bought. People arrive from the channel, from printed QR posters, from shared outage cards, and mostly by word of mouth: in one three-day stretch, 42 of 46 new people came with no campaign link at all.</p></div>
+  <div class="b-users rv" data-anim>
+    <div class="b-ring" style="--p:65" role="img" aria-label="602 of 926 people, 65 percent, used it in the last 30 days">
+      <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" class="tr"/><circle cx="60" cy="60" r="52" class="fg" pathLength="100"/></svg>
+      <div><b>65%</b><span>came back in the last 30 days</span></div>
+    </div>
+    <dl class="b-facts">
+      <div><dt>926</dt><dd>people started the bot</dd></div>
+      <div><dt>602</dt><dd>used it in the last 30 days</dd></div>
+      <div><dt>547</dt><dd>places saved for alerts</dd></div>
+      <div><dt>~21</dt><dd>alerts per saved place so far</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="b-sec b-wrap">
   <div class="b-sec-h rv"><h2>How it works</h2><p>From a notice nobody reads to an alert you can act on, without anyone typing anything in.</p></div>
-  <div class="b-flow rv">
+  <div class="b-flow rv" data-anim>
     <div class="b-step"><b>Sources</b><p>The power and water utilities’ sites and channels, gas notices, city channels.</p><span class="tag">6 sources</span></div>
     <div class="b-step"><b>Collector</b><p>A scheduled worker fetches every source and drops what it has seen before.</p><span class="tag">every 15 min</span></div>
-    <div class="b-step"><b>Parser</b><p>Reads Armenian and Russian notices into streets, house numbers and times.</p><span class="tag">per source</span></div>
-    <div class="b-step"><b>Gazetteer</b><p>My own index of Yerevan’s streets and buildings places each house on the map.</p><span class="tag">versioned</span></div>
+    <div class="b-step"><b>Parser</b><p>Reads Armenian and Russian notices into streets, house numbers, dates and times, including withdrawn and corrected ones.</p><span class="tag">per source</span></div>
+    <div class="b-step"><b>Gazetteer</b><p>My own index of Yerevan’s streets and 55,000 addressed buildings places each house on the map.</p><span class="tag">55k buildings</span></div>
     <div class="b-step"><b>Map and alerts</b><p>The mini app shows it; the bot warns the evening before, an hour before, and when an emergency starts.</p><span class="tag">Telegram</span></div>
   </div>
 </section>
@@ -41,11 +57,126 @@
 </section>
 
 <section class="b-sec b-wrap">
+  <div class="b-sec-h rv"><h2>Features</h2><p>Everything that shipped in the first month, each one because someone needed it.</p></div>
+  <div class="b-feat rv">
+    <div class="b-fcard"><i class="fi" style="--c:#6754e5">◎</i><h3>One map, three networks</h3><p>Power, water and gas, today, tomorrow and this week. Tap an outage for its streets; tap and hold anywhere to pick a spot.</p></div>
+    <div class="b-fcard"><i class="fi" style="--c:#f5a30f">⌂</i><h3>Saved places</h3><p>Home, work, parents. Each watches about 250 m around it, with its own alert settings.</p></div>
+    <div class="b-fcard"><i class="fi" style="--c:#ef4d5a">!</i><h3>Alerts with a picture</h3><p>The evening before, an hour before, and right now for emergencies. Each alert carries a rendered card of the outage, and opens it in the app.</p></div>
+    <div class="b-fcard"><i class="fi" style="--c:#1f86f0">▦</i><h3>Exact buildings</h3><p>Not just “Kentron”: the announced street, drawn as a band, with the buildings that are actually listed.</p></div>
+    <div class="b-fcard"><i class="fi" style="--c:#0f7c7e">↻</i><h3>History and insights</h3><p>Days with an outage in the last 180, the district’s rank among 12, the last time it happened here.</p></div>
+    <div class="b-fcard"><i class="fi" style="--c:#bf50a0">✋</i><h3>People’s reports</h3><p>Report an outage from the app; it counts when 3 people within 250 m agree inside an hour.</p></div>
+    <div class="b-fcard"><i class="fi" style="--c:#d0442e">◍</i><h3>Hotspot map</h3><p>Where outages hit most, from all our history. Opened by invitation, with a short tour first.</p></div>
+    <div class="b-fcard"><i class="fi" style="--c:#2b8a3e">₼</i><h3>Bills</h3><p>Subscriber codes per saved place and a monthly reminder; pay buttons with provider logos, live only for a beta group.</p></div>
+    <div class="b-fcard"><i class="fi" style="--c:#3e2bb8">✉</i><h3>A channel that writes itself</h3><p>“Tomorrow in Yerevan” every night and a monthly report, posted automatically in the app’s own style.</p></div>
+  </div>
+</section>
+
+<section class="b-sec b-wrap">
+  <div class="b-split">
+    <div class="b-prose rv">
+      <h3>A house for every place</h3>
+      <p>A list of outages is hard to read at a glance. So each saved place shows a small house. <strong>Every network that works glows</strong>: light runs along the wires, water through the pipes, the stove flame flickers. What’s out goes dark.</p>
+      <p>Eight rendered pictures cover every mix of power, water and gas. Try it: switch a network off.</p>
+    </div>
+    <div class="rv">
+      <div class="b-house" data-house>
+        <div class="b-house-img"><img src="assets/img/built/luys-map/house-1.webp" alt="The house with power, water and gas all working" loading="lazy"></div>
+        <div class="b-house-ctl" role="group" aria-label="Switch networks off">
+          <button type="button" aria-pressed="false" data-net="power" style="--c:#f5a30f">Power</button>
+          <button type="button" aria-pressed="false" data-net="water" style="--c:#1f86f0">Water</button>
+          <button type="button" aria-pressed="false" data-net="gas" style="--c:#eb4530">Gas</button>
+        </div>
+        <p class="b-house-s" aria-live="polite">Everything works.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="b-sec b-wrap">
+  <div class="b-sec-h rv"><h2>Flows</h2><p>The two paths that matter most: getting a new person to a saved place, and getting an outage to the right person at the right time.</p></div>
+  <h3 class="b-sub rv">First run: onboarding ends on picking your home</h3>
+  <ol class="b-path rv" data-anim>
+    <li><b>Language</b><span>Armenian, Russian, English or Persian, guessed from Telegram</span></li>
+    <li><b>The map</b><span>Today’s outages, live</span></li>
+    <li><b>History</b><span>How often your area is hit</span></li>
+    <li><b>Alerts</b><span>What you’ll get and when</span></li>
+    <li class="goal"><b>Pick your home</b><span>The step that makes the rest work</span></li>
+  </ol>
+  <p class="b-note rv">People who leave without an address get one nudge four days later, in the evening, led by this week’s outage count near them. Onboarding shows once per person, remembered across devices.</p>
+  <h3 class="b-sub rv">Every 15 minutes: from notice to alert</h3>
+  <ol class="b-path rv" data-anim>
+    <li><b>New notice</b><span>Found by the collector</span></li>
+    <li><b>Placed</b><span>Streets and buildings matched</span></li>
+    <li><b>Matched</b><span>Against 547 saved places</span></li>
+    <li><b>Pictured</b><span>An outage card rendered in a headless browser</span></li>
+    <li class="goal"><b>Sent on time</b><span>Evening before, hour before, or now</span></li>
+  </ol>
+</section>
+
+<section class="b-sec b-wrap">
+  <div class="b-sec-h rv"><h2>Tests and experiments</h2><p>Small product, real users, so every change that could cost people got tested, rolled out in stages, or measured first.</p></div>
+  <div class="b-exps rv">
+    <article class="b-exp">
+      <span class="b-pill">A/B test</span>
+      <h3>Where to ask for a phone number</h3>
+      <dl>
+        <div><dt>Question</dt><dd>Does asking for the phone up front scare people off before they save an address?</dd></div>
+        <div><dt>Variants</dt><dd><b>A</b> in onboarding, step two. <b>B</b> right after the first saved place. Every new person is fixed in one group.</dd></div>
+        <div><dt>Decides</dt><dd>Saved places with alerts switched on. Guardrail: phone numbers may not fall by more than half.</dd></div>
+        <div><dt>Rigour</dt><dd>Decision rule and a sample of 400 per group agreed before any result; a two-proportion z-test gives the verdict automatically in the admin panel.</dd></div>
+      </dl>
+    </article>
+    <article class="b-exp">
+      <span class="b-pill">Staged rollout</span>
+      <h3>People’s outage reports at 50%</h3>
+      <dl>
+        <div><dt>Risk</dt><dd>Crowd reports can be wrong, or abused, and put a false outage on someone’s house.</dd></div>
+        <div><dt>Setup</dt><dd>On for half of all people by a stable hash of their id, plus anyone switched on by hand. A crowd needs 3 reports within 250 m in an hour.</dd></div>
+        <div><dt>Next</dt><dd>Watch how often crowds match official notices before going to 100%.</dd></div>
+      </dl>
+    </article>
+    <article class="b-exp">
+      <span class="b-pill">Simulation</span>
+      <h3>Replaying a month to fix alert noise</h3>
+      <dl>
+        <div><dt>Signal</dt><dd>A user said the alerts were too many.</dd></div>
+        <div><dt>Method</dt><dd>Replayed 30 days of real outages against every saved place to see where the alerts came from.</dd></div>
+        <div><dt>Result</dt><dd>The noise was neighbours’ emergencies. New default: 15 alerts a month down to 2 for a typical place.</dd></div>
+      </dl>
+    </article>
+    <article class="b-exp">
+      <span class="b-pill">Growth loop</span>
+      <h3>An invite that unlocks insights</h3>
+      <dl>
+        <div><dt>Setup</dt><dd>One place is free. Insights unlock with one invite, shown first with a progressive blur so people see what they’d get.</dd></div>
+        <div><dt>Timing</dt><dd>The invite is offered after the fifth alert, when the app has already proved itself.</dd></div>
+      </dl>
+    </article>
+    <article class="b-exp">
+      <span class="b-pill">Demand test</span>
+      <h3>An invite-only hotspot map</h3>
+      <dl>
+        <div><dt>Setup</dt><dd>Everyone sees the button and a four-scene tour with real numbers; access is by request, answered from the bot.</dd></div>
+        <div><dt>Why</dt><dd>Requests show who wants it, and why, before it opens to all.</dd></div>
+      </dl>
+    </article>
+    <article class="b-exp">
+      <span class="b-pill">Instrumentation</span>
+      <h3>What makes people leave</h3>
+      <dl>
+        <div><dt>Setup</dt><dd>Every time someone blocks the bot, the last message they got before it is recorded.</dd></div>
+        <div><dt>Why</dt><dd>So no message type quietly drives people away.</dd></div>
+      </dl>
+    </article>
+  </div>
+</section>
+
+<section class="b-sec b-wrap">
   <div class="b-split">
     <div class="b-prose rv">
       <h3>Alerts people can live with</h3>
       <p>A user wrote that the alerts were too many. Instead of guessing, I replayed <strong>30 days of real outages</strong> against every saved place.</p>
-      <p>The noise wasn’t the user’s own building. It was the neighbours’ emergencies. The new default watches about 250 m around a place, sends the evening notice for all of it, and keeps hour-before and emergency alerts for the building itself.</p>
+      <p>The noise wasn’t the user’s own building. It was the neighbours’ emergencies. The new default watches about 250 m around a place, sends the evening notice for all of it, and keeps hour-before and emergency alerts for the building itself. A one-page tutorial in four languages showed existing users how to switch whole-district alerts off.</p>
     </div>
     <div class="rv" data-anim>
       <div class="b-ba" role="img" aria-label="Alerts a month for a typical place: 15 before, 2 after">
@@ -61,7 +192,7 @@
     <div class="b-prose rv">
       <h3>People as a sensor</h3>
       <p>Official notices miss emergencies. So anyone can report an outage from the app, but <strong>one report doesn’t go on the map</strong>. It takes 3 people within 250 m inside an hour.</p>
-      <p>When the official notice arrives, the report is confirmed, marked as back early, or kept as still out. It’s live for half of all users while I watch how it behaves.</p>
+      <p>When the official notice arrives, the report is confirmed, marked as back early, or kept as still out. A 25-second video in four languages introduced it to the people who have it.</p>
     </div>
     <div class="rv" data-anim>
       <div class="b-crowd">
@@ -74,7 +205,7 @@
           <circle class="p p4 far" cx="350" cy="80" r="9"/>
           <circle class="p p5 far" cx="50" cy="330" r="9"/>
           <text x="200" y="352" text-anchor="middle" class="muted-t">250 m, within 60 minutes</text>
-          <g class="ok"><rect x="122" y="96" width="156" height="34" rx="17" fill="#c2362c"/><text x="200" y="118" text-anchor="middle" fill="#fff" style="fill:#fff">Outage confirmed</text></g>
+          <g class="ok"><rect x="122" y="96" width="156" height="34" rx="17" fill="#c2362c"/><text x="200" y="118" text-anchor="middle" style="fill:#fff">Outage confirmed</text></g>
         </svg>
       </div>
     </div>
@@ -82,10 +213,19 @@
 </section>
 
 <section class="b-sec b-wrap">
-  <div class="b-sec-h rv"><h2>Where outages hit most</h2><p>Every outage since April, laid on a daily grid. The redder, the more often.</p><p>It answers a question people have before they buy or rent a flat: which street goes dark every week? The hotspot map opens to people bit by bit, by invitation, with a short tour first.</p></div>
+  <div class="b-sec-h rv"><h2>Where outages hit most</h2><p>Every outage since April, laid on a daily grid. The redder, the more often.</p><p>It answers a question people have before they buy or rent a flat: which street goes dark every week?</p></div>
   <div class="b-row rv" style="--n:2">
-    <figure><img src="assets/img/built/luys-map/heat-city.webp" alt="A heat map of Yerevan's outages by district, reddest in Kentron and Erebuni" loading="lazy"><figcaption>The whole city.</figcaption></figure>
-    <figure><img src="assets/img/built/luys-map/heat-street.webp" alt="A street-level heat map around Erebuni street" loading="lazy"><figcaption>Down to the street.</figcaption></figure>
+    <figure class="zoom"><img src="assets/img/built/luys-map/heat-city.webp" alt="A heat map of Yerevan's outages by district, reddest in Kentron and Erebuni" loading="lazy"><figcaption>The whole city.</figcaption></figure>
+    <figure class="zoom"><img src="assets/img/built/luys-map/heat-street.webp" alt="A street-level heat map around Erebuni street" loading="lazy"><figcaption>Down to the street.</figcaption></figure>
+  </div>
+</section>
+
+<section class="b-sec b-wrap">
+  <div class="b-sec-h rv"><h2>Growth without ads</h2><p>A channel that posts itself, printed posters with their own links, and cards people forward.</p><p>Every poster, sticker and Instagram post gets its own campaign code with a location, so the panel shows which corner of the city each new person came from.</p></div>
+  <div class="b-row rv" style="--n:3">
+    <figure class="zoom"><img src="assets/img/built/luys-map/report-night-en.webp" alt="The nightly channel post: Tomorrow in Yerevan, planned outages by district and hour" loading="lazy"><figcaption>Every night: tomorrow in Yerevan.</figcaption></figure>
+    <figure class="zoom"><img src="assets/img/built/luys-map/report-month-en.webp" alt="The monthly report: which district was left in the dark longest" loading="lazy"><figcaption>Every month: who was left in the dark longest.</figcaption></figure>
+    <figure class="zoom"><img src="assets/img/built/luys-map/tutorial-wide-off.webp" alt="A two-step tutorial for turning off whole-district alerts" loading="lazy"><figcaption>One-page tutorials, in four languages.</figcaption></figure>
   </div>
 </section>
 
@@ -100,6 +240,6 @@
 </section>
 
 <section class="b-sec b-wrap">
-  <div class="b-sec-h rv"><h2>Built with</h2><p>One Cloudflare Worker serves the app, its API, the bot and a Persian admin panel.</p></div>
-  <div class="b-chips rv"><span>Cloudflare Workers</span><span>D1 (SQLite)</span><span>Cron triggers</span><span>Telegram Mini Apps and Bot API</span><span>Signed Telegram requests</span><span>Vanilla JavaScript</span><span>Bun</span><span>OpenStreetMap boundaries</span></div>
+  <div class="b-sec-h rv"><h2>Built with</h2><p>One Cloudflare Worker serves the app, its API, the bot and a Persian admin panel with 18 pages: people, places, outages, alerts, reports, the A/B test, blocks and more.</p></div>
+  <div class="b-chips rv"><span>Cloudflare Workers</span><span>D1 (SQLite)</span><span>Cron triggers</span><span>Browser Rendering for alert pictures</span><span>Telegram Mini Apps and Bot API</span><span>Signed Telegram requests</span><span>OpenStreetMap gazetteer</span><span>Vanilla JavaScript</span><span>Bun</span></div>
 </section>

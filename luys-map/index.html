@@ -301,6 +301,130 @@ p{margin:0}
 .rv{transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .rv.pre{opacity:0;transform:translateY(16px)}
 @media (prefers-reduced-motion:reduce){.b-bar .f,.b-stack span,.b-ba .col{transition:none}.in .b-crowd .p{animation:none;opacity:1;transform:none}}
+
+/* ---------- users ---------- */
+.b-users{display:grid;grid-template-columns:minmax(220px,300px) minmax(0,1fr);gap:clamp(24px,5vw,64px);align-items:center}
+.b-ring{position:relative;aspect-ratio:1;max-width:300px}
+.b-ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.b-ring circle{fill:none;stroke-width:10}
+.b-ring .tr{stroke:var(--bg-2)}
+.b-ring .fg{stroke:#6754e5;stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:100;transition:stroke-dashoffset 1.6s var(--ease)}
+.in .b-ring .fg{stroke-dashoffset:calc(100 - var(--p))}
+.b-ring > div{position:absolute;inset:0;display:grid;place-content:center;text-align:center;padding:24%}
+.b-ring b{font-size:clamp(40px,5vw,56px);font-weight:500;font-stretch:90%;letter-spacing:-.04em;line-height:1}
+.b-ring span{margin-top:6px;font-size:13.5px;line-height:1.35;color:var(--ink-2)}
+.b-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 24px;margin:0}
+.b-facts div{padding:16px 18px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.b-facts dt{font-size:30px;font-weight:600;letter-spacing:-.03em;line-height:1}
+.b-facts dd{margin:6px 0 0;font-size:14px;color:var(--ink-2)}
+@media (max-width:760px){.b-users{grid-template-columns:1fr}.b-ring{max-width:240px;margin-inline:auto}}
+
+/* ---------- features ---------- */
+.b-feat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.b-fcard,.b-card,.b-exp{position:relative;overflow:hidden;isolation:isolate}
+.b-fcard{padding:20px;border:1px solid var(--line);border-radius:14px;background:var(--surface);transition:transform .35s var(--ease),border-color .3s}
+.b-fcard:hover{transform:translateY(-3px);border-color:var(--line-2)}
+.b-fcard .fi{display:grid;place-items:center;width:40px;height:40px;margin-bottom:14px;border-radius:12px;background:color-mix(in srgb,var(--c) 14%,transparent);color:var(--c);font-style:normal;font-size:20px;font-weight:700;transition:transform .4s var(--spring)}
+.b-fcard:hover .fi{transform:rotate(-8deg) scale(1.1)}
+.b-fcard h3{font-size:16.5px;font-weight:600;margin-bottom:6px}
+.b-fcard p{font-size:14.5px;line-height:1.55;color:var(--ink-2)}
+@media (max-width:900px){.b-feat{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.b-feat{grid-template-columns:1fr}}
+/* a soft light that follows the pointer on cards */
+.b-fcard::before,.b-card::before,.b-exp::before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .3s;
+  background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--ink) 7%,transparent),transparent 70%)}
+.b-fcard:hover::before,.b-card:hover::before,.b-exp:hover::before{opacity:1}
+
+/* ---------- house ---------- */
+.b-house{padding:20px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,#f6f4fd,#eeebf8)}
+:root[data-theme="dark"] .b-house{background:linear-gradient(180deg,#1d1b2b,#15141f)}
+.b-house-img{position:relative;aspect-ratio:543/564;max-width:420px;margin:0 auto}
+.b-house-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:opacity .45s var(--ease),transform .6s var(--ease)}
+.b-house-img img.out{opacity:0;transform:scale(.985)}
+.b-house-ctl{display:flex;justify-content:center;gap:8px;margin-top:12px}
+.b-house-ctl button{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border-radius:999px;border:1px solid var(--line-2);background:var(--surface);font-size:14.5px;font-weight:600;transition:background .25s,color .25s,border-color .25s,transform .15s}
+.b-house-ctl button::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--c);box-shadow:0 0 0 4px color-mix(in srgb,var(--c) 22%,transparent);transition:background .25s,box-shadow .25s}
+.b-house-ctl button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.b-house-ctl button[aria-pressed="true"]::before{background:transparent;box-shadow:inset 0 0 0 2px var(--bg)}
+.b-house-ctl button:active{transform:scale(.96)}
+.b-house-s{margin-top:10px;text-align:center;font-size:14px;color:var(--ink-2)}
+
+/* ---------- flows ---------- */
+.b-sub{font-size:17px;font-weight:600;margin:8px 0 16px}
+.b-sub ~ .b-sub{margin-top:44px}
+.b-path{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:0;padding:0;list-style:none;counter-reset:pa}
+.b-path li{position:relative;padding:16px 16px 18px;border-radius:14px;background:var(--surface);border:1px solid var(--line);opacity:0;transform:translateY(10px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.b-path li::before{counter-increment:pa;content:counter(pa);display:grid;place-items:center;width:24px;height:24px;margin-bottom:10px;border-radius:50%;background:var(--bg-2);font-size:12px;font-weight:700;color:var(--ink-2)}
+.b-path li:not(:last-child)::after{content:"";position:absolute;right:-9px;top:28px;width:8px;height:2px;background:var(--line-2)}
+.b-path b{display:block;font-size:15.5px;font-weight:600}
+.b-path span{display:block;margin-top:4px;font-size:13.5px;line-height:1.45;color:var(--ink-2)}
+.b-path li.goal{background:#6754e5;border-color:#6754e5;color:#fff}
+.b-path li.goal span{color:rgba(255,255,255,.85)}
+.b-path li.goal::before{background:rgba(255,255,255,.2);color:#fff}
+.in .b-path li,.b-path.in li{opacity:1;transform:none}
+.b-path li:nth-child(2){transition-delay:.12s}.b-path li:nth-child(3){transition-delay:.24s}.b-path li:nth-child(4){transition-delay:.36s}.b-path li:nth-child(5){transition-delay:.48s}
+.b-path.in li.goal{animation:goal 2.4s 1s var(--ease) 2}
+@keyframes goal{0%,100%{box-shadow:0 0 0 0 rgba(103,84,229,.45)}50%{box-shadow:0 0 0 10px rgba(103,84,229,0)}}
+@media (max-width:860px){.b-path{grid-template-columns:1fr 1fr}.b-path li::after{display:none}}
+@media (max-width:480px){.b-path{grid-template-columns:1fr}}
+
+/* the how-it-works steps light up one by one */
+.b-flow .b-step b::before{transition:background .4s,color .4s,transform .4s var(--spring)}
+.b-flow[data-anim]:not(.in) .b-step b::before{background:var(--bg-2);color:var(--ink-3);transform:scale(.85)}
+.b-flow .b-step:nth-child(2) b::before{transition-delay:.15s}.b-flow .b-step:nth-child(3) b::before{transition-delay:.3s}.b-flow .b-step:nth-child(4) b::before{transition-delay:.45s}.b-flow .b-step:nth-child(5) b::before{transition-delay:.6s}
+
+/* ---------- experiments ---------- */
+.b-exps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.b-exp{padding:20px;border:1px solid var(--line);border-radius:14px;background:var(--surface);transition:transform .35s var(--ease)}
+.b-exp:first-child{grid-column:span 2;background:linear-gradient(135deg,color-mix(in srgb,#6754e5 9%,var(--surface)),var(--surface))}
+.b-exp:hover{transform:translateY(-3px)}
+.b-pill{display:inline-block;padding:4px 10px;border-radius:999px;background:var(--bg-2);font-size:12px;font-weight:600;color:var(--ink-2)}
+.b-exp:first-child .b-pill{background:#6754e5;color:#fff}
+.b-exp h3{margin:12px 0 12px;font-size:18px;font-weight:600;line-height:1.3}
+.b-exp dl{display:grid;gap:10px;margin:0}
+.b-exp dl div{display:grid;grid-template-columns:76px minmax(0,1fr);gap:12px}
+.b-exp dt{font-size:12.5px;font-weight:600;color:var(--ink-3);padding-top:2px}
+.b-exp dd{margin:0;font-size:14.5px;line-height:1.5;color:var(--ink-2)}
+.b-exp dd b{color:var(--ink)}
+@media (max-width:900px){.b-exps{grid-template-columns:1fr}.b-exp:first-child{grid-column:auto}}
+
+/* ---------- micro-interactions shared by all pages ---------- */
+.b-btn svg{transition:transform .25s var(--ease)}
+.b-btn:hover svg{transform:translate(2px,-2px)}
+.b-gal{cursor:grab}
+.b-gal.drag{cursor:grabbing;scroll-snap-type:none}
+.b-gal.drag img{pointer-events:none}
+.b-gal.phones figure img,.b-row img{transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.b-gal.phones figure{perspective:900px}
+.b-gal.phones figure img{transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));will-change:transform}
+.b-gal.phones figure:hover img{box-shadow:0 30px 50px -24px rgba(0,0,0,.35)}
+.b-gal img,.b-row figure.zoom img,.b-gal.wide img{cursor:zoom-in}
+.b-row figure.zoom:hover img{transform:translateY(-4px);box-shadow:0 24px 40px -22px rgba(0,0,0,.35)}
+.b-lb{position:fixed;inset:0;z-index:200;display:grid;place-items:center;padding:24px;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);opacity:0;transition:opacity .25s;cursor:zoom-out}
+.b-lb.on{opacity:1}
+.b-lb img{max-width:min(92vw,1100px);max-height:86vh;width:auto;height:auto;border-radius:14px;box-shadow:0 40px 80px -30px rgba(0,0,0,.5);transform:scale(.96);transition:transform .35s var(--ease)}
+.b-lb.on img{transform:none}
+.b-lb button{position:absolute;top:16px;right:16px;width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--bg);font-size:22px;line-height:1}
+.b-cast figure{cursor:default}
+.b-cast figure img{transition:transform .35s var(--spring)}
+.b-cast figure:hover img{animation:hop .6s var(--spring)}
+@keyframes hop{0%{transform:translateY(0)}35%{transform:translateY(-14px) scale(1.05)}70%{transform:translateY(0) scale(.98,1.02)}100%{transform:none}}
+.b-medals img{position:relative}
+.b-words span{cursor:pointer}
+.b-words span:hover{background:color-mix(in srgb,var(--ink) 8%,transparent)}
+.b-vinyl{display:inline-block;width:44px;height:44px;border-radius:50%;vertical-align:middle;margin-left:12px;
+  background:radial-gradient(circle,#c8692c 0 22%,#111 23% 25%,transparent 26%),repeating-radial-gradient(circle,#151515 0 1.4px,#242424 1.4px 2.8px);
+  box-shadow:0 6px 14px -6px rgba(0,0,0,.5);animation:spin 3.6s linear infinite}
+.b-vinyl:hover{animation-duration:.9s}
+@keyframes spin{to{transform:rotate(360deg)}}
+.b-tl::after{content:"";position:absolute;left:131px;top:10px;width:2px;height:calc(var(--prog,0) * (100% - 40px));background:var(--ink);transition:height .15s linear}
+.b-tl li.past::after{background:var(--ink)}
+@media (max-width:640px){.b-tl::after{left:5px}}
+@media (prefers-reduced-motion:reduce){.b-path li{opacity:1;transform:none}.b-vinyl{animation:none}.b-ring .fg{transition:none}.b-gal.phones figure img{transform:none}}
+.b-house{background:#fff}
+:root[data-theme="dark"] .b-house{background:#1c1b26}
+:root[data-theme="dark"] .b-house-img{border-radius:12px;overflow:hidden}
+.b-exp:last-child{grid-column:1 / -1}
 </style>
 </head>
 <body>
@@ -310,17 +434,17 @@ p{margin:0}
 <button class="theme" id="themeBtn" type="button" aria-label="Switch to dark theme"><svg class="theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button></div></header>
 <main id="main">
 <section class="b-hero b-wrap">
-  <p class="b-eyebrow"><span>Built on my own</span><span>Telegram mini app and bot</span><span>Yerevan, 2026</span></p>
+  <p class="b-eyebrow"><span>Built on my own</span><span>Telegram mini app and bot</span><span>Yerevan, since October 2026</span></p>
   <h1>Luys Map</h1>
   <p class="b-lede">Yerevan loses power, water and gas often, and the notices are scattered across utility websites and Telegram channels, mostly in Armenian. <strong>Luys Map collects them, puts them on one map, and tells you before an outage reaches a place you care about.</strong></p>
   <div class="b-links">
     <a class="b-btn primary" href="https://t.me/LuysMapBot" target="_blank" rel="noopener">Open Luys Map in Telegram <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     <a class="b-btn" href="https://t.me/luysmap" target="_blank" rel="noopener">News channel <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   </div>
-  <p class="b-role">Product, design, code, data and operations: me. Six official sources, read every 15 minutes, in Armenian, Russian, English and Persian.</p>
+  <p class="b-role">Product, design, code, data, growth and operations: me. Six official sources, read every 15 minutes, in Armenian, Russian, English and Persian.</p>
   <dl class="b-stats">
-    <div><dt>926</dt><dd>people have started it; 602 used it in the last 30 days</dd></div>
-    <div><dt>11,316</dt><dd>alerts sent, for 547 places people saved</dd></div>
+    <div><dt >926</dt><dd>people have started it; 602 used it in the last 30 days</dd></div>
+    <div><dt >11,316</dt><dd>alerts sent, for 547 places people saved</dd></div>
     <div><dt>3,300+</dt><dd>power, water and gas outages mapped since April</dd></div>
     <div><dt>15 → 2</dt><dd>alerts a month for a typical place, after tuning on real data</dd></div>
   </dl>
@@ -332,12 +456,28 @@ p{margin:0}
 </section>
 
 <section class="b-sec b-wrap">
+  <div class="b-sec-h rv"><h2>Who uses it</h2><p>People in Yerevan who want to know before the lights, the tap or the stove go off: families, renters, people working from home, small shops.</p><p>No ads were bought. People arrive from the channel, from printed QR posters, from shared outage cards, and mostly by word of mouth: in one three-day stretch, 42 of 46 new people came with no campaign link at all.</p></div>
+  <div class="b-users rv" data-anim>
+    <div class="b-ring" style="--p:65" role="img" aria-label="602 of 926 people, 65 percent, used it in the last 30 days">
+      <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" class="tr"/><circle cx="60" cy="60" r="52" class="fg" pathLength="100"/></svg>
+      <div><b>65%</b><span>came back in the last 30 days</span></div>
+    </div>
+    <dl class="b-facts">
+      <div><dt>926</dt><dd>people started the bot</dd></div>
+      <div><dt>602</dt><dd>used it in the last 30 days</dd></div>
+      <div><dt>547</dt><dd>places saved for alerts</dd></div>
+      <div><dt>~21</dt><dd>alerts per saved place so far</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="b-sec b-wrap">
   <div class="b-sec-h rv"><h2>How it works</h2><p>From a notice nobody reads to an alert you can act on, without anyone typing anything in.</p></div>
-  <div class="b-flow rv">
+  <div class="b-flow rv" data-anim>
     <div class="b-step"><b>Sources</b><p>The power and water utilities’ sites and channels, gas notices, city channels.</p><span class="tag">6 sources</span></div>
     <div class="b-step"><b>Collector</b><p>A scheduled worker fetches every source and drops what it has seen before.</p><span class="tag">every 15 min</span></div>
-    <div class="b-step"><b>Parser</b><p>Reads Armenian and Russian notices into streets, house numbers and times.</p><span class="tag">per source</span></div>
-    <div class="b-step"><b>Gazetteer</b><p>My own index of Yerevan’s streets and buildings places each house on the map.</p><span class="tag">versioned</span></div>
+    <div class="b-step"><b>Parser</b><p>Reads Armenian and Russian notices into streets, house numbers, dates and times, including withdrawn and corrected ones.</p><span class="tag">per source</span></div>
+    <div class="b-step"><b>Gazetteer</b><p>My own index of Yerevan’s streets and 55,000 addressed buildings places each house on the map.</p><span class="tag">55k buildings</span></div>
     <div class="b-step"><b>Map and alerts</b><p>The mini app shows it; the bot warns the evening before, an hour before, and when an emergency starts.</p><span class="tag">Telegram</span></div>
   </div>
 </section>
@@ -352,11 +492,126 @@ p{margin:0}
 </section>
 
 <section class="b-sec b-wrap">
+  <div class="b-sec-h rv"><h2>Features</h2><p>Everything that shipped in the first month, each one because someone needed it.</p></div>
+  <div class="b-feat rv">
+    <div class="b-fcard"><i class="fi" style="--c:#6754e5">◎</i><h3>One map, three networks</h3><p>Power, water and gas, today, tomorrow and this week. Tap an outage for its streets; tap and hold anywhere to pick a spot.</p></div>
+    <div class="b-fcard"><i class="fi" style="--c:#f5a30f">⌂</i><h3>Saved places</h3><p>Home, work, parents. Each watches about 250 m around it, with its own alert settings.</p></div>
+    <div class="b-fcard"><i class="fi" style="--c:#ef4d5a">!</i><h3>Alerts with a picture</h3><p>The evening before, an hour before, and right now for emergencies. Each alert carries a rendered card of the outage, and opens it in the app.</p></div>
+    <div class="b-fcard"><i class="fi" style="--c:#1f86f0">▦</i><h3>Exact buildings</h3><p>Not just “Kentron”: the announced street, drawn as a band, with the buildings that are actually listed.</p></div>
+    <div class="b-fcard"><i class="fi" style="--c:#0f7c7e">↻</i><h3>History and insights</h3><p>Days with an outage in the last 180, the district’s rank among 12, the last time it happened here.</p></div>
+    <div class="b-fcard"><i class="fi" style="--c:#bf50a0">✋</i><h3>People’s reports</h3><p>Report an outage from the app; it counts when 3 people within 250 m agree inside an hour.</p></div>
+    <div class="b-fcard"><i class="fi" style="--c:#d0442e">◍</i><h3>Hotspot map</h3><p>Where outages hit most, from all our history. Opened by invitation, with a short tour first.</p></div>
+    <div class="b-fcard"><i class="fi" style="--c:#2b8a3e">₼</i><h3>Bills</h3><p>Subscriber codes per saved place and a monthly reminder; pay buttons with provider logos, live only for a beta group.</p></div>
+    <div class="b-fcard"><i class="fi" style="--c:#3e2bb8">✉</i><h3>A channel that writes itself</h3><p>“Tomorrow in Yerevan” every night and a monthly report, posted automatically in the app’s own style.</p></div>
+  </div>
+</section>
+
+<section class="b-sec b-wrap">
+  <div class="b-split">
+    <div class="b-prose rv">
+      <h3>A house for every place</h3>
+      <p>A list of outages is hard to read at a glance. So each saved place shows a small house. <strong>Every network that works glows</strong>: light runs along the wires, water through the pipes, the stove flame flickers. What’s out goes dark.</p>
+      <p>Eight rendered pictures cover every mix of power, water and gas. Try it: switch a network off.</p>
+    </div>
+    <div class="rv">
+      <div class="b-house" data-house>
+        <div class="b-house-img"><img src="/assets/img/built/luys-map/house-1.webp" alt="The house with power, water and gas all working" loading="lazy" width="543" height="564"></div>
+        <div class="b-house-ctl" role="group" aria-label="Switch networks off">
+          <button type="button" aria-pressed="false" data-net="power" style="--c:#f5a30f">Power</button>
+          <button type="button" aria-pressed="false" data-net="water" style="--c:#1f86f0">Water</button>
+          <button type="button" aria-pressed="false" data-net="gas" style="--c:#eb4530">Gas</button>
+        </div>
+        <p class="b-house-s" aria-live="polite">Everything works.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="b-sec b-wrap">
+  <div class="b-sec-h rv"><h2>Flows</h2><p>The two paths that matter most: getting a new person to a saved place, and getting an outage to the right person at the right time.</p></div>
+  <h3 class="b-sub rv">First run: onboarding ends on picking your home</h3>
+  <ol class="b-path rv" data-anim>
+    <li><b>Language</b><span>Armenian, Russian, English or Persian, guessed from Telegram</span></li>
+    <li><b>The map</b><span>Today’s outages, live</span></li>
+    <li><b>History</b><span>How often your area is hit</span></li>
+    <li><b>Alerts</b><span>What you’ll get and when</span></li>
+    <li class="goal"><b>Pick your home</b><span>The step that makes the rest work</span></li>
+  </ol>
+  <p class="b-note rv">People who leave without an address get one nudge four days later, in the evening, led by this week’s outage count near them. Onboarding shows once per person, remembered across devices.</p>
+  <h3 class="b-sub rv">Every 15 minutes: from notice to alert</h3>
+  <ol class="b-path rv" data-anim>
+    <li><b>New notice</b><span>Found by the collector</span></li>
+    <li><b>Placed</b><span>Streets and buildings matched</span></li>
+    <li><b>Matched</b><span>Against 547 saved places</span></li>
+    <li><b>Pictured</b><span>An outage card rendered in a headless browser</span></li>
+    <li class="goal"><b>Sent on time</b><span>Evening before, hour before, or now</span></li>
+  </ol>
+</section>
+
+<section class="b-sec b-wrap">
+  <div class="b-sec-h rv"><h2>Tests and experiments</h2><p>Small product, real users, so every change that could cost people got tested, rolled out in stages, or measured first.</p></div>
+  <div class="b-exps rv">
+    <article class="b-exp">
+      <span class="b-pill">A/B test</span>
+      <h3>Where to ask for a phone number</h3>
+      <dl>
+        <div><dt>Question</dt><dd>Does asking for the phone up front scare people off before they save an address?</dd></div>
+        <div><dt>Variants</dt><dd><b>A</b> in onboarding, step two. <b>B</b> right after the first saved place. Every new person is fixed in one group.</dd></div>
+        <div><dt>Decides</dt><dd>Saved places with alerts switched on. Guardrail: phone numbers may not fall by more than half.</dd></div>
+        <div><dt>Rigour</dt><dd>Decision rule and a sample of 400 per group agreed before any result; a two-proportion z-test gives the verdict automatically in the admin panel.</dd></div>
+      </dl>
+    </article>
+    <article class="b-exp">
+      <span class="b-pill">Staged rollout</span>
+      <h3>People’s outage reports at 50%</h3>
+      <dl>
+        <div><dt>Risk</dt><dd>Crowd reports can be wrong, or abused, and put a false outage on someone’s house.</dd></div>
+        <div><dt>Setup</dt><dd>On for half of all people by a stable hash of their id, plus anyone switched on by hand. A crowd needs 3 reports within 250 m in an hour.</dd></div>
+        <div><dt>Next</dt><dd>Watch how often crowds match official notices before going to 100%.</dd></div>
+      </dl>
+    </article>
+    <article class="b-exp">
+      <span class="b-pill">Simulation</span>
+      <h3>Replaying a month to fix alert noise</h3>
+      <dl>
+        <div><dt>Signal</dt><dd>A user said the alerts were too many.</dd></div>
+        <div><dt>Method</dt><dd>Replayed 30 days of real outages against every saved place to see where the alerts came from.</dd></div>
+        <div><dt>Result</dt><dd>The noise was neighbours’ emergencies. New default: 15 alerts a month down to 2 for a typical place.</dd></div>
+      </dl>
+    </article>
+    <article class="b-exp">
+      <span class="b-pill">Growth loop</span>
+      <h3>An invite that unlocks insights</h3>
+      <dl>
+        <div><dt>Setup</dt><dd>One place is free. Insights unlock with one invite, shown first with a progressive blur so people see what they’d get.</dd></div>
+        <div><dt>Timing</dt><dd>The invite is offered after the fifth alert, when the app has already proved itself.</dd></div>
+      </dl>
+    </article>
+    <article class="b-exp">
+      <span class="b-pill">Demand test</span>
+      <h3>An invite-only hotspot map</h3>
+      <dl>
+        <div><dt>Setup</dt><dd>Everyone sees the button and a four-scene tour with real numbers; access is by request, answered from the bot.</dd></div>
+        <div><dt>Why</dt><dd>Requests show who wants it, and why, before it opens to all.</dd></div>
+      </dl>
+    </article>
+    <article class="b-exp">
+      <span class="b-pill">Instrumentation</span>
+      <h3>What makes people leave</h3>
+      <dl>
+        <div><dt>Setup</dt><dd>Every time someone blocks the bot, the last message they got before it is recorded.</dd></div>
+        <div><dt>Why</dt><dd>So no message type quietly drives people away.</dd></div>
+      </dl>
+    </article>
+  </div>
+</section>
+
+<section class="b-sec b-wrap">
   <div class="b-split">
     <div class="b-prose rv">
       <h3>Alerts people can live with</h3>
       <p>A user wrote that the alerts were too many. Instead of guessing, I replayed <strong>30 days of real outages</strong> against every saved place.</p>
-      <p>The noise wasn’t the user’s own building. It was the neighbours’ emergencies. The new default watches about 250 m around a place, sends the evening notice for all of it, and keeps hour-before and emergency alerts for the building itself.</p>
+      <p>The noise wasn’t the user’s own building. It was the neighbours’ emergencies. The new default watches about 250 m around a place, sends the evening notice for all of it, and keeps hour-before and emergency alerts for the building itself. A one-page tutorial in four languages showed existing users how to switch whole-district alerts off.</p>
     </div>
     <div class="rv" data-anim>
       <div class="b-ba" role="img" aria-label="Alerts a month for a typical place: 15 before, 2 after">
@@ -372,7 +627,7 @@ p{margin:0}
     <div class="b-prose rv">
       <h3>People as a sensor</h3>
       <p>Official notices miss emergencies. So anyone can report an outage from the app, but <strong>one report doesn’t go on the map</strong>. It takes 3 people within 250 m inside an hour.</p>
-      <p>When the official notice arrives, the report is confirmed, marked as back early, or kept as still out. It’s live for half of all users while I watch how it behaves.</p>
+      <p>When the official notice arrives, the report is confirmed, marked as back early, or kept as still out. A 25-second video in four languages introduced it to the people who have it.</p>
     </div>
     <div class="rv" data-anim>
       <div class="b-crowd">
@@ -385,7 +640,7 @@ p{margin:0}
           <circle class="p p4 far" cx="350" cy="80" r="9"/>
           <circle class="p p5 far" cx="50" cy="330" r="9"/>
           <text x="200" y="352" text-anchor="middle" class="muted-t">250 m, within 60 minutes</text>
-          <g class="ok"><rect x="122" y="96" width="156" height="34" rx="17" fill="#c2362c"/><text x="200" y="118" text-anchor="middle" fill="#fff" style="fill:#fff">Outage confirmed</text></g>
+          <g class="ok"><rect x="122" y="96" width="156" height="34" rx="17" fill="#c2362c"/><text x="200" y="118" text-anchor="middle" style="fill:#fff">Outage confirmed</text></g>
         </svg>
       </div>
     </div>
@@ -393,10 +648,19 @@ p{margin:0}
 </section>
 
 <section class="b-sec b-wrap">
-  <div class="b-sec-h rv"><h2>Where outages hit most</h2><p>Every outage since April, laid on a daily grid. The redder, the more often.</p><p>It answers a question people have before they buy or rent a flat: which street goes dark every week? The hotspot map opens to people bit by bit, by invitation, with a short tour first.</p></div>
+  <div class="b-sec-h rv"><h2>Where outages hit most</h2><p>Every outage since April, laid on a daily grid. The redder, the more often.</p><p>It answers a question people have before they buy or rent a flat: which street goes dark every week?</p></div>
   <div class="b-row rv" style="--n:2">
-    <figure><img src="/assets/img/built/luys-map/heat-city.webp" alt="A heat map of Yerevan's outages by district, reddest in Kentron and Erebuni" loading="lazy" width="800" height="720"><figcaption>The whole city.</figcaption></figure>
-    <figure><img src="/assets/img/built/luys-map/heat-street.webp" alt="A street-level heat map around Erebuni street" loading="lazy" width="800" height="720"><figcaption>Down to the street.</figcaption></figure>
+    <figure class="zoom"><img src="/assets/img/built/luys-map/heat-city.webp" alt="A heat map of Yerevan's outages by district, reddest in Kentron and Erebuni" loading="lazy" width="800" height="720"><figcaption>The whole city.</figcaption></figure>
+    <figure class="zoom"><img src="/assets/img/built/luys-map/heat-street.webp" alt="A street-level heat map around Erebuni street" loading="lazy" width="800" height="720"><figcaption>Down to the street.</figcaption></figure>
+  </div>
+</section>
+
+<section class="b-sec b-wrap">
+  <div class="b-sec-h rv"><h2>Growth without ads</h2><p>A channel that posts itself, printed posters with their own links, and cards people forward.</p><p>Every poster, sticker and Instagram post gets its own campaign code with a location, so the panel shows which corner of the city each new person came from.</p></div>
+  <div class="b-row rv" style="--n:3">
+    <figure class="zoom"><img src="/assets/img/built/luys-map/report-night-en.webp" alt="The nightly channel post: Tomorrow in Yerevan, planned outages by district and hour" loading="lazy" width="720" height="900"><figcaption>Every night: tomorrow in Yerevan.</figcaption></figure>
+    <figure class="zoom"><img src="/assets/img/built/luys-map/report-month-en.webp" alt="The monthly report: which district was left in the dark longest" loading="lazy" width="720" height="900"><figcaption>Every month: who was left in the dark longest.</figcaption></figure>
+    <figure class="zoom"><img src="/assets/img/built/luys-map/tutorial-wide-off.webp" alt="A two-step tutorial for turning off whole-district alerts" loading="lazy" width="720" height="900"><figcaption>One-page tutorials, in four languages.</figcaption></figure>
   </div>
 </section>
 
@@ -411,8 +675,8 @@ p{margin:0}
 </section>
 
 <section class="b-sec b-wrap">
-  <div class="b-sec-h rv"><h2>Built with</h2><p>One Cloudflare Worker serves the app, its API, the bot and a Persian admin panel.</p></div>
-  <div class="b-chips rv"><span>Cloudflare Workers</span><span>D1 (SQLite)</span><span>Cron triggers</span><span>Telegram Mini Apps and Bot API</span><span>Signed Telegram requests</span><span>Vanilla JavaScript</span><span>Bun</span><span>OpenStreetMap boundaries</span></div>
+  <div class="b-sec-h rv"><h2>Built with</h2><p>One Cloudflare Worker serves the app, its API, the bot and a Persian admin panel with 18 pages: people, places, outages, alerts, reports, the A/B test, blocks and more.</p></div>
+  <div class="b-chips rv"><span>Cloudflare Workers</span><span>D1 (SQLite)</span><span>Cron triggers</span><span>Browser Rendering for alert pictures</span><span>Telegram Mini Apps and Bot API</span><span>Signed Telegram requests</span><span>OpenStreetMap gazetteer</span><span>Vanilla JavaScript</span><span>Bun</span></div>
 </section>
 
 </main>
@@ -485,11 +749,89 @@ if (al) {
     paint(t);
     if (t >= t1) stop();
   };
-  btn.addEventListener('click', () => {
-    if (playing) { stop(); return; }
-    playing = true; label(true); start = performance.now(); timer = setInterval(tick, 40);
-  });
+  const play = (from) => { clearInterval(timer); playing = true; label(true); start = performance.now() - (from - t0) * 1000; timer = setInterval(tick, 40); };
+  btn.addEventListener('click', () => { if (playing) stop(); else play(t0); });
+  // tap a word to start from it
+  box.addEventListener('click', (e) => { const sp = e.target.closest('span[data-i]'); if (sp) play(words[+sp.dataset.i][1]); });
   label(false); paint(t0 - 1);
+}
+
+/* numbers count up the first time they come into view */
+const fmt = (n) => n.toLocaleString('en-US');
+const cio = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return; cio.unobserve(e.target);
+  const el = e.target, m = el.textContent.trim().match(/^([\d,]+)(\+?)$/);
+  if (!m || reduce) return;
+  const to = +m[1].replace(/,/g, ''), suf = m[2], t0 = performance.now(), dur = 1200;
+  const step = (now) => { const k = Math.min(1, (now - t0) / dur), v = Math.round(to * (1 - Math.pow(1 - k, 3)));
+    el.textContent = fmt(v) + suf; if (k < 1) requestAnimationFrame(step); };
+  el.textContent = '0' + suf; requestAnimationFrame(step);
+  setTimeout(() => { el.textContent = fmt(to) + suf; }, dur + 200);   // lands on the real number even if frames are throttled
+}), { threshold: .6 });
+$$('.b-stats dt, .b-facts dt').forEach(el => cio.observe(el));
+
+/* a soft light follows the pointer across cards */
+document.addEventListener('pointermove', (e) => {
+  const c = e.target.closest && e.target.closest('.b-fcard, .b-card, .b-exp');
+  if (!c) return; const r = c.getBoundingClientRect();
+  c.style.setProperty('--mx', (e.clientX - r.left) + 'px'); c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+});
+
+/* phone screens tilt toward the pointer */
+if (!reduce && matchMedia('(hover: hover)').matches) $$('.b-gal.phones figure').forEach(f => {
+  const img = $('img', f);
+  f.addEventListener('pointermove', (e) => { const r = img.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+    img.style.setProperty('--ry', (x * 10).toFixed(2) + 'deg'); img.style.setProperty('--rx', (-y * 8).toFixed(2) + 'deg'); });
+  f.addEventListener('pointerleave', () => { img.style.setProperty('--ry', '0deg'); img.style.setProperty('--rx', '0deg'); });
+});
+
+/* galleries: drag sideways with the mouse */
+$$('.b-gal').forEach(g => {
+  let down = false, x0 = 0, s0 = 0, moved = false;
+  g.addEventListener('pointerdown', (e) => { if (e.pointerType !== 'mouse') return; down = true; moved = false; x0 = e.clientX; s0 = g.scrollLeft; });
+  addEventListener('pointermove', (e) => { if (!down) return; const dx = e.clientX - x0; if (Math.abs(dx) > 4) { moved = true; g.classList.add('drag'); } g.scrollLeft = s0 - dx; });
+  addEventListener('pointerup', () => { if (!down) return; down = false; setTimeout(() => g.classList.remove('drag'), 0); });
+  g.addEventListener('click', (e) => { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
+});
+
+/* click a picture to see it large */
+let lb = null, back = null;
+const closeLb = () => { if (!lb) return; lb.classList.remove('on'); const l = lb; lb = null; setTimeout(() => l.remove(), 250); back && back.focus(); };
+document.addEventListener('click', (e) => {
+  const img = e.target.closest('.b-gal img, .b-row figure.zoom img');
+  if (!img) return;
+  back = img; lb = document.createElement('div'); lb.className = 'b-lb'; lb.setAttribute('role', 'dialog'); lb.setAttribute('aria-label', img.alt || 'Image');
+  lb.innerHTML = `<img src="${img.currentSrc || img.src}" alt="${(img.alt || '').replace(/"/g, '&quot;')}"><button type="button" aria-label="Close">×</button>`;
+  lb.addEventListener('click', closeLb); document.body.appendChild(lb);
+  setTimeout(() => lb && lb.classList.add('on'), 20); $('button', lb).focus();
+});
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLb(); });
+$$('.b-gal img, .b-row figure.zoom img').forEach(i => { i.tabIndex = 0; i.addEventListener('keydown', (e) => { if (e.key === 'Enter') i.click(); }); });
+
+/* Luys Map: switch networks off and watch the house */
+const house = $('[data-house]');
+if (house) {
+  const TILE = { '': 1, power: 2, water: 3, gas: 4, 'power,water': 5, 'power,gas': 6, 'water,gas': 7, 'power,water,gas': 8 };
+  const box = $('.b-house-img', house), say = $('.b-house-s', house), base = $('img', box).src.replace(/house-\d\.webp.*/, '');
+  for (let i = 1; i <= 8; i++) new Image().src = `${base}house-${i}.webp`;   // warm the cache so switching is instant
+  const btns = $$('button', house);
+  btns.forEach(b => b.addEventListener('click', () => {
+    b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') !== 'true');
+    const out = btns.filter(x => x.getAttribute('aria-pressed') === 'true').map(x => x.dataset.net);
+    const img = new Image();
+    img.src = `${base}house-${TILE[out.join(',')]}.webp`; img.alt = out.length ? `The house with ${out.join(' and ')} out` : 'The house with everything working';
+    img.className = 'out'; box.appendChild(img);
+    [...box.querySelectorAll('img')].forEach(o => { if (o !== img) { o.classList.add('out'); setTimeout(() => o.remove(), 500); } });
+    setTimeout(() => img.classList.remove('out'), 20);
+    say.textContent = !out.length ? 'Everything works.' : out.length === 3 ? 'Power, water and gas are all out.' : `${(t => t[0].toUpperCase() + t.slice(1))(out.join(' and '))} ${out.length > 1 ? 'are' : 'is'} out. The rest still glows.`;
+  }));
+}
+
+/* SafheGardan: the path's line fills as you read down it */
+const tl = $('.b-tl');
+if (tl) {
+  const upd = () => { const r = tl.getBoundingClientRect(), p = Math.min(1, Math.max(0, (innerHeight * .6 - r.top) / r.height)); tl.style.setProperty('--prog', p.toFixed(3)); };
+  addEventListener('scroll', upd, { passive: true }); upd();
 }
 })();
 </script>

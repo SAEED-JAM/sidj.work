@@ -60,6 +60,11 @@ def main(root):
         still(f"{o}/{n}.png", "safhegardan", n.replace("landscape-", "l-"), 1400)
     for n in ("portrait-01-crates", "portrait-04-deck", "portrait-05-studio", "android-04-deck"):
         still(f"{o}/{n}.png", "safhegardan", n.replace("portrait-", "p-").replace("android-", "dark-"), 560)
+    for i in range(1, 9):   # the saved-place house: 1 all on, 2 power out, 3 water, 4 gas, 5 p+w, 6 p+g, 7 w+g, 8 all out
+        still(f"{lm}/handoff/artifacts/house-3d/img/h{i}.jpg", "luys-map", f"house-{i}", 543)
+    for n in ("night-en", "month-en"):
+        still(f"{lm}/design/reports/out/{n}.jpg", "luys-map", f"report-{n}", 720)
+    still(f"{lm}/design/tutorial/out/wide-off-en.jpg", "luys-map", "tutorial-wide-off", 720)
     # brand art for the covers: logos, icons, stickers, scenes
     still(f"{lm}/web/brand/bot-welcome.jpg", "luys-map", "brand-scene", 1280)
     still(f"{lm}/design/brand/channel-avatar.jpg", "luys-map", "brand-icon", 512)
