@@ -1,11 +1,17 @@
-/* Shared frame for the "Built on my own" covers: 800 x 600 CSS px, rendered at 2x by snap.swift. */
+/* Shared frame for the "Built on my own" covers: 800 x 600 CSS px, rendered at 2x by snap.swift.
+   Each cover leads with the product's own brand: its icon, wordmark, colours and art. */
 @font-face{font-family:"Archivo";src:url(../../../assets/fonts/archivo-latin.woff2) format("woff2");font-weight:100 900;font-stretch:62% 125%}
 @font-face{font-family:"Vazir";src:url(Vazirmatn-Black.woff2) format("woff2");font-weight:900}
+@font-face{font-family:"Instrument Serif";src:url(InstrumentSerif.woff2) format("woff2")}
+@font-face{font-family:"Instrument Serif";font-style:italic;src:url(InstrumentSerif-Italic.woff2) format("woff2")}
+@font-face{font-family:"Geist Mono";src:url(GeistMono.woff2) format("woff2");font-weight:100 900}
+@font-face{font-family:"Lilita";src:url(LilitaOne.woff2) format("woff2")}
 *{box-sizing:border-box;margin:0}
 html,body{width:800px;height:600px;overflow:hidden}
 body{position:relative;font-family:"Archivo",-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
 img{display:block}
 .phone{position:absolute;border-radius:30px;overflow:hidden;background:#fff;
-  box-shadow:0 0 0 7px #0d0d10,0 0 0 8px rgba(255,255,255,.12),0 40px 80px -20px rgba(0,0,0,.55),0 18px 30px -12px rgba(0,0,0,.35)}
+  box-shadow:0 0 0 7px #0d0d10,0 0 0 8px rgba(255,255,255,.14),0 40px 80px -20px rgba(0,0,0,.5),0 18px 30px -12px rgba(0,0,0,.3)}
 .phone img{width:100%;height:auto}
-.card{position:absolute;border-radius:16px;background:rgba(255,255,255,.96);box-shadow:0 24px 50px -16px rgba(0,0,0,.45),0 4px 10px rgba(0,0,0,.12)}
+.icon{position:absolute;border-radius:24%;overflow:hidden;box-shadow:0 22px 44px -14px rgba(0,0,0,.45),0 0 0 1px rgba(0,0,0,.06)}
+.icon img{width:100%;height:100%;object-fit:cover}

@@ -1,26 +1,23 @@
 <!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="cover.css"><style>
-body{background:#fbf6ec}
-.lines{position:absolute;inset:0;background:repeating-linear-gradient(180deg,transparent 0 35px,#d9e3f0 35px 36px);opacity:.8}
-.margin{position:absolute;top:0;bottom:0;right:120px;width:3px;border-left:1.5px solid #e7a1a1;border-right:1.5px solid #e7a1a1}
-.word{position:absolute;right:150px;top:56px;font-family:"Vazir",Tahoma,sans-serif;font-weight:900;font-size:230px;line-height:1;color:#1a1a1a;opacity:.07;direction:rtl}
-.p1{width:230px;left:300px;top:58px;transform:rotate(-3deg)}
-.p2{width:200px;left:96px;top:140px;transform:rotate(-9deg)}
-.p3{width:200px;left:552px;top:150px;transform:rotate(7deg)}
-.pen{position:absolute;left:330px;top:150px;width:200px;height:90px}
-.wave{position:absolute;left:60px;right:60px;bottom:30px;height:46px;opacity:.9;display:flex;align-items:center;gap:3px}
-.wave i{flex:1;border-radius:2px;background:#2f7d5b}
-.wave i.r{background:#d58a2b}
-.stamp{position:absolute;left:44px;top:44px;padding:8px 14px;border-radius:999px;background:#c2362c;color:#fff;font-size:13px;font-weight:700;letter-spacing:.02em;transform:rotate(-4deg)}
+/* the brand: notebook cream, the blue mascot icon, black Persian wordmark with the teacher's red pen */
+body{background:radial-gradient(90% 80% at 75% 20%,#ffffff 0%,#f7f1e6 60%,#efe6d4 100%)}
+.lines{position:absolute;inset:0;background:repeating-linear-gradient(180deg,transparent 0 39px,rgba(61,99,196,.13) 39px 40px)}
+.ic{right:56px;top:52px;width:150px;height:150px}
+.mark{position:absolute;right:226px;top:62px;direction:rtl;text-align:right}
+.mark b{display:block;font-family:"Vazir",Tahoma,sans-serif;font-weight:900;font-size:92px;line-height:1.05;color:#141414}
+.mark svg{display:block;width:230px;height:22px;margin:-6px 0 0 auto}
+.mark span{display:block;margin-top:8px;font-family:"Vazir",Tahoma,sans-serif;font-weight:900;font-size:24px;color:#3d63c4}
+.p1{width:206px;left:70px;top:70px;transform:rotate(-6deg)}
+.p2{width:190px;left:300px;top:250px;transform:rotate(4deg)}
+.st{position:absolute;filter:drop-shadow(0 10px 14px rgba(0,0,0,.18))}
 </style></head><body>
-<div class="lines"></div><div class="margin"></div>
-<div class="word">املا</div>
-<div class="wave" id="w"></div>
-<div class="phone p2"><img src="../../../assets/img/built/emlagoo/02-lessons.webp" alt=""></div>
-<div class="phone p3"><img src="../../../assets/img/built/emlagoo/05-word-tap.webp" alt=""></div>
+<div class="lines"></div>
 <div class="phone p1"><img src="../../../assets/img/built/emlagoo/04-dictate.webp" alt=""></div>
-<div class="stamp">34,361 words, timed</div>
-<script>
-const w=document.getElementById('w');let s=7;const r=()=>(s=(s*9301+49297)%233280)/233280;
-for(let i=0;i<120;i++){const h=8+Math.abs(Math.sin(i*.35))*26+r()*14;w.insertAdjacentHTML('beforeend',`<i class="${r()<.4?'r':''}" style="height:${h}px"></i>`)}
-</script>
+<div class="phone p2"><img src="../../../assets/img/built/emlagoo/02-lessons.webp" alt=""></div>
+<div class="icon ic"><img src="../../../assets/img/built/emlagoo/brand-icon.png" alt=""></div>
+<div class="mark"><b>املاگو</b><svg viewBox="0 0 230 22"><path d="M6 14 C 60 6, 150 4, 224 10" fill="none" stroke="#d6322f" stroke-width="7" stroke-linecap="round"/></svg><span>دیکتهٔ شب رو خود اپ می‌گه</span></div>
+<img class="st" src="../../../assets/img/built/emlagoo/sticker-pencil.png" style="width:120px;left:560px;top:300px;transform:rotate(-18deg)" alt="">
+<img class="st" src="../../../assets/img/built/emlagoo/sticker-books.png" style="width:120px;left:650px;top:430px;transform:rotate(8deg)" alt="">
+<img class="st" src="../../../assets/img/built/emlagoo/sticker-star.png" style="width:74px;left:520px;top:470px;transform:rotate(-10deg)" alt="">
+<img class="st" src="../../../assets/img/built/emlagoo/sticker-apple.png" style="width:84px;left:236px;top:40px;transform:rotate(12deg)" alt="">
 </body></html>

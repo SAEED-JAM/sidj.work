@@ -60,6 +60,15 @@ def main(root):
         still(f"{o}/{n}.png", "safhegardan", n.replace("landscape-", "l-"), 1400)
     for n in ("portrait-01-crates", "portrait-04-deck", "portrait-05-studio", "android-04-deck"):
         still(f"{o}/{n}.png", "safhegardan", n.replace("portrait-", "p-").replace("android-", "dark-"), 560)
+    # brand art for the covers: logos, icons, stickers, scenes
+    still(f"{lm}/web/brand/bot-welcome.jpg", "luys-map", "brand-scene", 1280)
+    still(f"{lm}/design/brand/channel-avatar.jpg", "luys-map", "brand-icon", 512)
+    copy(f"{em}/design/assets/brand/app-icon.png", "emlagoo", "brand-icon.png")
+    for n in ("pencil", "books", "star", "apple", "rabbit"):
+        copy(f"{em}/design/assets/emoji/{n}-sticker.png", "emlagoo", f"sticker-{n}.png")
+    still(f"{a}/header.webp", "haftkhan", "brand-scene", 1920)
+    copy(f"{a}/icon.webp", "haftkhan", "brand-icon.webp")
+    copy(f"{sg}/ios/Resources/Assets.xcassets/AppIcon.appiconset/icon-1024.png", "safhegardan", "brand-icon.png")
     print("done:", OUT)
 
 
