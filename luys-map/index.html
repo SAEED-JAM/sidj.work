@@ -447,6 +447,8 @@ p{margin:0}
 .b-ab-r b{color:var(--ink)}
 @media (max-width:560px){.b-ab-m{grid-template-columns:1fr}.b-ab-m .sig{margin-top:-2px}}
 @media (prefers-reduced-motion:reduce){.b-ab-m i{transition:none}}
+.b-langs{margin-top:clamp(36px,5vw,56px);max-width:760px}
+.b-langs .b-sub{margin-top:0}
 </style>
 </head>
 <body>
@@ -490,6 +492,16 @@ p{margin:0}
       <div><dt>547</dt><dd>places saved for alerts</dd></div>
       <div><dt>~21</dt><dd>alerts per saved place so far</dd></div>
     </dl>
+  </div>
+  <div class="b-langs rv" data-anim>
+    <h3 class="b-sub">The language people choose</h3>
+    <div class="b-chart" role="img" aria-label="Of the 795 people who picked a language: Russian 559, English 117, Armenian 69, Persian 50">
+      <div class="b-bar"><span class="l">Russian</span><span class="t"><span class="f" style="--w:70.3%;background:#6754e5"></span></span><span class="v">559</span></div>
+      <div class="b-bar"><span class="l">English</span><span class="t"><span class="f" style="--w:14.7%;background:#8f80ec"></span></span><span class="v">117</span></div>
+      <div class="b-bar"><span class="l">Armenian</span><span class="t"><span class="f" style="--w:8.7%;background:#b3a8f2"></span></span><span class="v">69</span></div>
+      <div class="b-bar"><span class="l">Persian</span><span class="t"><span class="f" style="--w:6.3%;background:#cfc8f7"></span></span><span class="v">50</span></div>
+    </div>
+    <p class="b-note">Of the 795 who picked a language; 131 more left before choosing. Seven in ten read the app in Russian, which is why every notice is parsed from Armenian and Russian sources and every string exists in all four languages.</p>
   </div>
 </section>
 
@@ -697,7 +709,7 @@ p{margin:0}
 </section>
 
 <section class="b-sec b-wrap">
-  <div class="b-sec-h rv"><h2>Four languages</h2><p>Armenian, Russian, English and Persian, every string in all four. Persian runs right to left.</p></div>
+  <div class="b-sec-h rv"><h2>Four languages</h2><p>Armenian, Russian, English and Persian, every string in all four. Persian runs right to left.</p><p>Russian is what most people choose: 559 of the 795 who picked a language.</p></div>
   <div class="b-row rv" style="--n:4">
     <figure><img src="/assets/img/built/luys-map/home.webp" alt="Luys Map in English" loading="lazy" width="600" height="1298"><figcaption>English</figcaption></figure>
     <figure><img src="/assets/img/built/luys-map/home-hy.webp" alt="Luys Map in Armenian" loading="lazy" width="480" height="1039"><figcaption>Armenian</figcaption></figure>

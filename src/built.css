@@ -355,3 +355,5 @@
 .b-ab-r b{color:var(--ink)}
 @media (max-width:560px){.b-ab-m{grid-template-columns:1fr}.b-ab-m .sig{margin-top:-2px}}
 @media (prefers-reduced-motion:reduce){.b-ab-m i{transition:none}}
+.b-langs{margin-top:clamp(36px,5vw,56px);max-width:760px}
+.b-langs .b-sub{margin-top:0}
