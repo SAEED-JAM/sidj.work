@@ -34,8 +34,29 @@ def cover(screens, top, bottom, out):
     print(out)
 
 
+def crop43(src, out):
+    """A 4:3 centre crop of one picture, for covers that are a single image."""
+    im = Image.open(src).convert("RGB")
+    tw = min(im.width, round(im.height * 4 / 3)); th = round(tw * 3 / 4)
+    x, y = (im.width - tw) // 2, (im.height - th) // 2
+    im.crop((x, y, x + tw, y + th)).resize((W, H), Image.LANCZOS).save(os.path.join(IMG, out), "WEBP", quality=84, method=6)
+    print(out)
+
+
+def framed(src, out, top, bottom):
+    """A wide screenshot floating on a soft background."""
+    c = bg(top, bottom)
+    im = rounded(width(Image.open(src).convert("RGB"), 1360), 28)
+    place(c, im, (W - im.width) // 2, (H - im.height) // 2)
+    c.convert("RGB").save(os.path.join(IMG, out), "WEBP", quality=86, method=6)
+    print(out)
+
+
 if __name__ == "__main__":
     luys, emla = (os.path.expanduser(a) for a in sys.argv[1:3])
+    docs = os.path.dirname(luys)
+    crop43(f"{docs}/HaftKhan/site/assets/keyart.webp", "cover-haftkhan.webp")
+    framed(f"{docs}/SafheGardan/tools/out/landscape-04-deck.png", "cover-safhegardan.webp", (244, 238, 228), (232, 224, 210))
     cover([f"{luys}/design/shots/{n}-en.png" for n in ("detail", "home", "insights")],
           (238, 236, 252), (226, 224, 246), "cover-luys.webp")
     cover([f"{emla}/design/assets/store/screens-raw/{n}.jpg" for n in ("02-lessons", "04-dictate", "05-word-tap")],

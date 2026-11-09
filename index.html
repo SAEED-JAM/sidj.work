@@ -172,7 +172,10 @@ p{margin:0}
 .project:hover h3{text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:4px}
 .cap p{font-size:16px;color:var(--ink-2);max-width:34em}
 .cap .res{font-size:15px;color:var(--ink)}
-.cap .how{font-size:14px;line-height:1.55;color:var(--ink-3)}
+.built-links{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:12px;font-size:14.5px}
+.built-links a{color:var(--ink-2);text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:3px}
+.built-links a:hover{color:var(--ink);text-decoration-color:var(--ink)}
+.built-links a::after{content:" \2197";font-size:.85em}
 @media (max-width:760px){.projects{grid-template-columns:1fr}}
 .shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,2.6vw,40px)}
 .shot{margin:0;display:grid;gap:14px;align-content:start}
@@ -1681,26 +1684,52 @@ footer.site .foot-in{display:flex;justify-content:space-between;flex-wrap:wrap;g
 
 <section class="sec" id="built">
   <div class="wrap">
-    <div class="sec-h rv"><h2>Built on my own</h2><p>Two products I design, build and run by myself, from the data pipeline to the last screen. Both are live and used every day.</p></div>
+    <div class="sec-h rv"><h2>Built on my own</h2><p>Four products I made by myself, from the data pipeline to the last screen. Three are live and used every day; one is a prototype.</p></div>
     <div class="projects">
-      <a class="project rv" href="https://t.me/LuysMapBot" target="_blank" rel="noopener">
-        <div class="cover"><img src="/assets/img/cover-luys.webp" alt="Three Luys Map screens: a planned power cut on a street, the outage map of Yerevan, and outage insights for a saved home" loading="lazy" width="1600" height="1200"></div>
-        <div class="cap">
-          <div class="cap-h"><h3>Luys Map <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></h3><span>Telegram app, Yerevan</span></div>
-          <p>Power, water and gas outages in Yerevan on one map, with alerts for the places you save. In Armenian, Russian, English and Persian.</p>
-          <p class="res">3,300+ outages mapped since April. I tuned the alerts on 30 days of real data: a typical place went from 15 alerts a month to 2.</p>
-          <p class="how">A collector reads 6 official sources every 15 minutes and places each notice with my own street gazetteer. Cloudflare Worker and D1, a Telegram bot with signed requests, and people’s own reports, which count only when 3 people within 250 m agree.</p>
-        </div>
-      </a>
-      <a class="project rv" href="https://emlagoo.ir/" target="_blank" rel="noopener">
-        <div class="cover"><img src="/assets/img/cover-emlagoo.webp" alt="Three Emlagoo screens in Persian: choosing a lesson, a dictation in progress with the current phrase highlighted, and a word circled in red" loading="lazy" width="1600" height="1200"></div>
-        <div class="cap">
-          <div class="cap-h"><h3>Emlagoo <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></h3><span>Android app, Cafe Bazaar</span></div>
-          <p>A dictation teacher for Persian primary-school children. It reads the official textbook audio one phrase at a time and lights each word on its real timestamp.</p>
-          <p class="res">7.6 hours of textbook audio aligned word by word: 34,361 words across all six grades. Live on Cafe Bazaar with in-app purchases.</p>
-          <p class="how">Flutter, fully offline. My own phonetic aligner and a music-removal pass for the audio, a small data service with a dashboard, and a website with a page for every lesson. A QA agent has to pass before any release.</p>
-        </div>
-      </a>
+      <div class="built-item">
+        <a class="project rv" href="/luys-map/">
+          <div class="cover"><img src="/assets/img/cover-luys.webp" alt="Three Luys Map screens: a planned power cut, the outage map of Yerevan and insights for a saved home" loading="lazy" width="1600" height="1200"></div>
+          <div class="cap">
+            <div class="cap-h"><h3>Luys Map <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></h3><span>Telegram app, Yerevan</span></div>
+            <p>Power, water and gas outages in Yerevan on one map, with alerts for the places you save. In four languages.</p>
+            <p class="res">3,300+ outages mapped since April. A typical place went from 15 alerts a month to 2.</p>
+          </div>
+        </a>
+        <p class="built-links"><a href="https://t.me/LuysMapBot" target="_blank" rel="noopener">Open in Telegram</a> <a href="https://t.me/luysmap" target="_blank" rel="noopener">News channel</a></p>
+      </div>
+      <div class="built-item">
+        <a class="project rv" href="/emlagoo/">
+          <div class="cover"><img src="/assets/img/cover-emlagoo.webp" alt="Three Emlagoo screens in Persian: choosing a lesson, a dictation in progress and a word circled in red" loading="lazy" width="1600" height="1200"></div>
+          <div class="cap">
+            <div class="cap-h"><h3>Emlagoo <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></h3><span>Android app, Cafe Bazaar</span></div>
+            <p>A dictation teacher for Persian schoolchildren: the official textbook audio, phrase by phrase, each word lit on its real timestamp.</p>
+            <p class="res">270 installs on Cafe Bazaar. 7.6 hours of audio aligned word by word.</p>
+          </div>
+        </a>
+        <p class="built-links"><a href="https://cafebazaar.ir/app/ir.diktegoo.app" target="_blank" rel="noopener">Cafe Bazaar</a> <a href="https://emlagoo.ir/" target="_blank" rel="noopener">emlagoo.ir</a></p>
+      </div>
+      <div class="built-item">
+        <a class="project rv" href="/haftkhan/">
+          <div class="cover"><img src="/assets/img/cover-haftkhan.webp" alt="Haft Khan key art: Rostam on Rakhsh with the divs, the witch, the dragon and the lion around him" loading="lazy" width="1600" height="1200"></div>
+          <div class="cap">
+            <div class="cap-h"><h3>Haft Khan <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></h3><span>Mobile game, Cafe Bazaar</span></div>
+            <p>A funny action-adventure true to Ferdowsi’s Shahnameh: seven labours, a hungry hero and cowardly divs.</p>
+            <p class="res">Live on Cafe Bazaar since October. Unity, Persian and English, fully offline.</p>
+          </div>
+        </a>
+        <p class="built-links"><a href="https://cafebazaar.ir/app/com.haftkhan.game" target="_blank" rel="noopener">Cafe Bazaar</a> <a href="https://haftkhangame.ir/" target="_blank" rel="noopener">haftkhangame.ir</a></p>
+      </div>
+      <div class="built-item">
+        <a class="project rv" href="/safhegardan/">
+          <div class="cover"><img src="/assets/img/cover-safhegardan.webp" alt="SafheGardan on a wide screen: a wooden turntable playing a record, with the track list beside it" loading="lazy" width="1600" height="1200"></div>
+          <div class="cap">
+            <div class="cap-h"><h3>SafheGardan <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></h3><span>Prototype, web and mobile</span></div>
+            <p>The ritual of vinyl on a phone: digging through crates, dropping the needle, the crackle before the first note.</p>
+            <p class="res">Plays 28,160 public-domain 78 rpm sides. Web, Android and iOS from one codebase.</p>
+          </div>
+        </a>
+        <p class="built-links"><a href="https://saeed-jam.github.io/safhegardan-web/" target="_blank" rel="noopener">Try it on the web</a></p>
+      </div>
     </div>
   </div>
 </section>

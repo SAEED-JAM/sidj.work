@@ -1,0 +1,69 @@
+<section class="b-hero b-wrap">
+  <p class="b-eyebrow"><span>Built on my own</span><span>Web, Android and iOS prototype</span><span>2026</span></p>
+  <h1>SafheGardan<small>صفحه‌گردان, Persian for “record player”</small></h1>
+  <p class="b-lede">Streaming made music instant and weightless: a search box and a list that never ends. I missed what happens around a record. Flipping through a crate, sliding the disc out of its sleeve, dropping the needle, the crackle before the first note. <strong>SafheGardan tries to bring that ritual back on a phone</strong>, with Persian, English and Turkish records side by side.</p>
+  <div class="b-links">
+    <a class="b-btn primary" href="https://saeed-jam.github.io/safhegardan-web/" target="_blank" rel="noopener">Try the web version {{ext}}</a>
+  </div>
+  <p class="b-role">Idea, design, the 3D scene, the sound, the apps and the backend: me. A prototype, not on any store yet.</p>
+  <dl class="b-stats">
+    <div><dt>28,160</dt><dd>public-domain 78 rpm sides it can play, crackle and all</dd></div>
+    <div><dt>3</dt><dd>platforms from one codebase: web, Android and iOS</dd></div>
+    <div><dt>12</dt><dd>records to a crate, with real album covers</dd></div>
+    <div><dt>6 days</dt><dd>from the first commit to the public web build, 5 to 10 October</dd></div>
+  </dl>
+</section>
+
+<section class="b-wrap rv">
+  <div class="b-media"><img src="assets/img/built/safhegardan/l-04-deck.webp" alt="SafheGardan on a wide screen: a wooden turntable with a record playing, the track list beside it" loading="lazy"></div>
+  <p class="b-cap">The deck: a record on the platter, its sleeve beside it, the side’s tracks on the right.</p>
+</section>
+
+<section class="b-sec b-wrap">
+  <div class="b-sec-h rv"><h2>The path</h2><p>How it went from a question about sound to a working app, including the wall I hit and the turn I took.</p></div>
+  <ol class="b-tl">
+    <li class="rv"><span class="when">Step 1</span><div class="what"><h3>Can a phone sound like a record?</h3><p>The first thing I built was the sound, not the screen. Even noise sounds fake, so the crackle is random: sometimes it dips the music, sometimes it clears, the way real wear does. The needle lands on the lead-in groove and the music rises out of the noise.</p></div></li>
+    <li class="rv"><span class="when">Step 2</span><div class="what"><h3>A room, not a box</h3><p>The first 3D scene sat in a frame and looked artificial. I took the frame away and rebuilt it as a studio: wood and veneer, warm lamp light, depth of field, ambient occlusion, a camera you can orbit and zoom, crates you flick through with your thumb.</p><img src="assets/img/built/safhegardan/l-02-crates-canvas-only.webp" alt="Three wooden crates of records in the 3D scene" loading="lazy"></div></li>
+    <li class="rv"><span class="when">Step 3</span><div class="what"><h3>Crates of records people know</h3><p>Famous Persian, English and Turkish albums with their real covers and track lists, twelve to a crate, extras spilling into the next one.</p></div></li>
+    <li class="rv wall"><span class="when">The wall</span><div class="what"><h3>Music you can’t play</h3><p>I checked 32 albums on SoundCloud by hand. Official uploads give a 30-second preview or nothing through the API. The Persian albums exist only as fan re-uploads, and none carry a licence that lets you add a vinyl effect. That’s not something to build a product on.</p></div></li>
+    <li class="rv"><span class="when">The turn</span><div class="what"><h3>Records that are free to play</h3><p>The Internet Archive has digitised 187,021 sides of 78 rpm shellac. The 28,160 from 1925 or earlier are in the US public domain, so the app may stream them and alter their sound. Artists’ own uploads on Audius came next, with the effect only on Creative Commons tracks and a link back to every artist.</p></div></li>
+    <li class="rv"><span class="when">Step 4</span><div class="what"><h3>Press your own</h3><p>A studio for making a record: choose the size and speed, 7″ to 12″ or 10″ shellac, watch it pressed with stampers and steam, sleeved and jacketed, then sent to your crate. A shop of turntables and a community feed of shared pressings came with it.</p><img src="assets/img/built/safhegardan/l-05-studio.webp" alt="The studio: picking a blank record and its size and speed" loading="lazy"></div></li>
+    <li class="rv"><span class="when">Step 5</span><div class="what"><h3>Ship something testable</h3><p>One web app, wrapped as an Android app and an iOS app with a native audio bridge, plus a web build on GitHub Pages refreshed on every commit.</p></div></li>
+  </ol>
+</section>
+
+<section class="b-sec b-wrap">
+  <div class="b-split">
+    <div class="b-prose rv">
+      <h3>Why public domain, in one chart</h3>
+      <p>Most of the world’s recorded music can’t legally be altered in an app without a licence. Old shellac can. The cut-off decides everything: recordings get 100 years of US copyright, so <strong>1925 and earlier is fair game</strong>, and 1926 to 1949 is left out on purpose.</p>
+    </div>
+    <div class="rv" data-anim>
+      <div class="b-chart" role="img" aria-label="313,752 sides in the Internet Archive's 78 rpm collection; 187,021 in the Great 78 Project; 28,160 from 1925 or earlier, usable">
+        <div class="b-bar soft"><span class="l">78 rpm collection</span><span class="t"><span class="f" style="--w:100%"></span></span><span class="v">313,752</span></div>
+        <div class="b-bar soft"><span class="l">Great 78 Project</span><span class="t"><span class="f" style="--w:59.6%"></span></span><span class="v">187,021</span></div>
+        <div class="b-bar"><span class="l">1925 or earlier</span><span class="t"><span class="f" style="--w:9%"></span></span><span class="v">28,160</span></div>
+      </div>
+      <p class="b-cap">Counted through the Internet Archive’s own API, 6 October 2026.</p>
+    </div>
+  </div>
+</section>
+
+<section class="b-sec b-wrap">
+  <div class="b-sec-h rv"><h2>On a phone</h2><p>Portrait first, with a sheet that folds down to its handle so the turntable can fill the screen. A dark mode with a warm lamp.</p></div>
+  <div class="b-gal phones rv" tabindex="0" aria-label="SafheGardan phone screens, scroll sideways">
+    <figure><img src="assets/img/built/safhegardan/p-01-crates.webp" alt="The Persian crate on a phone" loading="lazy"><figcaption>The Persian crate.</figcaption></figure>
+    <figure><img src="assets/img/built/safhegardan/p-04-deck.webp" alt="A record playing on a phone" loading="lazy"><figcaption>On the platter, with the side’s tracks.</figcaption></figure>
+    <figure><img src="assets/img/built/safhegardan/p-05-studio.webp" alt="The studio on a phone" loading="lazy"><figcaption>Pressing your own: size, speed, price.</figcaption></figure>
+    <figure><img src="assets/img/built/safhegardan/dark-04-deck.webp" alt="The deck in dark mode" loading="lazy"><figcaption>Night mode.</figcaption></figure>
+  </div>
+</section>
+
+<section class="b-sec b-wrap">
+  <div class="b-sec-h rv"><h2>Where it is now</h2><p>A working prototype. The next idea is the one it was heading for from the start: a place where people press, buy and sell their own records.</p></div>
+  <div class="b-row rv" style="--n:2">
+    <figure><img src="assets/img/built/safhegardan/l-06-shop.webp" alt="The turntable shop" loading="lazy"><figcaption>The turntable shop.</figcaption></figure>
+    <figure><img src="assets/img/built/safhegardan/l-04-deck.webp" alt="The deck" loading="lazy"><figcaption>The deck.</figcaption></figure>
+  </div>
+  <div class="b-chips rv" style="margin-top:24px"><span>three.js</span><span>Web Audio</span><span>Internet Archive API</span><span>Audius API</span><span>Python backend (SQLite)</span><span>Android WebView shell</span><span>iOS WKWebView shell</span><span>GitHub Pages</span></div>
+</section>

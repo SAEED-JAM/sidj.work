@@ -1,0 +1,92 @@
+<section class="b-hero b-wrap">
+  <p class="b-eyebrow"><span>Built on my own</span><span>Android app</span><span>Iran, 2026</span></p>
+  <h1>Emlagoo<small>املاگو, the dictation teacher</small></h1>
+  <p class="b-lede">Every evening in Iran, a parent reads the day’s textbook lesson aloud so their child can write it down: the dictation homework. <strong>Emlagoo does the reading.</strong> It plays the official textbook audio a phrase at a time, pauses so the child can write, repeats, and lights up each word as it’s spoken.</p>
+  <div class="b-links">
+    <a class="b-btn primary" href="https://cafebazaar.ir/app/ir.diktegoo.app" target="_blank" rel="noopener">Get it on Cafe Bazaar {{ext}}</a>
+    <a class="b-btn" href="https://emlagoo.ir/" target="_blank" rel="noopener">emlagoo.ir {{ext}}</a>
+  </div>
+  <p class="b-role">Product, design, the Flutter app, the audio pipeline, the data service and the website: me.</p>
+  <dl class="b-stats">
+    <div><dt>270</dt><dd>installs on Cafe Bazaar so far, with in-app purchases live</dd></div>
+    <div><dt>7.6 h</dt><dd>of textbook audio aligned word by word, all six grades</dd></div>
+    <div><dt>34,361</dt><dd>words, each with its own start and end time</dd></div>
+    <div><dt>0.5.14</dt><dd>the version on Bazaar: reminders, notices from a panel, forced updates</dd></div>
+  </dl>
+</section>
+
+<section class="b-wrap rv">
+  <div class="b-media wide"><video data-loop muted playsinline loop preload="metadata" src="assets/vid/emlagoo-web.mp4" aria-label="Emlagoo promo: choosing a lesson and a dictation in progress"></video></div>
+</section>
+
+<section class="b-sec b-wrap">
+  <div class="b-sec-h rv"><h2>The hard part</h2><p>The app is simple. The data under it isn’t: to light the right word at the right moment, every word in every lesson needs a timestamp.</p><p>Below are the real timings for the start of lesson 2 in the second-grade book. Press play to watch them run. The audio belongs to Roshd, the education ministry’s network, so it isn’t played here.</p></div>
+  <div class="b-align rv" data-align>
+    <div class="b-align-top"><h3>Lesson 2, “Our neighbourhood mosque”</h3><button class="b-align-btn" type="button" aria-pressed="false">Play the timings</button></div>
+    <div class="b-words" lang="fa" dir="rtl"></div>
+    <div class="b-track" aria-hidden="true"><span class="head"></span></div>
+    <div class="b-time" aria-hidden="true"><span class="cur">0.0 s</span><span class="end"></span></div>
+    <div class="b-legend"><span><i class="c-match"></i>Matched by speech recognition</span><span><i class="c-resp"></i>Respelled to the book’s spelling</span><span><i class="c-inf"></i>Inferred from neighbours</span></div>
+    <script type="application/json">{"words":[["مسجدِ",13.3,14.5,"match"],["محلّه‌ی",14.58,15.54,"respelled"],["ما",15.62,16.14,"match"],["مردم",16.22,17.46,"match"],["محلّه‌ی",17.46,18.2,"respelled"],["ما",18.2,18.48,"match"],["بسیار",18.48,19.26,"match"],["خوش‌حال",19.26,19.8,"match"],["بودند.",19.8,20.22,"match"],["کار",20.22,21.42,"respelled"],["بنّایی",21.42,21.98,"respelled"],["مسجد،",21.98,22.68,"respelled"],["تازه",22.68,23.24,"match"],["تمام",23.24,23.52,"match"],["شده",23.52,23.84,"match"],["بود.",23.84,24.04,"match"],["مردم",24.04,24.92,"match"],["می‌خواستند",24.92,26.06,"match"],["برای",26.06,26.5,"match"],["اوّلین",26.5,27.16,"match"],["بار،",27.16,27.56,"respelled"],["نماز",27.56,28.08,"match"],["را",28.08,28.36,"match"],["به",28.36,28.44,"match"],["جماعت",28.44,29.2,"respelled"],["در",29.2,29.48,"match"],["این",29.48,29.62,"match"],["مسجد",29.62,30.12,"match"],["بخوانند.",30.12,30.78,"respelled"],["مسجد",30.78,32.18,"match"],["چراغانی",32.18,33.26,"match"],["شده",33.26,33.54,"match"],["بود.",33.54,33.8,"match"],["حوضِ",33.8,34.54,"match"],["مسجد",34.54,35.18,"match"],["پُر",35.18,35.46,"match"],["از",35.46,35.66,"match"],["آب",35.66,36.0,"match"]]}</script>
+  </div>
+</section>
+
+<section class="b-sec b-wrap">
+  <div class="b-split">
+    <div class="b-prose rv">
+      <h3>How 32,102 words were aligned</h3>
+      <p>Speech recognition gets the timing right but writes words its own way. The book has its own spelling, with marks a child is meant to learn. My aligner matches the two phonetically, keeps the book’s spelling, and only infers a word when nothing else works.</p>
+      <p>Grades 2 to 6, 94 lessons. Grade 1 has no official audiobook, so it uses a voice we recorded.</p>
+    </div>
+    <div class="rv" data-anim>
+      <div class="b-stack" role="img" aria-label="18,755 words matched, 13,253 respelled, 94 inferred">
+        <span class="c-match" style="--w:58.4%"></span><span class="c-resp" style="--w:41.3%"></span><span class="c-inf" style="--w:.3%"></span>
+      </div>
+      <div class="b-legend"><span><i class="c-match"></i>18,755 matched</span><span><i class="c-resp"></i>13,253 respelled</span><span><i class="c-inf"></i>94 inferred</span></div>
+      <div class="b-chart" style="margin-top:28px" role="img" aria-label="Words per grade: grade 2, 3,202; grade 3, 4,599; grade 4, 5,715; grade 5, 14,004; grade 6, 4,582">
+        <div class="b-bar"><span class="l">Grade 2</span><span class="t"><span class="f" style="--w:22.9%"></span></span><span class="v">3,202</span></div>
+        <div class="b-bar"><span class="l">Grade 3</span><span class="t"><span class="f" style="--w:32.8%"></span></span><span class="v">4,599</span></div>
+        <div class="b-bar"><span class="l">Grade 4</span><span class="t"><span class="f" style="--w:40.8%"></span></span><span class="v">5,715</span></div>
+        <div class="b-bar"><span class="l">Grade 5</span><span class="t"><span class="f" style="--w:100%"></span></span><span class="v">14,004</span></div>
+        <div class="b-bar"><span class="l">Grade 6</span><span class="t"><span class="f" style="--w:32.7%"></span></span><span class="v">4,582</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="b-sec b-wrap">
+  <div class="b-sec-h rv"><h2>The pipeline</h2><p>Raw textbook audio in, a lesson a child can follow out, and the app never needs the internet.</p></div>
+  <div class="b-flow rv">
+    <div class="b-step"><b>Audiobook</b><p>The official recordings of each lesson, from Roshd.</p><span class="tag">115 files</span></div>
+    <div class="b-step"><b>Speech recognition</b><p>Word-level timings, accurate to a few tenths of a second.</p><span class="tag">Whisper</span></div>
+    <div class="b-step"><b>Phonetic aligner</b><p>Mine. Matches what was heard to the book’s text and spelling.</p><span class="tag">Python</span></div>
+    <div class="b-step"><b>Music removed</b><p>The audiobooks have background music; a separation model takes it out.</p><span class="tag">Demucs</span></div>
+    <div class="b-step"><b>Packed by grade</b><p>Grades 1 and 2 ship inside the app; 3 to 6 download once, then work offline.</p><span class="tag">55 MB app</span></div>
+  </div>
+</section>
+
+<section class="b-sec b-wrap">
+  <div class="b-sec-h rv"><h2>The app</h2><p>Like a teacher: phrase by phrase, a pause to write, each phrase as many times as you like.</p></div>
+  <div class="b-gal phones rv" tabindex="0" aria-label="Emlagoo screens, scroll sideways">
+    <figure><img src="assets/img/built/emlagoo/01-welcome.webp" alt="Emlagoo welcome screen" loading="lazy"><figcaption>No account. Pick a grade and go.</figcaption></figure>
+    <figure><img src="assets/img/built/emlagoo/02-lessons.webp" alt="Choosing a lesson from the second-grade book" loading="lazy"><figcaption>The real books and lessons, with word and phrase counts.</figcaption></figure>
+    <figure><img src="assets/img/built/emlagoo/03-setup.webp" alt="Setting speed, pause and repeats" loading="lazy"><figcaption>Speed, pause length and repeats, set by the parent.</figcaption></figure>
+    <figure><img src="assets/img/built/emlagoo/04-dictate.webp" alt="A dictation in progress with the current phrase highlighted" loading="lazy"><figcaption>The current phrase, on a notebook page.</figcaption></figure>
+    <figure><img src="assets/img/built/emlagoo/05-word-tap.webp" alt="A word circled in red after being tapped" loading="lazy"><figcaption>Tap a word to hear it again, circled in the teacher’s red pen.</figcaption></figure>
+    <figure><img src="assets/img/built/emlagoo/07-done.webp" alt="The end of a dictation with the correct text shown" loading="lazy"><figcaption>At the end, the right text to check against.</figcaption></figure>
+  </div>
+</section>
+
+<section class="b-sec b-wrap">
+  <div class="b-sec-h rv"><h2>Decisions that mattered</h2><p>Small product, real users, real money. A few calls I’d make again.</p></div>
+  <div class="b-cards rv">
+    <div class="b-card"><h3>Offline, no account</h3><p>No login, no product backend. The only server takes anonymous events and feedback for a dashboard, so the app works on a cheap phone with bad internet.</p></div>
+    <div class="b-card"><h3>Free where it counts</h3><p>Grade 1 up to lesson 11 and the first three lessons of every grade are free. The rest is a one-time purchase per grade, or all grades for a year.</p></div>
+    <div class="b-card"><h3>A QA agent guards every release</h3><p>Version 0.3.0 reached a teacher with a crash no test covered. Since then an agent runs every test and a smoke test of every lesson before any build can ship.</p></div>
+  </div>
+</section>
+
+<section class="b-sec b-wrap">
+  <div class="b-sec-h rv"><h2>Built with</h2><p>A Flutter app, a Python toolchain for the audio, and a small site with a page for every lesson.</p></div>
+  <div class="b-chips rv"><span>Flutter</span><span>ExoPlayer (just_audio)</span><span>Whisper</span><span>Phonetic aligner (mine)</span><span>Demucs</span><span>Python data service and dashboard</span><span>Cafe Bazaar billing</span><span>Design tokens to Flutter theme</span><span>Static site, one page per lesson</span></div>
+</section>
