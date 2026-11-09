@@ -80,6 +80,7 @@
 .project:hover h3{text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:4px}
 .cap p{font-size:16px;color:var(--ink-2);max-width:34em}
 .cap .res{font-size:15px;color:var(--ink)}
+.cap .how{font-size:14px;line-height:1.55;color:var(--ink-3)}
 @media (max-width:760px){.projects{grid-template-columns:1fr}}
 .shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,2.6vw,40px)}
 .shot{margin:0;display:grid;gap:14px;align-content:start}
@@ -240,6 +241,7 @@
 .talk{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,3fr);gap:4px 32px;margin-top:clamp(40px,5vw,64px);padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .talk h3{font-size:19px;font-weight:600}
 .talk .where{grid-column:2;font-size:15px;color:var(--ink-2)}
+.talk + .talk{margin-top:0;border-top:0}
 .talk:hover h3{text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px}
 @media (max-width:760px){.talk{grid-template-columns:1fr}.talk .where{grid-column:1}}
 

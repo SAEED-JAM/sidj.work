@@ -31,7 +31,7 @@
 <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <link rel="preload" href="/assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://sidj.work/#person","name":"Sid Jameson","alternateName":["Mir Saeed Jamshidi","Saeed Jamshidi"],"url":"https://sidj.work/","image":"https://sidj.work/assets/img/portrait.webp","jobTitle":"AI Design Engineer","description":"AI design engineer at Huma, designing healthcare software in code with Claude. Eight years of product design across trading, security, maps, food delivery and AI learning.","worksFor":{"@type":"Organization","name":"Huma","url":"https://huma.com"},"address":{"@type":"PostalAddress","addressLocality":"Yerevan","addressCountry":"AM"},"alumniOf":{"@type":"CollegeOrUniversity","name":"University of Zanjan"},"knowsAbout":["Product design","AI product design","Design engineering","Design systems","Design leadership","Healthcare UX","Agentic AI workflows"],"sameAs":["https://www.linkedin.com/in/mirsaeedjamshidi/","https://medium.com/@msaeedjg"]},{"@type":"WebSite","@id":"https://sidj.work/#website","url":"https://sidj.work/","name":"Sid Jameson","inLanguage":"en","publisher":{"@id":"https://sidj.work/#person"}},{"@type":"WebPage","@id":"https://sidj.work/job-search/#page","url":"https://sidj.work/job-search/","name":"Job search app, a design exercise · Sid Jameson","description":"A job search app design exercise by Sid Jameson, from requirements and competitor analysis to personas, information architecture and a UI kit.","inLanguage":"en","isPartOf":{"@id":"https://sidj.work/#website"},"dateModified":"2026-10-22","primaryImageOfPage":{"@type":"ImageObject","url":"https://sidj.work/assets/img/og-job-search.png","width":1200,"height":630},"breadcrumb":{"@id":"https://sidj.work/job-search/#breadcrumb"},"mainEntity":{"@id":"https://sidj.work/job-search/#work"}},{"@type":"CreativeWork","@id":"https://sidj.work/job-search/#work","name":"Job Search Application","headline":"Job Search Application","description":"A job search app design exercise by Sid Jameson, from requirements and competitor analysis to personas, information architecture and a UI kit.","url":"https://sidj.work/job-search/","image":"https://sidj.work/assets/img/og-job-search.png","author":{"@id":"https://sidj.work/#person"},"creator":{"@id":"https://sidj.work/#person"},"genre":"Product design case study","inLanguage":"en","dateModified":"2026-10-22"},{"@type":"BreadcrumbList","@id":"https://sidj.work/job-search/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Sid Jameson","item":"https://sidj.work/"},{"@type":"ListItem","position":2,"name":"Job Search Application","item":"https://sidj.work/job-search/"}]}]}
+{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://sidj.work/#person","name":"Sid Jameson","alternateName":["Mir Saeed Jamshidi","Saeed Jamshidi"],"url":"https://sidj.work/","image":"https://sidj.work/assets/img/portrait.webp","jobTitle":"AI Design Engineer","description":"AI design engineer at Huma, designing healthcare software in code with Claude. Eight years of product design across trading, security, maps, food delivery and AI learning.","worksFor":{"@type":"Organization","name":"Huma","url":"https://huma.com"},"address":{"@type":"PostalAddress","addressLocality":"Yerevan","addressCountry":"AM"},"alumniOf":{"@type":"CollegeOrUniversity","name":"University of Zanjan"},"knowsAbout":["Product design","AI product design","Design engineering","Design systems","Design leadership","Healthcare UX","Agentic AI workflows"],"sameAs":["https://www.linkedin.com/in/mirsaeedjamshidi/","https://medium.com/@msaeedjg"]},{"@type":"WebSite","@id":"https://sidj.work/#website","url":"https://sidj.work/","name":"Sid Jameson","inLanguage":"en","publisher":{"@id":"https://sidj.work/#person"}},{"@type":"WebPage","@id":"https://sidj.work/job-search/#page","url":"https://sidj.work/job-search/","name":"Job search app, a design exercise · Sid Jameson","description":"A job search app design exercise by Sid Jameson, from requirements and competitor analysis to personas, information architecture and a UI kit.","inLanguage":"en","isPartOf":{"@id":"https://sidj.work/#website"},"dateModified":"2026-11-09","primaryImageOfPage":{"@type":"ImageObject","url":"https://sidj.work/assets/img/og-job-search.png","width":1200,"height":630},"breadcrumb":{"@id":"https://sidj.work/job-search/#breadcrumb"},"mainEntity":{"@id":"https://sidj.work/job-search/#work"}},{"@type":"CreativeWork","@id":"https://sidj.work/job-search/#work","name":"Job Search Application","headline":"Job Search Application","description":"A job search app design exercise by Sid Jameson, from requirements and competitor analysis to personas, information architecture and a UI kit.","url":"https://sidj.work/job-search/","image":"https://sidj.work/assets/img/og-job-search.png","author":{"@id":"https://sidj.work/#person"},"creator":{"@id":"https://sidj.work/#person"},"genre":"Product design case study","inLanguage":"en","dateModified":"2026-11-09"},{"@type":"BreadcrumbList","@id":"https://sidj.work/job-search/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Sid Jameson","item":"https://sidj.work/"},{"@type":"ListItem","position":2,"name":"Job Search Application","item":"https://sidj.work/job-search/"}]}]}
 </script>
 <style>
 /* Archivo (variable: weight 100–900, width 62–125%), latin subset, self-hosted. SIL OFL, see assets/fonts/OFL.txt */
@@ -172,6 +172,7 @@ p{margin:0}
 .project:hover h3{text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:4px}
 .cap p{font-size:16px;color:var(--ink-2);max-width:34em}
 .cap .res{font-size:15px;color:var(--ink)}
+.cap .how{font-size:14px;line-height:1.55;color:var(--ink-3)}
 @media (max-width:760px){.projects{grid-template-columns:1fr}}
 .shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,2.6vw,40px)}
 .shot{margin:0;display:grid;gap:14px;align-content:start}
@@ -332,6 +333,7 @@ p{margin:0}
 .talk{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,3fr);gap:4px 32px;margin-top:clamp(40px,5vw,64px);padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .talk h3{font-size:19px;font-weight:600}
 .talk .where{grid-column:2;font-size:15px;color:var(--ink-2)}
+.talk + .talk{margin-top:0;border-top:0}
 .talk:hover h3{text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px}
 @media (max-width:760px){.talk{grid-template-columns:1fr}.talk .where{grid-column:1}}
 
@@ -1568,6 +1570,7 @@ footer.site .foot-in{display:flex;justify-content:space-between;flex-wrap:wrap;g
     <a class="brand" href="#top">Sid Jameson</a>
     <nav class="links" aria-label="Sections">
       <a href="#work" data-sec="work">Work</a>
+      <a href="#built" data-sec="built">Built</a>
       <a href="#workflow" data-sec="workflow">Process</a>
       <a href="#experience" data-sec="experience">Experience</a>
       <a href="#writing" data-sec="writing">Writing</a>
@@ -1586,6 +1589,7 @@ footer.site .foot-in{display:flex;justify-content:space-between;flex-wrap:wrap;g
 </header>
 <nav class="menu" id="menu" hidden aria-label="Menu">
   <a href="#work">Work</a>
+  <a href="#built">Built</a>
   <a href="#workflow">Process</a>
   <a href="#experience">Experience</a>
   <a href="#writing">Writing</a>
@@ -1671,6 +1675,32 @@ footer.site .foot-in{display:flex;justify-content:space-between;flex-wrap:wrap;g
     <div class="shots">
       <figure class="shot"><div class="shot-media" style="background-image:url(/assets/img/poster-shot-retrieval.webp)"><button class="shot-exp" type="button" aria-label="Play larger"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button><video muted loop playsinline preload="none" data-poster="/assets/img/poster-shot-retrieval.webp" data-auto data-full="/assets/vid/shot-retrieval.mp4" aria-label="Screen recording of the Graph kiosk file transfer flow"><source src="/assets/vid/shot-retrieval-sm.mp4" type="video/mp4"></video></div><figcaption><b>Kiosk file transfer</b><span>Graph · Send files to a kiosk, then collect them there with a time-limited exit ID</span></figcaption></figure>
       <figure class="shot"><div class="shot-media" style="background-image:url(/assets/img/poster-shot-avand.webp)"><button class="shot-exp" type="button" aria-label="Play larger"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button><video muted loop playsinline preload="none" data-poster="/assets/img/poster-shot-avand.webp" data-auto data-full="/assets/vid/shot-avand.mp4" aria-label="Screen recording of the Avand HR employee directory"><source src="/assets/vid/shot-avand-sm.mp4" type="video/mp4"></video></div><figcaption><b>Employee directory</b><span>Avand HR · A searchable database of a company’s people</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="built">
+  <div class="wrap">
+    <div class="sec-h rv"><h2>Built on my own</h2><p>Two products I design, build and run by myself, from the data pipeline to the last screen. Both are live and used every day.</p></div>
+    <div class="projects">
+      <a class="project rv" href="https://t.me/LuysMapBot" target="_blank" rel="noopener">
+        <div class="cover"><img src="/assets/img/cover-luys.webp" alt="Three Luys Map screens: a planned power cut on a street, the outage map of Yerevan, and outage insights for a saved home" loading="lazy" width="1600" height="1200"></div>
+        <div class="cap">
+          <div class="cap-h"><h3>Luys Map <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></h3><span>Telegram app, Yerevan</span></div>
+          <p>Power, water and gas outages in Yerevan on one map, with alerts for the places you save. In Armenian, Russian, English and Persian.</p>
+          <p class="res">3,300+ outages mapped since April. I tuned the alerts on 30 days of real data: a typical place went from 15 alerts a month to 2.</p>
+          <p class="how">A collector reads 6 official sources every 15 minutes and places each notice with my own street gazetteer. Cloudflare Worker and D1, a Telegram bot with signed requests, and people’s own reports, which count only when 3 people within 250 m agree.</p>
+        </div>
+      </a>
+      <a class="project rv" href="https://emlagoo.ir/" target="_blank" rel="noopener">
+        <div class="cover"><img src="/assets/img/cover-emlagoo.webp" alt="Three Emlagoo screens in Persian: choosing a lesson, a dictation in progress with the current phrase highlighted, and a word circled in red" loading="lazy" width="1600" height="1200"></div>
+        <div class="cap">
+          <div class="cap-h"><h3>Emlagoo <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></h3><span>Android app, Cafe Bazaar</span></div>
+          <p>A dictation teacher for Persian primary-school children. It reads the official textbook audio one phrase at a time and lights each word on its real timestamp.</p>
+          <p class="res">7.6 hours of textbook audio aligned word by word: 34,361 words across all six grades. Live on Cafe Bazaar with in-app purchases.</p>
+          <p class="how">Flutter, fully offline. My own phonetic aligner and a music-removal pass for the audio, a small data service with a dashboard, and a website with a page for every lesson. A QA agent has to pass before any release.</p>
+        </div>
+      </a>
     </div>
   </div>
 </section>
@@ -1860,6 +1890,7 @@ footer.site .foot-in{display:flex;justify-content:space-between;flex-wrap:wrap;g
       </a>
     </div>
     <a class="talk" href="https://www.linkedin.com/in/mirsaeedjamshidi/recent-activity/all/" target="_blank" rel="noopener"><span class="date">Talk</span><h3>How AI can understand learners, not just teach them</h3><span class="where">Sharif University Job Fair, Wallex panel</span></a>
+    <a class="talk talk-next" href="/next/"><span class="date">Prototype</span><h3>Ask-back review: agent output as questions, not reports</h3><span class="where">A speculative pull request, with its failure states</span></a>
   </div>
 </section>
 
@@ -2164,7 +2195,7 @@ $$('[data-since]').forEach(el => {
 });
 
 /* header: a rule once the page scrolls; the current section's link is underlined */
-const nav = $('#nav'), navLinks = $$('.links a'), SECS = ['top', 'work', 'workflow', 'experience', 'writing', 'words', 'contact'];
+const nav = $('#nav'), navLinks = $$('.links a'), SECS = ['top', 'work', 'built', 'workflow', 'experience', 'writing', 'words', 'contact'];
 const markNav = id => navLinks.forEach(l => l.dataset.sec === id ? l.setAttribute('aria-current', 'true') : l.removeAttribute('aria-current'));
 const secObs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) markNav(e.target.id); }), { rootMargin: '-40% 0px -55% 0px' });
 SECS.forEach(id => secObs.observe(document.getElementById(id)));

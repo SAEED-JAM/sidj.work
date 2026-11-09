@@ -80,7 +80,7 @@ $$('[data-since]').forEach(el => {
 });
 
 /* header: a rule once the page scrolls; the current section's link is underlined */
-const nav = $('#nav'), navLinks = $$('.links a'), SECS = ['top', 'work', 'workflow', 'experience', 'writing', 'words', 'contact'];
+const nav = $('#nav'), navLinks = $$('.links a'), SECS = ['top', 'work', 'built', 'workflow', 'experience', 'writing', 'words', 'contact'];
 const markNav = id => navLinks.forEach(l => l.dataset.sec === id ? l.setAttribute('aria-current', 'true') : l.removeAttribute('aria-current'));
 const secObs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) markNav(e.target.id); }), { rootMargin: '-40% 0px -55% 0px' });
 SECS.forEach(id => secObs.observe(document.getElementById(id)));

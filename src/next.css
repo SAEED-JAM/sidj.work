@@ -15,6 +15,8 @@
 .nx-theory{font-size:clamp(17px,1.9vw,19.5px);line-height:1.55;color:var(--ink-2)}
 .nx-theory strong{color:var(--ink);font-weight:600}
 .nx-credit{margin-top:18px;font-size:14px;color:var(--ink-3)}
+.nx-credit a{text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:3px}
+.nx-credit a:hover{color:var(--ink);text-decoration-color:var(--ink)}
 
 .nx-stage{max-width:1160px;margin-inline:auto;padding-inline:16px}
 .nx-bar{display:flex;align-items:center;justify-content:space-between;gap:16px}
