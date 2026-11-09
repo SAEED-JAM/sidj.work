@@ -425,6 +425,28 @@ p{margin:0}
 :root[data-theme="dark"] .b-house{background:#1c1b26}
 :root[data-theme="dark"] .b-house-img{border-radius:12px;overflow:hidden}
 .b-exp:last-child{grid-column:1 / -1}
+
+/* A/B result inside the experiment card */
+.b-ab{margin-top:18px;padding-top:16px;border-top:1px dashed var(--line-2)}
+.b-ab-h{font-size:12.5px;font-weight:600;color:var(--ink-3);margin-bottom:12px}
+.b-ab-m{display:grid;grid-template-columns:minmax(120px,.9fr) minmax(0,2fr) 104px;gap:12px;align-items:center;padding:6px 0}
+.b-ab-m .l{font-size:13.5px;color:var(--ink-2);line-height:1.3}
+.b-ab-m em{display:block;font-style:normal;font-size:11.5px;color:var(--ink-3)}
+.b-ab-m .bars{display:grid;gap:4px}
+.b-ab-m i{position:relative;display:block;height:20px;width:0;border-radius:5px;transition:width 1.1s var(--ease)}
+.b-ab.in .b-ab-m i{width:var(--w)}
+.b-ab-m i.a{background:#6754e5}.b-ab-m i.b{background:#b7abf3}
+:root[data-theme="dark"] .b-ab-m i.b{background:#4b4290}
+.b-ab-m i b{position:absolute;left:8px;top:50%;transform:translateY(-50%);font-size:11.5px;font-weight:700;color:#fff;white-space:nowrap}
+.b-ab-m i.b b{color:#2b2266}
+:root[data-theme="dark"] .b-ab-m i.b b{color:#fff}
+.b-ab-m .sig{justify-self:start;padding:3px 9px;border-radius:999px;background:var(--bg-2);font-size:12px;font-weight:600;color:var(--ink-2)}
+.b-ab-m .sig.hot{background:#fde7e4;color:#b2321f}
+:root[data-theme="dark"] .b-ab-m .sig.hot{background:#4a2420;color:#ff9b8c}
+.b-ab-r{margin-top:12px;font-size:14px;line-height:1.55;color:var(--ink-2)}
+.b-ab-r b{color:var(--ink)}
+@media (max-width:560px){.b-ab-m{grid-template-columns:1fr}.b-ab-m .sig{margin-top:-2px}}
+@media (prefers-reduced-motion:reduce){.b-ab-m i{transition:none}}
 </style>
 </head>
 <body>
@@ -560,6 +582,16 @@ p{margin:0}
         <div><dt>Decides</dt><dd>Saved places with alerts switched on. Guardrail: phone numbers may not fall by more than half.</dd></div>
         <div><dt>Rigour</dt><dd>Decision rule and a sample of 400 per group agreed before any result; a two-proportion z-test gives the verdict automatically in the admin panel.</dd></div>
       </dl>
+      <div class="b-ab" data-anim role="img" aria-label="Results so far. Places with alerts on: A 63 percent, B 60 percent, not a significant difference. Saved a place: A 69 percent, B 69 percent. Gave a phone number: A 54 percent, B 29 percent, a significant difference.">
+        <p class="b-ab-h">So far: 264 people in A, 258 in B</p>
+        <div class="b-ab-m"><span class="l">Place with alerts on <em>decides</em></span>
+          <span class="bars"><i class="a" style="--w:63.3%"><b>A 63%</b></i><i class="b" style="--w:60.5%"><b>B 60%</b></i></span><span class="sig">no real difference</span></div>
+        <div class="b-ab-m"><span class="l">Saved a place</span>
+          <span class="bars"><i class="a" style="--w:68.6%"><b>A 69%</b></i><i class="b" style="--w:69.4%"><b>B 69%</b></i></span><span class="sig">same</span></div>
+        <div class="b-ab-m"><span class="l">Gave a phone number <em>guardrail</em></span>
+          <span class="bars"><i class="a" style="--w:53.8%"><b>A 54%</b></i><i class="b" style="--w:28.7%"><b>B 29%</b></i></span><span class="sig hot">half as many</span></div>
+        <p class="b-ab-r"><b>What it says:</b> asking for the phone up front doesn’t scare people off. Moving it later brought no more saved places and lost almost half the numbers. The rule says keep going to 400 per group, but A is the likely keeper.</p>
+      </div>
     </article>
     <article class="b-exp">
       <span class="b-pill">Staged rollout</span>
