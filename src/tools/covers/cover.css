@@ -1,0 +1,11 @@
+/* Shared frame for the "Built on my own" covers: 800 x 600 CSS px, rendered at 2x by snap.swift. */
+@font-face{font-family:"Archivo";src:url(../../../assets/fonts/archivo-latin.woff2) format("woff2");font-weight:100 900;font-stretch:62% 125%}
+@font-face{font-family:"Vazir";src:url(Vazirmatn-Black.woff2) format("woff2");font-weight:900}
+*{box-sizing:border-box;margin:0}
+html,body{width:800px;height:600px;overflow:hidden}
+body{position:relative;font-family:"Archivo",-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+img{display:block}
+.phone{position:absolute;border-radius:30px;overflow:hidden;background:#fff;
+  box-shadow:0 0 0 7px #0d0d10,0 0 0 8px rgba(255,255,255,.12),0 40px 80px -20px rgba(0,0,0,.55),0 18px 30px -12px rgba(0,0,0,.35)}
+.phone img{width:100%;height:auto}
+.card{position:absolute;border-radius:16px;background:rgba(255,255,255,.96);box-shadow:0 24px 50px -16px rgba(0,0,0,.45),0 4px 10px rgba(0,0,0,.12)}
