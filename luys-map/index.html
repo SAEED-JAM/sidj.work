@@ -449,6 +449,18 @@ p{margin:0}
 @media (prefers-reduced-motion:reduce){.b-ab-m i{transition:none}}
 .b-langs{margin-top:clamp(36px,5vw,56px);max-width:760px}
 .b-langs .b-sub{margin-top:0}
+.b-weeks{margin-top:clamp(36px,5vw,56px);max-width:760px}
+.b-weeks .b-sub{margin-top:0}
+.b-cols{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;align-items:end;height:240px;padding-top:24px}
+.b-cols .c{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;gap:6px}
+.b-cols i{display:block;width:100%;max-width:72px;height:0;border-radius:8px 8px 3px 3px;background:#b3a8f2;transition:height 1s var(--ease)}
+.b-cols .peak i{background:#6754e5}
+.b-cols .c:nth-child(2) i{transition-delay:.08s}.b-cols .c:nth-child(3) i{transition-delay:.16s}.b-cols .c:nth-child(4) i{transition-delay:.24s}.b-cols .c:nth-child(5) i{transition-delay:.32s}.b-cols .c:nth-child(6) i{transition-delay:.4s}
+.in .b-cols i,.b-weeks.in .b-cols i{height:max(6px,calc((100% - 44px) * var(--hf)))}
+.b-cols b{font-size:14px;font-weight:600;font-variant-numeric:tabular-nums}
+.b-cols span{font-size:12.5px;color:var(--ink-3);white-space:nowrap}
+.b-cols .c:hover i{filter:brightness(1.08)}
+@media (prefers-reduced-motion:reduce){.b-cols i{transition:none}}
 </style>
 </head>
 <body>
@@ -492,6 +504,11 @@ p{margin:0}
       <div><dt>547</dt><dd>places saved for alerts</dd></div>
       <div><dt>~21</dt><dd>alerts per saved place so far</dd></div>
     </dl>
+  </div>
+  <div class="b-weeks rv" data-anim>
+    <h3 class="b-sub">New people each week</h3>
+    <div class="b-cols" role="img" aria-label="New people each week: week of 28 Sep, 44, week of 5 Oct, 540, week of 12 Oct, 97, week of 19 Oct, 64, week of 26 Oct, 83, week of 2 Nov, 98"><div class="c" style="--hf:0.081"><b>44</b><i></i><span>28 Sep</span></div><div class="c peak" style="--hf:1.000"><b>540</b><i></i><span>5 Oct</span></div><div class="c" style="--hf:0.180"><b>97</b><i></i><span>12 Oct</span></div><div class="c" style="--hf:0.119"><b>64</b><i></i><span>19 Oct</span></div><div class="c" style="--hf:0.154"><b>83</b><i></i><span>26 Oct</span></div><div class="c" style="--hf:0.181"><b>98</b><i></i><span>2 Nov</span></div></div>
+    <p class="b-note">540 joined in the week of 5 October, the week the channel, the QR posters and the Instagram links went out. Since then, 60 to 100 new people a week with no ads, rising for three weeks in a row.</p>
   </div>
   <div class="b-langs rv" data-anim>
     <h3 class="b-sub">The language people choose</h3>

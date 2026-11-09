@@ -357,3 +357,15 @@
 @media (prefers-reduced-motion:reduce){.b-ab-m i{transition:none}}
 .b-langs{margin-top:clamp(36px,5vw,56px);max-width:760px}
 .b-langs .b-sub{margin-top:0}
+.b-weeks{margin-top:clamp(36px,5vw,56px);max-width:760px}
+.b-weeks .b-sub{margin-top:0}
+.b-cols{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;align-items:end;height:240px;padding-top:24px}
+.b-cols .c{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;gap:6px}
+.b-cols i{display:block;width:100%;max-width:72px;height:0;border-radius:8px 8px 3px 3px;background:#b3a8f2;transition:height 1s var(--ease)}
+.b-cols .peak i{background:#6754e5}
+.b-cols .c:nth-child(2) i{transition-delay:.08s}.b-cols .c:nth-child(3) i{transition-delay:.16s}.b-cols .c:nth-child(4) i{transition-delay:.24s}.b-cols .c:nth-child(5) i{transition-delay:.32s}.b-cols .c:nth-child(6) i{transition-delay:.4s}
+.in .b-cols i,.b-weeks.in .b-cols i{height:max(6px,calc((100% - 44px) * var(--hf)))}
+.b-cols b{font-size:14px;font-weight:600;font-variant-numeric:tabular-nums}
+.b-cols span{font-size:12.5px;color:var(--ink-3);white-space:nowrap}
+.b-cols .c:hover i{filter:brightness(1.08)}
+@media (prefers-reduced-motion:reduce){.b-cols i{transition:none}}
