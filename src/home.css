@@ -276,6 +276,7 @@
 .mail-line{font-size:clamp(30px,4.8vw,64px);font-weight:500;font-stretch:92%;letter-spacing:-.035em;line-height:1.08;max-width:16em}
 .mail-line a{text-decoration:underline;text-decoration-thickness:.05em;text-underline-offset:.12em;text-decoration-color:var(--line-2);transition:text-decoration-color .25s}
 .mail-line a:hover{text-decoration-color:var(--ink)}
+.aka{margin-top:14px;font-size:15px;color:var(--ink-3)}
 .contact-links{display:flex;flex-wrap:wrap;gap:12px 28px;margin-top:32px;font-size:16px}
 .contact-links a,.contact-links button{text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:4px;transition:text-decoration-color .2s}
 .contact-links a:hover,.contact-links button:hover{text-decoration-color:var(--ink)}

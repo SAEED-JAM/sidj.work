@@ -1,0 +1,64 @@
+<script>try{if(!localStorage.getItem('theme')&&matchMedia('(prefers-color-scheme: dark)').matches)document.documentElement.dataset.theme='dark'}catch(e){}</script>
+<a class="skip" href="#proto">Skip to the prototype</a>
+<header class="nx-top">
+  <div class="nx-top-in">
+    <a class="brand" href="/">Sid Jameson</a>
+    <button class="theme" id="themeBtn" type="button" aria-label="Switch to dark theme">
+      <svg class="theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <svg class="theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+<section class="nx-intro">
+  <p class="eyebrow mono">Speculative prototype · November 2026</p>
+  <h1>Ask-back review</h1>
+  <p class="nx-theory"><strong>Agent output should arrive as questions, not reports.</strong> A finished task is mostly settled work plus a few guesses, and a long summary hides the guesses in the middle. Questions put them first: the two or three choices only a person can make, each tied to the code it touches. Answering them is the review. The answers become a record of why the code is the way it is, and the merge waits for them.</p>
+  <p class="nx-credit">Prompted by Maggie Appleton’s talk “Fortune Telling and Speculative Design” at Design Engineering Night 10, Granola.</p>
+</section>
+
+<section class="nx-stage" id="proto" aria-labelledby="protoLabel">
+  <h2 class="sr-only" id="protoLabel">Prototype: a pull request where the agent asks the reviewer</h2>
+  <div class="nx-bar">
+    <div class="nx-switch" id="switcher" role="radiogroup" aria-label="Prototype state">
+      <span class="nx-ind" aria-hidden="true"></span>
+      <button type="button" role="radio" data-s="waiting"><span class="k" aria-hidden="true">1</span>Waiting</button>
+      <button type="button" role="radio" data-s="answered"><span class="k" aria-hidden="true">2</span>Answered</button>
+      <button type="button" role="radio" data-s="conflict"><span class="k" aria-hidden="true">3</span>Conflict</button>
+      <button type="button" role="radio" data-s="stale"><span class="k" aria-hidden="true">4</span>Stale</button>
+      <button type="button" role="radio" data-s="overconfident"><span class="k" aria-hidden="true">5</span>Overconfident</button>
+    </div>
+    <p class="nx-keys mono" aria-hidden="true">Keys 1–5</p>
+  </div>
+  <p class="nx-caption" id="caption"></p>
+
+  <div class="gh" id="pr">
+    <div class="gh-repo">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 2.5A1.5 1.5 0 0 1 4.5 1h8.25a.75.75 0 0 1 .75.75v11.5a.75.75 0 0 1-.75.75H11v-1.5h1V2.5H4.5v8.6a2.5 2.5 0 0 1 .5-.1h4.5v1.5H5a1 1 0 0 0 0 2h2V16H5a2.5 2.5 0 0 1-2-1V2.5z" fill="currentColor"/></svg>
+      <span>tidewater</span><span class="sep">/</span><b>ledger</b>
+      <span class="gh-fict">Fictional repo</span>
+    </div>
+    <div class="gh-head">
+      <h3 class="gh-title">Retry failed webhook deliveries with backoff <span class="gh-num">#482</span></h3>
+      <div class="gh-meta">
+        <span class="gh-state" id="prState">Open</span>
+        <span><b>relay</b> wants to merge 4 commits into <code>main</code> from <code>relay/webhook-retries</code></span>
+      </div>
+    </div>
+    <div class="gh-tabs" aria-hidden="true" tabindex="-1">
+      <span class="on">Conversation</span><span>Commits <i>4</i></span><span>Checks <i>3</i></span><span>Files changed <i>3</i></span>
+    </div>
+    <div class="gh-body">
+      <div class="gh-main" id="timeline"></div>
+      <aside class="gh-side" id="side" aria-label="Pull request details"></aside>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="nx-foot">
+  <p>Everything in the prototype is made up: the repo, the people, the agent. Plain HTML, CSS and JavaScript, no framework, no backend.</p>
+  <p><a href="/">sidj.work</a></p>
+</footer>
+<div class="sr-only" id="announce" aria-live="polite"></div>

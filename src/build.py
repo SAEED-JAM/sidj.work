@@ -100,7 +100,7 @@ def jsonld(meta, url, modified):
         graph.append({"@type": "CreativeWork", "@id": url + "#work", "name": meta["name"], "headline": meta["name"],
                       "description": meta["description"], "url": url, "image": f"{SITE}/assets/img/{meta['image']}",
                       "author": {"@id": f"{SITE}/#person"}, "creator": {"@id": f"{SITE}/#person"},
-                      "genre": "Product design case study", "inLanguage": "en", "dateModified": modified})
+                      "genre": meta.get("genre", "Product design case study"), "inLanguage": "en", "dateModified": modified})
         graph.append({"@type": "BreadcrumbList", "@id": url + "#breadcrumb", "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Sid Jameson", "item": f"{SITE}/"},
             {"@type": "ListItem", "position": 2, "name": meta["name"], "item": url}]})
@@ -183,10 +183,44 @@ def build():
         write(f"{slug}/index.html", head(meta, url, "locked").replace("{{css}}", css) + tail(b))
         urls.append((url, meta["modified"]))
         print(f"{slug}/index.html")
+    urls.append(build_next())
     urls.append((SITE + "/Sid_Jameson_Resume.pdf", last_changed("Sid_Jameson_Resume.pdf")))
 
     write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
           + "".join(f"  <url><loc>{u}</loc><lastmod>{d}</lastmod></url>\n" for u, d in urls) + "</urlset>\n")
+
+
+NEXT = {
+    "title": "Ask-back review: a speculative prototype · Sid Jameson",
+    "name": "Ask-back review",
+    "description": "A speculative prototype by Sid Jameson: when a coding agent finishes a pull request, it asks the reviewer "
+                   "two or three questions instead of writing a report, and the merge waits for the answers.",
+    "image": "og-image.png",
+    "image_alt": "Ask-back review: a speculative prototype by Sid Jameson",
+    "og_type": "article",
+    "genre": "Speculative design prototype",
+}
+
+
+def build_next():
+    """/next: a standalone page with the site's tokens and its own stylesheet and script."""
+    body, js = read("next.html"), read("next.js")
+    body = re.sub(LOCAL, r"\1/\2", body)
+    ids = re.findall(r'\sid="([^"]+)"', body)
+    dupes = sorted({i for i in ids if ids.count(i) > 1})
+    if dupes:
+        raise SystemExit(f"next: duplicate ids: {dupes}")
+    made = set(re.findall(r'\sid="([\w-]+)"', js))  # ids the script renders itself
+    refs = set(re.findall(r"getElementById\('([\w-]+)'\)", js))
+    if refs - set(ids) - made:
+        raise SystemExit(f"next: script looks up ids that don't exist: {sorted(refs - set(ids) - made)}")
+    NEXT["modified"] = last_changed("src/next.html", "src/next.css", "src/next.js")
+    url = f"{SITE}/next/"
+    css = (read("base.css") + read("next.css")).strip()
+    write("next/index.html", head(NEXT, url).replace("{{css}}", css)
+          + "<body>\n" + body + "\n<script>\n" + js + "</script>\n</body>\n</html>\n")
+    print("next/index.html")
+    return url, NEXT["modified"]
 
 
 if __name__ == "__main__":
