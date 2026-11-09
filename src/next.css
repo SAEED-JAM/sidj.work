@@ -18,6 +18,17 @@
 .nx-credit a{text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:3px}
 .nx-credit a:hover{color:var(--ink);text-decoration-color:var(--ink)}
 
+.nx-ev{margin-top:clamp(28px,4vw,40px);padding-top:18px;border-top:1px solid var(--line)}
+.nx-ev-h{font-size:14px;font-weight:600;letter-spacing:0;color:var(--ink-3);margin-bottom:10px}
+.nx-ev-p{font-size:16px;line-height:1.6;color:var(--ink-2)}
+.nx-ev a{text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:3px}
+.nx-ev a:hover{color:var(--ink);text-decoration-color:var(--ink)}
+.nx-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin:22px 0 0}
+.nx-stats div{padding-top:12px;border-top:2px solid var(--ink)}
+.nx-stats dt{font-size:clamp(26px,3vw,34px);font-weight:500;font-stretch:92%;letter-spacing:-.03em;line-height:1.05;white-space:nowrap}
+.nx-stats dd{margin:6px 0 0;font-size:13.5px;line-height:1.45;color:var(--ink-2)}
+.nx-ev-note{margin-top:18px;font-size:14px;color:var(--ink-3)}
+@media (max-width:640px){.nx-stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 16px}}
 .nx-stage{max-width:1160px;margin-inline:auto;padding-inline:16px}
 .nx-bar{display:flex;align-items:center;justify-content:space-between;gap:16px}
 .nx-switch{position:relative;display:flex;flex-wrap:wrap;gap:2px;padding:3px;border-radius:10px;background:var(--bg-2);border:1px solid var(--line)}

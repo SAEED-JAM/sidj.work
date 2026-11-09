@@ -110,6 +110,17 @@ p{margin:0}
 .nx-credit a{text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:3px}
 .nx-credit a:hover{color:var(--ink);text-decoration-color:var(--ink)}
 
+.nx-ev{margin-top:clamp(28px,4vw,40px);padding-top:18px;border-top:1px solid var(--line)}
+.nx-ev-h{font-size:14px;font-weight:600;letter-spacing:0;color:var(--ink-3);margin-bottom:10px}
+.nx-ev-p{font-size:16px;line-height:1.6;color:var(--ink-2)}
+.nx-ev a{text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:3px}
+.nx-ev a:hover{color:var(--ink);text-decoration-color:var(--ink)}
+.nx-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin:22px 0 0}
+.nx-stats div{padding-top:12px;border-top:2px solid var(--ink)}
+.nx-stats dt{font-size:clamp(26px,3vw,34px);font-weight:500;font-stretch:92%;letter-spacing:-.03em;line-height:1.05;white-space:nowrap}
+.nx-stats dd{margin:6px 0 0;font-size:13.5px;line-height:1.45;color:var(--ink-2)}
+.nx-ev-note{margin-top:18px;font-size:14px;color:var(--ink-3)}
+@media (max-width:640px){.nx-stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 16px}}
 .nx-stage{max-width:1160px;margin-inline:auto;padding-inline:16px}
 .nx-bar{display:flex;align-items:center;justify-content:space-between;gap:16px}
 .nx-switch{position:relative;display:flex;flex-wrap:wrap;gap:2px;padding:3px;border-radius:10px;background:var(--bg-2);border:1px solid var(--line)}
@@ -372,7 +383,19 @@ p{margin:0}
   <p class="eyebrow mono">Speculative prototype · November 2026</p>
   <h1>Ask-back review</h1>
   <p class="nx-theory"><strong>Agent output should arrive as questions, not reports.</strong> A finished task is mostly settled work plus a few guesses, and a long summary hides the guesses in the middle. Questions put them first: the two or three choices only a person can make, each tied to the code it touches. Answering them is the review. The answers become a record of why the code is the way it is, and the merge waits for them.</p>
-  <p class="nx-credit">It grows out of <a href="/ai-design-workflow/">the Design Desk</a> I built at Huma, where agents ask and people answer. Prompted by Maggie Appleton’s talk “Fortune Telling and Speculative Design” at Design Engineering Night 10, Granola.</p>
+  <p class="nx-credit">Prompted by Maggie Appleton’s talk “Fortune Telling and Speculative Design” at Design Engineering Night 10, Granola.</p>
+
+  <aside class="nx-ev" aria-labelledby="evH">
+    <h2 class="nx-ev-h" id="evH">Where the theory comes from</h2>
+    <p class="nx-ev-p">At Huma, the <a href="/ai-design-workflow/">Design Desk</a> I built already works this way for design. Agents read the requirements, draw from the design system and check the work. When something isn’t decided, they bring a researched question with options and a recommendation, not a report. Two designers and one product owner, Q3 and Q4 2026.</p>
+    <dl class="nx-stats">
+      <div><dt>7 in 10</dt><dd>open questions settled before they reached the product owner</dd></div>
+      <div><dt>5.5 h</dt><dd>median from a story’s record to the designer’s sign-off</dd></div>
+      <div><dt>235</dt><dd>issues the checker caught before a person reviewed</dd></div>
+      <div><dt>266</dt><dd>numbered decisions in one quarter that every drawn state had to trace back to</dd></div>
+    </dl>
+    <p class="nx-ev-note">The next step is the same idea for code review, below. Names and anything clinical stay private; the <a href="/ai-design-workflow/">case study</a> has the rest.</p>
+  </aside>
 </section>
 
 <section class="nx-stage" id="proto" aria-labelledby="protoLabel">
