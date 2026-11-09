@@ -253,7 +253,6 @@ BUILT_FRAME = """<script>try{if(!localStorage.getItem('theme')&&matchMedia('(pre
 </main>
 <footer class="b-foot"><h2>Also built on my own</h2><div class="b-others">{{others}}</div><p class="home">More work, experience and contact on <a href="/">sidj.work</a></p></footer>
 """
-LUYS_USERS = ""  # e.g. '<p class="b-users">1,234 people use it</p>' once the number is in
 
 
 def build_built():
@@ -265,7 +264,7 @@ def build_built():
         others = "".join(f'<a class="b-other" href="/{s}/"><img src="assets/img/cover-{s.split("-")[0]}.webp" alt="" loading="lazy">'
                          f"<b>{n}</b><span>{html.escape(l)}</span></a>" for s, n, l, *_ in BUILT if s != slug)
         body = BUILT_FRAME.replace("{{body}}", read(f"built-{slug}.html")).replace("{{others}}", others)
-        body = body.replace("{{ext}}", EXT).replace("{{luys_users}}", LUYS_USERS)
+        body = body.replace("{{ext}}", EXT)
         body = re.sub(r'<img\b[^>]*?\bsrc="([^"]+)"[^>]*>', add_size, body)
         body = re.sub(LOCAL, r"\1/\2", body)
         ids = re.findall(r'\sid="([^"]+)"', body)
