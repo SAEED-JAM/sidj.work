@@ -286,6 +286,8 @@
 .contact-links a,.contact-links button{text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:4px;transition:text-decoration-color .2s}
 .contact-links a:hover,.contact-links button:hover{text-decoration-color:var(--ink)}
 footer.site{padding-block:clamp(72px,9vw,128px) 40px;color:var(--ink-3);font-size:14px}
+footer.site .foot-ai{color:inherit;text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:3px}
+footer.site .foot-ai:hover{color:var(--ink)}
 footer.site .foot-in{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border-top:1px solid var(--line);padding-top:20px}
 .toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 24px);z-index:200;transform:translate(-50%,140%);padding:10px 16px;border-radius:8px;background:var(--ink);color:var(--on-ink);font-size:14.5px;transition:transform .5s var(--spring),opacity .3s;opacity:0;pointer-events:none}
 .toast.on{transform:translate(-50%,0);opacity:1}

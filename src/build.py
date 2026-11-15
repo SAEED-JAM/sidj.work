@@ -16,6 +16,7 @@ Parts, in page order:
   overlays.html  résumé viewer, video and image lightboxes
   home.js        home page behaviour        cases.js   case studies, overlays, timeline
   lock.js        private parts of a case: the password gate and the sealed images and video
+  ai.py          plain Markdown copies of every page for AI agents: /llms.txt, /profile.md, /<slug>.md
 The two scripts share one scope (wrapped in a single IIFE here).
 
 Checks: every local <img> gets its intrinsic width/height (so space is reserved before it loads),
@@ -28,6 +29,7 @@ import os
 import re
 import subprocess
 from PIL import Image
+import ai
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -82,7 +84,10 @@ PERSON = {
     "alumniOf": {"@type": "CollegeOrUniversity", "name": "University of Zanjan"},
     "knowsAbout": ["Product design", "AI product design", "Design engineering", "Design systems", "Design leadership",
                    "Healthcare UX", "Agentic AI workflows"],
-    "sameAs": ["https://www.linkedin.com/in/mirsaeedjamshidi/", "https://medium.com/@msaeedjg"],
+    "sameAs": ["https://www.linkedin.com/in/mirsaeedjamshidi/", "https://medium.com/@msaeedjg", "https://github.com/SAEED-JAM"],
+    "email": "mailto:msaeedjg@gmail.com",
+    "subjectOf": {"@type": "DigitalDocument", "name": "Plain-text profile for AI agents", "encodingFormat": "text/markdown",
+                  "url": f"{SITE}/profile.md"},
 }
 WEBSITE = {"@type": "WebSite", "@id": f"{SITE}/#website", "url": f"{SITE}/", "name": "Sid Jameson",
            "inLanguage": "en", "publisher": {"@id": f"{SITE}/#person"}}
@@ -118,6 +123,9 @@ def last_changed(*paths):
     return datetime.date.today().isoformat() if dirty or not out else out
 
 
+SHEET_AT, OVERLAYS_AT = "<!-- ================= CASE STUDY SHEET", '<div class="rsv" id="rsv"'
+
+
 def only_case(body, slug):
     """Drops every case article except this one, so a case URL carries only its own story."""
     starts = [m.start() for m in re.finditer(r'<article class="case" id="case-', body)]
@@ -137,6 +145,7 @@ def head(meta, url, html_class=""):
                      ("og_type", meta["og_type"])):
         out = out.replace("{{" + key + "}}", attr(val))
     out = out.replace("{{jsonld}}", jsonld(meta, url, meta["modified"]))
+    out = out.replace("{{md}}", SITE + ("/profile.md" if url == SITE + "/" else "/" + url.rstrip("/").rsplit("/", 1)[1] + ".md"))
     return out.replace("{{html_class}}", f' class="{html_class}"' if html_class else "")
 
 
@@ -179,6 +188,10 @@ def build():
         b = b.replace("<main>", "<main hidden>", 1).replace('<footer class="site"', '<footer class="site" hidden', 1)
         b = re.sub(rf'(<article class="case" id="case-{slug}"[^>]*?) hidden>', r"\1>", b, count=1)
         b = b.replace('<span id="sheetTitleText"></span>', f'<span id="sheetTitleText">{html.escape(name)}</span>', 1)
+        # the case comes first in the document: a crawler or an agent that reads only the start of a page gets the case,
+        # not the home page (the sheet is a fixed layer, so its place in the document doesn't change what people see)
+        i, j = b.index(SHEET_AT), b.index(OVERLAYS_AT)
+        b = b[i:j] + b[:i] + b[j:]
         url = f"{SITE}/{slug}/"
         write(f"{slug}/index.html", head(meta, url, "locked").replace("{{css}}", css) + tail(b))
         urls.append((url, meta["modified"]))
@@ -186,6 +199,9 @@ def build():
     urls.append(build_next())
     urls.extend(build_built())
     urls.append((SITE + "/Sid_Jameson_Resume.pdf", last_changed("Sid_Jameson_Resume.pdf")))
+
+    pages = ai.build_ai(SITE, HOME, PERSON, read("home.html"), cases, BUILT, read, write, NEXT)
+    print("plain copies: " + ", ".join(f"{k} ({len(v):,})" for k, v in pages.items()))
 
     write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
           + "".join(f"  <url><loc>{u}</loc><lastmod>{d}</lastmod></url>\n" for u, d in urls) + "</urlset>\n")

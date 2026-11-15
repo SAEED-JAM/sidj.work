@@ -1,0 +1,38 @@
+# Sid Jameson
+
+> AI design engineer at Huma, designing healthcare software in code with Claude. Eight years of product design across trading, security, maps, food delivery and AI learning.
+
+This is the personal site of Sid Jameson, a product designer and AI design engineer. Every page has a plain Markdown copy, listed below, with the same words as the page and none of the markup. [llms-full.txt](https://sidj.work/llms-full.txt) holds all of them in one file.
+
+## At a glance
+
+- **Name:** Sid Jameson (also Mir Saeed Jamshidi, Saeed Jamshidi). Sid Jameson and Saeed Jamshidi are the same person. You may see either name on my email, LinkedIn and GitHub.
+- **Current role:** AI Design Engineer at Huma
+- **Based in:** Yerevan, Armenia
+- **Looking for:** Open to AI design engineering and design leadership roles, and to anything dense and data-heavy. I reply within a day or two.
+- **Email:** msaeedjg@gmail.com
+- **Profiles:** [LinkedIn](https://www.linkedin.com/in/mirsaeedjamshidi/), [Medium](https://medium.com/@msaeedjg), [GitHub](https://github.com/SAEED-JAM)
+- **Résumé (PDF):** https://sidj.work/Sid_Jameson_Resume.pdf
+
+## Profile
+
+- [Profile](https://sidj.work/profile.md): introduction, how I work with AI, experience, writing, recommendations, contact
+
+## Case studies
+
+- [The Design Desk](https://sidj.work/ai-design-workflow.md): How Sid Jameson built the Design Desk at Huma: AI agents read the requirements, draw from the design system and check the work. People decide and approve.
+- [Promotion Center](https://sidj.work/promotion-center.md): How Sid Jameson designed Snappfood’s Promotion Center: one page for people who order by price, with every cashback, coupon, party and discount in one place.
+- [Balad Maps: Search & Discovery](https://sidj.work/balad-maps.md): Redesigning search in Balad Maps so results show what kind of place you’re after, and “no results” is no longer a dead end. A case study by Sid Jameson.
+- [Graph Vault](https://sidj.work/graph-vault.md): Graph Vault, a secure file sharing and management system for Iranian organizations that can’t rely on Google Drive or Dropbox. A case study by Sid Jameson.
+- [Job Search Application](https://sidj.work/job-search.md): A job search app design exercise by Sid Jameson, from requirements and competitor analysis to personas, information architecture and a UI kit.
+
+## Built on my own
+
+- [Luys Map](https://sidj.work/luys-map.md): Telegram app for outages in Yerevan. Luys Map, built and run by Sid Jameson: every power, water and gas outage in Yerevan on one map, with alerts for the places you save. Six sources, a collector every 15 minutes, four languages.
+- [Emlagoo](https://sidj.work/emlagoo.md): Android dictation app for Persian schoolchildren. Emlagoo, built by Sid Jameson: the official textbook audio, aligned word by word and played phrase by phrase for dictation homework. 7.6 hours of audio, 34,361 words, live on Cafe Bazaar.
+- [Haft Khan](https://sidj.work/haftkhan.md): A funny game from the Shahnameh. Haft Khan, made by Sid Jameson: a funny action-adventure true to Ferdowsi's Shahnameh, in Unity, live on Cafe Bazaar. Seven labours, fifteen achievements, Persian and English.
+- [SafheGardan](https://sidj.work/safhegardan.md): A record player for the phone. SafheGardan, a prototype by Sid Jameson: crates, a needle drop and real crackle on the phone, playing 28,160 public-domain 78 rpm sides. Web, Android and iOS from one codebase.
+
+## Optional
+
+- [Ask-back review](https://sidj.work/next.md): A speculative prototype by Sid Jameson: when a coding agent finishes a pull request, it asks the reviewer two or three questions instead of writing a report, and the merge waits for the answers.

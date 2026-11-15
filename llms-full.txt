@@ -1,0 +1,2093 @@
+# Sid Jameson · AI Design Engineer and Product Designer
+
+> Sid Jameson is an AI design engineer at Huma and a product designer who works in code with Claude. Case studies from Huma, Snappfood, Balad Maps and Graph.
+
+Page: https://sidj.work/
+Author: Sid Jameson (https://sidj.work/)
+
+## At a glance
+
+- **Name:** Sid Jameson (also Mir Saeed Jamshidi, Saeed Jamshidi). Sid Jameson and Saeed Jamshidi are the same person. You may see either name on my email, LinkedIn and GitHub.
+- **Current role:** AI Design Engineer at Huma
+- **Based in:** Yerevan, Armenia
+- **Looking for:** Open to AI design engineering and design leadership roles, and to anything dense and data-heavy. I reply within a day or two.
+- **Email:** msaeedjg@gmail.com
+- **Profiles:** [LinkedIn](https://www.linkedin.com/in/mirsaeedjamshidi/), [Medium](https://medium.com/@msaeedjg), [GitHub](https://github.com/SAEED-JAM)
+- **Résumé (PDF):** https://sidj.work/Sid_Jameson_Resume.pdf
+
+## I’m Sid Jameson, a product designer who works in code.
+
+For eight years I’ve designed products with a lot going on underneath: a crypto exchange and its AI learning app, a security suite, a maps app, and food delivery at 330,000 orders a day. Now I’m at Huma in Yerevan, designing Atlas for UK healthcare.
+
+## Case studies
+
+- [The Design Desk](https://sidj.work/ai-design-workflow.md): How Sid Jameson built the Design Desk at Huma: AI agents read the requirements, draw from the design system and check the work. People decide and approve.
+- [Promotion Center](https://sidj.work/promotion-center.md): How Sid Jameson designed Snappfood’s Promotion Center: one page for people who order by price, with every cashback, coupon, party and discount in one place.
+- [Balad Maps: Search & Discovery](https://sidj.work/balad-maps.md): Redesigning search in Balad Maps so results show what kind of place you’re after, and “no results” is no longer a dead end. A case study by Sid Jameson.
+- [Graph Vault](https://sidj.work/graph-vault.md): Graph Vault, a secure file sharing and management system for Iranian organizations that can’t rely on Google Drive or Dropbox. A case study by Sid Jameson.
+- [Job Search Application](https://sidj.work/job-search.md): A job search app design exercise by Sid Jameson, from requirements and competitor analysis to personas, information architecture and a UI kit.
+
+## Built on my own
+
+- [Luys Map](https://sidj.work/luys-map.md): Telegram app for outages in Yerevan. Luys Map, built and run by Sid Jameson: every power, water and gas outage in Yerevan on one map, with alerts for the places you save. Six sources, a collector every 15 minutes, four languages.
+- [Emlagoo](https://sidj.work/emlagoo.md): Android dictation app for Persian schoolchildren. Emlagoo, built by Sid Jameson: the official textbook audio, aligned word by word and played phrase by phrase for dictation homework. 7.6 hours of audio, 34,361 words, live on Cafe Bazaar.
+- [Haft Khan](https://sidj.work/haftkhan.md): A funny game from the Shahnameh. Haft Khan, made by Sid Jameson: a funny action-adventure true to Ferdowsi's Shahnameh, in Unity, live on Cafe Bazaar. Seven labours, fifteen achievements, Persian and English.
+- [SafheGardan](https://sidj.work/safhegardan.md): A record player for the phone. SafheGardan, a prototype by Sid Jameson: crates, a needle drop and real crackle on the phone, playing 28,160 public-domain 78 rpm sides. Web, Android and iOS from one codebase.
+
+## Process
+
+How I work with AI: I set the problem and make the calls, and AI helps me think, build and check, from the first brief to a shipped screen.
+
+01 Understand
+
+**Problem** Users & business goals
+
+02 Think with AI
+
+**Claude** Thinking partner
+
+**Sid** AI design engineer
+
+**Design system** Tokens & components
+
+03 Delegate
+
+**Agents** Read · draw · check
+
+04 Make
+
+**Live prototype** Built in code with Claude Code
+
+**Handoff** Every state, with its source
+
+05 Ship
+
+**Shipped** Live · reviewed · tracked
+
+Feedback loop · learn & iterate
+
+## Experience
+
+Eight years, newest first. Scroll or drag sideways for earlier roles, and open a card for details.
+
+2026 – Present
+
+**Huma** Full-time · 5 mos
+
+### AI Design Engineer
+
+Jun 2026 – Present · Yerevan, on-site
+
+I design Atlas, Huma’s UK healthcare product, and build the AI workflows the design team uses every day. I work in code with Claude instead of Figma.
+
+- **Task audit agent:** every design change a Jira ticket needs, each traced to a PRD line, decision or acceptance criterion.
+- **Handoff slicer:** one HTML file per handoff, every screen state reachable from one control panel.
+- **Decision helper:** answers questions the PRD leaves open, using decision notes, NHS England and ICO guidance and competitor research, then records the answer in a pull request.
+
+2024–2026
+
+**Wallex** Full-time · 1 yr 8 mos
+
+### AI Product Design Manager
+
+Aug 2025 – Jun 2026
+
+### Product Design Manager
+
+Nov 2024 – Sep 2025 · Tehran
+
+As AI Product Design Manager I led design for Andarz, Wallex’s AI learning product: how the AI tutor behaves, what it remembers between sessions, and when it steps in if a learner hesitates. I developed the M3 framework (Moment, Memory, Momentum).
+
+- Built the design team from zero to **four designers**.
+- **+32% weekly active users, +21% session completion**.
+
+As Product Design Manager I set the platform-wide visual language; revisions went **from five rounds to two**.
+
+2023–2024
+
+**Snappfood** Full-time · 1 yr 3 mos
+
+### Senior Product Designer, Promotions
+
+Dec 2023 – Nov 2024
+
+### Senior Product Designer, Search & Discovery
+
+Sep 2023 – Dec 2023
+
+- Cashback turnaround end to end: **usage +40%, cost −58%**.
+- Shipped the [Promotion Center](https://sidj.work/promotion-center/): **+20% party orders** and **+62% pages per session**.
+
+2022–2023
+
+**Fadak Trains** 1 yr
+
+### Product Design Team Lead
+
+Jan 2023 – Sep 2023 · Full-time
+
+### Product Design Consultant
+
+Oct 2022 – Jan 2023 · Part-time
+
+- Design speed **+28%** through an end-to-end research, prototype and test process.
+- A design system with four component libraries: UI design **20% faster**.
+- **50% fewer revisions** and **2 new products** brought to market.
+
+2021–2024
+
+**Avand HR** Recruitment platform · 3 yrs 4 mos
+
+### Senior Product Designer
+
+Sep 2021 – Dec 2024
+
+Recruitment and talent-management platform with AI-driven job matching.
+
+- Directed an end-to-end product redesign from cross-team research: **95% user satisfaction**.
+- Ran delivery as de facto design PM across **5 cross-functional teams**; timelines improved **20%**.
+
+2020–2023
+
+**Graph Inc.** Full-time · 3 yrs 1 mo
+
+### Product Design Team Lead
+
+Mar 2021 – Jun 2023
+
+### Product Designer
+
+Jun 2020 – Mar 2021 · Tehran
+
+- Led the FAM product design team; products rated **4.5/5** by customers.
+- FAM product line revenue **+25%**.
+- Kiosk product: **+20% sales**; extended to FAM, **+15% retention**.
+
+2020–2021
+
+**Hezardastan Group** Part-time · 1 yr 3 mos
+
+### Product Designer
+
+Sep 2020 – Nov 2021 · Tehran
+
+2020–2021
+
+**BluefoxAI** Full-time · 1 yr
+
+### Product Designer
+
+Sep 2020 – Aug 2021
+
+AI, machine learning and data analysis applied to immigration, so applicants can manage their own application.
+
+2020
+
+**apiEco** 6 mos
+
+### Lead UI/UX Designer
+
+Apr 2020 – Aug 2020 · Full-time
+
+### UI/UX Designer
+
+Mar 2020 · Freelance
+
+A platform for designing, publishing, testing and managing APIs.
+
+2018–2020
+
+**Anardoni** Self-employed · 2 yrs 5 mos
+
+### UI/UX Designer
+
+Jan 2018 – May 2020 · Tehran
+
+An iOS app store with over 1 million active users.
+
+- Led the UX research and design team.
+- Wireframes, storyboards, icons and campaign visuals.
+
+2019
+
+**Cafe Bazaar** Apprenticeship · 4 mos
+
+### UX Designer
+
+Aug 2019 – Nov 2019
+
+Iran’s Android app platform, with over 40 million users.
+
+2019
+
+**Balad** Apprenticeship · 4 mos
+
+### UX Designer
+
+Aug 2019 – Nov 2019
+
+- User testing and usability studies.
+
+2019
+
+**BINATEB** Freelance · 7 mos
+
+### UX Designer
+
+Feb 2019 – Aug 2019 · Tehran
+
+### UI Designer
+
+Feb 2019 – Jun 2019
+
+Glasses lens replacement and eye exams from home.
+
+- UX for the Rx lens ordering flow; led the web and app design team.
+- Supported implementation with HTML and CSS.
+
+2018
+
+**Masire Sefid Ad Co.** Part-time · 6 mos
+
+### Graphic Designer
+
+Feb 2018 – Jul 2018 · Zanjan
+
+2017
+
+**Azarnegar** Apprenticeship · 1 yr 1 mo
+
+### Designer
+
+Jan 2017 – Jan 2018 · Ardabil
+
+Print, publication and advertising design.
+
+2016–2020
+
+**University of Zanjan** Education
+
+### B.Sc. in Software Engineering
+
+2016–2020
+
+2026
+
+## Writing
+
+On designing AI products, published in Bootcamp. [All articles on Medium](https://medium.com/@msaeedjg)
+
+[
+
+Dec 14, 2025
+
+### Why EdTech AI is a behavioral problem, not a UI problem
+
+Designing an AI tutor’s behavior with the M3 framework: Moment, Memory and Momentum.
+
+](https://medium.com/design-bootcamp/why-edtech-ai-is-a-behavioral-problem-not-a-ui-problem-1f01f7784aee) [
+
+Nov 30, 2025
+
+### When AI builds the screens, what do designers build?
+
+A personal reflection on the quiet shift reshaping the design discipline.
+
+](https://medium.com/design-bootcamp/when-ai-builds-the-screens-what-do-designers-build-0c6b2ce981e5) [
+
+Sep 19, 2025
+
+### Designed for delusion: when engagement-focused UX creates “AI psychosis”
+
+Chatbots feel easy and friendly, but they can blur reality. Design should keep people safe, not just keep them online.
+
+](https://medium.com/design-bootcamp/designed-for-delusion-when-engagement-focused-ux-creates-ai-psychosis-40a0123bbcd5)
+
+[ Talk
+
+### How AI can understand learners, not just teach them
+
+Sharif University Job Fair, Wallex panel ](https://www.linkedin.com/in/mirsaeedjamshidi/recent-activity/all/) [ Prototype
+
+### Ask-back review: agent output as questions, not reports
+
+A speculative pull request, with its failure states ](https://sidj.work/next/)
+
+## Kind words
+
+Seven recommendations from people I’ve worked with. [Read them on LinkedIn](https://www.linkedin.com/in/mirsaeedjamshidi/details/recommendations/)
+
+> “… he has a keen eye for state-of-the-art tools and design practices and he leveraged those in multiple occasions to improve our design-to-implementation pipelines. Additionally, he is a great researcher and the insights that he provided regarding user experience had a key role in determining the direction of our product.”
+
+**Armen Jeddi** PhD in Physical AI, University of Toronto & Vector Institute Managed Sid directly · 2021
+
+> “Saeed has a great eye for detail, is great at benchmarking, and is a reliable teammate. He has a great view on design and knowingly strikes a balance between innovation and building effort. His presence in the team was critical, and I enjoyed every second of working with him.”
+
+**Pouria Shiri** Product Manager Worked with Sid on the same team · 2025
+
+> “Saeed has a structured mindset and excels at breaking down complex problems into manageable parts. Saeed’s exceptional design skills and hands-on approach greatly contributed to our success. He understands the right direction to achieve outcomes, making him a valuable asset.”
+
+**Kamyab Farhadi** Founder at DoctorPay Managed Sid directly · 2024
+
+> “Highly recommend Saeed! It was a pleasure working alongside him as a designer at Graph and Avand. … He possessed an exceptional eye for detail, ensuring designs were visually flawless and pixel-perfect. … Deadlines were never an issue for Saeed.”
+
+**Parham Khanlarkhani** Product & Engineering Leader, ex-Cafe Bazaar and Graph Managed Sid directly · 2024
+
+> “Throughout our two years of working together in the same hierarchy, his precision and agility have consistently stood out. His adaptability, discipline, and up-to-the-minute awareness are truly noteworthy.”
+
+**Arta Mokaberi** VP of Product Design Worked with Sid on the same team · 2023
+
+> “Saeed is a professional UX designer. … He is always using the latest tools and resources to expedite tasks and processes and to offer the best solutions. His work ethic is impeccable and he is easy to work with.”
+
+**Marzieh Yadegar** Digital Product Designer Worked with Sid at BluefoxAI · 2021
+
+> “He is an outstanding designer, who can clearly understand needs, users and standards. He has an excellent artistic sense too. In addition, his discipline that shows itself in timely reports and well-organized documentation of the project made me more than satisfied with the results.”
+
+**Seyed Sajad Kahani** Software Engineer Managed Sid directly · 2021
+
+## Contact
+
+- **Looking for:** Open to AI design engineering and design leadership roles, and to anything dense and data-heavy. I reply within a day or two.
+- **Email:** msaeedjg@gmail.com
+- **Profiles:** [LinkedIn](https://www.linkedin.com/in/mirsaeedjamshidi/), [Medium](https://medium.com/@msaeedjg), [GitHub](https://github.com/SAEED-JAM)
+- **Résumé (PDF):** https://sidj.work/Sid_Jameson_Resume.pdf
+
+---
+
+# The Design Desk: a case study by Sid Jameson
+
+> How Sid Jameson built the Design Desk at Huma: AI agents read the requirements, draw from the design system and check the work. People decide and approve.
+
+Page: https://sidj.work/ai-design-workflow/
+Author: Sid Jameson (https://sidj.work/)
+
+Huma · UK Primary Care · 2026
+
+# The Design Desk
+
+Two designers, one product owner and about a hundred stories a quarter, for software used inside NHS GP practices. I built a desk of AI agents that reads the requirements, draws from the design system and checks the work. People answer the questions and approve.
+
+- **Role:** AI Design Engineer. I led the design track of version one and designed and built version two end to end.
+- **Who uses it:** Two designers draw through it, a product owner approves, engineers build from its handoffs
+- **Timeline:** Version one in Q3 2026, inside git. Version two from 6 October 2026, on Claude artifacts.
+- **Built with:** Claude Code, Claude artifacts, GitHub, Jira, the NHS design system, a Material 3 kit
+- **3 days** The pilot set, from first read to promoted
+- **5.5 h** Median from a story’s record to the designer’s sign-off
+- **7 in 10** Open questions settled before they reached the product owner
+- **235** Issues the checker caught before a person reviewed
+
+Names, links, ticket numbers and anything clinical are removed or changed. The screens are real captures from the canvases, the board and the repo, with demo data.
+
+The challenge
+
+## A hundred stories a quarter, and no room to guess
+
+Huma builds UK Primary Care, software for NHS GP practices: the inbox where patient requests land, triage, messaging and appointments. In Q3 the product team wrote 33 PRDs with 266 numbered decisions and asked for 90 design tasks. Q4 added 18 more PRDs and 98 stories. Two designers drew all of it.
+
+Speed was only half of it. In healthcare, a wireframe that invents behaviour can ship a rule nobody decided. It happened once in Q3: a control that could write to a patient’s consent record made it into a design, and was caught only because a developer asked what to store.
+
+One early brief came back with fourteen invented states where six honest ones were needed. The team’s own write-up put it plainly: the cause wasn’t carelessness, it was the format.
+
+The other half was attention. Every open question either waited for the product owner or got answered quietly in a wireframe, where nobody would notice until it shipped.
+
+### Every state needs a source
+
+A PRD line, a numbered decision or an acceptance criterion. A brief can rule something out. It can’t put something on screen.
+
+### Two design systems
+
+Patient screens on the NHS design system, 390px first, WCAG 2.2 AA. Staff screens on a Material 3 kit at 1440px.
+
+### One person approves
+
+The product owner’s attention is the bottleneck, so a question has to arrive researched, with options and a recommendation.
+
+Private · the full case
+
+## The rest of this case is private
+
+What you’ve read is the outline. The full case is internal work at Huma, so I share it on request: the 75-second film, both versions of the desk, the decisions that changed it, one real story from brief to approval, and the numbers.
+
+- The film
+- Version one
+- What broke
+- Decisions
+- Version two
+- The desk at work
+- Impact
+- Reflection
+
+No password? [Ask me for access](mailto:msaeedjg@gmail.com?subject=Access%20to%20The%20Design%20Desk%20case%20study)
+
+_Part of this case study is private and is not in this copy. The public part is complete as written; the rest is available from the author on request (msaeedjg@gmail.com)._
+
+---
+
+# Promotion Center: a case study by Sid Jameson
+
+> How Sid Jameson designed Snappfood’s Promotion Center: one page for people who order by price, with every cashback, coupon, party and discount in one place.
+
+Page: https://sidj.work/promotion-center/
+Author: Sid Jameson (https://sidj.work/)
+
+Snappfood · Customer app · 2023–2024
+
+# Promotion Center
+
+A new discovery journey for people who order by price. Every cashback, coupon, party and discount in one place, instead of scattered across a 12-year-old app.
+
+- **Role:** Senior Product Designer
+- **Team:** 8 engineers, 3 PMs, 1 EM, 2 product designers
+- **Extended teams:** Ads, Promotion, Search & Discovery, Commercial & Business
+- **Timeline:** One delivery cycle, as the team’s biggest initiative
+- **+20%** Total party orders
+- **+62%** Pages per session, vs sessions without it
+- **+5 pts** Sessions that reached a basket
+
+The business problem
+
+## Deals were everywhere, and nowhere
+
+Promotions at Snappfood come in many forms: cashback, eco food, food packs, coupons, discounts. They exist to attract people who want to pay less. But they were fragmented across the app, so the people who cared most about them had the hardest time finding them.
+
+### Vendors couldn’t showcase offers
+
+There was no place at the start of the journey to put a promotion in front of customers.
+
+### Promotions lacked impressions
+
+Low visibility meant low engagement, so vendors saw little return on their offers.
+
+### Deal-seekers took too many steps
+
+Users looking specifically for promotions couldn’t reach those vendors in a few taps.
+
+Build different discovery journeys for different user segments, so each one finds the promotions it actually wants.
+
+Prioritizing
+
+## Three ways in. We picked one.
+
+We could grow the business impact of promotions in three ways. Customer experience was where the existing problems hurt most, and it would teach us how the system really behaved before we touched the vendor side.
+
+01
+
+### More variety of promotions
+
+Increase the kinds of offers available.
+
+02
+
+### Better vendor tools
+
+Improve promotion creation and reporting for vendors.
+
+We started here 03
+
+### More promotion use by customers
+
+Help customers find and redeem promotions.
+
+Data gathering
+
+## What the funnel told us
+
+We started with a few questions. Do users understand what a promotion is worth? Is behavior consistent across promotion types? Does it matter how many promotions a user engages with, or how many get redeemed overall? To answer them, we analyzed user and business data along the product funnel.
+
+### Average order value rose about 3% in a year
+
+It came from higher prices, not from changed behavior.
+
+### Some promotions lost money
+
+Cashback in particular had become less profitable.
+
+### High cognitive load
+
+Many promotion types meant more to process and longer loading times.
+
+### It looked like spam
+
+Too many promotions with too little explanation felt like noise.
+
+The old version
+
+## Three systems, three entry points
+
+Two kinds: a **percentage** of the order credited back, or a **fixed amount** regardless of order size. Users met cashback in their profile (balance and history) and at checkout (what they’d earn).
+
+_Image: Percentage and fixed cashback_
+
+Right: a percentage of the paid amount. Left: a fixed amount.
+
+_Image: Cashback from checkout and profile_
+
+Right: access from checkout. Left: access from profile.
+
+Coupons unlock when a condition is met: free shipping over 890,000 tomans, 30% off a first order, a free side with a specific burger. They appeared on vendor cards, filters, menus and the basket. Users rarely filtered by coupon; most activated one from the menu once their basket qualified.
+
+_Image: Coupon access through vendor card and filters_
+
+Through the vendor card, filter suggestion and filter modal.
+
+_Image: Coupon section in menu and basket_
+
+Through the coupon section in menu and basket.
+
+Parties run on four services (food, fruit, sweets and meat) and sit on Snappfood’s home page. They discount selected items, and drive about **4.7% of Snappfood’s sales**.
+
+Party types: food, fruit, sweets and meat.
+
+Target users & metrics
+
+## Who it’s for, and how we’d know
+
+### Active cashback users
+
+Know the benefits and actively look for lower spending.
+
+### Price-sensitive users
+
+Search for discounts and promotions to save on every order.
+
+### Food Pack visitors
+
+Already aware of Food Pack and come to learn what it offers.
+
+- Higher **micro CR from discovery to menu** for vendors with promotions.
+- Less **time spent on discovery**.
+- More use of displayed promotions: active cashback, discounted vendors, personal discounts, coupons, parties, buy-one-get-one.
+- Total micro CR from discovery to menu, starting at **79%**.
+- Drop-off rate during discovery.
+- RPD (revenue per delivery) as a key indicator.
+
+**The risk we named up front:** redirecting a big share of homepage traffic (for example, half of it) to a new page we didn’t yet understand could pull discovery-to-menu conversion down.
+
+Hypothesis
+
+## A dedicated page for deal-seekers
+
+Give price-sensitive users one discovery page that features vendors with promotions, and make its impressions and conversion match the home page and listings. The page needed three ways in.
+
+A prominent place in the app’s navigation menu.
+
+A dedicated section or filter inside the home page and vendor listings.
+
+_Image: Promotion Center entry on home and listings_
+
+Promotional campaigns and notifications that drive awareness and bring people back.
+
+### Campaigns & notifications
+
+Promotional campaigns and notifications point people to the Promotion Center to build awareness and engagement.
+
+Design process
+
+## What others do with deals
+
+We reviewed the promotion, reward and offer sections of competitors for first and last impressions, and for patterns that could work for single promotions and for bundles of products or vendors.
+
+_Image: Benchmark of first and last impression_
+
+Reviewing first and last impressions.
+
+_Image: Design patterns for promotions_
+
+Design patterns that could carry a promotion.
+
+_Image: Patterns for bunches of products and vendors_
+
+Patterns for product bundles and vendor collections.
+
+### Borrowed from the App Store and Netflix
+
+The App Store’s Today tab raised installs from browsing by showcasing the best apps every day as a feed. Netflix’s home screen and Previews drive discovery the same way. Both pointed at a dynamic, personal, content-led Promotion Center.
+
+_Image: App Store Today tab_
+
+App Store, Today tab.
+
+_Image: Netflix previews_
+
+Netflix, Previews.
+
+_Image: Share of App Store installs from browse_
+
+Share of App Store installs from browse, before and after iOS 11. Source: Sensor Tower.
+
+_Image: Today tab features median weekly downloads_
+
+Median weekly downloads for apps featured in Today. Source: Sensor Tower.
+
+Final solution
+
+## One center, five ways to save
+
+_Image: Promotion Center flow_
+
+The full Promotion Center flow. Click to zoom.
+
+Food party Discount stores Shopping bonus FoodPro Discount codes
+
+_Image: Promotion Center components_
+
+Promotion Center components.
+
+Outcome
+
+## Longer sessions, better conversion
+
+- +62%
+
+Pages per session
+
+### Longer sessions, not shorter
+
+We aimed for less time in discovery. Sessions that included Promotion Center were longer instead: 11.67 pages, against 7.18 in sessions without it.
+
+- +5 pts
+
+Sessions that reached a basket
+
+### People who used it converted better
+
+Across three periods, sessions that used Promotion Center reached a basket about 5 points more often (36% against 31%) and reached checkout 0.5 to 2 points more often. It compares people who chose to use it with those who didn’t; it wasn’t an A/B test.
+
+- +20%
+
+Total party orders
+
+### A new home for party orders
+
+Party orders from the home page and Promotion Center together rose 20%, and Promotion Center’s share kept growing.
+
+_Image: Pages per session: 7.18 in sessions without Promotion Center, 11.67 in sessions with it_
+
+Pages per session: 7.18 without Promotion Center, 11.67 with it.
+
+_Image: Tables of basket and checkout rates for sessions that used Promotion Center and sessions that didn’t, over three periods_
+
+Basket and checkout rates, Promotion Center users against everyone else, over three periods.
+
+_Image: Daily party orders from the home page and from Promotion Center, October 2023 to February 2024_
+
+Daily party orders from the home page and Promotion Center, Oct 2023 – Feb 2024.
+
+Challenges & lessons
+
+## What I’d tell myself before starting
+
+01
+
+### Tight deadline
+
+One cycle, our biggest initiative, little room for research. We had to make the right calls fast.
+
+02
+
+### Innovating inside a mature product
+
+Every new idea had to keep the existing experience fully intact while we ran experiments we could learn from.
+
+03
+
+### Defining the MVP
+
+I kept widening the scope. I learned to hold an MVP line and park my ideas as next steps in the design doc.
+
+Next
+
+## What we planned next
+
+_Image: Personalized and dynamic content_
+
+Personalized, dynamic content
+
+Flash sales, built on Snappfood’s Promotion Maker
+
+---
+
+# Balad Maps: Search & Discovery: a case study by Sid Jameson
+
+> Redesigning search in Balad Maps so results show what kind of place you’re after, and “no results” is no longer a dead end. A case study by Sid Jameson.
+
+Page: https://sidj.work/balad-maps/
+Author: Sid Jameson (https://sidj.work/)
+
+Balad Maps · Search & Discovery V2.0
+
+# Search that understands what you’re after
+
+Most people opened Balad to find a place, not to get directions. Search was the real front door of the app, and it wasn’t built for that job.
+
+- **Role:** Senior Product Designer
+- **Product:** Iran’s Farsi-language navigation and local discovery app
+- **Scope:** Search page, result components, POI cards, empty states
+- **Shipped:** Search & Discovery V2.0
+- **+15%** POI engagement
+- **−8%** Search bounce rate
+
+The world before
+
+## Every result looked the same
+
+People came looking for something specific: a pharmacy open past nine, a restaurant nearby, a park they hadn’t been to yet. Under the routing sits a searchable map of Iran’s places, and that search layer was the actual reason the app got opened.
+
+Yet every search returned the same generic layout. A pharmacy looked identical to a park, a restaurant no different from a repair shop. Nothing suggested the app understood what kind of place you wanted.
+
+_Image: After: history match first, results with photo and status_
+
+_Image: Before: flat undifferentiated list_
+
+Before After
+
+Drag to compare
+
+### From a flat list to results with context
+
+Before: an undifferentiated list. After: the history match comes first, and every result carries a photo and an open/closed status.
+
+The everyday friction
+
+## Three kinds of friction
+
+Search bounce rate was creeping up, because the app kept asking people to do work it should have done for them.
+
+### Dead ends
+
+Search for something missing and the search just stopped. No suggestion, no alternative, no next move.
+
+### Detours to act
+
+Tap a card, get pushed to a detail page, do the thing, then find your way back to browsing.
+
+### No memory
+
+No idea what you searched last week, and no answer to the first question: is it open right now?
+
+The trigger
+
+## Four goals and one reframe
+
+01
+
+### More relevant results
+
+02
+
+### Fewer abandoned searches
+
+03
+
+### Engagement with what’s found
+
+04
+
+### A rethink of how results look
+
+“No results” had always been an edge case. I started treating it as a design problem in its own right.
+
+The wider landscape
+
+## How others handle local search
+
+### Google Maps
+
+Simplified what a result even looks like, betting that a cleaner map earns more trust than a denser one.
+
+### Citymapper
+
+Treated discovery as something that should reward curiosity, tying places to a payoff instead of static text.
+
+Neither was built for Farsi speakers or Iranian places. What we took from both: put the context people need into the result itself, and give them a reason to keep exploring after the first one.
+
+The work
+
+## Components built for what you search
+
+I rebuilt the search page around components tailored to the type of place, so a restaurant shows what a restaurant needs and a service shows what a service needs. Search history personalizes what surfaces first. Opening hours moved into the result itself.
+
+_Image: After: trending section_
+
+_Image: Before: raw history only_
+
+Before After
+
+Empty search
+
+### Something to explore before you type
+
+An empty search used to open onto raw history. A Trending section now gives people a reason to browse without a query.
+
+_Image: No results screen with categories_
+
+No results
+
+### A dead end became a fork
+
+The “no results” screen now offers category browsing (gas station, restaurant, pharmacy and more), plus a way to add the place if it’s genuinely missing from the map.
+
+_Image: After: actions on the card_
+
+_Image: Before: static card_
+
+Before After
+
+POI cards
+
+### Act without leaving the map
+
+Cards used to show information and nothing else. Navigate, Call and Save now sit right on the card, and a list-view toggle opens up browsing beyond the map.
+
+_Image: After: comparable details_
+
+_Image: Before: rating and distance only_
+
+Before After
+
+List view
+
+### Built for comparing two or three places
+
+People kept weighing places against each other using single cards. The list view surfaces the details that decide it, like delivery, parking and restrooms, with one-tap call and navigate.
+
+The return
+
+## What changed after launch
+
+- +15%
+
+POI engagement
+
+### People used the cards
+
+Engagement with place cards rose after the action buttons and the new card design shipped.
+
+- −8%
+
+Search bounce rate
+
+### Fewer people gave up
+
+It shipped with the reformatted results, the new empty states and the list view.
+
+Relevance is often a presentation problem before it’s ever a ranking problem.
+
+Opening hours in the results and category browsing after a failed search needed no smarter matching, only better presentation.
+
+---
+
+# Graph Vault: a case study by Sid Jameson
+
+> Graph Vault, a secure file sharing and management system for Iranian organizations that can’t rely on Google Drive or Dropbox. A case study by Sid Jameson.
+
+Page: https://sidj.work/graph-vault/
+Author: Sid Jameson (https://sidj.work/)
+
+Graph Inc. · B2B security · Sole designer
+
+# Graph Vault
+
+A file sharing and management system for Iranian organizations that can’t rely on Google Drive or Dropbox.
+
+- **Role:** Sole product designer
+- **Ecosystem:** Graph security suite, integrated with FAM products
+- **Research:** Contextual inquiry, diary study, global benchmarks
+- **Partners:** Marketing and support teams
+- **+20%** Market penetration, year one
+- **+15%** Graph’s overall revenue
+- **−40%** Time spent managing files
+- **−50%** Onboarding time
+
+Introduction
+
+## Not another cloud drive
+
+Vault is a specialized file sharing and management system. Its integration with Graph’s security products, especially the FAM line, makes sharing and managing files more secure and more collaborative inside the Graph ecosystem.
+
+I worked on Vault from the start. Our goal was an interface that made organizing and sharing files across platforms simple.
+
+_Image: Working session_
+
+_Image: Reviewing designs with a teammate_
+
+_Image: Desk during the project_
+
+The challenge
+
+## Files were the open door
+
+Attacks on Iranian companies were rising, and unsafe files entering their systems were a major risk. Sanctions and security policy ruled out Google Drive and Dropbox. Graph’s FAM products handled file contamination, but managing files inside organizations still fell back on FTP and local tools. They needed an internal solution that was secure and compliant.
+
+User-centric ideation & testing
+
+## Watching people work
+
+As the only designer, I ran research with the marketing and support teams, then shaped the flows and interface. Two methods carried the research.
+
+### Contextual inquiry
+
+Observing how people in organizations actually move, share and protect files during their working day.
+
+### Diary study
+
+Tracking file tasks over time to catch the pain points that never show up in a single session.
+
+What we learned shaped three principles:
+
+Build on Graph’s existing user base
+
+Graph already had customers and solid infrastructure. Linking Vault to other Graph products gave users one familiar, secure place to manage and share files.
+
+Make it usable for everyone
+
+Adoption depended on an interface that worked regardless of technical skill, so we worked to minimize complexity at every step.
+
+Streamline data flow
+
+Refining how data moves between Vault and Graph’s services removed disruptions and made file workflows faster.
+
+The process
+
+## A redesign, without stopping the business
+
+Stakeholders wanted a full redesign after research, but production constraints meant Graph’s current products had to keep selling. So I set up a five-step process for the new Vault team.
+
+Keep Graph’s current selling products healthy while Vault is in development, fixing usability issues during the maintenance phase.
+
+Define one primary persona to guide every design decision and address specific needs.
+
+Restructure scenarios around the primary persona’s daily work, so interactions and workflows follow how they actually work.
+
+Prototype new solutions for Vault’s information architecture to make files easier to find and act on.
+
+Test the new solutions rigorously to validate them and catch problems before launch.
+
+Designing the Vault
+
+## Benchmarks: Google Drive and Dropbox
+
+We compared three areas: file discovery, sharing and management, and integrations. Google Drive and Dropbox set the bar for patterns and expectations.
+
+_Image: Benchmark: Google Drive, Dropbox and Graph Vault_
+
+Drag to explore
+
+Product tour
+
+## Find it, share it, connect it
+
+Intuitive organization and clear categories, so finding a file takes fewer steps.
+
+One place to organize documents and share them securely across platforms, with every upload scanned by Graph.
+
+Vault connects with the rest of Graph’s suite, including files sent from the Kiosk, so people move between products in one workflow.
+
+Impact
+
+## What changed for customers and for Graph
+
+Market penetration In the Iranian file-security market, within the first year.
+
++20%
+
+Revenue Graph’s overall revenue, with Vault as a key generator.
+
++15%
+
+Third-party file tools Reduction among customer organizations within six months.
+
+−30%
+
+Security solutions uptake Adoption of Graph’s security products through the FAM integration.
+
++25%
+
+Time managing files Thanks to integration with Graph’s other products.
+
+−40%
+
+Trust in data security Confidence that files are protected.
+
++35%
+
+Onboarding time Familiar patterns made the learning curve short.
+
+−50%
+
+Satisfied users Post-launch evaluation of file management and security features.
+
+85%
+
+Vault shipped as part of Graph’s security suite, and became where its customers keep and share files.
+
+---
+
+# Job Search Application: a case study by Sid Jameson
+
+> A job search app design exercise by Sid Jameson, from requirements and competitor analysis to personas, information architecture and a UI kit.
+
+Page: https://sidj.work/job-search/
+Author: Sid Jameson (https://sidj.work/)
+
+Design task · Mobile app · Process-first
+
+# Job Search Application
+
+A complete design process with the emphasis on process: requirements, competitors, personas, problem statements, prioritization, information architecture and a UI kit.
+
+- **Role:** Product designer, end to end
+- **Platform:** Mobile, Farsi (RTL)
+- **Methods:** Competitor matrix, personas, 5W1H, red routes, IA
+- **Deliverables:** UI design, prototype, design system
+
+Approach
+
+## Four phases, in order
+
+Here’s how I take a design task from a blank page to a shippable UI.
+
+Understand the client’s requirements, the target audience and the market, through interviews, surveys and research. **Here:** requirement analysis and competitor analysis.
+
+Define goals, objectives and design strategy with stakeholders, aligning the product vision and key features. **Here:** personas and problem statements.
+
+Organize and structure the content for intuitive navigation, using wireframes and prototypes to set the hierarchy. **Here:** feature prioritization and information architecture.
+
+Create on-brand high-fidelity mockups and interactive prototypes, then iterate on feedback and usability testing. **Here:** UI design and design system.
+
+Phase 1 · Understand
+
+## Requirement analysis
+
+Who are the target users?
+
+Mobile job seekers at every level, from entry-level to executive. Usually looking for a new job, sometimes researching careers or companies.
+
+What are their needs and pain points?
+
+Finding jobs that fit their skills, and applying quickly. The biggest pain is time: hours on job boards and filling in online applications.
+
+Which features are a must?
+
+- Search by location, title and other criteria
+- Job details: description, salary range, company info
+- Apply online or with a résumé
+- Save jobs for later
+- Track applications
+
+What’s the user journey?
+
+Create profile Search View details Apply Track status
+
+What does the market look like?
+
+Crowded, with Indeed, LinkedIn and Glassdoor holding large user bases. The trend is mobile-first, so the app has to work beautifully on a small screen.
+
+Phase 1 · Understand
+
+## Competitor analysis
+
+Industry leaders according to G2. Pick one to see where it’s strong and where it falls short.
+
+### Strengths
+
+A huge professional network: the go-to place for connecting with employers, with job listings, company pages and communities.
+
+### Weaknesses
+
+Job search is less complete than dedicated engines, and advanced search sits behind a paid subscription.
+
+### Strengths
+
+A vast database aggregated from many sources, with strong filters for location, salary and job type.
+
+### Weaknesses
+
+Aggregation means uneven listing quality, and fewer personalized recommendations.
+
+### Strengths
+
+Company reviews, salary data and culture insights give job seekers real transparency.
+
+### Weaknesses
+
+Search is less extensive, and user-generated reviews and salaries vary in reliability.
+
+### Strengths
+
+Résumé building, personalized recommendations, market insights and a big résumé database for employers.
+
+### Weaknesses
+
+A less intuitive interface, and a hard time standing out among established engines.
+
+### Strengths
+
+AI matching that simplifies search and hiring, with résumé tools and applicant management.
+
+### Weaknesses
+
+Less brand recognition and reach, which makes a broad pool of listings harder to attract.
+
+_Image: G2 grid of job search platforms_
+
+G2 grid for job search platforms: contenders, leaders, niche and high performers.
+
+### Feature matrix
+
+Only differentiators
+
+Pick a platform name to focus its column.
+
+Feature
+
+Phase 2 · Define
+
+## Five people looking for work
+
+General personas to start with, narrowed down later to match each iteration’s requirements. Tap a card to see what stands in their way.
+
+### Sarah, the professional
+
+Find a job that fits her career goals, see complete listings, grow her network and simplify applying.
+
+### Challenges
+
+Sorting through too many listings, little insider information about companies, and networking is hard.
+
+### John, the new graduate
+
+Land an entry-level job in his field, gain experience and explore career paths.
+
+### Challenges
+
+A small network, no industry connections, and entry-level roles are hard to find.
+
+### The career switcher
+
+Advance her career, move to a new industry, and find senior roles that match her expertise.
+
+### Challenges
+
+Navigating a change of field, matching her skills to new roles, and building a network in a new industry.
+
+### The freelancer
+
+Find short-term projects and gigs, and connect with clients who need his skills.
+
+### Challenges
+
+Few full-time options, a flexible schedule to manage, and an inconsistent income.
+
+### Lisa, the intern
+
+Gain practical experience through internships or apprenticeships and build industry skills.
+
+### Challenges
+
+Limited experience, competing with stronger candidates, and finding room to grow.
+
+Phase 2 · Define
+
+## The problem, in 5W1H
+
+Job platforms lack personalization, deep company insights, real networking and good application management, so job seekers struggle to find the right opportunities.
+
+Job seekers, wading through huge numbers of listings with little company information, few connections and messy applications.
+
+Across the job search app industry, where current platforms fail to offer a seamless, user-centered experience.
+
+Right now. People feel frustrated and inefficient during their search because of these gaps.
+
+Missing personalization, insights, networking and application tools lower satisfaction and make it harder to land the job they want.
+
+An app with personal recommendations, deep company insights, strong networking and efficient application management that closes the gap between people and the jobs they want.
+
+_Image: Problem statement board_
+
+The problem statement board in FigJam.
+
+Phase 3 · Conceive
+
+## Red routes first
+
+The red route technique ranks features by the critical paths users take most. It keeps the work user-centered, spends limited resources on what matters, validates the core early and gets a useful product to launch sooner.
+
+**Foundation and core features.** The scope of this task.
+
+### Registration & profile
+
+Name, contact details and experience, so the search can be personal.
+
+### Job listings
+
+A clear list with filters for location, industry and experience level.
+
+### Advanced filters
+
+Salary range, job type and company size to narrow results down.
+
+**Personas served:** Sarah (profile and saved jobs), John (entry-level listings and filters) and Lisa (internships through search and filters).
+
+**Personalization and connection.**
+
+### Networking
+
+Profiles, connections, messaging, industry communities and forums.
+
+### Recommendations
+
+AI suggestions from preferences, behavior and saved searches.
+
+### Company insights
+
+Culture, employee reviews, benefits, values and growth.
+
+**Streamlining the application process.**
+
+### Résumé builder
+
+Custom templates for skills, experience and education.
+
+### Application tracking
+
+Status, reminders for interviews and deadlines.
+
+### Interview prep
+
+Tips, sample questions and best practices.
+
+Phase 3 · Conceive
+
+## Information architecture
+
+Focused on iteration 1’s critical paths: search, read a listing, apply, and keep track.
+
+**Home** 3
+
+- Personal recommendations
+- Quick search bar
+- Browse by category
+
+**Job details** 3
+
+- Title, company, location, salary, responsibilities
+- Apply in the app
+- Save for later
+
+**Search & filters** 3
+
+- Location, salary, type, experience
+- Sort by relevance or date
+- Clear preference input
+
+**Profile** 3
+
+- Preferences and contact info
+- Résumé upload
+- Saved jobs and history
+
+**Notifications** 2
+
+- New jobs and status updates
+- Custom frequency and types
+
+**Settings** 2
+
+- Account, privacy, notifications
+- Help, FAQs and support
+
+Phase 4 · Visualize
+
+## Interface and UI kit
+
+A palette that says professional, growing and energetic. Click a swatch to copy its hex.
+
+[ **UI design** Every screen of iteration 1 Open in Figma ↗ ](https://www.figma.com/file/1D9g9sznKT4wdWXQalSWkM/GreenCity?type=design&node-id=0-1&mode=design) [ **Interactive prototype** Tap through the core flow Open prototype ↗ ](https://www.figma.com/proto/1D9g9sznKT4wdWXQalSWkM/GreenCity?page-id=0%3A1&type=design&node-id=37-1694&viewport=38%2C970%2C0.36&scaling=scale-down&mode=design) [ **Design system** Colors, buttons, tags, job cards Open UI kit ↗ ](https://www.figma.com/file/1D9g9sznKT4wdWXQalSWkM/GreenCity?type=design&node-id=31-1194&mode=design)
+
+---
+
+# Luys Map: Telegram app for outages in Yerevan
+
+> Luys Map, built and run by Sid Jameson: every power, water and gas outage in Yerevan on one map, with alerts for the places you save. Six sources, a collector every 15 minutes, four languages.
+
+Page: https://sidj.work/luys-map/
+Author: Sid Jameson (https://sidj.work/)
+
+Built on my own Telegram mini app and bot Yerevan, since October 2026
+
+# Luys Map
+
+Yerevan loses power, water and gas often, and the notices are scattered across utility websites and Telegram channels, mostly in Armenian. **Luys Map collects them, puts them on one map, and tells you before an outage reaches a place you care about.**
+
+[Open Luys Map in Telegram {{ext}}](https://t.me/LuysMapBot) [News channel {{ext}}](https://t.me/luysmap)
+
+Product, design, code, data, growth and operations: me. Six official sources, read every 15 minutes, in Armenian, Russian, English and Persian.
+
+- **926:** people have started it; 602 used it in the last 30 days
+- **11,316:** alerts sent, for 547 places people saved
+- **3,300+:** power, water and gas outages mapped since April
+- **15 → 2:** alerts a month for a typical place, after tuning on real data
+
+The launch film I made for the channel, from real app screens.
+
+## Who uses it
+
+People in Yerevan who want to know before the lights, the tap or the stove go off: families, renters, people working from home, small shops.
+
+No ads were bought. People arrive from the channel, from printed QR posters, from shared outage cards, and mostly by word of mouth: in one three-day stretch, 42 of 46 new people came with no campaign link at all.
+
+**65%** came back in the last 30 days
+
+- **926:** people started the bot
+- **602:** used it in the last 30 days
+- **547:** places saved for alerts
+- **~21:** alerts per saved place so far
+
+### New people each week
+
+**44** 28 Sep
+
+**540** 5 Oct
+
+**97** 12 Oct
+
+**64** 19 Oct
+
+**83** 26 Oct
+
+**98** 2 Nov
+
+540 joined in the week of 5 October, the week the channel, the QR posters and the Instagram links went out. Since then, 60 to 100 new people a week with no ads, rising for three weeks in a row.
+
+### The language people choose
+
+Russian 559
+
+English 117
+
+Armenian 69
+
+Persian 50
+
+Of the 795 who picked a language; 131 more left before choosing. Seven in ten read the app in Russian, which is why every notice is parsed from Armenian and Russian sources and every string exists in all four languages.
+
+## How it works
+
+From a notice nobody reads to an alert you can act on, without anyone typing anything in.
+
+**Sources**
+
+The power and water utilities’ sites and channels, gas notices, city channels.
+
+6 sources
+
+**Collector**
+
+A scheduled worker fetches every source and drops what it has seen before.
+
+every 15 min
+
+**Parser**
+
+Reads Armenian and Russian notices into streets, house numbers, dates and times, including withdrawn and corrected ones.
+
+per source
+
+**Gazetteer**
+
+My own index of Yerevan’s streets and 55,000 addressed buildings places each house on the map.
+
+55k buildings
+
+**Map and alerts**
+
+The mini app shows it; the bot warns the evening before, an hour before, and when an emergency starts.
+
+Telegram
+
+## The app
+
+One map for the whole city, your places on top, and the history of every street.
+
+_Image: The Luys Map home: a map of Yerevan with outage markers, a saved home and filters for power, water and gas_
+
+The city map, your saved places, and today, tomorrow and this week.
+
+_Image: A planned power cut on a street: the time, a countdown and the streets and buildings it covers_
+
+A planned cut: when, how long until it starts, and which buildings.
+
+_Image: Insights for a saved home: the district ranks first of twelve for outages, last outage yesterday, twelve days with an outage in 180_
+
+What a place has been through: its district’s rank and its own record.
+
+## Features
+
+Everything that shipped in the first month, each one because someone needed it.
+
+◎
+
+### One map, three networks
+
+Power, water and gas, today, tomorrow and this week. Tap an outage for its streets; tap and hold anywhere to pick a spot.
+
+⌂
+
+### Saved places
+
+Home, work, parents. Each watches about 250 m around it, with its own alert settings.
+
+!
+
+### Alerts with a picture
+
+The evening before, an hour before, and right now for emergencies. Each alert carries a rendered card of the outage, and opens it in the app.
+
+▦
+
+### Exact buildings
+
+Not just “Kentron”: the announced street, drawn as a band, with the buildings that are actually listed.
+
+↻
+
+### History and insights
+
+Days with an outage in the last 180, the district’s rank among 12, the last time it happened here.
+
+✋
+
+### People’s reports
+
+Report an outage from the app; it counts when 3 people within 250 m agree inside an hour.
+
+◍
+
+### Hotspot map
+
+Where outages hit most, from all our history. Opened by invitation, with a short tour first.
+
+₼
+
+### Bills
+
+Subscriber codes per saved place and a monthly reminder; pay buttons with provider logos, live only for a beta group.
+
+✉
+
+### A channel that writes itself
+
+“Tomorrow in Yerevan” every night and a monthly report, posted automatically in the app’s own style.
+
+### A house for every place
+
+A list of outages is hard to read at a glance. So each saved place shows a small house. **Every network that works glows**: light runs along the wires, water through the pipes, the stove flame flickers. What’s out goes dark.
+
+Eight rendered pictures cover every mix of power, water and gas. Try it: switch a network off.
+
+_Image: The house with power, water and gas all working_
+
+Everything works.
+
+## Flows
+
+The two paths that matter most: getting a new person to a saved place, and getting an outage to the right person at the right time.
+
+### First run: onboarding ends on picking your home
+
+- **Language** Armenian, Russian, English or Persian, guessed from Telegram
+- **The map** Today’s outages, live
+- **History** How often your area is hit
+- **Alerts** What you’ll get and when
+- **Pick your home** The step that makes the rest work
+
+People who leave without an address get one nudge four days later, in the evening, led by this week’s outage count near them. Onboarding shows once per person, remembered across devices.
+
+### Every 15 minutes: from notice to alert
+
+- **New notice** Found by the collector
+- **Placed** Streets and buildings matched
+- **Matched** Against 547 saved places
+- **Pictured** An outage card rendered in a headless browser
+- **Sent on time** Evening before, hour before, or now
+
+## Tests and experiments
+
+Small product, real users, so every change that could cost people got tested, rolled out in stages, or measured first.
+
+A/B test
+
+### Where to ask for a phone number
+
+- **Question:** Does asking for the phone up front scare people off before they save an address?
+- **Variants:A** in onboarding, step two. **B** right after the first saved place. Every new person is fixed in one group.
+- **Decides:** Saved places with alerts switched on. Guardrail: phone numbers may not fall by more than half.
+- **Rigour:** Decision rule and a sample of 400 per group agreed before any result; a two-proportion z-test gives the verdict automatically in the admin panel.
+
+So far: 264 people in A, 258 in B
+
+Place with alerts on decides **A 63%B 60%** no real difference
+
+Saved a place **A 69%B 69%** same
+
+Gave a phone number guardrail **A 54%B 29%** half as many
+
+**What it says:** asking for the phone up front doesn’t scare people off. Moving it later brought no more saved places and lost almost half the numbers. The rule says keep going to 400 per group, but A is the likely keeper.
+
+Staged rollout
+
+### People’s outage reports at 50%
+
+- **Risk:** Crowd reports can be wrong, or abused, and put a false outage on someone’s house.
+- **Setup:** On for half of all people by a stable hash of their id, plus anyone switched on by hand. A crowd needs 3 reports within 250 m in an hour.
+- **So far:64 reports** from people. Watching how often crowds match official notices before going to 100%.
+
+Simulation
+
+### Replaying a month to fix alert noise
+
+- **Signal:** A user said the alerts were too many.
+- **Method:** Replayed 30 days of real outages against every saved place to see where the alerts came from.
+- **Result:** The noise was neighbours’ emergencies. New default: 15 alerts a month down to 2 for a typical place.
+
+Growth loop
+
+### An invite that unlocks insights
+
+- **Setup:** One place is free. Insights unlock with one invite, shown first with a progressive blur so people see what they’d get.
+- **Timing:** The invite is offered after the fifth alert, when the app has already proved itself.
+- **So far:22 people** joined through an invite. Modest: word of mouth outside the app does more than the loop inside it.
+
+Demand test
+
+### An invite-only hotspot map
+
+- **Setup:** Everyone sees the button and a four-scene tour with real numbers; access is by request, answered from the bot.
+- **Why:** Requests show who wants it, and why, before it opens to all.
+
+Instrumentation
+
+### What makes people leave
+
+- **Setup:** Every time someone blocks the bot, the last message they got before it is recorded.
+- **Why:** So no message type quietly drives people away.
+- **So far:115 people**, 12% of everyone, have blocked the bot at some point. Each block sits next to the message that came before it, so alert noise shows up as a pattern, not a guess.
+
+### Alerts people can live with
+
+A user wrote that the alerts were too many. Instead of guessing, I replayed **30 days of real outages** against every saved place.
+
+The noise wasn’t the user’s own building. It was the neighbours’ emergencies. The new default watches about 250 m around a place, sends the evening notice for all of it, and keeps hour-before and emergency alerts for the building itself. A one-page tutorial in four languages showed existing users how to switch whole-district alerts off.
+
+**15** alerts a month, before
+
+**2** after the new default
+
+### People as a sensor
+
+Official notices miss emergencies. So anyone can report an outage from the app, but **one report doesn’t go on the map**. It takes 3 people within 250 m inside an hour.
+
+When the official notice arrives, the report is confirmed, marked as back early, or kept as still out. A 25-second video in four languages introduced it to the people who have it.
+
+## Where outages hit most
+
+Every outage since April, laid on a daily grid. The redder, the more often.
+
+It answers a question people have before they buy or rent a flat: which street goes dark every week?
+
+_Image: A heat map of Yerevan's outages by district, reddest in Kentron and Erebuni_
+
+The whole city.
+
+_Image: A street-level heat map around Erebuni street_
+
+Down to the street.
+
+## Growth without ads
+
+A channel that posts itself, printed posters with their own links, and cards people forward.
+
+Every poster, sticker and Instagram post gets its own campaign code with a location, so the panel shows which corner of the city each new person came from.
+
+_Image: The nightly channel post: Tomorrow in Yerevan, planned outages by district and hour_
+
+Every night: tomorrow in Yerevan.
+
+_Image: The monthly report: which district was left in the dark longest_
+
+Every month: who was left in the dark longest.
+
+_Image: A two-step tutorial for turning off whole-district alerts_
+
+One-page tutorials, in four languages.
+
+## Four languages
+
+Armenian, Russian, English and Persian, every string in all four. Persian runs right to left.
+
+Russian is what most people choose: 559 of the 795 who picked a language.
+
+_Image: Luys Map in English_
+
+English
+
+_Image: Luys Map in Armenian_
+
+Armenian
+
+_Image: Luys Map in Russian_
+
+Russian
+
+_Image: Luys Map in Persian_
+
+Persian
+
+## Built with
+
+One Cloudflare Worker serves the app, its API, the bot and a Persian admin panel with 18 pages: people, places, outages, alerts, reports, the A/B test, blocks and more.
+
+Cloudflare Workers D1 (SQLite) Cron triggers Browser Rendering for alert pictures Telegram Mini Apps and Bot API Signed Telegram requests OpenStreetMap gazetteer Vanilla JavaScript Bun
+
+---
+
+# Emlagoo: Android dictation app for Persian schoolchildren
+
+> Emlagoo, built by Sid Jameson: the official textbook audio, aligned word by word and played phrase by phrase for dictation homework. 7.6 hours of audio, 34,361 words, live on Cafe Bazaar.
+
+Page: https://sidj.work/emlagoo/
+Author: Sid Jameson (https://sidj.work/)
+
+Built on my own Android app Iran, 2026
+
+# Emlagoo املاگو, the dictation teacher
+
+Every evening in Iran, a parent reads the day’s textbook lesson aloud so their child can write it down: the dictation homework. **Emlagoo does the reading.** It plays the official textbook audio a phrase at a time, pauses so the child can write, repeats, and lights up each word as it’s spoken.
+
+[Get it on Cafe Bazaar {{ext}}](https://cafebazaar.ir/app/ir.diktegoo.app) [emlagoo.ir {{ext}}](https://emlagoo.ir/)
+
+Product, design, the Flutter app, the audio pipeline, the data service and the website: me.
+
+- **270:** installs on Cafe Bazaar so far, with in-app purchases live
+- **7.6 h:** of textbook audio aligned word by word, all six grades
+- **34,361:** words, each with its own start and end time
+- **0.5.14:** the version on Bazaar: reminders, notices from a panel, forced updates
+
+## The hard part
+
+The app is simple. The data under it isn’t: to light the right word at the right moment, every word in every lesson needs a timestamp.
+
+Below are the real timings for the start of lesson 2 in the second-grade book. Press play to watch them run. The audio belongs to Roshd, the education ministry’s network, so it isn’t played here.
+
+### Lesson 2, “Our neighbourhood mosque”
+
+Matched by speech recognition Respelled to the book’s spelling Inferred from neighbours
+
+### How 32,102 words were aligned
+
+Speech recognition gets the timing right but writes words its own way. The book has its own spelling, with marks a child is meant to learn. My aligner matches the two phonetically, keeps the book’s spelling, and only infers a word when nothing else works.
+
+Grades 2 to 6, 94 lessons. Grade 1 has no official audiobook, so it uses a voice we recorded.
+
+18,755 matched 13,253 respelled 94 inferred
+
+Grade 2 3,202
+
+Grade 3 4,599
+
+Grade 4 5,715
+
+Grade 5 14,004
+
+Grade 6 4,582
+
+## The pipeline
+
+Raw textbook audio in, a lesson a child can follow out, and the app never needs the internet.
+
+**Audiobook**
+
+The official recordings of each lesson, from Roshd.
+
+115 files
+
+**Speech recognition**
+
+Word-level timings, accurate to a few tenths of a second.
+
+Whisper
+
+**Phonetic aligner**
+
+Mine. Matches what was heard to the book’s text and spelling.
+
+Python
+
+**Music removed**
+
+The audiobooks have background music; a separation model takes it out.
+
+Demucs
+
+**Packed by grade**
+
+Grades 1 and 2 ship inside the app; 3 to 6 download once, then work offline.
+
+55 MB app
+
+## The app
+
+Like a teacher: phrase by phrase, a pause to write, each phrase as many times as you like.
+
+_Image: Emlagoo welcome screen_
+
+No account. Pick a grade and go.
+
+_Image: Choosing a lesson from the second-grade book_
+
+The real books and lessons, with word and phrase counts.
+
+_Image: Setting speed, pause and repeats_
+
+Speed, pause length and repeats, set by the parent.
+
+_Image: A dictation in progress with the current phrase highlighted_
+
+The current phrase, on a notebook page.
+
+_Image: A word circled in red after being tapped_
+
+Tap a word to hear it again, circled in the teacher’s red pen.
+
+_Image: The end of a dictation with the correct text shown_
+
+At the end, the right text to check against.
+
+## Decisions that mattered
+
+Small product, real users, real money. A few calls I’d make again.
+
+### Offline, no account
+
+No login, no product backend. The only server takes anonymous events and feedback for a dashboard, so the app works on a cheap phone with bad internet.
+
+### Free where it counts
+
+Grade 1 up to lesson 11 and the first three lessons of every grade are free. The rest is a one-time purchase per grade, or all grades for a year.
+
+### A QA agent guards every release
+
+Version 0.3.0 reached a teacher with a crash no test covered. Since then an agent runs every test and a smoke test of every lesson before any build can ship.
+
+## Built with
+
+A Flutter app, a Python toolchain for the audio, and a small site with a page for every lesson.
+
+Flutter ExoPlayer (just_audio) Whisper Phonetic aligner (mine) Demucs Python data service and dashboard Cafe Bazaar billing Design tokens to Flutter theme Static site, one page per lesson
+
+---
+
+# Haft Khan: A funny game from the Shahnameh
+
+> Haft Khan, made by Sid Jameson: a funny action-adventure true to Ferdowsi's Shahnameh, in Unity, live on Cafe Bazaar. Seven labours, fifteen achievements, Persian and English.
+
+Page: https://sidj.work/haftkhan/
+Author: Sid Jameson (https://sidj.work/)
+
+Built on my own Mobile game 2026
+
+# Haft Khan Rostam’s seven labours, هفت‌خوان رستم
+
+A funny action-adventure that stays faithful to Ferdowsi’s Shahnameh. **Every knot of the original story is where it should be; the characters just talk like people.** Rostam is strong, sure of himself, soft-hearted and always hungry. Rakhsh, his horse, grumbles. The divs are cowards.
+
+[Get it on Cafe Bazaar {{ext}}](https://cafebazaar.ir/app/com.haftkhan.game) [haftkhangame.ir {{ext}}](https://haftkhangame.ir/)
+
+Story, game design, art direction, Unity code, tools, trailer and website: me.
+
+- **7 + 1:** labours, seven lands and a prologue in Zabol
+- **15:** achievements, plus three stars at the end of every labour
+- **2:** languages, Persian and English, no internet needed
+- **1.0.1:** live on Cafe Bazaar since 13 October 2026
+
+The trailer is rebuilt frame for frame by a script, so it updates when the game does.
+
+## The cast
+
+Pixel characters, drawn and animated for the game. Each labour ends with a boss.
+
+_Image: Rostam, animated_
+
+Rostam the hero
+
+_Image: Rakhsh the horse, animated_
+
+Rakhsh grumbles
+
+_Image: The lion, animated_
+
+The lion labour 1
+
+_Image: The dragon, animated_
+
+The dragon labour 3
+
+_Image: The witch, animated_
+
+The witch labour 4
+
+_Image: Olad, animated_
+
+Olad labour 5
+
+_Image: Arzhang the div, animated_
+
+Arzhang labour 6
+
+_Image: The White Div, animated_
+
+White Div labour 7
+
+## The journey
+
+Zabol, the lion’s thicket, the waterless desert, the dragon, the witch, Olad, Arzhang, and the White Div’s cave.
+
+The islands below are the game’s own maps, rendered by Unity for the website, so the site and the game never drift apart.
+
+_Image: The game's seven maps as small islands in a row, from Zabol to the White Div's cave_
+
+## Jokes that run through it
+
+Three running gags carry the comedy across all seven labours, and each one pays off.
+
+### Rostam falls in love
+
+He sees a beauty, hearts appear, he runs. In Zabol she sends him off to fight first; in the desert she’s a mirage; in the fourth labour she really is the witch. The real one, Tahmineh, waits at the end.
+
+### Rostam is hungry
+
+A kebab brings back three hearts, a dizi fills them all, doogh refills water in the desert. In the Shahnameh he really does roast a whole wild ass and fall asleep.
+
+### The divs are cowards
+
+They shout “Oh no, it’s Rostam!” when they see him, and every one of them has a last line.
+
+## In the game
+
+Illustrated scenes open and close each labour; the play is top-down pixel art with a joystick and a sword button.
+
+_Image: The Zabol title card: Zal hands Rostam a scroll, Rakhsh behind them_
+
+Each labour opens with an illustrated card.
+
+_Image: Gameplay in Zabol with the narrator's speech bubble_
+
+The narrator speaks like the Shahnameh, with the odd aside.
+
+_Image: The main menu with Rostam on Rakhsh_
+
+The menu, with the bazaar and achievements.
+
+_Image: Key art: Rostam on Rakhsh with the cast around him_
+
+The key art, with most of the cast.
+
+## Achievements
+
+Fifteen medals, from finishing the prologue untouched to beating the White Div.
+
+_Image: Shepherd medal_
+
+_Image: First div medal_
+
+_Image: Arzhang medal_
+
+_Image: White Div medal_
+
+_Image: Three stars medal_
+
+_Image: Untouched medal_
+
+_Image: Heartbreak medal_
+
+## How it’s made
+
+A one-person studio needs tools more than it needs time.
+
+### Builds from one command
+
+Release settings live in a file; a Unity build tool makes the signed 64-bit and 32-bit packages for Bazaar from it.
+
+### News without tracking
+
+The game reads a small file on its own website for announcements and forced updates. No push service, no identifiers.
+
+### The website renders itself
+
+Islands and animated characters on haftkhangame.ir come straight from the game’s maps and sprites.
+
+Unity 6 C# Python tools Scripted trailer Cafe Bazaar in-app purchases Static site
+
+---
+
+# SafheGardan: A record player for the phone
+
+> SafheGardan, a prototype by Sid Jameson: crates, a needle drop and real crackle on the phone, playing 28,160 public-domain 78 rpm sides. Web, Android and iOS from one codebase.
+
+Page: https://sidj.work/safhegardan/
+Author: Sid Jameson (https://sidj.work/)
+
+Built on my own Web, Android and iOS prototype 2026
+
+# SafheGardan صفحه‌گردان, Persian for “record player”
+
+Streaming made music instant and weightless: a search box and a list that never ends. I missed what happens around a record. Flipping through a crate, sliding the disc out of its sleeve, dropping the needle, the crackle before the first note. **SafheGardan tries to bring that ritual back on a phone**, with Persian, English and Turkish records side by side.
+
+[Try the web version {{ext}}](https://saeed-jam.github.io/safhegardan-web/)
+
+Idea, design, the 3D scene, the sound, the apps and the backend: me. A prototype, not on any store yet.
+
+- **28,160:** public-domain 78 rpm sides it can play, crackle and all
+- **3:** platforms from one codebase: web, Android and iOS
+- **12:** records to a crate, with real album covers
+- **6 days:** from the first commit to the public web build, 5 to 10 October
+
+_Image: SafheGardan on a wide screen: a wooden turntable with a record playing, the track list beside it_
+
+The deck: a record on the platter, its sleeve beside it, the side’s tracks on the right.
+
+## The path
+
+How it went from a question about sound to a working app, including the wall I hit and the turn I took.
+
+Step 1
+
+### Can a phone sound like a record?
+
+The first thing I built was the sound, not the screen. Even noise sounds fake, so the crackle is random: sometimes it dips the music, sometimes it clears, the way real wear does. The needle lands on the lead-in groove and the music rises out of the noise.
+
+Step 2
+
+### A room, not a box
+
+The first 3D scene sat in a frame and looked artificial. I took the frame away and rebuilt it as a studio: wood and veneer, warm lamp light, depth of field, ambient occlusion, a camera you can orbit and zoom, crates you flick through with your thumb.
+
+_Image: Three wooden crates of records in the 3D scene_
+
+Step 3
+
+### Crates of records people know
+
+Famous Persian, English and Turkish albums with their real covers and track lists, twelve to a crate, extras spilling into the next one.
+
+The wall
+
+### Music you can’t play
+
+I checked 32 albums on SoundCloud by hand. Official uploads give a 30-second preview or nothing through the API. The Persian albums exist only as fan re-uploads, and none carry a licence that lets you add a vinyl effect. That’s not something to build a product on.
+
+The turn
+
+### Records that are free to play
+
+The Internet Archive has digitised 187,021 sides of 78 rpm shellac. The 28,160 from 1925 or earlier are in the US public domain, so the app may stream them and alter their sound. Artists’ own uploads on Audius came next, with the effect only on Creative Commons tracks and a link back to every artist.
+
+Step 4
+
+### Press your own
+
+A studio for making a record: choose the size and speed, 7″ to 12″ or 10″ shellac, watch it pressed with stampers and steam, sleeved and jacketed, then sent to your crate. A shop of turntables and a community feed of shared pressings came with it.
+
+_Image: The studio: picking a blank record and its size and speed_
+
+Step 5
+
+### Ship something testable
+
+One web app, wrapped as an Android app and an iOS app with a native audio bridge, plus a web build on GitHub Pages refreshed on every commit.
+
+### Why public domain, in one chart
+
+Most of the world’s recorded music can’t legally be altered in an app without a licence. Old shellac can. The cut-off decides everything: recordings get 100 years of US copyright, so **1925 and earlier is fair game**, and 1926 to 1949 is left out on purpose.
+
+78 rpm collection 313,752
+
+Great 78 Project 187,021
+
+1925 or earlier 28,160
+
+Counted through the Internet Archive’s own API, 6 October 2026.
+
+## On a phone
+
+Portrait first, with a sheet that folds down to its handle so the turntable can fill the screen. A dark mode with a warm lamp.
+
+_Image: The Persian crate on a phone_
+
+The Persian crate.
+
+_Image: A record playing on a phone_
+
+On the platter, with the side’s tracks.
+
+_Image: The studio on a phone_
+
+Pressing your own: size, speed, price.
+
+_Image: The deck in dark mode_
+
+Night mode.
+
+## Where it is now
+
+A working prototype. The next idea is the one it was heading for from the start: a place where people press, buy and sell their own records.
+
+_Image: The turntable shop_
+
+The turntable shop.
+
+The deck.
+
+three.js Web Audio Internet Archive API Audius API Python backend (SQLite) Android WebView shell iOS WKWebView shell GitHub Pages
+
+---
+
+# Ask-back review: a speculative prototype by Sid Jameson
+
+> A speculative prototype by Sid Jameson: when a coding agent finishes a pull request, it asks the reviewer two or three questions instead of writing a report, and the merge waits for the answers.
+
+Page: https://sidj.work/next/
+Author: Sid Jameson (https://sidj.work/)
+
+[Sid Jameson](https://sidj.work/)
+
+Speculative prototype · November 2026
+
+# Ask-back review
+
+**Agent output should arrive as questions, not reports.** A finished task is mostly settled work plus a few guesses, and a long summary hides the guesses in the middle. Questions put them first: the two or three choices only a person can make, each tied to the code it touches. Answering them is the review. The answers become a record of why the code is the way it is, and the merge waits for them.
+
+Prompted by Maggie Appleton’s talk “Fortune Telling and Speculative Design” at Design Engineering Night 10, Granola.
+
+## Where the theory comes from
+
+At Huma, the [Design Desk](https://sidj.work/ai-design-workflow/) I built already works this way for design. Agents read the requirements, draw from the design system and check the work. When something isn’t decided, they bring a researched question with options and a recommendation, not a report. Two designers and one product owner, Q3 and Q4 2026.
+
+- **7 in 10:** open questions settled before they reached the product owner
+- **5.5 h:** median from a story’s record to the designer’s sign-off
+- **235:** issues the checker caught before a person reviewed
+- **266:** numbered decisions in one quarter that every drawn state had to trace back to
+
+The next step is the same idea for code review, below. Names and anything clinical stay private; the [case study](https://sidj.work/ai-design-workflow/) has the rest.
+
+## Prototype: a pull request where the agent asks the reviewer
+
+tidewater / **ledger** Fictional repo
+
+### Retry failed webhook deliveries with backoff #482
+
+Open **relay** wants to merge 4 commits into main from relay/webhook-retries
+
+Everything in the prototype is made up: the repo, the people, the agent. Plain HTML, CSS and JavaScript, no framework, no backend.
+
+[sidj.work](https://sidj.work/)
