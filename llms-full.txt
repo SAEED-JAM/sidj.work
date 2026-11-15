@@ -277,15 +277,13 @@ Print, publication and advertising design.
 
 On designing AI products, published in Bootcamp. [All articles on Medium](https://medium.com/@msaeedjg)
 
-[
-
 Dec 14, 2025
 
 ### Why EdTech AI is a behavioral problem, not a UI problem
 
 Designing an AI tutor’s behavior with the M3 framework: Moment, Memory and Momentum.
 
-](https://medium.com/design-bootcamp/why-edtech-ai-is-a-behavioral-problem-not-a-ui-problem-1f01f7784aee) [
+Link: https://medium.com/design-bootcamp/why-edtech-ai-is-a-behavioral-problem-not-a-ui-problem-1f01f7784aee
 
 Nov 30, 2025
 
@@ -293,7 +291,7 @@ Nov 30, 2025
 
 A personal reflection on the quiet shift reshaping the design discipline.
 
-](https://medium.com/design-bootcamp/when-ai-builds-the-screens-what-do-designers-build-0c6b2ce981e5) [
+Link: https://medium.com/design-bootcamp/when-ai-builds-the-screens-what-do-designers-build-0c6b2ce981e5
 
 Sep 19, 2025
 
@@ -301,17 +299,23 @@ Sep 19, 2025
 
 Chatbots feel easy and friendly, but they can blur reality. Design should keep people safe, not just keep them online.
 
-](https://medium.com/design-bootcamp/designed-for-delusion-when-engagement-focused-ux-creates-ai-psychosis-40a0123bbcd5)
+Link: https://medium.com/design-bootcamp/designed-for-delusion-when-engagement-focused-ux-creates-ai-psychosis-40a0123bbcd5
 
-[ Talk
+Talk
 
 ### How AI can understand learners, not just teach them
 
-Sharif University Job Fair, Wallex panel ](https://www.linkedin.com/in/mirsaeedjamshidi/recent-activity/all/) [ Prototype
+Sharif University Job Fair, Wallex panel
+
+Link: https://www.linkedin.com/in/mirsaeedjamshidi/recent-activity/all/
+
+Prototype
 
 ### Ask-back review: agent output as questions, not reports
 
-A speculative pull request, with its failure states ](https://sidj.work/next/)
+A speculative pull request, with its failure states
+
+Link: https://sidj.work/next/
 
 ## Kind words
 

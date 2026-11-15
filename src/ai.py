@@ -29,7 +29,7 @@ class Markdown(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.site, self.shift = site, shift
         self.out, self.buf, self.stack = [], [], []   # stack: (tag, classes, skipped)
-        self.skip, self.list, self.href = 0, [], None
+        self.skip, self.list, self.href, self.a_at = 0, [], None, 0
 
     # -- text
     def text(self, s):
@@ -74,7 +74,7 @@ class Markdown(HTMLParser):
         elif tag in ("em", "i") and "mono" not in cls:
             self.buf.append(" ")
         elif tag == "a":
-            self.href = a.get("href")
+            self.href, self.a_at = a.get("href"), len(self.out)
             self.buf.append(" [")
         elif tag in ("span", "small", "td", "th", "code"):
             self.buf.append(" ")
@@ -104,9 +104,16 @@ class Markdown(HTMLParser):
             self.buf.append(":** ")
         elif tag == "a":
             href, self.href = self.href, None
-            if href and not href.startswith("#") and not href.startswith("javascript"):
-                if href.startswith("/"):
-                    href = self.site + href
+            ok = href and not href.startswith("#") and not href.startswith("javascript")
+            if ok and href.startswith("/"):
+                href = self.site + href
+            if len(self.out) != self.a_at:   # a card-sized link with headings inside: its address goes on its own line
+                self.flush()
+                self.out[self.a_at] = re.sub(r"^(#+ |- |> )?\[ ?", r"\1", self.out[self.a_at])
+                self.out = [l for l in self.out if l.strip() not in ("", "[")]
+                if ok:
+                    self.out.append(f"Link: {href}")
+            elif ok:
                 self.buf.append(f"]({href}) ")
             else:   # an in-page jump: keep the words, drop the link
                 for i in range(len(self.buf) - 1, -1, -1):
