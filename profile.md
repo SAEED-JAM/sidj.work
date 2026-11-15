@@ -68,7 +68,7 @@ Feedback loop · learn & iterate
 
 ## Experience
 
-Eight years, newest first. Scroll or drag sideways for earlier roles, and open a card for details.
+Eight years, newest first.
 
 2026 – Present
 
@@ -270,8 +270,6 @@ Print, publication and advertising design.
 ### B.Sc. in Software Engineering
 
 2016–2020
-
-2026
 
 ## Writing
 

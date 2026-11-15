@@ -17,10 +17,12 @@ from html.parser import HTMLParser
 
 SKIP_TAGS = {"script", "style", "svg", "nav", "button", "video", "audio", "form", "template", "noscript", "canvas"}
 SKIP_CLASS = {"toc", "next-case", "lock-peek", "lock-form", "lock-msg", "lock-ic", "sheet-bar", "case-bento", "skip",
-              "q-names", "xp-nav", "b-top", "b-foot", "facts", "fl-foot", "fl-cta"}
+              "q-names", "xp-nav", "xp-ctrl", "b-top", "b-foot", "facts", "fl-foot", "fl-cta"}
 BLOCK = {"p", "div", "section", "article", "header", "footer", "main", "figure", "figcaption", "ul", "ol", "dl", "table",
          "tr", "blockquote", "details", "summary", "aside", "pre"}
 VOID = {"img", "br", "hr", "input", "meta", "link", "source", "wbr"}
+# instructions for the pointer mean nothing in a text copy
+UI_ONLY = re.compile(r"\s*(Click to zoom\.?|Drag to compare|Scroll or drag sideways for earlier roles, and open a card for details\.|Click to play\.?)")
 ROWS = {"results", "meta", "outcome", "b-stats", "wf-io"}  # children of these read as "label: value" lines
 
 
@@ -42,7 +44,8 @@ class Markdown(HTMLParser):
     def flush(self, prefix=""):
         line = re.sub(r"\s+", " ", "".join(self.buf)).strip()
         self.buf = []
-        line = re.sub(r"\*\*\s*\*\*", "", line)
+        line = line.replace("****", "")
+        line = UI_ONLY.sub("", line).strip()
         line = re.sub(r"\s+([,.;:!?])", r"\1", line)
         if line:
             self.out.append(prefix + line)
@@ -69,6 +72,8 @@ class Markdown(HTMLParser):
             self.flush()
         if tag in ("ul", "ol"):
             self.list.append(tag)
+            if a.get("aria-label"):   # a list named only for screen readers keeps its name
+                self.out.append(a["aria-label"].strip() + ":")
         elif tag in ("b", "strong") or tag == "dt":
             self.buf.append(" **")
         elif tag in ("em", "i") and "mono" not in cls:
@@ -147,7 +152,7 @@ class Markdown(HTMLParser):
 
 def to_md(fragment, site, shift=0):
     p = Markdown(site, shift)
-    p.feed(fragment)
+    p.feed(fragment.replace("{{ext}}", ""))
     p.close()
     return p.result()
 
@@ -219,7 +224,8 @@ def build_ai(site, home_meta, person, home, cases, built, read, write, next_meta
     # llms.txt: the index
     idx = [f"# {person['name']}", "", f"> {person['description']}", "",
            "This is the personal site of Sid Jameson, a product designer and AI design engineer. Every page has a plain "
-           "Markdown copy, listed below, with the same words as the page and none of the markup. "
+           "Markdown copy, listed below, with the page's words and none of its markup (images are described by their captions; "
+           "one case study has a private part, which is left out and marked). "
            f"[llms-full.txt]({site}/llms-full.txt) holds all of them in one file.", "",
            "## At a glance", "", *facts, "",
            "## Profile", "", f"- [Profile]({site}/profile.md): introduction, how I work with AI, experience, writing, recommendations, contact", "",

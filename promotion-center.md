@@ -200,7 +200,7 @@ Final solution
 
 _Image: Promotion Center flow_
 
-The full Promotion Center flow. Click to zoom.
+The full Promotion Center flow.
 
 Food party Discount stores Shopping bonus FoodPro Discount codes
 

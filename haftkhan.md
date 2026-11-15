@@ -11,7 +11,7 @@ Built on my own Mobile game 2026
 
 A funny action-adventure that stays faithful to Ferdowsi’s Shahnameh. **Every knot of the original story is where it should be; the characters just talk like people.** Rostam is strong, sure of himself, soft-hearted and always hungry. Rakhsh, his horse, grumbles. The divs are cowards.
 
-[Get it on Cafe Bazaar {{ext}}](https://cafebazaar.ir/app/com.haftkhan.game) [haftkhangame.ir {{ext}}](https://haftkhangame.ir/)
+[Get it on Cafe Bazaar ](https://cafebazaar.ir/app/com.haftkhan.game) [haftkhangame.ir ](https://haftkhangame.ir/)
 
 Story, game design, art direction, Unity code, tools, trailer and website: me.
 

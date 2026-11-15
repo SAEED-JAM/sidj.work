@@ -11,7 +11,7 @@ Built on my own Web, Android and iOS prototype 2026
 
 Streaming made music instant and weightless: a search box and a list that never ends. I missed what happens around a record. Flipping through a crate, sliding the disc out of its sleeve, dropping the needle, the crackle before the first note. **SafheGardan tries to bring that ritual back on a phone**, with Persian, English and Turkish records side by side.
 
-[Try the web version {{ext}}](https://saeed-jam.github.io/safhegardan-web/)
+[Try the web version ](https://saeed-jam.github.io/safhegardan-web/)
 
 Idea, design, the 3D scene, the sound, the apps and the backend: me. A prototype, not on any store yet.
 

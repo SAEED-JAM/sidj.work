@@ -52,6 +52,8 @@ Private · the full case
 
 What you’ve read is the outline. The full case is internal work at Huma, so I share it on request: the 75-second film, both versions of the desk, the decisions that changed it, one real story from brief to approval, and the numbers.
 
+What the full case covers:
+
 - The film
 - Version one
 - What broke

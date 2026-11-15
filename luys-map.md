@@ -11,7 +11,7 @@ Built on my own Telegram mini app and bot Yerevan, since October 2026
 
 Yerevan loses power, water and gas often, and the notices are scattered across utility websites and Telegram channels, mostly in Armenian. **Luys Map collects them, puts them on one map, and tells you before an outage reaches a place you care about.**
 
-[Open Luys Map in Telegram {{ext}}](https://t.me/LuysMapBot) [News channel {{ext}}](https://t.me/luysmap)
+[Open Luys Map in Telegram ](https://t.me/LuysMapBot) [News channel ](https://t.me/luysmap)
 
 Product, design, code, data, growth and operations: me. Six official sources, read every 15 minutes, in Armenian, Russian, English and Persian.
 
@@ -212,17 +212,17 @@ A/B test
 ### Where to ask for a phone number
 
 - **Question:** Does asking for the phone up front scare people off before they save an address?
-- **Variants:A** in onboarding, step two. **B** right after the first saved place. Every new person is fixed in one group.
+- **Variants:** **A** in onboarding, step two. **B** right after the first saved place. Every new person is fixed in one group.
 - **Decides:** Saved places with alerts switched on. Guardrail: phone numbers may not fall by more than half.
 - **Rigour:** Decision rule and a sample of 400 per group agreed before any result; a two-proportion z-test gives the verdict automatically in the admin panel.
 
 So far: 264 people in A, 258 in B
 
-Place with alerts on decides **A 63%B 60%** no real difference
+Place with alerts on decides **A 63%** **B 60%** no real difference
 
-Saved a place **A 69%B 69%** same
+Saved a place **A 69%** **B 69%** same
 
-Gave a phone number guardrail **A 54%B 29%** half as many
+Gave a phone number guardrail **A 54%** **B 29%** half as many
 
 **What it says:** asking for the phone up front doesn’t scare people off. Moving it later brought no more saved places and lost almost half the numbers. The rule says keep going to 400 per group, but A is the likely keeper.
 
@@ -232,7 +232,7 @@ Staged rollout
 
 - **Risk:** Crowd reports can be wrong, or abused, and put a false outage on someone’s house.
 - **Setup:** On for half of all people by a stable hash of their id, plus anyone switched on by hand. A crowd needs 3 reports within 250 m in an hour.
-- **So far:64 reports** from people. Watching how often crowds match official notices before going to 100%.
+- **So far:** **64 reports** from people. Watching how often crowds match official notices before going to 100%.
 
 Simulation
 
@@ -248,7 +248,7 @@ Growth loop
 
 - **Setup:** One place is free. Insights unlock with one invite, shown first with a progressive blur so people see what they’d get.
 - **Timing:** The invite is offered after the fifth alert, when the app has already proved itself.
-- **So far:22 people** joined through an invite. Modest: word of mouth outside the app does more than the loop inside it.
+- **So far:** **22 people** joined through an invite. Modest: word of mouth outside the app does more than the loop inside it.
 
 Demand test
 
@@ -263,7 +263,7 @@ Instrumentation
 
 - **Setup:** Every time someone blocks the bot, the last message they got before it is recorded.
 - **Why:** So no message type quietly drives people away.
-- **So far:115 people**, 12% of everyone, have blocked the bot at some point. Each block sits next to the message that came before it, so alert noise shows up as a pattern, not a guess.
+- **So far:** **115 people**, 12% of everyone, have blocked the bot at some point. Each block sits next to the message that came before it, so alert noise shows up as a pattern, not a guess.
 
 ### Alerts people can live with
 

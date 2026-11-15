@@ -32,8 +32,6 @@ _Image: Before: flat undifferentiated list_
 
 Before After
 
-Drag to compare
-
 ### From a flat list to results with context
 
 Before: an undifferentiated list. After: the history match comes first, and every result carries a photo and an open/closed status.

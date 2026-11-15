@@ -11,7 +11,7 @@ Built on my own Android app Iran, 2026
 
 Every evening in Iran, a parent reads the day’s textbook lesson aloud so their child can write it down: the dictation homework. **Emlagoo does the reading.** It plays the official textbook audio a phrase at a time, pauses so the child can write, repeats, and lights up each word as it’s spoken.
 
-[Get it on Cafe Bazaar {{ext}}](https://cafebazaar.ir/app/ir.diktegoo.app) [emlagoo.ir {{ext}}](https://emlagoo.ir/)
+[Get it on Cafe Bazaar ](https://cafebazaar.ir/app/ir.diktegoo.app) [emlagoo.ir ](https://emlagoo.ir/)
 
 Product, design, the Flutter app, the audio pipeline, the data service and the website: me.
 

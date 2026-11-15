@@ -68,7 +68,7 @@ Feedback loop · learn & iterate
 
 ## Experience
 
-Eight years, newest first. Scroll or drag sideways for earlier roles, and open a card for details.
+Eight years, newest first.
 
 2026 – Present
 
@@ -271,8 +271,6 @@ Print, publication and advertising design.
 
 2016–2020
 
-2026
-
 ## Writing
 
 On designing AI products, published in Bootcamp. [All articles on Medium](https://medium.com/@msaeedjg)
@@ -411,6 +409,8 @@ Private · the full case
 ## The rest of this case is private
 
 What you’ve read is the outline. The full case is internal work at Huma, so I share it on request: the 75-second film, both versions of the desk, the decisions that changed it, one real story from brief to approval, and the numbers.
+
+What the full case covers:
 
 - The film
 - Version one
@@ -629,7 +629,7 @@ Final solution
 
 _Image: Promotion Center flow_
 
-The full Promotion Center flow. Click to zoom.
+The full Promotion Center flow.
 
 Food party Discount stores Shopping bonus FoodPro Discount codes
 
@@ -744,8 +744,6 @@ _Image: After: history match first, results with photo and status_
 _Image: Before: flat undifferentiated list_
 
 Before After
-
-Drag to compare
 
 ### From a flat list to results with context
 
@@ -1324,7 +1322,7 @@ Built on my own Telegram mini app and bot Yerevan, since October 2026
 
 Yerevan loses power, water and gas often, and the notices are scattered across utility websites and Telegram channels, mostly in Armenian. **Luys Map collects them, puts them on one map, and tells you before an outage reaches a place you care about.**
 
-[Open Luys Map in Telegram {{ext}}](https://t.me/LuysMapBot) [News channel {{ext}}](https://t.me/luysmap)
+[Open Luys Map in Telegram ](https://t.me/LuysMapBot) [News channel ](https://t.me/luysmap)
 
 Product, design, code, data, growth and operations: me. Six official sources, read every 15 minutes, in Armenian, Russian, English and Persian.
 
@@ -1525,17 +1523,17 @@ A/B test
 ### Where to ask for a phone number
 
 - **Question:** Does asking for the phone up front scare people off before they save an address?
-- **Variants:A** in onboarding, step two. **B** right after the first saved place. Every new person is fixed in one group.
+- **Variants:** **A** in onboarding, step two. **B** right after the first saved place. Every new person is fixed in one group.
 - **Decides:** Saved places with alerts switched on. Guardrail: phone numbers may not fall by more than half.
 - **Rigour:** Decision rule and a sample of 400 per group agreed before any result; a two-proportion z-test gives the verdict automatically in the admin panel.
 
 So far: 264 people in A, 258 in B
 
-Place with alerts on decides **A 63%B 60%** no real difference
+Place with alerts on decides **A 63%** **B 60%** no real difference
 
-Saved a place **A 69%B 69%** same
+Saved a place **A 69%** **B 69%** same
 
-Gave a phone number guardrail **A 54%B 29%** half as many
+Gave a phone number guardrail **A 54%** **B 29%** half as many
 
 **What it says:** asking for the phone up front doesn’t scare people off. Moving it later brought no more saved places and lost almost half the numbers. The rule says keep going to 400 per group, but A is the likely keeper.
 
@@ -1545,7 +1543,7 @@ Staged rollout
 
 - **Risk:** Crowd reports can be wrong, or abused, and put a false outage on someone’s house.
 - **Setup:** On for half of all people by a stable hash of their id, plus anyone switched on by hand. A crowd needs 3 reports within 250 m in an hour.
-- **So far:64 reports** from people. Watching how often crowds match official notices before going to 100%.
+- **So far:** **64 reports** from people. Watching how often crowds match official notices before going to 100%.
 
 Simulation
 
@@ -1561,7 +1559,7 @@ Growth loop
 
 - **Setup:** One place is free. Insights unlock with one invite, shown first with a progressive blur so people see what they’d get.
 - **Timing:** The invite is offered after the fifth alert, when the app has already proved itself.
-- **So far:22 people** joined through an invite. Modest: word of mouth outside the app does more than the loop inside it.
+- **So far:** **22 people** joined through an invite. Modest: word of mouth outside the app does more than the loop inside it.
 
 Demand test
 
@@ -1576,7 +1574,7 @@ Instrumentation
 
 - **Setup:** Every time someone blocks the bot, the last message they got before it is recorded.
 - **Why:** So no message type quietly drives people away.
-- **So far:115 people**, 12% of everyone, have blocked the bot at some point. Each block sits next to the message that came before it, so alert noise shows up as a pattern, not a guess.
+- **So far:** **115 people**, 12% of everyone, have blocked the bot at some point. Each block sits next to the message that came before it, so alert noise shows up as a pattern, not a guess.
 
 ### Alerts people can live with
 
@@ -1669,7 +1667,7 @@ Built on my own Android app Iran, 2026
 
 Every evening in Iran, a parent reads the day’s textbook lesson aloud so their child can write it down: the dictation homework. **Emlagoo does the reading.** It plays the official textbook audio a phrase at a time, pauses so the child can write, repeats, and lights up each word as it’s spoken.
 
-[Get it on Cafe Bazaar {{ext}}](https://cafebazaar.ir/app/ir.diktegoo.app) [emlagoo.ir {{ext}}](https://emlagoo.ir/)
+[Get it on Cafe Bazaar ](https://cafebazaar.ir/app/ir.diktegoo.app) [emlagoo.ir ](https://emlagoo.ir/)
 
 Product, design, the Flutter app, the audio pipeline, the data service and the website: me.
 
@@ -1805,7 +1803,7 @@ Built on my own Mobile game 2026
 
 A funny action-adventure that stays faithful to Ferdowsi’s Shahnameh. **Every knot of the original story is where it should be; the characters just talk like people.** Rostam is strong, sure of himself, soft-hearted and always hungry. Rakhsh, his horse, grumbles. The divs are cowards.
 
-[Get it on Cafe Bazaar {{ext}}](https://cafebazaar.ir/app/com.haftkhan.game) [haftkhangame.ir {{ext}}](https://haftkhangame.ir/)
+[Get it on Cafe Bazaar ](https://cafebazaar.ir/app/com.haftkhan.game) [haftkhangame.ir ](https://haftkhangame.ir/)
 
 Story, game design, art direction, Unity code, tools, trailer and website: me.
 
@@ -1947,7 +1945,7 @@ Built on my own Web, Android and iOS prototype 2026
 
 Streaming made music instant and weightless: a search box and a list that never ends. I missed what happens around a record. Flipping through a crate, sliding the disc out of its sleeve, dropping the needle, the crackle before the first note. **SafheGardan tries to bring that ritual back on a phone**, with Persian, English and Turkish records side by side.
 
-[Try the web version {{ext}}](https://saeed-jam.github.io/safhegardan-web/)
+[Try the web version ](https://saeed-jam.github.io/safhegardan-web/)
 
 Idea, design, the 3D scene, the sound, the apps and the backend: me. A prototype, not on any store yet.
 

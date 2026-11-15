@@ -2,7 +2,7 @@
 
 > AI design engineer at Huma, designing healthcare software in code with Claude. Eight years of product design across trading, security, maps, food delivery and AI learning.
 
-This is the personal site of Sid Jameson, a product designer and AI design engineer. Every page has a plain Markdown copy, listed below, with the same words as the page and none of the markup. [llms-full.txt](https://sidj.work/llms-full.txt) holds all of them in one file.
+This is the personal site of Sid Jameson, a product designer and AI design engineer. Every page has a plain Markdown copy, listed below, with the page's words and none of its markup (images are described by their captions; one case study has a private part, which is left out and marked). [llms-full.txt](https://sidj.work/llms-full.txt) holds all of them in one file.
 
 ## At a glance
 
